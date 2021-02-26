@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/Container6vfjYIW/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerDf3bn8C/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -35,6 +35,21 @@ $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\AdminController';
 $classes[] = 'App\Controller\UserController';
+$classes[] = 'App\Repository\ActualiteRepository';
+$classes[] = 'App\Repository\CategorieActualiteRepository';
+$classes[] = 'App\Repository\CategorieSoinMPRepository';
+$classes[] = 'App\Repository\CentreMedicalRepository';
+$classes[] = 'App\Repository\LaboratoireRepository';
+$classes[] = 'App\Repository\MediaRepository';
+$classes[] = 'App\Repository\MedicamentRepository';
+$classes[] = 'App\Repository\ParapharmacieRepository';
+$classes[] = 'App\Repository\ProduitRepository';
+$classes[] = 'App\Repository\ReclamationRepository';
+$classes[] = 'App\Repository\RendezVousRepository';
+$classes[] = 'App\Repository\ReservationRepository';
+$classes[] = 'App\Repository\SoinMPRepository';
+$classes[] = 'App\Repository\TypeReclamationRepository';
+$classes[] = 'App\Repository\UserRepository';
 $classes[] = 'Doctrine\DBAL\Tools\Console\Command\RunSqlCommand';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\RedirectController';
 $classes[] = 'Symfony\Bundle\FrameworkBundle\Controller\TemplateController';
