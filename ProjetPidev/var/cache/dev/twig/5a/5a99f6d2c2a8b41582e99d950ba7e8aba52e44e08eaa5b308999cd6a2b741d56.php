@@ -108,7 +108,24 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
+    <style> .btn-primary {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
 
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+    </style>
     <!-- Google Font -->
     <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">
 </head>
@@ -119,7 +136,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: #989894;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: #e40f00;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -146,7 +163,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     <li class=\"dropdown user user-menu\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                             <img src=\"";
-        // line 76
+        // line 93
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"user-image\" alt=\"User Image\">
                             <span class=\"hidden-xs\">Emna Besbes</span>
@@ -155,7 +172,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                             <!-- User image -->
                             <li class=\"user-header\" style=\"background-color: #d11414;\">
                                 <img src=\"";
-        // line 82
+        // line 99
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
 
@@ -189,7 +206,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 113
+        // line 130
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -211,9 +228,16 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     </ul>
                 </li>
 
+                <li class=\"treeview\">
+                    <a href=\"#\">
+                        <i class=\"fa fa-dashboard\"></i> <span>Gestion des MP</span>
+                        <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
+                    <ul class=\"treeview-menu\">
+                        <li><a href=\"/afficherCategorieSoinMP\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories soins MP</a></li>
+                        <li><a href=\"/afficherSoinMP\"><i class=\"fa fa-circle-o\"></i> Gestion des soins MP</a></li>
+                    </ul>
+                </li>
 
-
-                <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des soins MP</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des laboratoires</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
@@ -247,7 +271,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
     public function getDebugInfo()
     {
-        return array (  193 => 113,  159 => 82,  150 => 76,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  210 => 130,  176 => 99,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -290,7 +314,24 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
     <![endif]-->
+    <style> .btn-primary {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
 
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+    </style>
     <!-- Google Font -->
     <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">
 </head>
@@ -301,7 +342,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: #989894;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: #e40f00;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -384,9 +425,16 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     </ul>
                 </li>
 
+                <li class=\"treeview\">
+                    <a href=\"#\">
+                        <i class=\"fa fa-dashboard\"></i> <span>Gestion des MP</span>
+                        <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
+                    <ul class=\"treeview-menu\">
+                        <li><a href=\"/afficherCategorieSoinMP\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories soins MP</a></li>
+                        <li><a href=\"/afficherSoinMP\"><i class=\"fa fa-circle-o\"></i> Gestion des soins MP</a></li>
+                    </ul>
+                </li>
 
-
-                <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des soins MP</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des laboratoires</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
@@ -399,6 +447,6 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
 
-", "temp1.html.twig", "C:\\Users\\Emna\\Desktop\\ProjetPidevback_emna\\templates\\temp1.html.twig");
+", "temp1.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\temp1.html.twig");
     }
 }

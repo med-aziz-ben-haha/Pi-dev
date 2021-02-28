@@ -189,6 +189,6 @@ class __TwigTemplate_6adcdc32eb2f7dae6eeb1c3d5b9bfafa456378c6f6a82cd7c96a155675c
         </div>
     </div>
 </div>
-", "@Twig/Exception/traces.html.twig", "C:\\Users\\Emna\\Desktop\\ProjetPidevback_emna\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces.html.twig");
+", "@Twig/Exception/traces.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces.html.twig");
     }
 }

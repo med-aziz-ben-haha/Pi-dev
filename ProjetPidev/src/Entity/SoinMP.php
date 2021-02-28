@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\SoinMPRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * @ORM\Entity(repositoryClass=SoinMPRepository::class)
@@ -19,11 +21,14 @@ class SoinMP
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champs titre est obligatoire * ")
      */
     private $titreSoinMP;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champs description est obligatoire * "))
+     * @Assert\Length(min=20,minMessage="Le champs description doit contenir au minimum {{ min }} caractères.",max=300,minMessage="Le champs description ne doit depasser {{ max }} caractères."))
      */
     private $descriptionSoinMP;
 
@@ -34,6 +39,7 @@ class SoinMP
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champs adresse est obligatoire * ")
      */
     private $adresseSoinMP;
 
@@ -53,7 +59,7 @@ class SoinMP
         return $this->titreSoinMP;
     }
 
-    public function setTitreSoinMP(string $titreSoinMP): self
+    public function setTitreSoinMP(?string $titreSoinMP): self
     {
         $this->titreSoinMP = $titreSoinMP;
 
@@ -65,7 +71,7 @@ class SoinMP
         return $this->descriptionSoinMP;
     }
 
-    public function setDescriptionSoinMP(string $descriptionSoinMP): self
+    public function setDescriptionSoinMP(?string $descriptionSoinMP): self
     {
         $this->descriptionSoinMP = $descriptionSoinMP;
 
@@ -89,7 +95,7 @@ class SoinMP
         return $this->adresseSoinMP;
     }
 
-    public function setAdresseSoinMP(string $adresseSoinMP): self
+    public function setAdresseSoinMP(?string $adresseSoinMP): self
     {
         $this->adresseSoinMP = $adresseSoinMP;
 
@@ -107,4 +113,5 @@ class SoinMP
 
         return $this;
     }
+
 }

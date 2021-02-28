@@ -161,6 +161,6 @@ class __TwigTemplate_ebe27a059b0965d98e5521525c2282d8f64123e9ab82c0db04cf2a65521
         </tr>
     </tbody>
 </table>
-", "@Twig/Exception/traces_text.html.twig", "C:\\Users\\Emna\\Desktop\\ProjetPidevback_emna\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces_text.html.twig");
+", "@Twig/Exception/traces_text.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\vendor\\symfony\\twig-bundle\\Resources\\views\\Exception\\traces_text.html.twig");
     }
 }

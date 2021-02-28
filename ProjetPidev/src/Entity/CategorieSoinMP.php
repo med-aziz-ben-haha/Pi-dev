@@ -6,6 +6,8 @@ use App\Repository\CategorieSoinMPRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
  * @ORM\Entity(repositoryClass=CategorieSoinMPRepository::class)
@@ -21,6 +23,7 @@ class CategorieSoinMP
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champs titre est obligatoire * "))
      */
     private $libelleCategorieSoinMP;
 
@@ -49,7 +52,7 @@ class CategorieSoinMP
         return $this->libelleCategorieSoinMP;
     }
 
-    public function setLibelleCategorieSoinMP(string $libelleCategorieSoinMP): self
+    public function setLibelleCategorieSoinMP(?string $libelleCategorieSoinMP): self
     {
         $this->libelleCategorieSoinMP = $libelleCategorieSoinMP;
 
@@ -96,5 +99,11 @@ class CategorieSoinMP
         }
 
         return $this;
+    }
+
+    public function __toString()
+
+    {
+        return(string) $this->getLibelleCategorieSoinMP();
     }
 }
