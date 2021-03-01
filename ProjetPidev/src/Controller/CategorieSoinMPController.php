@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class CategorieSoinMPController extends AbstractController
 {
     /**
-     * @Route("/categoriesoinmp", name="categorie_soin_m_p")
+     * @Route("/categorie/soin/m/p", name="categorie_soin_m_p")
      */
     public function index(): Response
     {
@@ -30,16 +30,6 @@ class CategorieSoinMPController extends AbstractController
     {
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
         return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categoriesSoinMP,]);
-    }
-
-    /**
-     * @return Response
-     * @Route("/afficherCategorieSoinMPs", name="afficherCategorieSoinMPs")
-     */
-    public function listCategoriesSoinMPs(): Response
-    {
-        $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
-        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,]);
     }
 
     /**

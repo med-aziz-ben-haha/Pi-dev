@@ -6,7 +6,6 @@ use App\Repository\SoinMPRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\Length;
 
 /**
  * @ORM\Entity(repositoryClass=SoinMPRepository::class)
@@ -29,7 +28,7 @@ class SoinMP
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le champs description est obligatoire * "))
-     * @Assert\Length(min=8,minMessage="Le champs description doit contenir au minimum 8 caractères.",max=300,maxMessage="Le champs description ne doit depasser 300 caractères."))
+     * @Assert\Length(min=20,minMessage="Le champs description doit contenir au minimum {{ min }} caractères.",max=300,minMessage="Le champs description ne doit depasser {{ max }} caractères."))
      */
     private $descriptionSoinMP;
 

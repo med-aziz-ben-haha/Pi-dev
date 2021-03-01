@@ -31,17 +31,6 @@ class SoinMPController extends AbstractController
         $SoinMP = $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
         return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMP,]);
     }
-
-    /**
-     * @return Response
-     * @Route("/afficherSoinMPs/{id}", name="afficherSoinMPs")
-     */
-    public function listSoinMPs($id): Response
-    {
-        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
-        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,]);
-    }
-
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
