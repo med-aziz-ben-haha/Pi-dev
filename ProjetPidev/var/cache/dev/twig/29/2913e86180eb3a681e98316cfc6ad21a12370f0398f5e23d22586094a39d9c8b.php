@@ -112,7 +112,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                         </div>
                     </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">Contact</a>
+                        <a class=\"nav-link\" href=\"#idContact\">Contact</a>
                     </li>
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
@@ -247,7 +247,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                         </div>
                     </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">Contact</a>
+                        <a class=\"nav-link\" href=\"#idContact\">Contact</a>
                     </li>
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">

@@ -74,7 +74,7 @@ class __TwigTemplate_18efdf4d1e604278a5f5677f31ea4ad794aa4a1af105ca10ed6e4e309b3
             </div>
             <div class=\"col-md-6 col-lg-4\">
                 <div class=\"footer-col\">
-                    <h3 class=\"footer-title\">Contact</h3>
+                    <h3 class=\"footer-title\" id=\"idContact\">Contact</h3>
                     <p><i class=\"fas fa-home mr-2\"></i> 342 Maxwell Lane, Plangton, 128231</p>
                     <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +1-434-633-1111</a> </p>
                     <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i> contact@angrystudio.com</a> </p>
@@ -176,7 +176,7 @@ class __TwigTemplate_18efdf4d1e604278a5f5677f31ea4ad794aa4a1af105ca10ed6e4e309b3
             </div>
             <div class=\"col-md-6 col-lg-4\">
                 <div class=\"footer-col\">
-                    <h3 class=\"footer-title\">Contact</h3>
+                    <h3 class=\"footer-title\" id=\"idContact\">Contact</h3>
                     <p><i class=\"fas fa-home mr-2\"></i> 342 Maxwell Lane, Plangton, 128231</p>
                     <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +1-434-633-1111</a> </p>
                     <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i> contact@angrystudio.com</a> </p>
