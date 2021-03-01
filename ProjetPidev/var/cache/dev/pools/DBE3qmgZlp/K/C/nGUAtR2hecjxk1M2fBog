@@ -23,14 +23,17 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'Default',
                 ],
             ],
+            'maxMessage' => [
+                2 => 'Le champs description ne doit depasser 300 caractères.',
+            ],
             'minMessage' => [
-                2 => 'Le champs description ne doit depasser {{ max }} caractères.',
+                2 => 'Le champs description doit contenir au minimum 8 caractères.',
             ],
             'max' => [
                 2 => 300,
             ],
             'min' => [
-                2 => 20,
+                2 => 8,
             ],
         ],
     ],
