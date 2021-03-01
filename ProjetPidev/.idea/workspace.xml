@@ -21,6 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c26cce64-c636-4780-88bb-14f13f2e071e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
@@ -2783,6 +2784,8 @@
       <change beforePath="$PROJECT_DIR$/var/cache/dev/twig/ff/ffb849029e1e213e9bbfd55bfdff28fcac17ac79ca50e45bcbd152725eb8b2d6.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/cache/dev/twig/ff/ffb849029e1e213e9bbfd55bfdff28fcac17ac79ca50e45bcbd152725eb8b2d6.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/var/log/dev.log" beforeDir="false" afterPath="$PROJECT_DIR$/var/log/dev.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/package-versions-deprecated/src/PackageVersions/Versions.php" afterDir="false" />
+=======
+>>>>>>> gestionUserv2
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
