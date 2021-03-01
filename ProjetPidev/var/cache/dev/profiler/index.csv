@@ -1170,3 +1170,4 @@ f292cc,127.0.0.1,GET,http://127.0.0.1:8000/afficherCategorieSoinMPs,1614568352,,
 ffc513,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1614568353,3ee9bd,404
 3ee9bd,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1614568353,,404
 f4e0d2,127.0.0.1,GET,http://127.0.0.1:8000/user,1614568510,,200
+adca90,127.0.0.1,GET,http://127.0.0.1:8000/afficherSoinMPs/1,1614617828,,200
