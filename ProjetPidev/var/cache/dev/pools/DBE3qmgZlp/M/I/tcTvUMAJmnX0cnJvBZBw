@@ -1,7 +1,3 @@
 <?php //%255B%255BC%255DApp%255CController%255CSoinMPController%2523ajouterSoinMP%255D%255B1%255D
 
-<<<<<<< HEAD
-return [PHP_INT_MAX, 1614469775];
-=======
-return [PHP_INT_MAX, 1614617820];
->>>>>>> gestionUserv2
+return [PHP_INT_MAX, 1614621352];

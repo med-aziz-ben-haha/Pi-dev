@@ -1,0 +1,24 @@
+{% include 'tempFront1SoinMP.html.twig' %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" id="idMP">Médecine Parallèle</h2>
+            </div>
+            {% for S in listSoinsMPs %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-box text-center">
+                        <div class="service-box-icon"><img style=" padding-right: 2px; padding-left: 2px;  width:300px ; height: 200px ; " src="{{ asset('uploads/' ~ S.getLienImageSMP())}}"></div>
+                        <h3 class="service-box-title">{{ S.titreSoinMP }}</h3>
+                        <p>{{ S.descriptionSoinMP}}</p>
+                        <p>{{ S.adresseSoinMP}}</p>
+                       <!--a href="#" class="btn btn-main-outline mt-2">Visiter<i class="fas fa-chevron-right"></i></a-->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}
