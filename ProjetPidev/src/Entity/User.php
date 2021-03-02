@@ -107,10 +107,7 @@ class User
      */
     private $reservations;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Parapharmacie::class, mappedBy="user", orphanRemoval=true)
-     */
-    private $parapharmacies;
+
 
     /**
      * @ORM\OneToMany(targetEntity=RendezVous::class, mappedBy="user", orphanRemoval=true)
@@ -122,7 +119,7 @@ class User
         $this->reclamations = new ArrayCollection();
         $this->actualites = new ArrayCollection();
         $this->reservations = new ArrayCollection();
-        $this->parapharmacies = new ArrayCollection();
+
         $this->listRendezvous = new ArrayCollection();
     }
 
@@ -368,35 +365,7 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|Parapharmacie[]
-     */
-    public function getParapharmacies(): Collection
-    {
-        return $this->parapharmacies;
-    }
 
-    public function addParapharmacy(Parapharmacie $parapharmacy): self
-    {
-        if (!$this->parapharmacies->contains($parapharmacy)) {
-            $this->parapharmacies[] = $parapharmacy;
-            $parapharmacy->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParapharmacy(Parapharmacie $parapharmacy): self
-    {
-        if ($this->parapharmacies->removeElement($parapharmacy)) {
-            // set the owning side to null (unless already changed)
-            if ($parapharmacy->getUser() === $this) {
-                $parapharmacy->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|RendezVous[]

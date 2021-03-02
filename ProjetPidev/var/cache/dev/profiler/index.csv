@@ -3156,3 +3156,15 @@ e1fe44,127.0.0.1,GET,http://127.0.0.1:8000/plugins/jvectormap/jquery-jvectormap-
 713680,127.0.0.1,GET,http://127.0.0.1:8000/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js,1614651703,bd5b61,404
 bd5b61,127.0.0.1,GET,http://127.0.0.1:8000/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js,1614651703,,404
 75b613,127.0.0.1,GET,http://127.0.0.1:8000/connexion,1614651707,,200
+8589bd,127.0.0.1,GET,http://127.0.0.1:8000/user,1614711208,75bc6a,404
+75bc6a,127.0.0.1,GET,http://127.0.0.1:8000/user,1614711211,,404
+6df8e4,127.0.0.1,GET,http://127.0.0.1:8000/user,1614711217,686542,404
+686542,127.0.0.1,GET,http://127.0.0.1:8000/user,1614711217,,404
+79a8d4,127.0.0.1,GET,http://127.0.0.1:8000/accueil,1614711246,,200
+6a02f0,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1614711249,7c080c,404
+7c080c,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1614711249,,404
+400901,127.0.0.1,GET,http://127.0.0.1:8000/connexion,1614711338,,200
+10c084,127.0.0.1,POST,http://127.0.0.1:8000/connexion,1614711366,,302
+90e65e,127.0.0.1,GET,http://127.0.0.1:8000/accueilonline/1,1614711369,,200
+3c0dc2,127.0.0.1,GET,http://127.0.0.1:8000/afficherCategorieSoinMPs,1614711378,,200
+e6fdc5,127.0.0.1,GET,http://127.0.0.1:8000/afficherSoinMPs/1,1614711392,,200

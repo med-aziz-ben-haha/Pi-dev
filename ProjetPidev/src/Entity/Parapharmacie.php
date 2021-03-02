@@ -39,11 +39,7 @@ class Parapharmacie
      */
     private $produits;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="parapharmacies")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
+
 
     public function __construct()
     {
@@ -121,15 +117,5 @@ class Parapharmacie
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
 
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 }
