@@ -75,6 +75,24 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
         // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
+    <style> .btn-primary {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
 <header class=\"hk-header\">
@@ -82,7 +100,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
             <a class=\"navbar-brand\" href=\"#\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
-        // line 36
+        // line 54
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" ></a>
             <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
@@ -91,13 +109,21 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"";
+        // line 61
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/accueil"), "html", null, true);
+        echo "\">Home <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
+
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#idMP\">Médecine Parallèle</a>
+                        <a class=\"nav-link\" href=\"";
+        // line 68
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/afficherCategorieSoinMPs"), "html", null, true);
+        echo "\">Médecine Parallèle</a>
+
                     </li>
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
@@ -121,7 +147,10 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"#\">Profile</a>
                             <a class=\"dropdown-item\" href=\"#\">Edit Account</a>
-                            <a class=\"dropdown-item\" href=\"#\">Logout</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 93
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
+        echo "\">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -150,7 +179,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 101
+        // line 121
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -179,7 +208,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
 
     public function getDebugInfo()
     {
-        return array (  154 => 101,  86 => 36,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  183 => 121,  152 => 93,  124 => 68,  114 => 61,  104 => 54,  76 => 29,  72 => 28,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -213,6 +242,24 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
     <link href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css\" rel=\"stylesheet\">
     <link href=\"{{ asset('assets/css/bootstrap.min.css') }}\" rel=\"stylesheet\">
     <link href=\"{{ asset('assets/css/style.css') }}\" rel=\"stylesheet\">
+    <style> .btn-primary {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
 <header class=\"hk-header\">
@@ -226,13 +273,15 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"{{ asset('/accueil') }}\">Home <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
+
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#idMP\">Médecine Parallèle</a>
+                        <a class=\"nav-link\" href=\"{{ asset('/afficherCategorieSoinMPs') }}\">Médecine Parallèle</a>
+
                     </li>
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
@@ -256,7 +305,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"#\">Profile</a>
                             <a class=\"dropdown-item\" href=\"#\">Edit Account</a>
-                            <a class=\"dropdown-item\" href=\"#\">Logout</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset ('/connexion') }}\">Logout</a>
                         </div>
                     </li>
                 </ul>

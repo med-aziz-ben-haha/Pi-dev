@@ -27,6 +27,24 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <style> .btn-primary {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
 <header class="hk-header">
@@ -40,13 +58,15 @@
             <div class="navbar-collapse hk-offcanvas" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ asset('/accueil') }}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">About</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#idMP">Médecine Parallèle</a>
+                        <a class="nav-link" href="{{ asset('/afficherCategorieSoinMPs') }}">Médecine Parallèle</a>
+
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Services</a>
@@ -70,7 +90,7 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
                             <a class="dropdown-item" href="#">Profile</a>
                             <a class="dropdown-item" href="#">Edit Account</a>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" href="{{ asset ('/connexion') }}">Logout</a>
                         </div>
                     </li>
                 </ul>

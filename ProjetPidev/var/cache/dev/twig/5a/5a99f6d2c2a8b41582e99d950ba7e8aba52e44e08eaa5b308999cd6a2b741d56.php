@@ -136,7 +136,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: #e40f00;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: grey; color:black;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -147,7 +147,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class=\"navbar navbar-static-top\" style=\"background-color: #e40f00;\" >
+        <nav class=\"navbar navbar-static-top\" style=\"background-color: grey;\" >
             <!-- Sidebar toggle button-->
             <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
@@ -187,7 +187,10 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                                     <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"";
+        // line 112
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
+        echo "\" class=\"btn btn-default btn-flat\">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -199,7 +202,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class=\"main-sidebar\" style=\"background-color: #e40f00; color:white\">
+    <aside class=\"main-sidebar\" style=\"background-color: grey; color:white\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
             <!-- Sidebar user panel -->
@@ -271,7 +274,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
     public function getDebugInfo()
     {
-        return array (  210 => 130,  176 => 99,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  213 => 130,  192 => 112,  176 => 99,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -342,7 +345,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: #e40f00;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: grey; color:black;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -353,7 +356,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class=\"navbar navbar-static-top\" style=\"background-color: #e40f00;\" >
+        <nav class=\"navbar navbar-static-top\" style=\"background-color: grey;\" >
             <!-- Sidebar toggle button-->
             <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
@@ -387,7 +390,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                                     <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"{{ asset ('/connexion') }}\" class=\"btn btn-default btn-flat\">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -399,7 +402,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class=\"main-sidebar\" style=\"background-color: #e40f00; color:white\">
+    <aside class=\"main-sidebar\" style=\"background-color: grey; color:white\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
             <!-- Sidebar user panel -->

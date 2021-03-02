@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -22,26 +23,31 @@ class User
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Le champs login est obligatoire * ")
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\Length(min=6,minMessage="Votre mot de passe doit contenir au minimum 6 caractères *")
      */
     private $mdp;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(message="Votre adresse mail non valide *")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Le champs nom est obligatoire * ")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Le champs prenom est obligatoire * ")
      */
     private $prenom;
 
@@ -57,6 +63,7 @@ class User
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\Length(min=8,minMessage="Votre numero de telephne doit contenir au minimum 8 caractères.",max=15,maxMessage="Votre numero de telephne ne doit depasser 15 caractères."))
      */
     private $telephone;
 

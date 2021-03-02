@@ -365,7 +365,19 @@
     <service id="App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\SoinMPType" class="App\Form\SoinMPType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserMedType" class="App\Form\UserMedType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserParaType" class="App\Form\UserParaType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" autoconfigure="true">
@@ -844,7 +856,11 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\CategorieSoinMPType</argument>
+        <argument>App\Form\ConnexionType</argument>
         <argument>App\Form\SoinMPType</argument>
+        <argument>App\Form\UserMedType</argument>
+        <argument>App\Form\UserParaType</argument>
+        <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1179,7 +1195,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.Oqxwp_c"/>
+      <argument type="service" id=".service_locator.Jt7s8V8"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4898,8 +4914,16 @@
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPType" class="App\Form\SoinMPType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SoinMPType" class="App\Form\SoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserMedType" class="App\Form\UserMedType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserMedType" class="App\Form\UserMedType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserParaType" class="App\Form\UserParaType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserParaType" class="App\Form\UserParaType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieActualiteRepository" class="App\Repository\CategorieActualiteRepository" autowire="true" abstract="true"/>
@@ -5274,11 +5298,15 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.Oqxwp_c" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.Jt7s8V8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
+        <argument key="App\Form\ConnexionType" type="service" id="App\Form\ConnexionType"/>
         <argument key="App\Form\SoinMPType" type="service" id="App\Form\SoinMPType"/>
+        <argument key="App\Form\UserMedType" type="service" id="App\Form\UserMedType"/>
+        <argument key="App\Form\UserParaType" type="service" id="App\Form\UserParaType"/>
+        <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>

@@ -403,16 +403,13 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
             <div class=\"col-md-6 col-lg-4\">
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">About</h3>
-                    <p class=\"mb-0\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus enim accumsan, pellentesque ex vitae, lobortis lorem. Cras et suscipit mauris. Aliquam ultrices diam ullamcorper dui tempus laoreet. </p>
+                    <p class=\"mb-0\">Un doute, une inquiétude, besoin d’un conseil santé ? Sa7ti.TN c’est la solution</p>
                 </div>
             </div>
             <div class=\"col-md-3 col-lg-2\">
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">Products</h3>
                     <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">AI Bots </a></li>
-                        <li><a href=\"#\">HR Management</a></li>
-                        <li><a href=\"#\">Project Management</a></li>
                         <li><a href=\"#\">CRM</a></li>
                         <li><a href=\"#\">eCommerce</a></li>
                     </ul>
@@ -422,8 +419,6 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">Support</h3>
                     <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">Contact</a></li>
-                        <li><a href=\"#\">Support</a></li>
                         <li><a href=\"#\">Forum</a></li>
                         <li><a href=\"#\">FAQs</a></li>
                     </ul>
@@ -432,30 +427,26 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
             <div class=\"col-md-6 col-lg-4\">
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">Contact</h3>
-                    <p><i class=\"fas fa-home mr-2\"></i> 342 Maxwell Lane, Plangton, 128231</p>
-                    <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +1-434-633-1111</a> </p>
-                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i> contact@angrystudio.com</a> </p>
+                    <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +216 00000000</a> </p>
+                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i> Sa7tiTN@RuntimeTerror.com</a> </p>
                 </div>
             </div>
         </div>
         <div class=\"row footer-credits\">
             <div class=\"col-sm-12 col-md-6 justify-content-center align-self-center\">
-                <p class=\"mb-0\">2020 &copy; <a href=\"#\">Kabba</a></p>
-            </div>
-            <div class=\"col-sm-12 col-md-6\">
-                <div class=\"footer-credits-nav\">
-                    <ul class=\"nav justify-content-end\">
-                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link footer-fb\">TOS</a></li>
-                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link footer-ig\">Privacy</a></li>
-                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link footer-yt\">Disclaimer</a></li>
-                    </ul>
-                </div>
+                <p class=\"mb-0\">2021 &copy; <a href=\"#\">Sa7ti.TN</a></p>
             </div>
         </div>
     </div>
 </footer>
-<script src=\"assets/js/jquery.min.js\"></script>
-<script src=\"assets/js/bootstrap.min.js\"></script>
+<script src=\"";
+        // line 391
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
+        echo "\"></script>
+<script src=\"";
+        // line 392
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
+        echo "\"></script>
 <script>
     \$(function () {
         'use strict'
@@ -488,7 +479,7 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
 
     public function getDebugInfo()
     {
-        return array (  151 => 101,  96 => 49,  80 => 36,  43 => 1,);
+        return array (  448 => 392,  444 => 391,  151 => 101,  96 => 49,  80 => 36,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -847,16 +838,13 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
             <div class=\"col-md-6 col-lg-4\">
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">About</h3>
-                    <p class=\"mb-0\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam rhoncus enim accumsan, pellentesque ex vitae, lobortis lorem. Cras et suscipit mauris. Aliquam ultrices diam ullamcorper dui tempus laoreet. </p>
+                    <p class=\"mb-0\">Un doute, une inquiétude, besoin d’un conseil santé ? Sa7ti.TN c’est la solution</p>
                 </div>
             </div>
             <div class=\"col-md-3 col-lg-2\">
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">Products</h3>
                     <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">AI Bots </a></li>
-                        <li><a href=\"#\">HR Management</a></li>
-                        <li><a href=\"#\">Project Management</a></li>
                         <li><a href=\"#\">CRM</a></li>
                         <li><a href=\"#\">eCommerce</a></li>
                     </ul>
@@ -866,8 +854,6 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">Support</h3>
                     <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">Contact</a></li>
-                        <li><a href=\"#\">Support</a></li>
                         <li><a href=\"#\">Forum</a></li>
                         <li><a href=\"#\">FAQs</a></li>
                     </ul>
@@ -876,30 +862,20 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
             <div class=\"col-md-6 col-lg-4\">
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">Contact</h3>
-                    <p><i class=\"fas fa-home mr-2\"></i> 342 Maxwell Lane, Plangton, 128231</p>
-                    <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +1-434-633-1111</a> </p>
-                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i> contact@angrystudio.com</a> </p>
+                    <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +216 00000000</a> </p>
+                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i> Sa7tiTN@RuntimeTerror.com</a> </p>
                 </div>
             </div>
         </div>
         <div class=\"row footer-credits\">
             <div class=\"col-sm-12 col-md-6 justify-content-center align-self-center\">
-                <p class=\"mb-0\">2020 &copy; <a href=\"#\">Kabba</a></p>
-            </div>
-            <div class=\"col-sm-12 col-md-6\">
-                <div class=\"footer-credits-nav\">
-                    <ul class=\"nav justify-content-end\">
-                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link footer-fb\">TOS</a></li>
-                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link footer-ig\">Privacy</a></li>
-                        <li class=\"nav-item\"><a href=\"#\" class=\"nav-link footer-yt\">Disclaimer</a></li>
-                    </ul>
-                </div>
+                <p class=\"mb-0\">2021 &copy; <a href=\"#\">Sa7ti.TN</a></p>
             </div>
         </div>
     </div>
 </footer>
-<script src=\"assets/js/jquery.min.js\"></script>
-<script src=\"assets/js/bootstrap.min.js\"></script>
+<script src=\"{{ asset('assets/js/jquery.min.js') }}\"></script>
+<script src=\"{{ asset('assets/js/bootstrap.min.js') }}\"></script>
 <script>
     \$(function () {
         'use strict'

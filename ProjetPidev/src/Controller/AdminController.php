@@ -17,4 +17,14 @@ class AdminController extends AbstractController
             'controller_name' => 'AdminController',
         ]);
     }
+
+    /**
+     * @Route("/connexionAdmin/{iduser}", name="connexionAdmin")
+     */
+    public function accueilAdmin($iduser){
+        return $this->render('admin/index.html.twig', [
+            'iduser' => $iduser,
+        ]);
+
+    }
 }

@@ -1,15 +1,19 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\User;
+use App\Form\ConnexionType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use App\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class UserController extends AbstractController
 {
     /**
-     * @Route("/user", name="user")
+     * @Route("/accueil", name="accueil")
      */
     public function index(): Response
     {
@@ -17,16 +21,31 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+
     /**
      * @return Response
      * @Route("/Patients", name="Patients")
      */
     public function ListPatients(): Response
     {
-        return $this->render('user/ListPatients.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
+        $user = $this->getDoctrine()->getRepository(User::class)->findByRole(1);
+        return $this->render('user/ListPatients.html.twig', ['listPatients' => $user,]);
     }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("/supprimerPatient/{id}" , name="supprimerPatient")
+     */
+    public function SupprimerPatients($id)
+    {
+        $patientfind = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($patientfind);
+        $em->flush();
+        return $this->redirectToRoute('Patients');
+    }
+
 
     /**
      * @return Response
@@ -34,19 +53,137 @@ class UserController extends AbstractController
      */
     public function ListMedcins(): Response
     {
-        return $this->render('user/ListMedecins.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
+        $user = $this->getDoctrine()->getRepository(User::class)->findByRole(2);
+        return $this->render('user/ListMedecins.html.twig', ['listMedecins' => $user,]);
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("/supprimerMedecin/{id}" , name="supprimerMedecin")
+     */
+    public function SupprimerMedecins($id)
+    {
+        $medecinfind = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($medecinfind);
+        $em->flush();
+        return $this->redirectToRoute('Medecins');
+
     }
 
     /**
      * @return Response
      * @Route("/Pharmaciens", name="Pharmaciens")
      */
-    public function ListPharmciens(): Response
+    public function ListPharmaciens(): Response
     {
-        return $this->render('user/ListPatients.html.twig', [
+        $user = $this->getDoctrine()->getRepository(User::class)->findByRole(3);
+        return $this->render('user/ListPharmaciens.html.twig', ['listPharmaciens' => $user,]);
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("/supprimerPharmacien/{id}" , name="supprimerPharmacien")
+     */
+
+    public function SupprimerPharmaciens($id)
+    {
+        $pharmacienfind = $this->getDoctrine()->getRepository(User::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($pharmacienfind);
+        $em->flush();
+        return $this->redirectToRoute('Pharmaciens');
+
+    }
+
+    /**
+     * @Route("/connexion", name="connexion")
+     */
+    public function connexion(Request $request): Response
+    {  $useronline=new User();
+        $form=$this->createForm(ConnexionType::class,$useronline);
+        $form->add('Connexion', SubmitType::class);
+        $form->handleRequest($request);
+        if($form->isSubmitted()) {
+            $verifuser = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('login' => $useronline->getLogin(), 'mdp' => $useronline->getMdp()));
+            if (is_null($verifuser)) {
+                return $this->render('user/connexionErrorMessage.html.twig', [
+                    'controller_name' => 'UserController','formConnexion'=>$form->createview(),
+                ]);
+
+
+            } else {
+                $role=$verifuser->getRole();
+                    if ($role==1)
+                    {
+                        return $this->redirectToRoute('accueilonline',array('iduser'=>$verifuser->getId()));
+                    }
+
+                else
+                    {
+                      return $this->redirectToRoute('connexionAdmin',array('iduser'=>$verifuser->getId()));
+                    }
+                    }
+        }
+        return $this->render('user/connexion.html.twig', [
+            'controller_name' => 'UserController','formConnexion'=>$form->createview(),
+        ]);
+    }
+
+    /**
+     * @Route("/accueilonline/{iduser}", name="accueilonline")
+     */
+    public function accueil($iduser){
+        return $this->render('user/accueilOnline.html.twig', [
+            'iduser' => $iduser,
+        ]);
+
+    }
+
+
+    /**
+     * @param Request $request
+     * @Route("/inscription", name="inscription")
+     */
+    public function inscription(Request $request): Response
+    {
+        $user = new User();
+        $form = $this->createForm(UserType::class, $user);
+        $form->add('Inscription', SubmitType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setRole(1);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+        return $this->redirectToRoute('connexion');
+    }
+        return $this->render('user/inscription.html.twig', ['formInscription' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/inscriptionMed", name="inscriptionMed")
+     */
+    public function inscriptionMed(): Response
+    {
+        return $this->render('user/inscriptionMed.html.twig', [
             'controller_name' => 'UserController',
         ]);
     }
+    /**
+     * @Route("/inscriptionPara", name="inscriptionPara")
+     */
+    public function inscriptionPara(): Response
+    {
+        return $this->render('user/inscriptionPara.html.twig', [
+            'controller_name' => 'UserController',
+        ]);
+    }
+
+
+
+
+
 }
