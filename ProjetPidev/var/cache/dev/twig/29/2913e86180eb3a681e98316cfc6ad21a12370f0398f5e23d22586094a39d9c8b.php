@@ -109,10 +109,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"";
-        // line 61
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/accueil"), "html", null, true);
-        echo "\">Home <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
@@ -208,7 +205,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
 
     public function getDebugInfo()
     {
-        return array (  183 => 121,  152 => 93,  124 => 68,  114 => 61,  104 => 54,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  180 => 121,  149 => 93,  121 => 68,  104 => 54,  76 => 29,  72 => 28,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -273,7 +270,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
                     <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"{{ asset('/accueil') }}\">Home <span class=\"sr-only\">(current)</span></a>
+                        <a class=\"nav-link\" href=\"#\">Home <span class=\"sr-only\">(current)</span></a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>

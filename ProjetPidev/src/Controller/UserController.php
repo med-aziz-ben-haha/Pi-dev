@@ -5,6 +5,8 @@ use App\Entity\User;
 use App\Form\ConnexionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Form\UserType;
+use App\Form\UserMedType;
+use App\Form\UserParaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -118,9 +120,16 @@ class UserController extends AbstractController
                 $role=$verifuser->getRole();
                     if ($role==1)
                     {
-                        return $this->redirectToRoute('accueilonline',array('iduser'=>$verifuser->getId()));
+                        return $this->redirectToRoute('accueilOnline',array('iduser'=>$verifuser->getId()));
                     }
-
+                    else if ($role==2)
+                    {
+                        return $this->redirectToRoute('accueilOnlineMed',array('iduser'=>$verifuser->getId()));
+                    }
+                    if ($role==3)
+                    {
+                        return $this->redirectToRoute('accueilOnlinePharmacien',array('iduser'=>$verifuser->getId()));
+                    }
                 else
                     {
                       return $this->redirectToRoute('connexionAdmin',array('iduser'=>$verifuser->getId()));
@@ -133,15 +142,31 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/accueilonline/{iduser}", name="accueilonline")
+     * @Route("/accueilOnline/{iduser}", name="accueilOnline")
      */
     public function accueil($iduser){
         return $this->render('user/accueilOnline.html.twig', [
             'iduser' => $iduser,
         ]);
-
     }
 
+    /**
+     * @Route("/accueilOnlineMed/{iduser}", name="accueilOnlineMed")
+     */
+    public function accueilMed($iduser){
+        return $this->render('user/accueilOnlineMed.html.twig', [
+            'iduser' => $iduser,
+        ]);
+    }
+
+    /**
+     * @Route("/accueilOnlinePharmacien/{iduser}", name="accueilOnlinePharmacien")
+     */
+    public function accueilPharmacien($iduser){
+        return $this->render('user/accueilOnlinePharmacien.html.twig', [
+            'iduser' => $iduser,
+        ]);
+    }
 
     /**
      * @param Request $request
@@ -164,22 +189,46 @@ class UserController extends AbstractController
     }
 
     /**
+     * @param Request $request
      * @Route("/inscriptionMed", name="inscriptionMed")
      */
-    public function inscriptionMed(): Response
+    public function inscriptionMed(Request $request): Response
     {
-        return $this->render('user/inscriptionMed.html.twig', [
-            'controller_name' => 'UserController',
-        ]);
+        $user = new User();
+        $form = $this->createForm(UserMedType::class, $user);
+        $form->add('Inscription', SubmitType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setRole(2);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('connexion');
+        }
+        return $this->render('user/inscriptionMed.html.twig', ['formInscription' => $form->createView()]);
     }
+
     /**
-     * @Route("/inscriptionPara", name="inscriptionPara")
+     * @param Request $request
+     * @Route("/inscriptionPharmacien", name="inscriptionPharmacien")
      */
-    public function inscriptionPara(): Response
+    public function inscriptionPara(Request $request): Response
     {
-        return $this->render('user/inscriptionPara.html.twig', [
+       /* return $this->render('user/accueilOnlineMed.html.twig', [
             'controller_name' => 'UserController',
-        ]);
+        ]);*/
+        $user = new User();
+        $form = $this->createForm(UserParaType::class, $user);
+        $form->add('Inscription', SubmitType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $user->setRole(3);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+            return $this->redirectToRoute('connexion');
+        }
+        return $this->render('user/inscriptionPharmacien.html.twig', ['formInscription' => $form->createView()]);
     }
 
 

@@ -93,18 +93,7 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
-                    <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
-                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-                            <a class=\"dropdown-item\" href=\"#\">Digital Marketing</a>
-                            <a class=\"dropdown-item\" href=\"#\">UI Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Graphics Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Branding</a>
-                            <a class=\"dropdown-item\" href=\"#\">WordPress Websites</a>
-                            <a class=\"dropdown-item\" href=\"#\">Custom Web Apps</a>
-                            <a class=\"dropdown-item\" href=\"#\">App Development</a>
-                        </div>
-                    </li>
+
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">Contact</a>
                     </li>
@@ -114,13 +103,21 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Mon Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"";
-        // line 68
+        // line 57
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
         echo "\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 69
+        // line 58
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscription"), "html", null, true);
         echo "\">S'inscrire</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 59
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionMed"), "html", null, true);
+        echo "\">S'inscrire en tant que Médecin</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 60
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionPharmacien"), "html", null, true);
+        echo "\">S'inscrire en tant que Parapharmacien</a>
                         </div>
                     </li>
                 </ul>
@@ -149,7 +146,7 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 97
+        // line 88
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -442,11 +439,11 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
     </div>
 </footer>
 <script src=\"";
-        // line 387
+        // line 378
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 388
+        // line 379
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script>
@@ -481,7 +478,7 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
 
     public function getDebugInfo()
     {
-        return array (  450 => 388,  446 => 387,  153 => 97,  122 => 69,  118 => 68,  90 => 43,  80 => 36,  43 => 1,);
+        return array (  447 => 379,  443 => 378,  150 => 88,  119 => 60,  115 => 59,  111 => 58,  107 => 57,  90 => 43,  80 => 36,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -533,18 +530,7 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
-                    <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
-                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-                            <a class=\"dropdown-item\" href=\"#\">Digital Marketing</a>
-                            <a class=\"dropdown-item\" href=\"#\">UI Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Graphics Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Branding</a>
-                            <a class=\"dropdown-item\" href=\"#\">WordPress Websites</a>
-                            <a class=\"dropdown-item\" href=\"#\">Custom Web Apps</a>
-                            <a class=\"dropdown-item\" href=\"#\">App Development</a>
-                        </div>
-                    </li>
+
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">Contact</a>
                     </li>
@@ -555,6 +541,8 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"{{ asset('/connexion') }}\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscription') }}\">S'inscrire</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionMed') }}\">S'inscrire en tant que Médecin</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionPharmacien') }}\">S'inscrire en tant que Parapharmacien</a>
                         </div>
                     </li>
                 </ul>

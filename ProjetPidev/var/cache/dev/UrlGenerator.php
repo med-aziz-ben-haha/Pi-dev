@@ -38,8 +38,10 @@ return [
     'Pharmaciens' => [[], ['_controller' => 'App\\Controller\\UserController::ListPharmaciens'], [], [['text', '/Pharmaciens']], [], []],
     'supprimerPharmacien' => [['id'], ['_controller' => 'App\\Controller\\UserController::SupprimerPharmaciens'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/supprimerPharmacien']], [], []],
     'connexion' => [[], ['_controller' => 'App\\Controller\\UserController::connexion'], [], [['text', '/connexion']], [], []],
-    'accueilonline' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::accueil'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/accueilonline']], [], []],
+    'accueilOnline' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::accueil'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/accueilOnline']], [], []],
+    'accueilOnlineMed' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::accueilMed'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/accueilOnlineMed']], [], []],
+    'accueilOnlinePharmacien' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::accueilPharmacien'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/accueilOnlinePharmacien']], [], []],
     'inscription' => [[], ['_controller' => 'App\\Controller\\UserController::inscription'], [], [['text', '/inscription']], [], []],
     'inscriptionMed' => [[], ['_controller' => 'App\\Controller\\UserController::inscriptionMed'], [], [['text', '/inscriptionMed']], [], []],
-    'inscriptionPara' => [[], ['_controller' => 'App\\Controller\\UserController::inscriptionPara'], [], [['text', '/inscriptionPara']], [], []],
+    'inscriptionPharmacien' => [[], ['_controller' => 'App\\Controller\\UserController::inscriptionPara'], [], [['text', '/inscriptionPharmacien']], [], []],
 ];

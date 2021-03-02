@@ -119,18 +119,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
 
-                    <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
-                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-                            <a class=\"dropdown-item\" href=\"#\">Digital Marketing</a>
-                            <a class=\"dropdown-item\" href=\"#\">UI Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Graphics Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Branding</a>
-                            <a class=\"dropdown-item\" href=\"#\">WordPress Websites</a>
-                            <a class=\"dropdown-item\" href=\"#\">Custom Web Apps</a>
-                            <a class=\"dropdown-item\" href=\"#\">App Development</a>
-                        </div>
-                    </li>
+
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">Contact</a>
                     </li>
@@ -140,13 +129,22 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Mon Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"";
-        // line 88
+        // line 77
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
         echo "\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 89
+        // line 78
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscription"), "html", null, true);
         echo "\">S'inscrire</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 79
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionMed"), "html", null, true);
+        echo "\">S'inscrire en tant que médecin</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 80
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionPharmacien"), "html", null, true);
+        echo "\">S'inscrire en tant  que parapharmacien</a>
+
                         </div>
                     </li>
                 </ul>
@@ -175,7 +173,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 117
+        // line 109
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -206,7 +204,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
 
     public function getDebugInfo()
     {
-        return array (  179 => 117,  148 => 89,  144 => 88,  115 => 62,  105 => 55,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  177 => 109,  145 => 80,  141 => 79,  137 => 78,  133 => 77,  115 => 62,  105 => 55,  76 => 29,  72 => 28,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -278,18 +276,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
 
-                    <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
-                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-                            <a class=\"dropdown-item\" href=\"#\">Digital Marketing</a>
-                            <a class=\"dropdown-item\" href=\"#\">UI Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Graphics Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Branding</a>
-                            <a class=\"dropdown-item\" href=\"#\">WordPress Websites</a>
-                            <a class=\"dropdown-item\" href=\"#\">Custom Web Apps</a>
-                            <a class=\"dropdown-item\" href=\"#\">App Development</a>
-                        </div>
-                    </li>
+
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">Contact</a>
                     </li>
@@ -300,6 +287,9 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"{{ asset('/connexion') }}\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscription') }}\">S'inscrire</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionMed') }}\">S'inscrire en tant que médecin</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionPharmacien') }}\">S'inscrire en tant  que parapharmacien</a>
+
                         </div>
                     </li>
                 </ul>

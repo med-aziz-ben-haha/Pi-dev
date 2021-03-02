@@ -12,10 +12,10 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 30,
             ],
             'minMessage' => [
-                1 => 'Votre mot de passe doit contenir au minimum 6 caractères *',
+                1 => 'Votre mot de passe doit contenir au minimum 4 caractères *',
             ],
             'min' => [
-                1 => 6,
+                1 => 4,
             ],
             'groups' => [
                 1 => [

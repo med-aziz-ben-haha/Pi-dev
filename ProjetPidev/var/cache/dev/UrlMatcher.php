@@ -29,7 +29,7 @@ return [
         '/connexion' => [[['_route' => 'connexion', '_controller' => 'App\\Controller\\UserController::connexion'], null, null, null, false, false, null]],
         '/inscription' => [[['_route' => 'inscription', '_controller' => 'App\\Controller\\UserController::inscription'], null, null, null, false, false, null]],
         '/inscriptionMed' => [[['_route' => 'inscriptionMed', '_controller' => 'App\\Controller\\UserController::inscriptionMed'], null, null, null, false, false, null]],
-        '/inscriptionPara' => [[['_route' => 'inscriptionPara', '_controller' => 'App\\Controller\\UserController::inscriptionPara'], null, null, null, false, false, null]],
+        '/inscriptionPharmacien' => [[['_route' => 'inscriptionPharmacien', '_controller' => 'App\\Controller\\UserController::inscriptionPara'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -64,7 +64,11 @@ return [
                 .')'
                 .'|/a(?'
                     .'|fficherSoinMPs/([^/]++)(*:444)'
-                    .'|ccueilonline/([^/]++)(*:473)'
+                    .'|ccueilOnline(?'
+                        .'|/([^/]++)(*:476)'
+                        .'|Med/([^/]++)(*:496)'
+                        .'|Pharmacien/([^/]++)(*:523)'
+                    .')'
                 .')'
             .')/?$}sD',
     ],
@@ -85,8 +89,10 @@ return [
         384 => [[['_route' => 'modifierCategorieSoinMP', '_controller' => 'App\\Controller\\CategorieSoinMPController::modifierCategorieSoinMP'], ['id'], null, null, false, true, null]],
         407 => [[['_route' => 'modifierSoinMP', '_controller' => 'App\\Controller\\SoinMPController::modifierSoinMP'], ['id'], null, null, false, true, null]],
         444 => [[['_route' => 'afficherSoinMPs', '_controller' => 'App\\Controller\\SoinMPController::listSoinMPs'], ['id'], null, null, false, true, null]],
-        473 => [
-            [['_route' => 'accueilonline', '_controller' => 'App\\Controller\\UserController::accueil'], ['iduser'], null, null, false, true, null],
+        476 => [[['_route' => 'accueilOnline', '_controller' => 'App\\Controller\\UserController::accueil'], ['iduser'], null, null, false, true, null]],
+        496 => [[['_route' => 'accueilOnlineMed', '_controller' => 'App\\Controller\\UserController::accueilMed'], ['iduser'], null, null, false, true, null]],
+        523 => [
+            [['_route' => 'accueilOnlinePharmacien', '_controller' => 'App\\Controller\\UserController::accueilPharmacien'], ['iduser'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

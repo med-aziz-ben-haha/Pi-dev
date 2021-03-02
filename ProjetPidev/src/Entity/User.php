@@ -29,7 +29,7 @@ class User
 
     /**
      * @ORM\Column(type="string", length=30)
-     * @Assert\Length(min=6,minMessage="Votre mot de passe doit contenir au minimum 6 caractères *")
+     * @Assert\Length(min=4,minMessage="Votre mot de passe doit contenir au minimum 4 caractères *")
      */
     private $mdp;
 

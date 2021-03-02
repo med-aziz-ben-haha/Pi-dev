@@ -170,7 +170,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
-                            <li class=\"user-header\" style=\"background-color: #d11414;\">
+                            <li class=\"user-header\" style=\"background-color: grey;\">
                                 <img src=\"";
         // line 99
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
@@ -178,19 +178,19 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
                                 <p>
                                     Emna Besbes - admin/Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    <!--small >Member since Nov. 2012</small-->
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
+                                    <a href=\"#\" class=\"btn btn-primary\">Profile</a>
                                 </div>
                                 <div class=\"pull-right\">
                                     <a href=\"";
         // line 112
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
-        echo "\" class=\"btn btn-default btn-flat\">Sign out</a>
+        echo "\" class=\"btn btn-primary\">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -227,7 +227,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     <ul class=\"treeview-menu\">
                         <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des patients</a></li>
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
-                        <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
+                        <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmacies</a></li>
                     </ul>
                 </li>
 
@@ -376,21 +376,21 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
-                            <li class=\"user-header\" style=\"background-color: #d11414;\">
+                            <li class=\"user-header\" style=\"background-color: grey;\">
                                 <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"img-circle\" alt=\"User Image\">
 
                                 <p>
                                     Emna Besbes - admin/Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    <!--small >Member since Nov. 2012</small-->
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
+                                    <a href=\"#\" class=\"btn btn-primary\">Profile</a>
                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"{{ asset ('/connexion') }}\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"{{ asset ('/connexion') }}\" class=\"btn btn-primary\">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -424,7 +424,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     <ul class=\"treeview-menu\">
                         <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des patients</a></li>
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
-                        <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
+                        <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmacies</a></li>
                     </ul>
                 </li>
 
