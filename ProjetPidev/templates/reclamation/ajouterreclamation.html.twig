@@ -1,0 +1,30 @@
+
+
+{% include 'tempFront1SoinMP.html.twig' %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" id="id">Reclamation</h2>
+            </div>
+            <table id="example1" class="table table-bordered table-striped" >
+                <div style ="margin-left: 1%; padding-top: 5%">
+
+
+                    {{ form_start(f,{'attr': {'novalidate': 'novalidate'}} ) }}
+                    <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Ajouter une reclamation  </h1>
+
+                    {{ form_label(f.descriptionReclamation,"Reclamation") }}
+                    {{ form_widget(f.descriptionReclamation)}}
+
+
+                    {{ form_end(f) }}
+                </div>
+
+            </table>
+        </div>
+    </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}

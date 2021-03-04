@@ -1,0 +1,40 @@
+{% include 'tempFront1SoinMP.html.twig' %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" id="id">Reclamation</h2>
+            </div>
+            <table id="example1" class="table table-bordered table-striped" >
+                <thead>
+                <tr>
+
+
+                    <th>Description</th>
+
+                </thead>
+                <tbody>
+
+                {% for S in listreclamations %}
+                    <tr>
+
+
+                        <td>{{ S.descriptionReclamation }}</td>
+
+                        <td>                       </td>
+
+
+                    </tr>
+                {% endfor %}
+
+
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}
