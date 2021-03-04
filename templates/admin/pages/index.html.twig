@@ -1,0 +1,25 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            {{ 'admin.index.homepage'|trans }}
+        </h1>
+
+        <ol class="breadcrumb">
+            <li class="active">Home</li>
+        </ol>
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+                {{ 'admin.index.welcome_text'|trans({
+                        '%user%': app.user.fullname,
+                        '%project%': name_admin
+                    })
+                }}
+            </div>
+        </div>
+    </section>
+{% endblock %}

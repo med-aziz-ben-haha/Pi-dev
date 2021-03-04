@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'includes/header.html.twig' %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-12 mx-auto">
+                <article class="blog-detail">
+                    <header>
+                        {% if post.title is not empty %}
+                            <h1 class="blog-detail-title">{{ post.title }}</h1>
+                        {% endif %}
+                        <div class="media author mb-4">
+                            {% if post.user.urlAvatar is not empty %}
+                                <img src="{{ asset(post.user.urlAvatar)|imagine_filter('100x100') }}"
+                                     class="mr-3 author-photo rounded-circle"
+                                     alt="{{ post.user.fullname }}">
+                            {% endif %}
+
+                            <div class="media-body">
+                                <h5 class="mt-2 mb-1 author-fullname">{{ post.user.fullname }}</h5>
+
+                                {% include 'includes/published.html.twig' with {published: post.published} only %}
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="text ckeditor">
+                        {% if post.text is not empty %}
+                            {{ post.text|raw }}
+                        {% endif %}
+                    </div>
+
+
+                </article>
+            </div>
+        </div>
+    </div>
+
+    {% include 'includes/see-more-posts.html.twig' with {posts: posts} only %}
+{% endblock %}
+
+{% block scripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

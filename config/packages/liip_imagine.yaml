@@ -1,0 +1,161 @@
+# See dos how to configure the bundle: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+    filter_sets:
+        # define your own name of filter
+        20x20:
+            filters:
+                thumbnail:
+                    size:          [20, 20]
+                    mode:          outbound
+                    allow_upscale: true
+        40x40:
+            filters:
+                thumbnail:
+                    size:          [40, 40]
+                    mode:          outbound
+                    allow_upscale: true
+            quality:                90
+        45x45:
+            filters:
+                thumbnail:
+                    size:          [45, 45]
+                    mode:          outbound
+                    allow_upscale: true
+        50x50:
+            filters:
+                thumbnail:
+                    size:          [50, 50]
+                    mode:          outbound
+                    allow_upscale: true
+        100x100:
+            filters:
+                thumbnail:
+                    size:          [100, 100]
+                    mode:          outbound
+                    allow_upscale: true
+        300x300:
+            filters:
+                thumbnail:
+                    size:          [300, 300]
+                    mode:          outbound
+                    allow_upscale: true
+        350x350:
+            filters:
+                thumbnail:
+                    size:          [350, 350]
+                    mode:          outbound
+                    allow_upscale: true
+        480x480:
+            filters:
+                thumbnail:
+                    size:          [480, 480]
+                    mode:          outbound
+                    allow_upscale: true
+        600x375:
+            filters:
+                thumbnail:
+                    size:          [600, 375]
+                    mode:          outbound
+                    allow_upscale: true
+
+        600x600:
+            filters:
+                thumbnail:
+                    size:          [600, 600]
+                    mode:          outbound
+                    allow_upscale: true
+
+        1000x600:
+            filters:
+                thumbnail:
+                    size:          [1000, 600]
+                    mode:          outbound
+                    allow_upscale: true
+
+        # For gallery detail for Masonry list card.
+        gallery_600x770:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [600, 770]
+                    mode:          outbound
+                    allow_upscale: true
+
+        gallery_600x300:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [600, 300]
+                    mode:          outbound
+                    allow_upscale: true
+
+        gallery_600x530:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [600, 530]
+                    mode:          outbound
+                    allow_upscale: true
+
+        gallery_600x400:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [600, 400]
+                    mode:          outbound
+                    allow_upscale: true
+
+        # Meta tag image
+        640x420:
+            quality:                60
+            filters:
+                thumbnail:
+                    size:          [640, 420]
+                    mode:          outbound
+                    allow_upscale: true
+
+        # With Downscale filter performs sizing transformations (specifically image down-scaling).
+        # Define max. width and height.
+        # See this link for more information:
+        # https://symfony.com/doc/2.0/bundles/LiipImagineBundle/filters/sizing.html#down-scale
+        gallery_post_full:
+            quality:                100
+            filters:
+                downscale:
+                    max: [1440, 800]
+
+        # Header image from the page.
+        1440x800:
+            quality:                80
+            filters:
+                thumbnail:
+                    size:          [1440, 800]
+                    mode:          outbound
+                    allow_upscale: true
+
+        # Highlight images on the homepage.
+        998x848:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [998, 848]
+                    mode:          outbound
+                    allow_upscale: true
+
+        675x405:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [675, 405]
+                    mode:          outbound
+                    allow_upscale: true
+
+        1710x788:
+            quality:                40
+            filters:
+                thumbnail:
+                    size:          [1710, 788]
+                    mode:          outbound
+                    allow_upscale: true

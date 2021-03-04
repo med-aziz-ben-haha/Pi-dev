@@ -1,0 +1,65 @@
+{
+  "name": "blog",
+  "version": "1.0.84",
+  "description": "This is a simple personal blog system building with Symfony 4.",
+  "author": {
+    "name": "Thomas Känzig",
+    "email": "thomas.kanzig@gmail.com",
+    "url": "https://thomaskanzig.com"
+  },
+  "contributors": [
+    {
+      "name": "Thomas Känzig",
+      "email": "thomas.kanzig@gmail.com",
+      "url": "https://thomaskanzig.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomaskanzig/blog.git"
+  },
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.27.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.0.1"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production && yarn update:version",
+    "update:version": "npm version patch --git-tag-version false"
+  },
+  "dependencies": {
+    "@ckeditor/ckeditor5-build-classic": "^12.3.1",
+    "acorn": "^6.4.1",
+    "admin-lte": "^2.4.12",
+    "bootstrap": "^4.3.1",
+    "bootstrap-sass": "^3.4.1",
+    "ckeditor": "^4.12.1",
+    "dropzone": "^5.5.1",
+    "font-awesome": "^4.7.0",
+    "highlight.js": "^9.18.1",
+    "holderjs": "^2.9.6",
+    "jquery": "3.3.1",
+    "jquery.dotdotdot": "^3.2.3",
+    "kind-of": "^6.0.3",
+    "lightbox2": "^2.11.1",
+    "lodash": "^4.17.12",
+    "masonry-layout": "^4.2.2",
+    "massive-web": "^2.0.0-rc1",
+    "minimist": "^1.2.2",
+    "moment": "^2.24.0",
+    "popper.js": "1.14.7",
+    "reset-css": "^4.0.1",
+    "serialize-javascript": "^2.1.1",
+    "set-value": "^2.0.1",
+    "shave": "^2.5.9",
+    "simple-parallax-jquery": "^3.1.3",
+    "slick-carousel": "^1.8.1",
+    "vanilla-lazyload": "^15.1.1",
+    "webpack-notifier": "^1.7.0"
+  }
+}

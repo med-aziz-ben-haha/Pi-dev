@@ -1,0 +1,61 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            {{ 'admin.users.profile'|trans }}
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="{{ path('admin_pages_index') }}"><i class="fa fa-home"></i> {{ 'admin.index'|trans }}</a></li>
+            <li><a href="{{ path('admin_user_index') }}">{{ 'admin.users'|trans }}</a></li>
+            <li class="active">{{ 'admin.action.edit'|trans }}</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-9">
+                <!-- general form elements -->
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
+                    </div>
+
+                    {{ form_start(userForm) }}
+                        <div class="box-body">
+                            {{ form_row(userForm.fullname) }}
+                            {{ form_row(userForm.username) }}
+                            {{ form_row(userForm.email) }}
+                            {{ form_row(userForm.imageFile) }}
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">{{ 'admin.users.form.button.save_user'|trans }}</button>
+                        </div>
+                    {{ form_end(userForm) }}
+                </div>
+                <!-- /.box -->
+            </div>
+
+            <div class="col-md-3">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.form.label.avatar'|trans }}</h3>
+                    </div>
+
+                    <div class="box-body">
+                        {% if userForm.vars.data.urlAvatar is not empty %}
+                        <img src="{{ asset(userForm.vars.data.urlAvatar)|imagine_filter('300x300') }}"
+                             class="img-responsive"
+                             alt="">
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+{% endblock %}
