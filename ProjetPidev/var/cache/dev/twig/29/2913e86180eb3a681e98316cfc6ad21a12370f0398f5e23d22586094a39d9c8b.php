@@ -99,6 +99,12 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#idMP\">Médecine Parallèle</a>
                     </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/afficheFrontListPara\">Parapharmacies</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/afficheFrontClientPara\">Parapharmacies Client</a>
+                    </li>
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
@@ -150,7 +156,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 101
+        // line 107
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -179,7 +185,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
 
     public function getDebugInfo()
     {
-        return array (  154 => 101,  86 => 36,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  160 => 107,  86 => 36,  76 => 29,  72 => 28,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -233,6 +239,12 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#idMP\">Médecine Parallèle</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/afficheFrontListPara\">Parapharmacies</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"/afficheFrontClientPara\">Parapharmacies Client</a>
                     </li>
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
@@ -290,6 +302,6 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
         </div>
     </div>
 </section>
-", "tempFront1SoinMP.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\tempFront1SoinMP.html.twig");
+", "tempFront1SoinMP.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\tempFront1SoinMP.html.twig");
     }
 }

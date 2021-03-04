@@ -30,24 +30,78 @@ class Parapharmacie
     private $adressePara;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="integer")
      */
     private $telPara;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $img_Para;
+
+
+
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $lienImageP;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Regions::class, inversedBy="region")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $region;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity=CategorieProduit::class, mappedBy="parapharmacie", orphanRemoval=true)
+     */
+    private $categorieProduit;
+
 
     /**
      * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="parapharmacie", orphanRemoval=true)
      */
     private $produits;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="parapharmacies")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
+
 
     public function __construct()
     {
         $this->produits = new ArrayCollection();
+        $this->categorieProduit = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|CategorieProduit[]
+     */
+    public function getcategorieProduit(): Collection
+    {
+        return $this->categorieProduit;
+    }
+
+    public function addcategorieProduit(CategorieProduit $categorieProduit): self
+    {
+        if (!$this->categorieProduit->contains($categorieProduit)) {
+            $this->categorieProduit[] = $categorieProduit;
+            $categorieProduit->setParapharmacie($this);
+        }
+
+        return $this;
+    }
+
+    public function removecategorieProduit(CategorieProduit $categorieProduit): self
+    {
+        if ($this->categorieProduit->removeElement($categorieProduit)) {
+            // set the owning side to null (unless already changed)
+            if ($categorieProduit->getParapharmacie()=== $this) {
+                $categorieProduit->setParapharmacie(null);
+            }
+        }
+
+        return $this;
     }
 
     public function getId(): ?int
@@ -79,6 +133,22 @@ class Parapharmacie
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLienImageP()
+    {
+        return $this->lienImageP;
+    }
+
+    /**
+     * @param mixed $lienImageP
+     */
+    public function setLienImageP($lienImageP): void
+    {
+        $this->lienImageP = $lienImageP;
+    }
+
     public function getTelPara(): ?string
     {
         return $this->telPara;
@@ -89,6 +159,22 @@ class Parapharmacie
         $this->telPara = $telPara;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImgPara()
+    {
+        return $this->img_Para;
+    }
+
+    /**
+     * @param mixed $img_Para
+     */
+    public function setImgPara($img_Para): void
+    {
+        $this->img_Para = $img_Para;
     }
 
     /**
@@ -121,15 +207,18 @@ class Parapharmacie
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getRegion(): ?Regions
     {
-        return $this->user;
+        return $this->region;
     }
 
-    public function setUser(?User $user): self
+    public function setRegion(?Regions $regions): self
     {
-        $this->user = $user;
+        $this->region = $regions;
 
         return $this;
     }
+
+
+
 }

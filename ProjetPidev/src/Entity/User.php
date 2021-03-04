@@ -6,6 +6,7 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
@@ -22,26 +23,31 @@ class User
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Le champs login est obligatoire * ")
      */
     private $login;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\Length(min=6,minMessage="Votre mot de passe doit contenir au minimum 6 caractères *")
      */
     private $mdp;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(message="Votre adresse mail non valide *")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Le champs nom est obligatoire * ")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=30)
+     * @Assert\NotBlank(message="Le champs prenom est obligatoire * ")
      */
     private $prenom;
 
@@ -57,6 +63,7 @@ class User
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\Length(min=8,minMessage="Votre numero de telephne doit contenir au minimum 8 caractères.",max=15,maxMessage="Votre numero de telephne ne doit depasser 15 caractères."))
      */
     private $telephone;
 
@@ -100,10 +107,7 @@ class User
      */
     private $reservations;
 
-    /**
-     * @ORM\OneToMany(targetEntity=Parapharmacie::class, mappedBy="user", orphanRemoval=true)
-     */
-    private $parapharmacies;
+
 
     /**
      * @ORM\OneToMany(targetEntity=RendezVous::class, mappedBy="user", orphanRemoval=true)
@@ -115,7 +119,7 @@ class User
         $this->reclamations = new ArrayCollection();
         $this->actualites = new ArrayCollection();
         $this->reservations = new ArrayCollection();
-        $this->parapharmacies = new ArrayCollection();
+
         $this->listRendezvous = new ArrayCollection();
     }
 
@@ -361,35 +365,7 @@ class User
         return $this;
     }
 
-    /**
-     * @return Collection|Parapharmacie[]
-     */
-    public function getParapharmacies(): Collection
-    {
-        return $this->parapharmacies;
-    }
 
-    public function addParapharmacy(Parapharmacie $parapharmacy): self
-    {
-        if (!$this->parapharmacies->contains($parapharmacy)) {
-            $this->parapharmacies[] = $parapharmacy;
-            $parapharmacy->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeParapharmacy(Parapharmacie $parapharmacy): self
-    {
-        if ($this->parapharmacies->removeElement($parapharmacy)) {
-            // set the owning side to null (unless already changed)
-            if ($parapharmacy->getUser() === $this) {
-                $parapharmacy->setUser(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|RendezVous[]

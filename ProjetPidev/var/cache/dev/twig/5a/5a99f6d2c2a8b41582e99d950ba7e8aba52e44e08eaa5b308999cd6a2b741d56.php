@@ -241,6 +241,8 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des laboratoires</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
+                <li><a href=\"/afficheRegions\"><i class=\"fa fa-book\"></i> <span>Gestion des regions</span></a></li>
+                <li><a href=\"/affichePara\"><i class=\"fa fa-book\"></i> <span>Gestion des parapharmacie</span></a></li>
 
             </ul>
         </section>
@@ -438,6 +440,8 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des laboratoires</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
+                <li><a href=\"/afficheRegions\"><i class=\"fa fa-book\"></i> <span>Gestion des regions</span></a></li>
+                <li><a href=\"/affichePara\"><i class=\"fa fa-book\"></i> <span>Gestion des parapharmacie</span></a></li>
 
             </ul>
         </section>
@@ -447,6 +451,6 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
 
-", "temp1.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\temp1.html.twig");
+", "temp1.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\temp1.html.twig");
     }
 }

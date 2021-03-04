@@ -33,9 +33,24 @@ class Produit
     private $quantiteProduit;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", nullable=true)
      */
-    private $categorieProduit;
+    private $img_Prod;
+
+
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $lienImgP;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity=CategorieProduit::class, inversedBy="listProd")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $categorie;
+
 
     /**
      * @ORM\ManyToOne(targetEntity=Parapharmacie::class, inversedBy="produits")
@@ -84,17 +99,38 @@ class Produit
         return $this;
     }
 
-    public function getCategorieProduit(): ?string
+    /**
+     * @return mixed
+     */
+    public function getLienImgP()
     {
-        return $this->categorieProduit;
+        return $this->lienImgP;
     }
 
-    public function setCategorieProduit(string $categorieProduit): self
+    /**
+     * @param mixed $lienImgP
+     */
+    public function setLienImgP($lienImgP): void
     {
-        $this->categorieProduit = $categorieProduit;
-
-        return $this;
+        $this->lienImgP = $lienImgP;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getImgProd()
+    {
+        return $this->img_Prod;
+    }
+
+    /**
+     * @param mixed $img_Prod
+     */
+    public function setImgProd($img_Prod): void
+    {
+        $this->img_Prod = $img_Prod;
+    }
+
 
     public function getParapharmacie(): ?Parapharmacie
     {
@@ -104,6 +140,20 @@ class Produit
     public function setParapharmacie(?Parapharmacie $parapharmacie): self
     {
         $this->parapharmacie = $parapharmacie;
+
+        return $this;
+    }
+
+
+
+    public function getCategorie(): ?CategorieProduit
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?CategorieProduit $categorieProduit): self
+    {
+        $this->categorie = $categorieProduit;
 
         return $this;
     }

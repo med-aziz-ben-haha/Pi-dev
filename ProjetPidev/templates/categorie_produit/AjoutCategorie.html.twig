@@ -1,0 +1,13 @@
+{% include 'tempFront1SoinMP.html.twig' %}
+<div style ="margin-left: 1%; padding-top: 5%">
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+    <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Ajouter Categorie </h1>
+    {# { form_errors(form.categorie) }#}
+    {{ form_label(form.categorie,"Categorie") }}
+    {{ form_widget(form.categorie) }}
+
+
+
+    {{ form_end(form)  }}
+
+{% include 'tempFront2SoinMP.html.twig' %}

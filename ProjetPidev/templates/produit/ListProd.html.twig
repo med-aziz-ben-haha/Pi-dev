@@ -1,0 +1,62 @@
+{% include 'tempFront1SoinMP.html.twig' %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="box">
+        <div class="box-header">
+            <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des Produits </h1>
+            <div class="col-sm-8"></div>
+
+            <div class="col-sm-4"><a href="" class="btn btn-block btn-primary" role="button">Ajouter Produit</a></div>
+
+
+
+
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Image Parapharmacie</th>
+                    <th>id</th>
+                    <th>Nom Produit</th>
+                    <th>Categorie</th>
+                    <th>Quantite</th>
+                    <th>Prix</th>
+                    <th>Modifier Produit</th>
+                    <th>Supprimer Produit</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr {% for p in produit %}>
+
+
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.nomProduit }}</td>
+                    <td>{{ p.nomProduit }}</td>
+                    <td>{{ p.quantiteProduit }}</td>
+                    <td>{{ p.prixProduit }}</td>
+                    <td><a href="{{ path('deleteProduit',{'id':p.id}) }}" class="btn btn-block btn-danger" role="button">Supprimer</a></td>
+
+
+
+
+
+
+
+                </tr {% endfor %}>
+
+
+
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}

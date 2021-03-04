@@ -1,0 +1,24 @@
+{% include 'tempFront1SoinMP.html.twig' %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" >Parapharmacie</h2>
+            </div>
+            {% for p in parapharmacie %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-box text-center">
+                        <div class="service-box-icon"><img style=" padding-right: 2px; padding-left: 2px;  width:80px ; hight: 80px ;" src="{{ asset('uploads/' ~ p.getLienImageP)}}"></div>
+                        <h3 class="service-box-title">{{ p.nomPara }}</h3>
+                        <h3 class="service-box-title">{{ p.adressePara }}</h3>
+                        <h3 class="service-box-title">{{ p.telPara }}</h3>
+
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}

@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerLQGxotF/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerXYQvQhY/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -34,13 +34,22 @@ $classes[] = 'Symfony\Bundle\FrameworkBundle\EventListener\ResolveControllerName
 $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\AdminController';
+$classes[] = 'App\Controller\CategorieProduitController';
 $classes[] = 'App\Controller\CategorieSoinMPController';
+$classes[] = 'App\Controller\ParapharmacieController';
+$classes[] = 'App\Controller\ProduitController';
+$classes[] = 'App\Controller\RegionsController';
 $classes[] = 'App\Controller\SoinMPController';
 $classes[] = 'App\Controller\UserController';
+$classes[] = 'App\Form\CategorieProduitType';
 $classes[] = 'App\Form\CategorieSoinMPType';
+$classes[] = 'App\Form\ParapharmacieType';
+$classes[] = 'App\Form\ProduitType';
+$classes[] = 'App\Form\RegionsType';
 $classes[] = 'App\Form\SoinMPType';
 $classes[] = 'App\Repository\ActualiteRepository';
 $classes[] = 'App\Repository\CategorieActualiteRepository';
+$classes[] = 'App\Repository\CategorieProduitRepository';
 $classes[] = 'App\Repository\CategorieSoinMPRepository';
 $classes[] = 'App\Repository\CentreMedicalRepository';
 $classes[] = 'App\Repository\LaboratoireRepository';
@@ -49,6 +58,8 @@ $classes[] = 'App\Repository\MedicamentRepository';
 $classes[] = 'App\Repository\ParapharmacieRepository';
 $classes[] = 'App\Repository\ProduitRepository';
 $classes[] = 'App\Repository\ReclamationRepository';
+$classes[] = 'App\Repository\RegionRepository';
+$classes[] = 'App\Repository\RegionsRepository';
 $classes[] = 'App\Repository\RendezVousRepository';
 $classes[] = 'App\Repository\ReservationRepository';
 $classes[] = 'App\Repository\SoinMPRepository';
