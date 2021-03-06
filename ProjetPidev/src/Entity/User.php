@@ -7,10 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @UniqueEntity(fields={"login"}, message="Ce login est deja utilisé!")
+ * @UniqueEntity(fields={"email"}, message="Cette adresses email est déja utilisée!")
  */
 class User
 {
@@ -30,12 +33,14 @@ class User
     /**
      * @ORM\Column(type="string", length=30)
      * @Assert\Length(min=4,minMessage="Votre mot de passe doit contenir au minimum 4 caractères *")
+     * @Assert\NotBlank(message="Le champs mot de passe est obligatoire * ")
      */
     private $mdp;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email(message="Votre adresse mail non valide *")
+     * @Assert\NotBlank(message="Le champs email est obligatoire * ")
      */
     private $email;
 
@@ -63,6 +68,7 @@ class User
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\NotBlank(message="Le champs telephone est obligatoire * ")
      * @Assert\Length(min=8,minMessage="Votre numero de telephne doit contenir au minimum 8 caractères.",max=15,maxMessage="Votre numero de telephne ne doit depasser 15 caractères."))
      */
     private $telephone;

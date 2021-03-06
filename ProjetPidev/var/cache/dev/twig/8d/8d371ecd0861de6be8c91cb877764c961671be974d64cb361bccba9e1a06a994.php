@@ -46,7 +46,7 @@ class __TwigTemplate_7fd9882718731cb2096fa3c84f58d8f925e9ba870120c7f2ab9124facfc
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Parmacien  </h1>
+<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Pharmacien  </h1>
 <a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Produit Parapharmaceutique<i class=\"fas fa-chevron-right\"></i></a>
 
 ";
@@ -82,7 +82,7 @@ class __TwigTemplate_7fd9882718731cb2096fa3c84f58d8f925e9ba870120c7f2ab9124facfc
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Parmacien  </h1>
+<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Pharmacien  </h1>
 <a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Produit Parapharmaceutique<i class=\"fas fa-chevron-right\"></i></a>
 
 {% include 'tempFront2SoinMP.html.twig' %}", "user/accueilOnlinePharmacien.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlinePharmacien.html.twig");

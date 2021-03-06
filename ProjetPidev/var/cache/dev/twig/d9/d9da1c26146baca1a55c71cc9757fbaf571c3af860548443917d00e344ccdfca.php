@@ -143,7 +143,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
                             <a class=\"dropdown-item\" href=\"";
         // line 80
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionPharmacien"), "html", null, true);
-        echo "\">S'inscrire en tant  que parapharmacien</a>
+        echo "\">S'inscrire en tant que pharmacien</a>
 
                         </div>
                     </li>
@@ -288,7 +288,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
                             <a class=\"dropdown-item\" href=\"{{ asset('/connexion') }}\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscription') }}\">S'inscrire</a>
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionMed') }}\">S'inscrire en tant que médecin</a>
-                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionPharmacien') }}\">S'inscrire en tant  que parapharmacien</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionPharmacien') }}\">S'inscrire en tant que pharmacien</a>
 
                         </div>
                     </li>

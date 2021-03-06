@@ -114,8 +114,6 @@ class UserController extends AbstractController
                 return $this->render('user/connexionErrorMessage.html.twig', [
                     'controller_name' => 'UserController','formConnexion'=>$form->createview(),
                 ]);
-
-
             } else {
                 $role=$verifuser->getRole();
                     if ($role==1)
