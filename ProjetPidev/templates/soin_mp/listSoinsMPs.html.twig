@@ -1,4 +1,4 @@
-{% include 'tempFront1SoinMP.html.twig' %}
+{% include 'tempFront1SoinMP.html.twig' with { 'iduser' :iduser } %}
 
 <section class="services-section hk-section section-bg" >
     <div class="container">
@@ -14,7 +14,8 @@
                         <h3 class="service-box-title">{{ S.titreSoinMP }}</h3>
                         <p>{{ S.descriptionSoinMP}}</p>
                         <p>{{ S.adresseSoinMP}}</p>
-                       <!--a href="#" class="btn btn-main-outline mt-2">Visiter<i class="fas fa-chevron-right"></i></a-->
+                        <a  href="{{ path("afficherDetailSoinMPs",{'id':S.getId(), 'iduser': iduser } ) }}" class="btn btn-main-outline mt-2">Consulter<i class="fas fa-chevron-right"></i></a>
+
                     </div>
                 </div>
             {% endfor %}

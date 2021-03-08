@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerEux4B8x/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerDFsWyYS/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -35,8 +35,10 @@ $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\AdminController';
 $classes[] = 'App\Controller\CategorieSoinMPController';
+$classes[] = 'App\Controller\NoteSoinMPController';
 $classes[] = 'App\Controller\SoinMPController';
 $classes[] = 'App\Controller\UserController';
+$classes[] = 'App\Form\CaptchaType';
 $classes[] = 'App\Form\CategorieSoinMPRechercheType';
 $classes[] = 'App\Form\CategorieSoinMPType';
 $classes[] = 'App\Form\ConnexionType';
@@ -47,12 +49,14 @@ $classes[] = 'App\Form\UserMedType';
 $classes[] = 'App\Form\UserParaType';
 $classes[] = 'App\Form\UserType';
 $classes[] = 'App\Repository\ActualiteRepository';
+$classes[] = 'App\Repository\CaptchaRepository';
 $classes[] = 'App\Repository\CategorieActualiteRepository';
 $classes[] = 'App\Repository\CategorieSoinMPRepository';
 $classes[] = 'App\Repository\CentreMedicalRepository';
 $classes[] = 'App\Repository\LaboratoireRepository';
 $classes[] = 'App\Repository\MediaRepository';
 $classes[] = 'App\Repository\MedicamentRepository';
+$classes[] = 'App\Repository\NoteSoinMPRepository';
 $classes[] = 'App\Repository\ParapharmacieRepository';
 $classes[] = 'App\Repository\ProduitRepository';
 $classes[] = 'App\Repository\ReclamationRepository';

@@ -6,12 +6,16 @@ use App\Form\SoinMPRechercheType;
 use App\Form\SoinMPTriFormType;
 use App\Form\SoinMPType;
 use App\Entity\SoinMP;
+use App\Form\CaptchaType;
+use App\Entity\Captcha;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use App\Entity\NoteSoinMP;
 
 class SoinMPController extends AbstractController
 {
@@ -57,10 +61,13 @@ class SoinMPController extends AbstractController
 
 
     /**
+     * @param $id
+     * @param Request $request
+     * @param $iduser
      * @return Response
-     * @Route("/afficherSoinMPs/{id}", name="afficherSoinMPs")
+     * @Route("/afficherSoinMPs/{id}/{iduser}", name="afficherSoinMPs")
      */
-    public function listSoinMPs($id,Request $request): Response
+    public function listSoinMPs($id,Request $request, $iduser): Response
     {   $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
 
         $categorieid=$SoinMPfind[0]->getCategorieSoinMP();
@@ -71,10 +78,67 @@ class SoinMPController extends AbstractController
             $data=$form->getData();
             $titre=$data['recherche'];
             $searchSoinMPfind=$this->getDoctrine()->getRepository(SoinMP::class)->searchs($titre,$categorieid);
-            return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $searchSoinMPfind,'formSearch'=>$form->createView(),]);
+            return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $searchSoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,]);
 
         }
-        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,'formSearch'=>$form->createView(),]);
+        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,]);
+    }
+
+
+    /**
+     * @param $iduser
+     * @param $id
+     * @param Request $request
+     * @return Response
+     * @Route ("/afficherDetailSoinMPs/{id}/{iduser}",name="afficherDetailSoinMPs")
+     */
+    public function detailSoinMPs($iduser,$id,Request $request): Response
+    {   $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        $formCaptcha->handleRequest($request);
+
+        if ($formCaptcha->isSubmitted()) {
+            $data=$formCaptcha->getData();
+            $findCaptcha=$this->getDoctrine()->getRepository(Captcha::class)->find($data['id']);
+            $verif=$data['Captcha'];
+            if($findCaptcha->getValue()==$verif)
+            {
+                return $this->redirectToRoute('AfficherdetailSoinMPnote', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'id'=>$id, ]);}
+        }
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        return $this->render('soin_mp/DetailSoinMPS.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),]);
+    }
+
+    /**
+     * @param $iduser
+     * @param $id
+     * @param Request $request
+     * @return Response
+     * @Route ("/AfficherdetailSoinMPnote/{id}/{iduser}",name="AfficherdetailSoinMPnote")
+     */
+    public function detailSoinMPsnote($iduser,$id,Request $request): Response
+    {   $note=0;
+        $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
+        $Notes=$this->getDoctrine()->getRepository(NoteSoinMP::class)->findBy(array('soinMP'=>$id));
+        $x = $this->getDoctrine()->getRepository(NoteSoinMP::class)->findOneBy(array('soinMP'=>$SoinMPsfind,'user'=>$iduser));
+        $total=0;
+        $Moyenne=0;
+        for ($i =0; $i <= (count($Notes)-1); $i++)
+        {
+            $total=$total+($Notes[$i]->getValeur());
+        }
+        $Moyenne=$total/(count($Notes));
+        $note=$x->getValeur();
+        $aviss=$x->getAvis();
+
+        return $this->render('soin_mp/DetailSoinMPSnote.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
+
     }
 
     /**

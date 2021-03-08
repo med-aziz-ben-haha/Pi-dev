@@ -40,7 +40,7 @@ class __TwigTemplate_1a98be05aa2ccf52863972a8ac44b929b4c2565b3dbe1c28accf241fd99
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "soin_mp/listSoinsMPs.html.twig"));
 
         // line 1
-        $this->loadTemplate("tempFront1SoinMP.html.twig", "soin_mp/listSoinsMPs.html.twig", 1)->display($context);
+        $this->loadTemplate("tempFront1SoinMP.html.twig", "soin_mp/listSoinsMPs.html.twig", 1)->display(twig_array_merge($context, ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 1, $this->source); })())]));
         // line 2
         echo "
 <section class=\"services-section hk-section section-bg\" >
@@ -77,7 +77,11 @@ class __TwigTemplate_1a98be05aa2ccf52863972a8ac44b929b4c2565b3dbe1c28accf241fd99
             // line 16
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["S"], "adresseSoinMP", [], "any", false, false, false, 16), "html", null, true);
             echo "</p>
-                       <!--a href=\"#\" class=\"btn btn-main-outline mt-2\">Visiter<i class=\"fas fa-chevron-right\"></i></a-->
+                        <a  href=\"";
+            // line 17
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficherDetailSoinMPs", ["id" => twig_get_attribute($this->env, $this->source, $context["S"], "getId", [], "method", false, false, false, 17), "iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 17, $this->source); })())]), "html", null, true);
+            echo "\" class=\"btn btn-main-outline mt-2\">Consulter<i class=\"fas fa-chevron-right\"></i></a>
+
                     </div>
                 </div>
             ";
@@ -85,14 +89,14 @@ class __TwigTemplate_1a98be05aa2ccf52863972a8ac44b929b4c2565b3dbe1c28accf241fd99
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['S'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 21
+        // line 22
         echo "        </div>
     </div>
 </section>
 
 ";
-        // line 25
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "soin_mp/listSoinsMPs.html.twig", 25)->display($context);
+        // line 26
+        $this->loadTemplate("tempFront2SoinMP.html.twig", "soin_mp/listSoinsMPs.html.twig", 26)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -113,12 +117,12 @@ class __TwigTemplate_1a98be05aa2ccf52863972a8ac44b929b4c2565b3dbe1c28accf241fd99
 
     public function getDebugInfo()
     {
-        return array (  95 => 25,  89 => 21,  78 => 16,  74 => 15,  70 => 14,  66 => 13,  62 => 11,  58 => 10,  53 => 8,  45 => 2,  43 => 1,);
+        return array (  99 => 26,  93 => 22,  82 => 17,  78 => 16,  74 => 15,  70 => 14,  66 => 13,  62 => 11,  58 => 10,  53 => 8,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% include 'tempFront1SoinMP.html.twig' %}
+        return new Source("{% include 'tempFront1SoinMP.html.twig' with { 'iduser' :iduser } %}
 
 <section class=\"services-section hk-section section-bg\" >
     <div class=\"container\">
@@ -134,7 +138,8 @@ class __TwigTemplate_1a98be05aa2ccf52863972a8ac44b929b4c2565b3dbe1c28accf241fd99
                         <h3 class=\"service-box-title\">{{ S.titreSoinMP }}</h3>
                         <p>{{ S.descriptionSoinMP}}</p>
                         <p>{{ S.adresseSoinMP}}</p>
-                       <!--a href=\"#\" class=\"btn btn-main-outline mt-2\">Visiter<i class=\"fas fa-chevron-right\"></i></a-->
+                        <a  href=\"{{ path(\"afficherDetailSoinMPs\",{'id':S.getId(), 'iduser': iduser } ) }}\" class=\"btn btn-main-outline mt-2\">Consulter<i class=\"fas fa-chevron-right\"></i></a>
+
                     </div>
                 </div>
             {% endfor %}

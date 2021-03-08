@@ -120,6 +120,11 @@ class User
      */
     private $listRendezvous;
 
+    /**
+     * @ORM\OneToMany(targetEntity=NoteSoinMP::class, mappedBy="user")
+     */
+    private $noteSoinMPs;
+
     public function __construct()
     {
         $this->reclamations = new ArrayCollection();
@@ -127,6 +132,7 @@ class User
         $this->reservations = new ArrayCollection();
 
         $this->listRendezvous = new ArrayCollection();
+        $this->noteSoinMPs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -397,6 +403,36 @@ class User
             // set the owning side to null (unless already changed)
             if ($listRendezvou->getUser() === $this) {
                 $listRendezvou->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|NoteSoinMP[]
+     */
+    public function getNoteSoinMPs(): Collection
+    {
+        return $this->noteSoinMPs;
+    }
+
+    public function addNoteSoinMP(NoteSoinMP $noteSoinMP): self
+    {
+        if (!$this->noteSoinMPs->contains($noteSoinMP)) {
+            $this->noteSoinMPs[] = $noteSoinMP;
+            $noteSoinMP->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNoteSoinMP(NoteSoinMP $noteSoinMP): self
+    {
+        if ($this->noteSoinMPs->removeElement($noteSoinMP)) {
+            // set the owning side to null (unless already changed)
+            if ($noteSoinMP->getUser() === $this) {
+                $noteSoinMP->setUser(null);
             }
         }
 

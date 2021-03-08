@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\SoinMPRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -49,6 +51,16 @@ class SoinMP
      * @ORM\JoinColumn(nullable=false)
      */
     private $CategorieSoinMP;
+
+    /**
+     * @ORM\OneToMany(targetEntity=NoteSoinMP::class, mappedBy="soinMP")
+     */
+    private $noteSoinMPs;
+
+    public function __construct()
+    {
+        $this->noteSoinMPs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -111,6 +123,36 @@ class SoinMP
     public function setCategorieSoinMP(?CategorieSoinMP $CategorieSoinMP): self
     {
         $this->CategorieSoinMP = $CategorieSoinMP;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|NoteSoinMP[]
+     */
+    public function getNoteSoinMPs(): Collection
+    {
+        return $this->noteSoinMPs;
+    }
+
+    public function addNoteSoinMP(NoteSoinMP $noteSoinMP): self
+    {
+        if (!$this->noteSoinMPs->contains($noteSoinMP)) {
+            $this->noteSoinMPs[] = $noteSoinMP;
+            $noteSoinMP->setSoinMP($this);
+        }
+
+        return $this;
+    }
+
+    public function removeNoteSoinMP(NoteSoinMP $noteSoinMP): self
+    {
+        if ($this->noteSoinMPs->removeElement($noteSoinMP)) {
+            // set the owning side to null (unless already changed)
+            if ($noteSoinMP->getSoinMP() === $this) {
+                $noteSoinMP->setSoinMP(null);
+            }
+        }
 
         return $this;
     }

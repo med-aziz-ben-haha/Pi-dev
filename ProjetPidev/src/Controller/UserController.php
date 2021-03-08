@@ -8,6 +8,7 @@ use App\Form\UserType;
 use App\Form\UserMedType;
 use App\Form\UserParaType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -228,9 +229,28 @@ class UserController extends AbstractController
         }
         return $this->render('user/inscriptionPharmacien.html.twig', ['formInscription' => $form->createView()]);
     }
+/*
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("/modifierUser/{id}" , name="modifierUser")
+     */
+    /*public function modifierUser($id, Request $request)
+    {
+        $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $id])[0];
+        $form = $this->createForm(UserType::class, $UserFind);
+        $form->add('modifier', SubmitType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute('afficherUser');
+        }
+        return $this->render('user/modifierUser.html.twig', ['formModifierUser' => $form->createView()]);
 
+    }
 
-
-
+*/
 
 }

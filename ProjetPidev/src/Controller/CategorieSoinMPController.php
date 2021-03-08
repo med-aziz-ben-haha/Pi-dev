@@ -43,10 +43,12 @@ class CategorieSoinMPController extends AbstractController
     }
 
     /**
+     * @param Request $request
+     * @param $iduser
      * @return Response
-     * @Route("/afficherCategorieSoinMPs", name="afficherCategorieSoinMPs")
+     * @Route("/afficherCategorieSoinMPs/{iduser}", name="afficherCategorieSoinMPs")
      */
-    public function listCategoriesSoinMPs(Request $request): Response
+    public function listCategoriesSoinMPs(Request $request, $iduser): Response
     {
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
         $form=$this->createForm(CategorieSoinMPRechercheType::class);
@@ -55,9 +57,9 @@ class CategorieSoinMPController extends AbstractController
         {   $data=$form->getData();
             $titre=$data['recherche'];
             $categorieSoinMPfind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
-            return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categorieSoinMPfind,'formSearch'=>$form->createView(),]);
+            return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categorieSoinMPfind,'formSearch'=>$form->createView(), 'iduser'=>$iduser,]);
         }
-        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(),]);
+        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(), 'iduser'=>$iduser,]);
     }
 
     /**

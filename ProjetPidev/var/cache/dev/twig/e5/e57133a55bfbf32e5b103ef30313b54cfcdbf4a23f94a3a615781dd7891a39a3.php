@@ -40,7 +40,7 @@ class __TwigTemplate_9bf48b87e432c09689280a595b162b3db9696a79a8edd13a833f7ef3c71
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "categorie_soin_mp/listCategoriesSoinMPs.html.twig"));
 
         // line 1
-        $this->loadTemplate("tempFront1SoinMP.html.twig", "categorie_soin_mp/listCategoriesSoinMPs.html.twig", 1)->display($context);
+        $this->loadTemplate("tempFront1SoinMP.html.twig", "categorie_soin_mp/listCategoriesSoinMPs.html.twig", 1)->display(twig_array_merge($context, ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 1, $this->source); })())]));
         // line 2
         echo "
 <section class=\"services-section hk-section section-bg\" >
@@ -78,7 +78,7 @@ class __TwigTemplate_9bf48b87e432c09689280a595b162b3db9696a79a8edd13a833f7ef3c71
             echo "</h3>
                     <a href=\"";
             // line 19
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficherSoinMPs", ["id" => twig_get_attribute($this->env, $this->source, $context["CSMP"], "getId", [], "method", false, false, false, 19)]), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficherSoinMPs", ["id" => twig_get_attribute($this->env, $this->source, $context["CSMP"], "getId", [], "method", false, false, false, 19), "iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 19, $this->source); })())]), "html", null, true);
             echo "\" class=\"btn btn-main-outline mt-2\">Visiter<i class=\"fas fa-chevron-right\"></i></a>
             </div>
             </div>
@@ -120,7 +120,7 @@ class __TwigTemplate_9bf48b87e432c09689280a595b162b3db9696a79a8edd13a833f7ef3c71
 
     public function getSourceContext()
     {
-        return new Source("{% include 'tempFront1SoinMP.html.twig' %}
+        return new Source("{% include 'tempFront1SoinMP.html.twig' with {'iduser' :iduser} %}
 
 <section class=\"services-section hk-section section-bg\" >
     <div class=\"container\">
@@ -138,7 +138,7 @@ class __TwigTemplate_9bf48b87e432c09689280a595b162b3db9696a79a8edd13a833f7ef3c71
                 <div class=\"service-box text-center\">
                     <div class=\"service-box-icon\"><img style=\" padding-right: 2px; padding-left: 2px;  width:80px ; hight: 80px ;\" src=\"{{ asset('uploads/' ~ CSMP.getLienIconeCSMP())}}\"></div>
                     <h3 class=\"service-box-title\">{{ CSMP.libelleCategorieSoinMP }}</h3>
-                    <a href=\"{{ path(\"afficherSoinMPs\",{'id':CSMP.getId() } ) }}\" class=\"btn btn-main-outline mt-2\">Visiter<i class=\"fas fa-chevron-right\"></i></a>
+                    <a href=\"{{ path(\"afficherSoinMPs\",{'id':CSMP.getId(), 'iduser':iduser } ) }}\" class=\"btn btn-main-outline mt-2\">Visiter<i class=\"fas fa-chevron-right\"></i></a>
             </div>
             </div>
             {% endfor %}
