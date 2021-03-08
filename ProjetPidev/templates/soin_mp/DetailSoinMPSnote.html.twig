@@ -50,7 +50,10 @@
                     {% include 'soin_mp/stars.html.twig'  with   { 'iduser': iduser , 'id':DetailSoinMPs.id ,'aviss' :aviss }  %}
                     <div style="margin-left:15%; margin-top:2%;">
                         <span class="b"><p style="font-weight:bold; font-size:130%;">Note Aide</p></span>
+
                         <span class="b" >{% include 'soin_mp/moyenne.html.twig'  with   {'moyenne' :moyenne}  %}</span>
+                        {{ moyenne }}
+
                     </div>
                 </div>
             </div>

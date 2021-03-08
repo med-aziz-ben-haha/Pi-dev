@@ -31,6 +31,7 @@
         <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
+                <th>Photo de profil</th>
                 <th>Id</th>
                 <th>Login</th>
                 <th>Nom</th>
@@ -47,6 +48,7 @@
             {% for P in listPatients %}
 
             <tr>
+                <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ P.getLienImageUser())}}"></td>
                 <td>{{P.id}}</td>
                 <td>{{P.login}}</td>
                 <td>{{P.nom}}</td>
