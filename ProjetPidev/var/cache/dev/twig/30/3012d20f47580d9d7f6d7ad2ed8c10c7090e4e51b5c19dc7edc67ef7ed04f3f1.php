@@ -88,8 +88,20 @@ class __TwigTemplate_18efdf4d1e604278a5f5677f31ea4ad794aa4a1af105ca10ed6e4e309b3
         echo "\"></script>
 <script src=\"";
         // line 44
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
-        echo "\"></script>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://code.jquery.com/jquery-3.2.1.slim.min.js"), "html", null, true);
+        echo "\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+<script src=\"";
+        // line 45
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"), "html", null, true);
+        echo "\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
+<script src=\"";
+        // line 46
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"), "html", null, true);
+        echo "\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
+<script src=\"";
+        // line 47
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://kit.fontawesome.com/9b697a719a.js"), "html", null, true);
+        echo "\" crossorigin=\"anonymous\"></script>
 <script>
     \$(function () {
         'use strict'
@@ -122,7 +134,7 @@ class __TwigTemplate_18efdf4d1e604278a5f5677f31ea4ad794aa4a1af105ca10ed6e4e309b3
 
     public function getDebugInfo()
     {
-        return array (  91 => 44,  87 => 43,  43 => 1,);
+        return array (  103 => 47,  99 => 46,  95 => 45,  91 => 44,  87 => 43,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -170,7 +182,10 @@ class __TwigTemplate_18efdf4d1e604278a5f5677f31ea4ad794aa4a1af105ca10ed6e4e309b3
     </div>
 </footer>
 <script src=\"{{ asset('assets/js/jquery.min.js') }}\"></script>
-<script src=\"{{ asset('assets/js/bootstrap.min.js') }}\"></script>
+<script src=\"{{ asset('https://code.jquery.com/jquery-3.2.1.slim.min.js') }}\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+<script src=\"{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js') }}\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
+<script src=\"{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js') }}\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
+<script src=\"{{ asset('https://kit.fontawesome.com/9b697a719a.js') }}\" crossorigin=\"anonymous\"></script>
 <script>
     \$(function () {
         'use strict'

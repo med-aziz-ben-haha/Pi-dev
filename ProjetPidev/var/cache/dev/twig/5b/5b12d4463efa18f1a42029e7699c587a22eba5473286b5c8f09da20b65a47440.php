@@ -40,12 +40,12 @@ class __TwigTemplate_e9b2f1b830646e33dbdd86775d6f0264d92db64a9e8887d3c36667e52e9
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/accueilOnlineMed.html.twig"));
 
         // line 1
-        $this->loadTemplate("tempFront1SoinMP.html.twig", "user/accueilOnlineMed.html.twig", 1)->display($context);
+        $this->loadTemplate("templateAccueil.html.twig", "user/accueilOnlineMed.html.twig", 1)->display($context);
         // line 2
         echo "<h1 style =\"margin-bottom: 30%; text-align: center; color: #EA3D48 ; \" > Espace Medecin  </h1>
 ";
         // line 3
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "user/accueilOnlineMed.html.twig", 3)->display($context);
+        $this->loadTemplate("templateAccueilFooter.html.twig", "user/accueilOnlineMed.html.twig", 3)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -71,8 +71,8 @@ class __TwigTemplate_e9b2f1b830646e33dbdd86775d6f0264d92db64a9e8887d3c36667e52e9
 
     public function getSourceContext()
     {
-        return new Source("{% include 'tempFront1SoinMP.html.twig'  %}
+        return new Source("{% include 'templateAccueil.html.twig'  %}
 <h1 style =\"margin-bottom: 30%; text-align: center; color: #EA3D48 ; \" > Espace Medecin  </h1>
-{% include 'tempFront2SoinMP.html.twig' %}", "user/accueilOnlineMed.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlineMed.html.twig");
+{% include 'templateAccueilFooter.html.twig' %}", "user/accueilOnlineMed.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlineMed.html.twig");
     }
 }

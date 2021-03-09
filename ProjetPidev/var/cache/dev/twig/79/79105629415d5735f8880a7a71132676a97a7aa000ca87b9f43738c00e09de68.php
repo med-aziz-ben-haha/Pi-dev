@@ -40,12 +40,12 @@ class __TwigTemplate_332a7f11a19f247490c22c048d69768bdaa51cf741ecb84f193a62592c9
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/accueilOnline.html.twig"));
 
         // line 1
-        $this->loadTemplate("tempFront1SoinMP.html.twig", "user/accueilOnline.html.twig", 1)->display($context);
+        $this->loadTemplate("templateAccueil.html.twig", "user/accueilOnline.html.twig", 1)->display($context);
         // line 2
         echo "
 ";
         // line 3
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "user/accueilOnline.html.twig", 3)->display($context);
+        $this->loadTemplate("templateAccueilFooter.html.twig", "user/accueilOnline.html.twig", 3)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -71,8 +71,8 @@ class __TwigTemplate_332a7f11a19f247490c22c048d69768bdaa51cf741ecb84f193a62592c9
 
     public function getSourceContext()
     {
-        return new Source("{% include 'tempFront1SoinMP.html.twig'  %}
+        return new Source("{% include 'templateAccueil.html.twig'  %}
 
-{% include 'tempFront2SoinMP.html.twig' %}", "user/accueilOnline.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnline.html.twig");
+{% include 'templateAccueilFooter.html.twig' %}", "user/accueilOnline.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnline.html.twig");
     }
 }

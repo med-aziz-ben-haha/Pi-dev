@@ -76,6 +76,7 @@ class __TwigTemplate_c22f65baef369056eabc66decfc17b2409c9155c9599ef12312674e06f8
         <table id=\"example1\" class=\"table table-bordered table-striped\">
             <thead>
             <tr>
+                <th>Photo de profil</th>
                 <th>Id</th>
                 <th>Login</th>
                 <th>Nom</th>
@@ -90,48 +91,52 @@ class __TwigTemplate_c22f65baef369056eabc66decfc17b2409c9155c9599ef12312674e06f8
             </thead>
             <tbody>
             ";
-        // line 47
+        // line 48
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listPatients"]) || array_key_exists("listPatients", $context) ? $context["listPatients"] : (function () { throw new RuntimeError('Variable "listPatients" does not exist.', 47, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["listPatients"]) || array_key_exists("listPatients", $context) ? $context["listPatients"] : (function () { throw new RuntimeError('Variable "listPatients" does not exist.', 48, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["P"]) {
-            // line 48
+            // line 49
             echo "
             <tr>
-                <td>";
-            // line 50
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "id", [], "any", false, false, false, 50), "html", null, true);
-            echo "</td>
-                <td>";
+                <td><img style=\" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;\" src=\"";
             // line 51
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "login", [], "any", false, false, false, 51), "html", null, true);
-            echo "</td>
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, $context["P"], "getLienImageUser", [], "method", false, false, false, 51))), "html", null, true);
+            echo "\"></td>
                 <td>";
             // line 52
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "nom", [], "any", false, false, false, 52), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "id", [], "any", false, false, false, 52), "html", null, true);
             echo "</td>
                 <td>";
             // line 53
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "prenom", [], "any", false, false, false, 53), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "login", [], "any", false, false, false, 53), "html", null, true);
             echo "</td>
                 <td>";
             // line 54
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "email", [], "any", false, false, false, 54), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "nom", [], "any", false, false, false, 54), "html", null, true);
             echo "</td>
                 <td>";
             // line 55
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "adresseUser", [], "any", false, false, false, 55), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "prenom", [], "any", false, false, false, 55), "html", null, true);
             echo "</td>
                 <td>";
             // line 56
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "telephone", [], "any", false, false, false, 56), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "email", [], "any", false, false, false, 56), "html", null, true);
             echo "</td>
                 <td>";
             // line 57
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "sexe", [], "any", false, false, false, 57), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "adresseUser", [], "any", false, false, false, 57), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 58
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "telephone", [], "any", false, false, false, 58), "html", null, true);
+            echo "</td>
+                <td>";
+            // line 59
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "sexe", [], "any", false, false, false, 59), "html", null, true);
             echo "</td>
                 <td><form action=\" ";
-            // line 58
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimerPatient", ["id" => twig_get_attribute($this->env, $this->source, $context["P"], "id", [], "any", false, false, false, 58)]), "html", null, true);
+            // line 60
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimerPatient", ["id" => twig_get_attribute($this->env, $this->source, $context["P"], "id", [], "any", false, false, false, 60)]), "html", null, true);
             echo " \"><button>Supprimer</button></form></td>
             </tr>
 
@@ -140,7 +145,7 @@ class __TwigTemplate_c22f65baef369056eabc66decfc17b2409c9155c9599ef12312674e06f8
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['P'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 62
+        // line 64
         echo "            </tbody>
 
         </table>
@@ -148,8 +153,8 @@ class __TwigTemplate_c22f65baef369056eabc66decfc17b2409c9155c9599ef12312674e06f8
     <!-- /.box-body -->
 </div>
 ";
-        // line 68
-        $this->loadTemplate("temp2.html.twig", "user/ListPatients.html.twig", 68)->display($context);
+        // line 70
+        $this->loadTemplate("temp2.html.twig", "user/ListPatients.html.twig", 70)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -170,7 +175,7 @@ class __TwigTemplate_c22f65baef369056eabc66decfc17b2409c9155c9599ef12312674e06f8
 
     public function getDebugInfo()
     {
-        return array (  152 => 68,  144 => 62,  134 => 58,  130 => 57,  126 => 56,  122 => 55,  118 => 54,  114 => 53,  110 => 52,  106 => 51,  102 => 50,  98 => 48,  94 => 47,  48 => 3,  46 => 2,  43 => 1,);
+        return array (  157 => 70,  149 => 64,  139 => 60,  135 => 59,  131 => 58,  127 => 57,  123 => 56,  119 => 55,  115 => 54,  111 => 53,  107 => 52,  103 => 51,  99 => 49,  95 => 48,  48 => 3,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -208,6 +213,7 @@ class __TwigTemplate_c22f65baef369056eabc66decfc17b2409c9155c9599ef12312674e06f8
         <table id=\"example1\" class=\"table table-bordered table-striped\">
             <thead>
             <tr>
+                <th>Photo de profil</th>
                 <th>Id</th>
                 <th>Login</th>
                 <th>Nom</th>
@@ -224,6 +230,7 @@ class __TwigTemplate_c22f65baef369056eabc66decfc17b2409c9155c9599ef12312674e06f8
             {% for P in listPatients %}
 
             <tr>
+                <td><img style=\" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;\" src=\"{{ asset('uploads/' ~ P.getLienImageUser())}}\"></td>
                 <td>{{P.id}}</td>
                 <td>{{P.login}}</td>
                 <td>{{P.nom}}</td>

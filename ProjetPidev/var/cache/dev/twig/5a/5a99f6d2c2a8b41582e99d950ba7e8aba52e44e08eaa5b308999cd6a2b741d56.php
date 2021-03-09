@@ -184,13 +184,13 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-primary\">Profile</a>
+                                    <a href=\"#\" class=\"btn btn-primary\">Profil</a>
                                 </div>
                                 <div class=\"pull-right\">
                                     <a href=\"";
         // line 112
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
-        echo "\" class=\"btn btn-primary\">Sign out</a>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/deconnexion"), "html", null, true);
+        echo "\" class=\"btn btn-primary\">Se déconnecter</a>
                                 </div>
                             </li>
                         </ul>
@@ -227,7 +227,8 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     <ul class=\"treeview-menu\">
                         <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des patients</a></li>
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
-                        <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmacies</a></li>
+                        <li><a href=\"/Parapharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmaciens</a></li>
+                        <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
                     </ul>
                 </li>
 
@@ -387,10 +388,10 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-primary\">Profile</a>
+                                    <a href=\"#\" class=\"btn btn-primary\">Profil</a>
                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"{{ asset ('/connexion') }}\" class=\"btn btn-primary\">Sign out</a>
+                                    <a href=\"{{ asset ('/deconnexion') }}\" class=\"btn btn-primary\">Se déconnecter</a>
                                 </div>
                             </li>
                         </ul>
@@ -424,7 +425,8 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     <ul class=\"treeview-menu\">
                         <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des patients</a></li>
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
-                        <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmacies</a></li>
+                        <li><a href=\"/Parapharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmaciens</a></li>
+                        <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
                     </ul>
                 </li>
 

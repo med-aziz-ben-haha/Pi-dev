@@ -113,11 +113,15 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
                             <a class=\"dropdown-item\" href=\"";
         // line 59
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionMed"), "html", null, true);
-        echo "\">S'inscrire en tant que Médecin</a>
+        echo "\">S'inscrire en tant que médecin</a>
                             <a class=\"dropdown-item\" href=\"";
         // line 60
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionPharmacien"), "html", null, true);
-        echo "\">S'inscrire en tant que Pharmacien</a>
+        echo "\">S'inscrire en tant que pharmacien</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 61
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionParapharmacien"), "html", null, true);
+        echo "\">S'inscrire en tant que parapharmacien</a>
                         </div>
                     </li>
                 </ul>
@@ -146,7 +150,7 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 88
+        // line 89
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -439,11 +443,11 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
     </div>
 </footer>
 <script src=\"";
-        // line 378
+        // line 379
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 379
+        // line 380
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script>
@@ -478,7 +482,7 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
 
     public function getDebugInfo()
     {
-        return array (  447 => 379,  443 => 378,  150 => 88,  119 => 60,  115 => 59,  111 => 58,  107 => 57,  90 => 43,  80 => 36,  43 => 1,);
+        return array (  451 => 380,  447 => 379,  154 => 89,  123 => 61,  119 => 60,  115 => 59,  111 => 58,  107 => 57,  90 => 43,  80 => 36,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -541,8 +545,9 @@ class __TwigTemplate_9b1449cc927e54824d8e98516c85e4f8717ccf1f05370014ccb7ac005f6
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"{{ asset('/connexion') }}\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscription') }}\">S'inscrire</a>
-                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionMed') }}\">S'inscrire en tant que Médecin</a>
-                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionPharmacien') }}\">S'inscrire en tant que Pharmacien</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionMed') }}\">S'inscrire en tant que médecin</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionPharmacien') }}\">S'inscrire en tant que pharmacien</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionParapharmacien') }}\">S'inscrire en tant que parapharmacien</a>
                         </div>
                     </li>
                 </ul>

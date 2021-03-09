@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -20,6 +21,10 @@ class UserType extends AbstractType
             ->add('prenom')
             ->add('adresseUser')
             ->add('telephone')
+            ->add('imageFile', FileType::class, [
+                'mapped' => false,
+                'required' => false,
+            ])
             ->add('sexe', choiceType::class, array(
                 'choices' => array('Homme' => 'Homme', 'Femme' => 'Femme'),
 

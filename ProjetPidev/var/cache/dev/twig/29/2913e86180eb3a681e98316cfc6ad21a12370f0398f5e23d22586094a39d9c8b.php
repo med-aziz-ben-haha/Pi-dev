@@ -65,8 +65,14 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
     <meta name=\"twitter:title\" content=\"Angry Studio - Free Website Templates, UI Snippets and Web Dev Tutorials\">
     <meta name=\"twitter:description\" content=\"Angry Studio is a platform for web designers and developers where we share free website templates, UI snippets and high-quality web dev tutorials.\">
     <meta name=\"twitter:image\" content=\"https://angrystudio.com/featured-image.png\">
-    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i,800,800i,900,900i\" rel=\"stylesheet\">
-    <link href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css\" rel=\"stylesheet\">
+    <link href=\"";
+        // line 26
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i,800,800i,900,900i"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
+    <link href=\"";
+        // line 27
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
     <link href=\"";
         // line 28
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/bootstrap.min.css"), "html", null, true);
@@ -129,14 +135,17 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i> My Account</a>
+                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i> Mon Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-                            <a class=\"dropdown-item\" href=\"#\">Profile</a>
-                            <a class=\"dropdown-item\" href=\"#\">Edit Account</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 80
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 80, $this->source); })()))), "html", null, true);
+        echo "\">Profil</a>
+
                             <a class=\"dropdown-item\" href=\"";
         // line 82
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
-        echo "\">Logout</a>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/deconnexion"), "html", null, true);
+        echo "\">Se déconnecter</a>
                         </div>
                     </li>
                 </ul>
@@ -194,7 +203,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
 
     public function getDebugInfo()
     {
-        return array (  169 => 110,  138 => 82,  121 => 68,  104 => 54,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  178 => 110,  147 => 82,  142 => 80,  127 => 68,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -224,8 +233,8 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
     <meta name=\"twitter:title\" content=\"Angry Studio - Free Website Templates, UI Snippets and Web Dev Tutorials\">
     <meta name=\"twitter:description\" content=\"Angry Studio is a platform for web designers and developers where we share free website templates, UI snippets and high-quality web dev tutorials.\">
     <meta name=\"twitter:image\" content=\"https://angrystudio.com/featured-image.png\">
-    <link href=\"https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i,800,800i,900,900i\" rel=\"stylesheet\">
-    <link href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css\" rel=\"stylesheet\">
+    <link href=\"{{ asset('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i,800,800i,900,900i') }}\" rel=\"stylesheet\">
+    <link href=\"{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css') }}\" rel=\"stylesheet\">
     <link href=\"{{ asset('assets/css/bootstrap.min.css') }}\" rel=\"stylesheet\">
     <link href=\"{{ asset('assets/css/style.css') }}\" rel=\"stylesheet\">
     <style> .btn-primary {
@@ -276,11 +285,11 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i> My Account</a>
+                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i> Mon Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-                            <a class=\"dropdown-item\" href=\"#\">Profile</a>
-                            <a class=\"dropdown-item\" href=\"#\">Edit Account</a>
-                            <a class=\"dropdown-item\" href=\"{{ asset ('/connexion') }}\">Logout</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/afficherUser/' ~ iduser) }}\">Profil</a>
+
+                            <a class=\"dropdown-item\" href=\"{{ asset ('/deconnexion') }}\">Se déconnecter</a>
                         </div>
                     </li>
                 </ul>

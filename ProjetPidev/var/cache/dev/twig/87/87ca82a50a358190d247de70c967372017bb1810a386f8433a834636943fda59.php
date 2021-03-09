@@ -113,10 +113,16 @@ class __TwigTemplate_c14d37d5923c1b4d8fcd91308cc7a1750afcae6c2a0e48b5dec520781a7
         // line 51
         echo "                    <div style=\"margin-left:15%; margin-top:2%;\">
                         <span class=\"b\"><p style=\"font-weight:bold; font-size:130%;\">Note Aide</p></span>
+
                         <span class=\"b\" >";
-        // line 53
-        $this->loadTemplate("soin_mp/moyenne.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 53)->display(twig_array_merge($context, ["moyenne" => (isset($context["moyenne"]) || array_key_exists("moyenne", $context) ? $context["moyenne"] : (function () { throw new RuntimeError('Variable "moyenne" does not exist.', 53, $this->source); })())]));
+        // line 54
+        $this->loadTemplate("soin_mp/moyenne.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 54)->display(twig_array_merge($context, ["moyenne" => (isset($context["moyenne"]) || array_key_exists("moyenne", $context) ? $context["moyenne"] : (function () { throw new RuntimeError('Variable "moyenne" does not exist.', 54, $this->source); })())]));
         echo "</span>
+                        ";
+        // line 55
+        echo twig_escape_filter($this->env, (isset($context["moyenne"]) || array_key_exists("moyenne", $context) ? $context["moyenne"] : (function () { throw new RuntimeError('Variable "moyenne" does not exist.', 55, $this->source); })()), "html", null, true);
+        echo "
+
                     </div>
                 </div>
             </div>
@@ -124,9 +130,9 @@ class __TwigTemplate_c14d37d5923c1b4d8fcd91308cc7a1750afcae6c2a0e48b5dec520781a7
     </div>
 </section>
 ";
-        // line 60
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 60)->display($context);
-        // line 61
+        // line 63
+        $this->loadTemplate("tempFront2SoinMP.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 63)->display($context);
+        // line 64
         echo "
 
 
@@ -156,7 +162,7 @@ class __TwigTemplate_c14d37d5923c1b4d8fcd91308cc7a1750afcae6c2a0e48b5dec520781a7
 
     public function getDebugInfo()
     {
-        return array (  130 => 61,  128 => 60,  118 => 53,  114 => 51,  112 => 50,  108 => 49,  103 => 47,  99 => 45,  97 => 44,  87 => 37,  82 => 35,  75 => 30,  73 => 29,  43 => 1,);
+        return array (  136 => 64,  134 => 63,  123 => 55,  119 => 54,  114 => 51,  112 => 50,  108 => 49,  103 => 47,  99 => 45,  97 => 44,  87 => 37,  82 => 35,  75 => 30,  73 => 29,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -213,7 +219,10 @@ class __TwigTemplate_c14d37d5923c1b4d8fcd91308cc7a1750afcae6c2a0e48b5dec520781a7
                     {% include 'soin_mp/stars.html.twig'  with   { 'iduser': iduser , 'id':DetailSoinMPs.id ,'aviss' :aviss }  %}
                     <div style=\"margin-left:15%; margin-top:2%;\">
                         <span class=\"b\"><p style=\"font-weight:bold; font-size:130%;\">Note Aide</p></span>
+
                         <span class=\"b\" >{% include 'soin_mp/moyenne.html.twig'  with   {'moyenne' :moyenne}  %}</span>
+                        {{ moyenne }}
+
                     </div>
                 </div>
             </div>

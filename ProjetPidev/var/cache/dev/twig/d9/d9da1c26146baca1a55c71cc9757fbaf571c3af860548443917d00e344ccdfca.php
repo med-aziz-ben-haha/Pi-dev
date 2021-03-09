@@ -144,6 +144,10 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
         // line 80
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionPharmacien"), "html", null, true);
         echo "\">S'inscrire en tant que pharmacien</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 81
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionParapharmacien"), "html", null, true);
+        echo "\">S'inscrire en tant que parapharmacien</a>
 
                         </div>
                     </li>
@@ -173,7 +177,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 109
+        // line 110
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -204,7 +208,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
 
     public function getDebugInfo()
     {
-        return array (  177 => 109,  145 => 80,  141 => 79,  137 => 78,  133 => 77,  115 => 62,  105 => 55,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  181 => 110,  149 => 81,  145 => 80,  141 => 79,  137 => 78,  133 => 77,  115 => 62,  105 => 55,  76 => 29,  72 => 28,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -289,6 +293,7 @@ class __TwigTemplate_38aa7f0ec6ce6b4e21ff92a6254e8ddda8e4434ddae6936c64076f8bc83
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscription') }}\">S'inscrire</a>
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionMed') }}\">S'inscrire en tant que médecin</a>
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionPharmacien') }}\">S'inscrire en tant que pharmacien</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset('/inscriptionParapharmacien') }}\">S'inscrire en tant que parapharmacien</a>
 
                         </div>
                     </li>

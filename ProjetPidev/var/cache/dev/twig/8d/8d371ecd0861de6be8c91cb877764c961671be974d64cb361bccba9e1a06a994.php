@@ -40,18 +40,18 @@ class __TwigTemplate_7fd9882718731cb2096fa3c84f58d8f925e9ba870120c7f2ab9124facfc
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/accueilOnlinePharmacien.html.twig"));
 
         // line 1
-        $this->loadTemplate("tempFront1SoinMP.html.twig", "user/accueilOnlinePharmacien.html.twig", 1)->display($context);
+        $this->loadTemplate("templateAccueil.html.twig", "user/accueilOnlinePharmacien.html.twig", 1)->display($context);
         // line 2
         echo "
 
 
 
 <h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Pharmacien  </h1>
-<a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Produit Parapharmaceutique<i class=\"fas fa-chevron-right\"></i></a>
+<a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Medicament<i class=\"fas fa-chevron-right\"></i></a>
 
 ";
         // line 9
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "user/accueilOnlinePharmacien.html.twig", 9)->display($context);
+        $this->loadTemplate("templateAccueilFooter.html.twig", "user/accueilOnlinePharmacien.html.twig", 9)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -77,14 +77,14 @@ class __TwigTemplate_7fd9882718731cb2096fa3c84f58d8f925e9ba870120c7f2ab9124facfc
 
     public function getSourceContext()
     {
-        return new Source("{% include 'tempFront1SoinMP.html.twig'  %}
+        return new Source("{% include 'templateAccueil.html.twig'  %}
 
 
 
 
 <h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Pharmacien  </h1>
-<a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Produit Parapharmaceutique<i class=\"fas fa-chevron-right\"></i></a>
+<a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Medicament<i class=\"fas fa-chevron-right\"></i></a>
 
-{% include 'tempFront2SoinMP.html.twig' %}", "user/accueilOnlinePharmacien.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlinePharmacien.html.twig");
+{% include 'templateAccueilFooter.html.twig' %}", "user/accueilOnlinePharmacien.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlinePharmacien.html.twig");
     }
 }
