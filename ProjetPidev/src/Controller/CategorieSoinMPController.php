@@ -8,6 +8,7 @@ use App\Form\CategorieSoinMPRechercheType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -28,8 +29,13 @@ class CategorieSoinMPController extends AbstractController
      * @return Response
      * @Route("/afficherCategorieSoinMP", name="afficherCategorieSoinMP")
      */
-    public function listCategoriesSoinMP(Request $request): Response
+    public function listCategoriesSoinMP(SessionInterface $session,Request $request): Response
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
         $form=$this->createForm(CategorieSoinMPRechercheType::class);
         $form->handleRequest($request);
@@ -48,8 +54,13 @@ class CategorieSoinMPController extends AbstractController
      * @return Response
      * @Route("/afficherCategorieSoinMPs/{iduser}", name="afficherCategorieSoinMPs")
      */
-    public function listCategoriesSoinMPs(Request $request, $iduser): Response
+    public function listCategoriesSoinMPs(SessionInterface $session, Request $request, $iduser): Response
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
         $form=$this->createForm(CategorieSoinMPRechercheType::class);
         $form->handleRequest($request);
@@ -67,8 +78,13 @@ class CategorieSoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/ajouterCategorieSoinMP" , name="ajouterCategorieSoinMP")
      */
-    public function ajouterCategorieSoinMP(Request $request)
+    public function ajouterCategorieSoinMP(SessionInterface $session, Request $request)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $CategorieSoinMP= new CategorieSoinMP();
         $form= $this->createForm(CategorieSoinMPType::class,$CategorieSoinMP);
         $form->add('ajouter',SubmitType::class);
@@ -101,8 +117,13 @@ class CategorieSoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/supprimerCategorieSoinMP/{id}" , name="supprimerCategorieSoinMP")
      */
-    public function SupprimerCategorieSoinMP($id)
+    public function SupprimerCategorieSoinMP(SessionInterface $session, $id)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $CategorieSoinMPfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($CategorieSoinMPfind);
@@ -116,8 +137,13 @@ class CategorieSoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/modifierCategorieSoinMP/{id}" , name="modifierCategorieSoinMP")
      */
-    public function modifierCategorieSoinMP($id, Request $request)
+    public function modifierCategorieSoinMP(SessionInterface $session, $id, Request $request)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $CategorieSoinMPfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(CategorieSoinMPType::class, $CategorieSoinMPfind);
         $form->add('modifier', SubmitType::class);

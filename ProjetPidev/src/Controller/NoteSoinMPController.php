@@ -7,6 +7,7 @@ use App\Entity\SoinMP;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -27,8 +28,14 @@ class NoteSoinMPController extends AbstractController
      * @return mixed
      * @Route("/ajouternoteSMP/{id}/{iduser}/{valeur}",name="ajouternoteSMP", methods="GET")
      */
-    public function ajouterNote(Request $request,$iduser,$id,$valeur)
-    {   $avis=$request->get('avis');
+    public function ajouterNote(SessionInterface $session, Request $request,$iduser,$id,$valeur)
+    {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $avis=$request->get('avis');
         $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
         $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
         $x = $this->getDoctrine()->getRepository(NoteSoinMP::class)->findOneBy(array('soinMP'=>$SoinMPsfind,'user'=>$iduser));
