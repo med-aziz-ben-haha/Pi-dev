@@ -6,6 +6,9 @@ use App\Repository\TypeReclamationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Length;
 
 
 /**
@@ -22,6 +25,7 @@ class TypeReclamation
 
     /**
      * @ORM\Column(type="string", length=255)
+      * @Assert\NotBlank(message="Le champs type reclamation est obligatoire * ")
      */
     private $typeReclamation;
 

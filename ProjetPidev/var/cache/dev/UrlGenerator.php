@@ -29,6 +29,7 @@ return [
     'supprimerreclamations' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::Supprimerreclamations'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/supprimerreclamations']], [], []],
     'modifierreclamations' => [['id'], ['_controller' => 'App\\Controller\\ReclamationController::modifierreclamation'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/modifierreclamations']], [], []],
     'ajouterreclamation' => [[], ['_controller' => 'App\\Controller\\ReclamationController::ajouterreclamation'], [], [['text', '/ajouterreclamation']], [], []],
+    'reclamationencours' => [[], ['_controller' => 'App\\Controller\\ReclamationController::reclamationencours'], [], [['text', '/reclamationencours']], [], []],
     'soin_m_p' => [[], ['_controller' => 'App\\Controller\\SoinMPController::index'], [], [['text', '/soin/m/p']], [], []],
     'afficherSoinMP' => [[], ['_controller' => 'App\\Controller\\SoinMPController::listSoinMP'], [], [['text', '/afficherSoinMP']], [], []],
     'afficherSoinMPs' => [['id'], ['_controller' => 'App\\Controller\\SoinMPController::listSoinMPs'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/afficherSoinMPs']], [], []],

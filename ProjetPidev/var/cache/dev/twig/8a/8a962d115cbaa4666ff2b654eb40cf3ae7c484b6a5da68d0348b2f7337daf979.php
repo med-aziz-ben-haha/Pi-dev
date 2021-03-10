@@ -88,30 +88,38 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
             </thead>
             <tbody>
 
-            ";
+            <form method=\"post\" action=\"";
         // line 45
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("recherchetype");
+        echo "\">
+                <label>Rechercher</label>
+                <input type=\"text\" name=\"search\"><input type=\"submit\" value=\"Recherche\">
+            </form>
+
+            ";
+        // line 50
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listtypereclamation"]) || array_key_exists("listtypereclamation", $context) ? $context["listtypereclamation"] : (function () { throw new RuntimeError('Variable "listtypereclamation" does not exist.', 45, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["listtypereclamation"]) || array_key_exists("listtypereclamation", $context) ? $context["listtypereclamation"] : (function () { throw new RuntimeError('Variable "listtypereclamation" does not exist.', 50, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["C"]) {
-            // line 46
+            // line 51
             echo "                <tr>
 
                     <td>";
-            // line 48
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 48), "html", null, true);
+            // line 53
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 53), "html", null, true);
             echo "</td>
                     <td>";
-            // line 49
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["C"], "typeReclamation", [], "any", false, false, false, 49), "html", null, true);
+            // line 54
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["C"], "typeReclamation", [], "any", false, false, false, 54), "html", null, true);
             echo "</td>
 
                     <td><form action=\" ";
-            // line 51
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimertypereclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 51)]), "html", null, true);
+            // line 56
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimertypereclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 56)]), "html", null, true);
             echo " \"><button>Supprimer</button></form></td>
                     <td><form action=\" ";
-            // line 52
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifiertypereclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 52)]), "html", null, true);
+            // line 57
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifiertypereclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 57)]), "html", null, true);
             echo " \"><button>modifier</button></form></td>
                 </tr>
             ";
@@ -119,7 +127,7 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['C'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 55
+        // line 60
         echo "
 
 
@@ -130,8 +138,8 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
     <!-- /.box-body -->
 </div>
 ";
-        // line 64
-        $this->loadTemplate("temp2.html.twig", "typereclamation/listtypereclamation.html.twig", 64)->display($context);
+        // line 69
+        $this->loadTemplate("temp2.html.twig", "typereclamation/listtypereclamation.html.twig", 69)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -152,7 +160,7 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
 
     public function getDebugInfo()
     {
-        return array (  134 => 64,  123 => 55,  114 => 52,  110 => 51,  105 => 49,  101 => 48,  97 => 46,  93 => 45,  72 => 27,  45 => 2,  43 => 1,);
+        return array (  142 => 69,  131 => 60,  122 => 57,  118 => 56,  113 => 54,  109 => 53,  105 => 51,  101 => 50,  93 => 45,  72 => 27,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -200,6 +208,11 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
             </tr>
             </thead>
             <tbody>
+
+            <form method=\"post\" action=\"{{ path ('recherchetype') }}\">
+                <label>Rechercher</label>
+                <input type=\"text\" name=\"search\"><input type=\"submit\" value=\"Recherche\">
+            </form>
 
             {% for C in listtypereclamation %}
                 <tr>

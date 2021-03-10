@@ -166,7 +166,7 @@ class __TwigTemplate_89660d3ec36c5e2ef0d1e5eb454ee1e1fcc1bc7a31fd8ea75fae6048076
         // line 93
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"user-image\" alt=\"User Image\">
-                            <span class=\"hidden-xs\">Emna Besbes</span>
+                            <span class=\"hidden-xs\">ouellani eya</span>
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
@@ -211,7 +211,7 @@ class __TwigTemplate_89660d3ec36c5e2ef0d1e5eb454ee1e1fcc1bc7a31fd8ea75fae6048076
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
                 <div class=\"pull-left info\">
-                    <p>Emna Besbes</p>
+                    <p>ouellani eya</p>
                     <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>
                 </div>
             </div>
@@ -377,7 +377,7 @@ class __TwigTemplate_89660d3ec36c5e2ef0d1e5eb454ee1e1fcc1bc7a31fd8ea75fae6048076
                     <li class=\"dropdown user user-menu\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                             <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"user-image\" alt=\"User Image\">
-                            <span class=\"hidden-xs\">Emna Besbes</span>
+                            <span class=\"hidden-xs\">ouellani eya</span>
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
@@ -416,7 +416,7 @@ class __TwigTemplate_89660d3ec36c5e2ef0d1e5eb454ee1e1fcc1bc7a31fd8ea75fae6048076
                     <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"img-circle\" alt=\"User Image\">
                 </div>
                 <div class=\"pull-left info\">
-                    <p>Emna Besbes</p>
+                    <p>ouellani eya</p>
                     <a href=\"#\"><i class=\"fa fa-circle text-success\"></i> Online</a>
                 </div>
             </div>

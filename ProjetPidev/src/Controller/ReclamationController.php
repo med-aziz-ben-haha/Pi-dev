@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Entity\Reclamation;
 use App\Entity\User;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
@@ -108,8 +109,20 @@ class ReclamationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
-            return $this->redirectToRoute('afficherreclamations'); }
+            return $this->redirectToRoute('reclamationencours'); }
 
         return $this->render('reclamation/ajouterreclamation.html.twig', ['f' => $form->createView()]);
     }
+/**
+     * @return Response
+     * @Route("/reclamationencours", name="reclamationencours")
+     */
+    public function reclamationencours(): Response
+    {
+        $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
+        return $this->render('reclamation/reclamationencours.html.twig', ['reclamationencours' => $reclamationfind,]);
+    }
+
+
+
 }

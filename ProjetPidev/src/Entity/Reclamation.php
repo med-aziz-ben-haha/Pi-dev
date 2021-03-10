@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\ReclamationRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Length;
 
 /**
  * @ORM\Entity(repositoryClass=ReclamationRepository::class)
@@ -19,6 +22,7 @@ class Reclamation
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  * @Assert\NotBlank(message="Le champs reclamation est obligatoire * ")
      */
     private $descriptionReclamation;
 

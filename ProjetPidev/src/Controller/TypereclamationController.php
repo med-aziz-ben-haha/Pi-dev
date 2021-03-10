@@ -49,18 +49,6 @@ class TypereclamationController extends AbstractController
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response

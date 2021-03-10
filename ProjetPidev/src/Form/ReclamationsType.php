@@ -20,7 +20,7 @@ class ReclamationsType extends AbstractType
                 ['class'=>User::class,'choice_label'=>'id'])
 
             ->add('typeReclamation',EntityType::class,
-                ['class'=>TypeReclamation::class,'choice_label'=>'id'])
+                ['class'=>TypeReclamation::class,'choice_label'=>'typeReclamation'])
             ->add('descriptionReclamation')
 
         ;

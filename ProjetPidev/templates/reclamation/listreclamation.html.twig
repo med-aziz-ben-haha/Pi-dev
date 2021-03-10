@@ -25,11 +25,11 @@
     <div class="box-header">
         <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des reclamations </h1>
 
-
+        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        <table id="example1" class="table table-bordered table-striped" >
+        <table id="tableac" class="table table-bordered table-striped" >
             <thead>
             <tr>
 
@@ -42,6 +42,7 @@
             </tr>
             </thead>
             <tbody>
+            <input type="text" id="search" class="form-control" placeholder="Search">
 
             {% for S in listreclamation %}
                 <tr>
@@ -52,10 +53,37 @@
                     <td>{{ S.typeReclamation.id }}</td>
                     <td>                       </td>
                     <td><form action=" {{path('supprimerreclamation',{id:S.id})}} "><button>Supprimer</button></form></td>
+
                 </tr>
+                <script>
+                    $(document).ready(function(){
+                        $('#search').keyup(function(){
+                            search_table($(this).val());
+                        });
+                        function search_table(value){
+                            $('#tableac tbody tr').each(function(){
+                                var found = 'false';
+                                $(this).each(function(){
+                                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                    {
+                                        found = 'true';
+                                    }
+                                });
+                                if(found == 'true')
+                                {
+                                    $(this).show();
+
+                                }
+                                else
+                                {
+                                    $(this).hide();
+
+                                }
+                            });
+                        }
+                    });
+                </script>
             {% endfor %}
-
-
 
             </tbody>
 

@@ -52,7 +52,7 @@ class __TwigTemplate_c1ba43476144acc5d455bc6b37ca4ebaab921ea30903682374c01515b68
     <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Ajouter un type de reclamation  </h1>
 
 
-    <span class=\"form-error-message\">Le champs titre est obligatoire * </span>
+
     ";
         // line 10
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 10, $this->source); })()), "typeReclamation", [], "any", false, false, false, 10), 'label', ["label" => "typereclamation"]);
@@ -105,7 +105,7 @@ class __TwigTemplate_c1ba43476144acc5d455bc6b37ca4ebaab921ea30903682374c01515b68
     <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Ajouter un type de reclamation  </h1>
 
 
-    <span class=\"form-error-message\">Le champs titre est obligatoire * </span>
+
     {{ form_label(f.typeReclamation,\"typereclamation\") }}
     {{ form_widget(f.typeReclamation)}}
 

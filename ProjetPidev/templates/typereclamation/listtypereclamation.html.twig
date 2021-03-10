@@ -42,6 +42,11 @@
             </thead>
             <tbody>
 
+            <form method="post" action="{{ path ('recherchetype') }}">
+                <label>Rechercher</label>
+                <input type="text" name="search"><input type="submit" value="Recherche">
+            </form>
+
             {% for C in listtypereclamation %}
                 <tr>
 
