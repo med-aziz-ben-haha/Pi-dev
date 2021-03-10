@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\SoinMPRechercheType;
 use App\Form\SoinMPTriFormType;
+use App\Form\SoinMPTriDESCType;
 use App\Form\SoinMPType;
 use App\Entity\SoinMP;
 use App\Form\CaptchaType;
@@ -42,8 +43,14 @@ class SoinMPController extends AbstractController
         }
         $SoinMP = $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
         $SoinMPtri = $this->getDoctrine()->getRepository(SoinMP::class)->findAlltri();
+        $SoinMPtriDesc = $this->getDoctrine()->getRepository(SoinMP::class)->findAlltriDESC();
+
         $formtri=$this->createForm(SoinMPTriFormType::class);
         $formtri->handleRequest($request);
+
+        $formtriDesc=$this->createForm(SoinMPTriDESCType::class);
+        $formtriDesc->handleRequest($request);
+
         $form=$this->createForm(SoinMPRechercheType::class);
         $form->handleRequest($request);
 
@@ -53,16 +60,21 @@ class SoinMPController extends AbstractController
             $titre=$data['recherche'];
             $searchSoinMPfind=$this->getDoctrine()->getRepository(SoinMP::class)->search($titre);
             return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $searchSoinMPfind,'formSearch'=>$form->createView(),
-                'formtri' => $formtri->createView(),]);
+                'formtri' => $formtri->createView(),'formtriDESC' => $formtriDesc->createView(),]);
 
         }
         else if ($formtri->isSubmitted()) {
 
             return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMPtri,'formSearch'=>$form->createView(),
-                'formtri' => $formtri->createView(),]);
+                'formtri' => $formtri->createView(),'formtriDESC' => $formtriDesc->createView(),]);
+        }
+        else if ($formtriDesc->isSubmitted()) {
+
+            return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMPtriDesc,'formSearch'=>$form->createView(),
+                'formtriDESC' => $formtriDesc->createView(),'formtri' => $formtri->createView(),]);
         }
         return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMP,'formSearch'=>$form->createView(),
-            'formtri' => $formtri->createView(),]);
+            'formtri' => $formtri->createView(), 'formtriDESC' => $formtriDesc->createView(),]);
     }
 
 
@@ -147,19 +159,22 @@ class SoinMPController extends AbstractController
             return $this->redirectToRoute('connexion');
         }
         $note=0;
+        $Moyenne=0;
+        $aviss="";
         $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
         $Notes=$this->getDoctrine()->getRepository(NoteSoinMP::class)->findBy(array('soinMP'=>$id));
         $x = $this->getDoctrine()->getRepository(NoteSoinMP::class)->findOneBy(array('soinMP'=>$SoinMPsfind,'user'=>$iduser));
+        if (!(empty($Notes))){
         $total=0;
-        $Moyenne=0;
         for ($i =0; $i <= (count($Notes)-1); $i++)
         {
             $total=$total+($Notes[$i]->getValeur());
         }
-        $Moyenne=$total/(count($Notes));
-        $note=$x->getValeur();
-        $aviss=$x->getAvis();
-
+        $Moyenne=$total/(count($Notes));}
+        if(!(empty($x))) {
+            $note = $x->getValeur();
+            $aviss = $x->getAvis();
+        }
         return $this->render('soin_mp/DetailSoinMPSnote.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
 
     }

@@ -39,12 +39,13 @@ class NoteSoinMPController extends AbstractController
         $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
         $user=$this->getDoctrine()->getRepository(User::class)->find($iduser);
         $x = $this->getDoctrine()->getRepository(NoteSoinMP::class)->findOneBy(array('soinMP'=>$SoinMPsfind,'user'=>$iduser));
+
         if (empty($x))
-        {
-            $Note = new Note();
+        {$Note = new NoteSoinMP();
+
             $Note->setValeur($valeur);
             $Note->setUser($user);
-            $Note->setAide($SoinMPsfind);
+            $Note->setSoinMP($SoinMPsfind);
             $Note->setAvis($avis);
             $em = $this->getDoctrine()->getManager();
             $em->persist($Note);

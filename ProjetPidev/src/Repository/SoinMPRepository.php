@@ -71,4 +71,9 @@ class SoinMPRepository extends ServiceEntityRepository
         return $this->findBy(array(), array('titreSoinMP' => 'ASC'));
     }
 
+    public function findAlltriDESC()
+    {
+        return $this->findBy(array(), array('titreSoinMP' => 'DESC'));
+    }
+
 }

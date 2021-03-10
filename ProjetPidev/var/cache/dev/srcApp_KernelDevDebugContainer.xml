@@ -384,6 +384,9 @@
     <service id="App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\SoinMPTriDESCType" class="App\Form\SoinMPTriDESCType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\SoinMPTriFormType" class="App\Form\SoinMPTriFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -887,6 +890,7 @@
         <argument>App\Form\CategorieSoinMPType</argument>
         <argument>App\Form\ConnexionType</argument>
         <argument>App\Form\SoinMPRechercheType</argument>
+        <argument>App\Form\SoinMPTriDESCType</argument>
         <argument>App\Form\SoinMPTriFormType</argument>
         <argument>App\Form\SoinMPType</argument>
         <argument>App\Form\UserMedType</argument>
@@ -1226,7 +1230,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.PwFHj3P"/>
+      <argument type="service" id=".service_locator.7kCml.c"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -4956,6 +4960,8 @@
     <service id=".abstract.instanceof.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPTriDESCType" class="App\Form\SoinMPTriDESCType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SoinMPTriDESCType" class="App\Form\SoinMPTriDESCType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPTriFormType" class="App\Form\SoinMPTriFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SoinMPTriFormType" class="App\Form\SoinMPTriFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPType" class="App\Form\SoinMPType" autowire="true" abstract="true"/>
@@ -5417,7 +5423,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.PwFHj3P" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.7kCml.c" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
@@ -5425,6 +5431,7 @@
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
         <argument key="App\Form\ConnexionType" type="service" id="App\Form\ConnexionType"/>
         <argument key="App\Form\SoinMPRechercheType" type="service" id="App\Form\SoinMPRechercheType"/>
+        <argument key="App\Form\SoinMPTriDESCType" type="service" id="App\Form\SoinMPTriDESCType"/>
         <argument key="App\Form\SoinMPTriFormType" type="service" id="App\Form\SoinMPTriFormType"/>
         <argument key="App\Form\SoinMPType" type="service" id="App\Form\SoinMPType"/>
         <argument key="App\Form\UserMedType" type="service" id="App\Form\UserMedType"/>
