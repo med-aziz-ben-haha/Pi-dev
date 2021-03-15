@@ -570,5 +570,38 @@ class UserController extends AbstractController
 
     }
 
+    /**
+     * @return Response
+     * @Route ("/afficherStatUser", name="afficherStatUser")
+     */
+
+    public function afficherStatUser()
+    {   $Users=$this->getDoctrine()->getRepository(User::class)->findAll();
+        $useradmin = $this->getDoctrine()->getRepository(User::class)->findByRole(0);
+
+        $user = $this->getDoctrine()->getRepository(User::class)->findByRole(1);
+        $userMed = $this->getDoctrine()->getRepository(User::class)->findByRole(2);
+        $userPhar = $this->getDoctrine()->getRepository(User::class)->findByRole(3);
+        $userPara = $this->getDoctrine()->getRepository(User::class)->findByRole(4);
+        $users= [] ;
+        $users [0] = (count($user));
+        $users [1] = (count($userMed));
+        $users [2] =(count($userPhar));
+        $users [3] =(count($userPara));
+        $userPourcentage=round(((count($user))*100)/((count($Users))-count($useradmin)),2);
+        $userMedPourcentage=round(((count($userMed))*100)/((count($Users))-count($useradmin)),2);
+        $userParaPourcentage=round(((count($userPara))*100)/((count($Users))-count($useradmin)),2);
+        $userPharPourcentage=round(((count($userPhar))*100)/((count($Users))-count($useradmin)),2);
+        $userLabel[0] ="User $userPourcentage %";
+        $userLabel[1] ="Médecin $userMedPourcentage %";
+        $userLabel[2] ="Pharmacien $userPharPourcentage % ";
+        $userLabel[3] ="Parapharmacien $userParaPourcentage % ";
+        return $this->render('user/statsUser.html.twig', [
+
+            'userss' => $users ,
+            'usersss'=> $userLabel ,
+        ]);
+    }
+
 
 }

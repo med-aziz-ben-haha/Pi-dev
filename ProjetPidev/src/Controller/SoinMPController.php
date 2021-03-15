@@ -287,4 +287,39 @@ class SoinMPController extends AbstractController
             $newFilename
         ));
     }
+
+    /**
+     * @return Response
+     * @Route ("/afficherStatSoinMP", name="afficherStatSoinMP")
+     */
+
+    public function afficherStatSoinMP()
+    {
+
+        $SoinMP= $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
+        $SoinMPs = [];
+        $Moyennes = [];
+        for ($j =0; $j <= (count($SoinMP)-1); $j++)
+        {
+            $Notes=$this->getDoctrine()->getRepository(NoteSoinMP::class)->findBy(array('soinMP'=>$SoinMP[$j]));
+            $SoinMPs [] = $SoinMP[$j]->getTitreSoinMP();
+            $total=0;
+            $Moyenne=0;
+            if (!(empty($Notes)))
+            {
+                for ($i =0; $i <= (count($Notes)-1); $i++)
+                {
+                    $total=$total+($Notes[$i]->getValeur());
+                }
+                $Moyenne=$total/(count($Notes));
+            }
+            $Moyennes[] = $Moyenne;
+
+        }
+        return $this->render('soin_mp/statsSoinMP.html.twig', [
+            'soinMPs' => $SoinMPs,
+            'moyennes' => $Moyennes
+        ]);
+    }
+
 }

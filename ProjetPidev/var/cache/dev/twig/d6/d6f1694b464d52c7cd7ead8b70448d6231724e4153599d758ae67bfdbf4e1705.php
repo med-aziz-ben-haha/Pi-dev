@@ -328,6 +328,7 @@ class __TwigTemplate_09e9f9e6788252a14a38bb559b4fb9908540c686384d4e903b0365d85ff
         // line 234
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/js/demo.js"), "html", null, true);
         echo "\"></script>
+
 </body>
 </html>
 ";
@@ -590,6 +591,7 @@ class __TwigTemplate_09e9f9e6788252a14a38bb559b4fb9908540c686384d4e903b0365d85ff
 <script src=\"{{ asset('bundles/dist/js/pages/dashboard.js')}}\"></script>
 <!-- AdminLTE for demo purposes -->
 <script src=\"{{ asset('bundles/dist/js/demo.js')}}\"></script>
+
 </body>
 </html>
 ", "temp2.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\temp2.html.twig");

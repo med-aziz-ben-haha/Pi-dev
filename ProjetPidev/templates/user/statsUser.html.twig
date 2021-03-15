@@ -1,0 +1,40 @@
+{{ usersss|json_encode|raw }}
+{% include 'temp1.html.twig' %}
+
+<div class="content">
+    <div>
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;">Statistiques des Soins Médecine Parallèle </h1>
+    </div>
+    <div class="table-responsive">
+        <div class="form-group">
+            <hr class="invis">
+            <div class="container">
+                <canvas id="soinMP" width="400" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    let aide = document.querySelector("#soinMP")
+    let annGraph = new Chart(aide, {
+        scaleFontColor: "black",
+        type: "doughnut",
+        data: {
+            labels: {{ usersss|json_encode|raw }},
+            datasets: [{
+                label: "note",
+                data: {{ userss|json_encode|raw }},
+                backgroundColor: ['#d11414', '#3366CC', '#FF9900', '#109618'],
+            }]
+        },
+        options: {
+            width: 80,
+            text: {
+                display: true,
+                color: '#f6f6f6',
+            },
+    }})
+</script>
+
+{% include 'temp2.html.twig' %}

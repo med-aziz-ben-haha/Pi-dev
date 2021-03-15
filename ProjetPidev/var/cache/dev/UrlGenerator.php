@@ -34,6 +34,7 @@ return [
     'supprimerSoinMP' => [['id'], ['_controller' => 'App\\Controller\\SoinMPController::SupprimerSoinMP'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/supprimerSoinMP']], [], []],
     'modifierSoinMP' => [['id'], ['_controller' => 'App\\Controller\\SoinMPController::modifierSoinMP'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/modifierSoinMP']], [], []],
     'upload_test' => [[], ['_controller' => 'App\\Controller\\SoinMPController::temporaryUploadAction'], [], [['text', '/admin/upload/test']], [], []],
+    'afficherStatSoinMP' => [[], ['_controller' => 'App\\Controller\\SoinMPController::afficherStatSoinMP'], [], [['text', '/afficherStatSoinMP']], [], []],
     'accueil' => [[], ['_controller' => 'App\\Controller\\UserController::index'], [], [['text', '/accueil']], [], []],
     'Patients' => [[], ['_controller' => 'App\\Controller\\UserController::ListPatients'], [], [['text', '/Patients']], [], []],
     'supprimerPatient' => [['id'], ['_controller' => 'App\\Controller\\UserController::SupprimerPatients'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/supprimerPatient']], [], []],
@@ -57,4 +58,5 @@ return [
     'modifierMed' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::modifierMed'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/modifierMed']], [], []],
     'modifierPhar' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::modifierPhar'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/modifierPhar']], [], []],
     'afficherUser' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::afficherUser'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/afficherUser']], [], []],
+    'afficherStatUser' => [[], ['_controller' => 'App\\Controller\\UserController::afficherStatUser'], [], [['text', '/afficherStatUser']], [], []],
 ];

@@ -107,6 +107,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <!--[if lt IE 9]>
     <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
+
     <![endif]-->
     <style> .btn-primary {
             background-color: #d11414 !important;
@@ -130,6 +131,11 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">
 </head>
 <body class=\"hold-transition skin-blue sidebar-mini\">
+<script src=\"";
+        // line 62
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"), "html", null, true);
+        echo "\" integrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
+
 <div class=\"wrapper\">
 
     <header class=\"main-header\" >
@@ -163,7 +169,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     <li class=\"dropdown user user-menu\">
                         <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">
                             <img src=\"";
-        // line 93
+        // line 96
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"user-image\" alt=\"User Image\">
                             <span class=\"hidden-xs\">Emna Besbes</span>
@@ -172,7 +178,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                             <!-- User image -->
                             <li class=\"user-header\" style=\"background-color: grey;\">
                                 <img src=\"";
-        // line 99
+        // line 102
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
 
@@ -188,7 +194,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                                 </div>
                                 <div class=\"pull-right\">
                                     <a href=\"";
-        // line 112
+        // line 115
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/deconnexion"), "html", null, true);
         echo "\" class=\"btn btn-primary\">Se déconnecter</a>
                                 </div>
@@ -209,7 +215,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 130
+        // line 133
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -229,6 +235,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
                         <li><a href=\"/Parapharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmaciens</a></li>
                         <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
+                        <li><a href=\"/afficherStatUser\"><i class=\"fa fa-circle-o\"></i> Statistiques des Utilisateurs</a></li>
                     </ul>
                 </li>
 
@@ -239,6 +246,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     <ul class=\"treeview-menu\">
                         <li><a href=\"/afficherCategorieSoinMP\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories soins MP</a></li>
                         <li><a href=\"/afficherSoinMP\"><i class=\"fa fa-circle-o\"></i> Gestion des soins MP</a></li>
+                        <li><a href=\"/afficherStatSoinMP\"><i class=\"fa fa-circle-o\"></i> Statistiques des Soins MP</a></li>
                     </ul>
                 </li>
 
@@ -275,7 +283,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
     public function getDebugInfo()
     {
-        return array (  213 => 130,  192 => 112,  176 => 99,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  219 => 133,  198 => 115,  182 => 102,  173 => 96,  136 => 62,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -317,6 +325,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <!--[if lt IE 9]>
     <script src=\"https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js\"></script>
     <script src=\"https://oss.maxcdn.com/respond/1.4.2/respond.min.js\"></script>
+
     <![endif]-->
     <style> .btn-primary {
             background-color: #d11414 !important;
@@ -340,6 +349,8 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic\">
 </head>
 <body class=\"hold-transition skin-blue sidebar-mini\">
+<script src=\"{{ asset('https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js') }}\" integrity=\"sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==\" crossorigin=\"anonymous\"></script>
+
 <div class=\"wrapper\">
 
     <header class=\"main-header\" >
@@ -427,6 +438,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
                         <li><a href=\"/Parapharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmaciens</a></li>
                         <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
+                        <li><a href=\"/afficherStatUser\"><i class=\"fa fa-circle-o\"></i> Statistiques des Utilisateurs</a></li>
                     </ul>
                 </li>
 
@@ -437,6 +449,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                     <ul class=\"treeview-menu\">
                         <li><a href=\"/afficherCategorieSoinMP\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories soins MP</a></li>
                         <li><a href=\"/afficherSoinMP\"><i class=\"fa fa-circle-o\"></i> Gestion des soins MP</a></li>
+                        <li><a href=\"/afficherStatSoinMP\"><i class=\"fa fa-circle-o\"></i> Statistiques des Soins MP</a></li>
                     </ul>
                 </li>
 
@@ -452,6 +465,6 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
 
-", "temp1.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\temp1.html.twig");
+", "temp1.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\temp1.html.twig");
     }
 }
