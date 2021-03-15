@@ -50,8 +50,9 @@ class SoinMPRepository extends ServiceEntityRepository
     public function search($titre){
 
         return $this->createQueryBuilder('s')
-            ->where('s.titreSoinMP LIKE :titre Or s.descriptionSoinMP LIKE :description Or s.adresseSoinMP LIKE :adresse  ')
-            ->setParameters(array('titre'=>'%'.$titre.'%','description'=>'%'.$titre.'%','adresse'=>'%'.$titre.'%'))
+            ->join('s.CategorieSoinMP', 'c')
+            ->where('s.titreSoinMP LIKE :titre Or s.descriptionSoinMP LIKE :description Or s.adresseSoinMP LIKE :adresse Or c.libelleCategorieSoinMP LIKE :libelleCategorieSoinMP ')
+            ->setParameters(array('titre'=>'%'.$titre.'%','description'=>'%'.$titre.'%','adresse'=>'%'.$titre.'%','libelleCategorieSoinMP'=>'%'.$titre.'%'))
             ->getQuery()
             ->execute();
     }
