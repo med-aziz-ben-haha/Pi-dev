@@ -58,8 +58,8 @@ class __TwigTemplate_b361e908d48410c99a97cd8a05bbc369cdd5341fa382bfee10e2fee17cb
 </div>
 <script>
 
-    let aide = document.querySelector(\"#soinMP\")
-    let annGraph = new Chart(aide, {
+    let soinmp = document.querySelector(\"#soinMP\")
+    let annGraph = new Chart(soinmp, {
         scaleFontColor: \"black\",
         type: \"line\",
         data: {
@@ -149,8 +149,8 @@ class __TwigTemplate_b361e908d48410c99a97cd8a05bbc369cdd5341fa382bfee10e2fee17cb
 </div>
 <script>
 
-    let aide = document.querySelector(\"#soinMP\")
-    let annGraph = new Chart(aide, {
+    let soinmp = document.querySelector(\"#soinMP\")
+    let annGraph = new Chart(soinmp, {
         scaleFontColor: \"black\",
         type: \"line\",
         data: {

@@ -14,6 +14,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 class UserController extends AbstractController
 {
@@ -282,7 +284,7 @@ class UserController extends AbstractController
      * @param Request $request
      * @Route("/inscription", name="inscription")
      */
-    public function inscription(Request $request): Response
+    public function inscription(MailerInterface $mailer,Request $request): Response
     {
 
         $user = new User();
@@ -307,6 +309,13 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+            $email = (new Email())
+                ->from('sahtitnpidev@gmail.com')
+                ->to("{$user->getEmail()}")
+                ->subject('SahtiTN!')
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+            $mailer->send($email);
         return $this->redirectToRoute('connexion');
     }
         return $this->render('user/inscription.html.twig', ['formInscription' => $form->createView()]);
@@ -316,7 +325,7 @@ class UserController extends AbstractController
      * @param Request $request
      * @Route("/inscriptionMed", name="inscriptionMed")
      */
-    public function inscriptionMed(Request $request): Response
+    public function inscriptionMed(MailerInterface $mailer, Request $request): Response
     {
         $user = new User();
         $form = $this->createForm(UserMedType::class, $user);
@@ -340,6 +349,13 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+            $email = (new Email())
+                ->from('sahtitnpidev@gmail.com')
+                ->to("{$user->getEmail()}")
+                ->subject('SahtiTN!')
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+            $mailer->send($email);
             return $this->redirectToRoute('connexion');
         }
         return $this->render('user/inscriptionMed.html.twig', ['formInscription' => $form->createView()]);
@@ -349,11 +365,8 @@ class UserController extends AbstractController
      * @param Request $request
      * @Route("/inscriptionPharmacien", name="inscriptionPharmacien")
      */
-    public function inscriptionPharmacien(Request $request): Response
+    public function inscriptionPharmacien(MailerInterface $mailer, Request $request): Response
     {
-       /* return $this->render('user/accueilOnlineMed.html.twig', [
-            'controller_name' => 'UserController',
-        ]);*/
         $user = new User();
         $form = $this->createForm(UserParaType::class, $user);
         $form->add('Inscription', SubmitType::class);
@@ -376,6 +389,13 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+            $email = (new Email())
+                ->from('sahtitnpidev@gmail.com')
+                ->to("{$user->getEmail()}")
+                ->subject('SahtiTN!')
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+            $mailer->send($email);
             return $this->redirectToRoute('connexion');
         }
         return $this->render('user/inscriptionPharmacien.html.twig', ['formInscription' => $form->createView()]);
@@ -385,11 +405,8 @@ class UserController extends AbstractController
      * @param Request $request
      * @Route("/inscriptionParapharmacien", name="inscriptionParapharmacien")
      */
-    public function inscriptionPara(Request $request): Response
+    public function inscriptionPara(MailerInterface $mailer, Request $request): Response
     {
-        /* return $this->render('user/accueilOnlineMed.html.twig', [
-             'controller_name' => 'UserController',
-         ]);*/
         $user = new User();
         $form = $this->createForm(UserParaType::class, $user);
         $form->add('Inscription', SubmitType::class);
@@ -412,6 +429,13 @@ class UserController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+            $email = (new Email())
+                ->from('sahtitnpidev@gmail.com')
+                ->to("{$user->getEmail()}")
+                ->subject('SahtiTN!')
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+            $mailer->send($email);
             return $this->redirectToRoute('connexion');
         }
         return $this->render('user/inscriptionParapharmacien.html.twig', ['formInscription' => $form->createView()]);

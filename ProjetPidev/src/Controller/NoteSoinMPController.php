@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 
 class NoteSoinMPController extends AbstractController
@@ -28,7 +30,7 @@ class NoteSoinMPController extends AbstractController
      * @return mixed
      * @Route("/ajouternoteSMP/{id}/{iduser}/{valeur}",name="ajouternoteSMP", methods="GET")
      */
-    public function ajouterNote(SessionInterface $session, Request $request,$iduser,$id,$valeur)
+    public function ajouterNote(SessionInterface $session, Request $request,$iduser,$id,$valeur,MailerInterface $mailer)
     {
         $user=$session->get('user');
         if(is_null($user))
@@ -50,6 +52,13 @@ class NoteSoinMPController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($Note);
             $em->flush();
+	        $email = (new Email())
+                ->from('sahtitnpidev@gmail.com')
+                ->to("{$user->getMail()}")
+                ->subject('SahtiTN!')
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} à SahtinTN. Votre compte a été crée avec succée ! ❤️")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} à SahtinTN. Votre compte a été crée avec succée ! ❤ </h1>");
+            $mailer->send($email);
         }
         else
         {
@@ -57,6 +66,13 @@ class NoteSoinMPController extends AbstractController
                 $x->setValeur($valeur);
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
+		    $email = (new Email())
+                	->from('sahtitnpidev@gmail.com')
+                	->to("{$user->getMail()}")
+                	->subject('SahtiTN !')
+                    ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} à SahtinTN. Votre compte a été crée avec succée ! ❤️")
+                    ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} à SahtinTN. Votre compte a été crée avec succée ! ❤ </h1>");
+                $mailer->send($email);
             }
 
             if (!($avis==""))
