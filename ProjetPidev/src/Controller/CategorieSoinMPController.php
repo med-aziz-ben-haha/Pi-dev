@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Knp\Component\Pager\PaginatorInterface;
 
 class CategorieSoinMPController extends AbstractController
 {
@@ -54,20 +55,31 @@ class CategorieSoinMPController extends AbstractController
      * @return Response
      * @Route("/afficherCategorieSoinMPs/{iduser}", name="afficherCategorieSoinMPs")
      */
-    public function listCategoriesSoinMPs(SessionInterface $session, Request $request, $iduser): Response
+    public function listCategoriesSoinMPs(SessionInterface $session, Request $request, $iduser, PaginatorInterface $paginator): Response
     {
         $user=$session->get('user');
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
         }
-        $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
+        $donnees = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
+
+        $categoriesSoinMP = $paginator->paginate(
+                $donnees,
+                $request->query->getInt('page', 1),
+                3);
+
         $form=$this->createForm(CategorieSoinMPRechercheType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted())
         {   $data=$form->getData();
             $titre=$data['recherche'];
-            $categorieSoinMPfind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
+            $donnee=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
+            $categorieSoinMPfind = $paginator->paginate(
+                $donnee,
+                $request->query->getInt('page', 1),
+                3
+            );
             return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categorieSoinMPfind,'formSearch'=>$form->createView(), 'iduser'=>$iduser,]);
         }
         return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(), 'iduser'=>$iduser,]);
