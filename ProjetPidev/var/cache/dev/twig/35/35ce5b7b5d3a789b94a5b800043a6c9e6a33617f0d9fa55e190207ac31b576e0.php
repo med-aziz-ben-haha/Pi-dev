@@ -71,7 +71,7 @@ class __TwigTemplate_0c901302917eb6582bc49e265b116969cdd26ccd340a384d940b985dc4a
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">Contact</h3>
                     <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +216 00000000</a> </p>
-                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i> Sa7tiTN@RuntimeTerror.com</a> </p>
+                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i>sahtitnpidev@gmail.com</a> </p>
                 </div>
             </div>
         </div>
@@ -157,7 +157,7 @@ class __TwigTemplate_0c901302917eb6582bc49e265b116969cdd26ccd340a384d940b985dc4a
                 <div class=\"footer-col\">
                     <h3 class=\"footer-title\">Contact</h3>
                     <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +216 00000000</a> </p>
-                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i> Sa7tiTN@RuntimeTerror.com</a> </p>
+                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i>sahtitnpidev@gmail.com</a> </p>
                 </div>
             </div>
         </div>

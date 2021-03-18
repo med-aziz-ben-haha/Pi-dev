@@ -91,6 +91,7 @@ return [
                     .'|Phar/([^/]++)(*:807)'
                 .')'
                 .'|/AfficherdetailSoinMPnote/([^/]++)/([^/]++)(*:859)'
+                .'|/impression/([^/]++)/([^/]++)(*:896)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -122,8 +123,9 @@ return [
         766 => [[['_route' => 'modifierUser', '_controller' => 'App\\Controller\\UserController::modifierUser'], ['iduser'], null, null, false, true, null]],
         786 => [[['_route' => 'modifierMed', '_controller' => 'App\\Controller\\UserController::modifierMed'], ['iduser'], null, null, false, true, null]],
         807 => [[['_route' => 'modifierPhar', '_controller' => 'App\\Controller\\UserController::modifierPhar'], ['iduser'], null, null, false, true, null]],
-        859 => [
-            [['_route' => 'AfficherdetailSoinMPnote', '_controller' => 'App\\Controller\\SoinMPController::detailSoinMPsnote'], ['id', 'iduser'], null, null, false, true, null],
+        859 => [[['_route' => 'AfficherdetailSoinMPnote', '_controller' => 'App\\Controller\\SoinMPController::detailSoinMPsnote'], ['id', 'iduser'], null, null, false, true, null]],
+        896 => [
+            [['_route' => 'impression', '_controller' => 'App\\Controller\\SoinMPController::impression'], ['id', 'iduser'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

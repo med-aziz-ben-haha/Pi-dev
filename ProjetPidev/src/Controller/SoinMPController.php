@@ -18,6 +18,9 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use App\Entity\NoteSoinMP;
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 
 class SoinMPController extends AbstractController
 {
@@ -319,6 +322,38 @@ class SoinMPController extends AbstractController
         return $this->render('soin_mp/statsSoinMP.html.twig', [
             'soinMPs' => $SoinMPs,
             'moyennes' => $Moyennes
+        ]);
+    }
+
+    /**
+     * @Route ("/impression/{id}/{iduser}",name="impression")
+     */
+    public function impression($iduser,$id)
+    {$SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
+
+        $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('soin_mp/mypdf.html.twig', [
+            'title' => "Welcome to our PDF Test",'soin'=>$SoinMPfind,
+        ]);
+
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
+
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => false
         ]);
     }
 

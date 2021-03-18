@@ -42,49 +42,24 @@ class __TwigTemplate_3028f6fcdb82d710927855a55aeaa495226cb0c92d34d4d873c40292528
         // line 1
         echo "
 
-<!--style>
-    button {
-        color: #FFFFFF;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-        padding: 8px;
-        font-size:18px;
-    }
-    button:hover {
-        color: #FFFFFF;
-        opacity: 0.8;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-    }
-    button:active {
-        color: #FFFFFF;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-    }
-
-</style-->
-
 
 ";
-        // line 29
-        $this->loadTemplate("tempFront1SoinMP.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 29)->display(twig_array_merge($context, ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 29, $this->source); })())]));
-        // line 30
+        // line 4
+        $this->loadTemplate("tempFront1SoinMP.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 4)->display(twig_array_merge($context, ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 4, $this->source); })())]));
+        // line 5
         echo "
 <section class=\"feature-box-section hk-section section-bg\">
     <div class=\"container\">
         <div class=\"row\">
             <div class=\"col-lg-6\">
                 <h2 class=\"mb-3 feature-box-title\" style=\"font-size:270%; color:#ee5057;\">";
-        // line 35
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 35, $this->source); })()), "titreSoinMP", [], "any", false, false, false, 35), "html", null, true);
+        // line 10
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 10, $this->source); })()), "titreSoinMP", [], "any", false, false, false, 10), "html", null, true);
         echo "</h2>
                 <div class=\"  align-items-center h-100\" style=\"width:120% !important; margin-top:15%;\">
                     <img  style=\"width:75% !important;\" src=\"";
-        // line 37
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 37, $this->source); })()), "getlienImageSMP", [], "method", false, false, false, 37))), "html", null, true);
+        // line 12
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 12, $this->source); })()), "getlienImageSMP", [], "method", false, false, false, 12))), "html", null, true);
         echo "\" alt=\"Image\">
                 </div>
             </div>
@@ -93,46 +68,53 @@ class __TwigTemplate_3028f6fcdb82d710927855a55aeaa495226cb0c92d34d4d873c40292528
                     <!--span class=\"feature-box-pre text-uppercase\">Community Supported</span-->
                     <div style=\"margin-left:55%;\">
                         ";
-        // line 44
-        $this->loadTemplate("soin_mp/moyenne.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 44)->display(twig_array_merge($context, ["moyenne" => (isset($context["note"]) || array_key_exists("note", $context) ? $context["note"] : (function () { throw new RuntimeError('Variable "note" does not exist.', 44, $this->source); })())]));
-        // line 45
+        // line 19
+        $this->loadTemplate("soin_mp/moyenne.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 19)->display(twig_array_merge($context, ["moyenne" => (isset($context["note"]) || array_key_exists("note", $context) ? $context["note"] : (function () { throw new RuntimeError('Variable "note" does not exist.', 19, $this->source); })())]));
+        // line 20
         echo "                    </div>
                     <p>Description:</p>
                     <p>";
-        // line 47
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 47, $this->source); })()), "descriptionSoinMP", [], "any", false, false, false, 47), "html", null, true);
+        // line 22
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 22, $this->source); })()), "descriptionSoinMP", [], "any", false, false, false, 22), "html", null, true);
         echo "</p>
                     <p>Adresse:</p>
                     <p>";
-        // line 49
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 49, $this->source); })()), "adresseSoinMP", [], "any", false, false, false, 49), "html", null, true);
+        // line 24
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 24, $this->source); })()), "adresseSoinMP", [], "any", false, false, false, 24), "html", null, true);
         echo "</p>
                     ";
-        // line 50
-        $this->loadTemplate("soin_mp/stars.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 50)->display(twig_array_merge($context, ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 50, $this->source); })()), "id" => twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 50, $this->source); })()), "id", [], "any", false, false, false, 50), "aviss" => (isset($context["aviss"]) || array_key_exists("aviss", $context) ? $context["aviss"] : (function () { throw new RuntimeError('Variable "aviss" does not exist.', 50, $this->source); })())]));
-        // line 51
+        // line 25
+        $this->loadTemplate("soin_mp/stars.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 25)->display(twig_array_merge($context, ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 25, $this->source); })()), "id" => twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25), "aviss" => (isset($context["aviss"]) || array_key_exists("aviss", $context) ? $context["aviss"] : (function () { throw new RuntimeError('Variable "aviss" does not exist.', 25, $this->source); })())]));
+        // line 26
         echo "                    <div style=\"margin-left:15%; margin-top:2%;\">
                         <span class=\"b\"><p style=\"font-weight:bold; font-size:130%;\">Note Aide</p></span>
 
                         <span class=\"b\" >";
-        // line 54
-        $this->loadTemplate("soin_mp/moyenne.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 54)->display(twig_array_merge($context, ["moyenne" => (isset($context["moyenne"]) || array_key_exists("moyenne", $context) ? $context["moyenne"] : (function () { throw new RuntimeError('Variable "moyenne" does not exist.', 54, $this->source); })())]));
+        // line 29
+        $this->loadTemplate("soin_mp/moyenne.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 29)->display(twig_array_merge($context, ["moyenne" => (isset($context["moyenne"]) || array_key_exists("moyenne", $context) ? $context["moyenne"] : (function () { throw new RuntimeError('Variable "moyenne" does not exist.', 29, $this->source); })())]));
         echo "</span>
-                        ";
-        // line 55
-        echo twig_escape_filter($this->env, (isset($context["moyenne"]) || array_key_exists("moyenne", $context) ? $context["moyenne"] : (function () { throw new RuntimeError('Variable "moyenne" does not exist.', 55, $this->source); })()), "html", null, true);
-        echo "
-
                     </div>
+                    <form action=\" ";
+        // line 31
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("impression", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 31, $this->source); })()), "id", [], "any", false, false, false, 31), "iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 31, $this->source); })())]), "html", null, true);
+        echo " \"><button
+                                style=\"color: #FFFFFF;
+                                    background-color: #ee5057;
+                                    border-color: #ee5057;
+                                    border-radius: 6px;
+                                    padding: 8px;
+                                    font-size:18px;
+                                    margin-left:81.5%;\">Imprimer</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </section>
 ";
-        // line 63
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 63)->display($context);
-        // line 64
+        // line 45
+        $this->loadTemplate("tempFront2SoinMP.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 45)->display($context);
+        // line 46
         echo "
 
 
@@ -162,37 +144,12 @@ class __TwigTemplate_3028f6fcdb82d710927855a55aeaa495226cb0c92d34d4d873c40292528
 
     public function getDebugInfo()
     {
-        return array (  136 => 64,  134 => 63,  123 => 55,  119 => 54,  114 => 51,  112 => 50,  108 => 49,  103 => 47,  99 => 45,  97 => 44,  87 => 37,  82 => 35,  75 => 30,  73 => 29,  43 => 1,);
+        return array (  118 => 46,  116 => 45,  99 => 31,  94 => 29,  89 => 26,  87 => 25,  83 => 24,  78 => 22,  74 => 20,  72 => 19,  62 => 12,  57 => 10,  50 => 5,  48 => 4,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("
-
-<!--style>
-    button {
-        color: #FFFFFF;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-        padding: 8px;
-        font-size:18px;
-    }
-    button:hover {
-        color: #FFFFFF;
-        opacity: 0.8;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-    }
-    button:active {
-        color: #FFFFFF;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-    }
-
-</style-->
 
 
 {% include 'tempFront1SoinMP.html.twig' with   { 'iduser': iduser }  %}
@@ -221,9 +178,16 @@ class __TwigTemplate_3028f6fcdb82d710927855a55aeaa495226cb0c92d34d4d873c40292528
                         <span class=\"b\"><p style=\"font-weight:bold; font-size:130%;\">Note Aide</p></span>
 
                         <span class=\"b\" >{% include 'soin_mp/moyenne.html.twig'  with   {'moyenne' :moyenne}  %}</span>
-                        {{ moyenne }}
-
                     </div>
+                    <form action=\" {{path('impression',{'id':DetailSoinMPs.id,'iduser':iduser})}} \"><button
+                                style=\"color: #FFFFFF;
+                                    background-color: #ee5057;
+                                    border-color: #ee5057;
+                                    border-radius: 6px;
+                                    padding: 8px;
+                                    font-size:18px;
+                                    margin-left:81.5%;\">Imprimer</button>
+                    </form>
                 </div>
             </div>
         </div>

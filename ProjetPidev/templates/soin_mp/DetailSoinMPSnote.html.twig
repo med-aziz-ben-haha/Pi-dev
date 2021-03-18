@@ -1,30 +1,5 @@
 
 
-<!--style>
-    button {
-        color: #FFFFFF;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-        padding: 8px;
-        font-size:18px;
-    }
-    button:hover {
-        color: #FFFFFF;
-        opacity: 0.8;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-    }
-    button:active {
-        color: #FFFFFF;
-        background-color: #ee5057;
-        border-color: #ee5057;
-        border-radius: 6px;
-    }
-
-</style-->
-
 
 {% include 'tempFront1SoinMP.html.twig' with   { 'iduser': iduser }  %}
 
@@ -52,9 +27,18 @@
                         <span class="b"><p style="font-weight:bold; font-size:130%;">Note Aide</p></span>
 
                         <span class="b" >{% include 'soin_mp/moyenne.html.twig'  with   {'moyenne' :moyenne}  %}</span>
-                        {{ moyenne }}
-
                     </div>
+                    <form action=" {{path('impression',{'id':DetailSoinMPs.id,'iduser':iduser})}} ">
+                        <button
+                                    style="color: #FFFFFF;
+                                    background-color: #ee5057;
+                                    border-color: #ee5057;
+                                    border-radius: 6px;
+                                    padding: 8px;
+                                    font-size:18px;
+                                    margin-left:81.5%;">Imprimer
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
