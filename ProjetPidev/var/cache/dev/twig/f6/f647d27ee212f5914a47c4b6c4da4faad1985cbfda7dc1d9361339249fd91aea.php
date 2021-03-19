@@ -97,14 +97,16 @@ class __TwigTemplate_3028f6fcdb82d710927855a55aeaa495226cb0c92d34d4d873c40292528
                     <form action=\" ";
         // line 31
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("impression", ["id" => twig_get_attribute($this->env, $this->source, (isset($context["DetailSoinMPs"]) || array_key_exists("DetailSoinMPs", $context) ? $context["DetailSoinMPs"] : (function () { throw new RuntimeError('Variable "DetailSoinMPs" does not exist.', 31, $this->source); })()), "id", [], "any", false, false, false, 31), "iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 31, $this->source); })())]), "html", null, true);
-        echo " \"><button
-                                style=\"color: #FFFFFF;
+        echo " \">
+                        <button
+                                    style=\"color: #FFFFFF;
                                     background-color: #ee5057;
                                     border-color: #ee5057;
                                     border-radius: 6px;
                                     padding: 8px;
                                     font-size:18px;
-                                    margin-left:81.5%;\">Imprimer</button>
+                                    margin-left:81.5%;\">Imprimer
+                        </button>
                     </form>
                 </div>
             </div>
@@ -112,9 +114,9 @@ class __TwigTemplate_3028f6fcdb82d710927855a55aeaa495226cb0c92d34d4d873c40292528
     </div>
 </section>
 ";
-        // line 45
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 45)->display($context);
-        // line 46
+        // line 47
+        $this->loadTemplate("tempFront2SoinMP.html.twig", "soin_mp/DetailSoinMPSnote.html.twig", 47)->display($context);
+        // line 48
         echo "
 
 
@@ -144,7 +146,7 @@ class __TwigTemplate_3028f6fcdb82d710927855a55aeaa495226cb0c92d34d4d873c40292528
 
     public function getDebugInfo()
     {
-        return array (  118 => 46,  116 => 45,  99 => 31,  94 => 29,  89 => 26,  87 => 25,  83 => 24,  78 => 22,  74 => 20,  72 => 19,  62 => 12,  57 => 10,  50 => 5,  48 => 4,  43 => 1,);
+        return array (  120 => 48,  118 => 47,  99 => 31,  94 => 29,  89 => 26,  87 => 25,  83 => 24,  78 => 22,  74 => 20,  72 => 19,  62 => 12,  57 => 10,  50 => 5,  48 => 4,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -179,14 +181,16 @@ class __TwigTemplate_3028f6fcdb82d710927855a55aeaa495226cb0c92d34d4d873c40292528
 
                         <span class=\"b\" >{% include 'soin_mp/moyenne.html.twig'  with   {'moyenne' :moyenne}  %}</span>
                     </div>
-                    <form action=\" {{path('impression',{'id':DetailSoinMPs.id,'iduser':iduser})}} \"><button
-                                style=\"color: #FFFFFF;
+                    <form action=\" {{path('impression',{'id':DetailSoinMPs.id,'iduser':iduser})}} \">
+                        <button
+                                    style=\"color: #FFFFFF;
                                     background-color: #ee5057;
                                     border-color: #ee5057;
                                     border-radius: 6px;
                                     padding: 8px;
                                     font-size:18px;
-                                    margin-left:81.5%;\">Imprimer</button>
+                                    margin-left:81.5%;\">Imprimer
+                        </button>
                     </form>
                 </div>
             </div>

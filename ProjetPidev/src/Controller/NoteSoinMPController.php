@@ -10,8 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Email;
+use \Twilio\Rest\Client;
 
 
 class NoteSoinMPController extends AbstractController
@@ -30,7 +29,7 @@ class NoteSoinMPController extends AbstractController
      * @return mixed
      * @Route("/ajouternoteSMP/{id}/{iduser}/{valeur}",name="ajouternoteSMP", methods="GET")
      */
-    public function ajouterNote(SessionInterface $session, Request $request,$iduser,$id,$valeur,MailerInterface $mailer)
+    public function ajouterNote(SessionInterface $session, Request $request,$iduser,$id,$valeur, Client $client)
     {
         $user=$session->get('user');
         if(is_null($user))
@@ -52,13 +51,17 @@ class NoteSoinMPController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($Note);
             $em->flush();
-	        $email = (new Email())
-                ->from('sahtitnpidev@gmail.com')
-                ->to("{$user->getMail()}")
-                ->subject('SahtiTN!')
-                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} à SahtinTN. Votre compte a été crée avec succée ! ❤️")
-                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} à SahtinTN. Votre compte a été crée avec succée ! ❤ </h1>");
-            $mailer->send($email);
+
+            $client->messages->create(
+            // the number you'd like to send the message to
+                '+21624602806',
+                [
+                    // A Twilio phone number you purchased at twilio.com/console
+                    'from' => '+12402610130',
+                    // the body of the text message you'd like to send
+                    'body' => "Votre note pour {$SoinMPsfind->getTitreSoinMP()} a été attribuée avec succée merci   ! ❤️",
+                ]
+            );
         }
         else
         {
@@ -66,13 +69,17 @@ class NoteSoinMPController extends AbstractController
                 $x->setValeur($valeur);
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
-		    $email = (new Email())
-                	->from('sahtitnpidev@gmail.com')
-                	->to("{$user->getMail()}")
-                	->subject('SahtiTN !')
-                    ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} à SahtinTN. Votre compte a été crée avec succée ! ❤️")
-                    ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} à SahtinTN. Votre compte a été crée avec succée ! ❤ </h1>");
-                $mailer->send($email);
+
+                $client->messages->create(
+                // the number you'd like to send the message to
+                    '+21624602806',
+                    [
+                        // A Twilio phone number you purchased at twilio.com/console
+                        'from' => '+12402610130',
+                        // the body of the text message you'd like to send
+                        'body' => "Votre note pour {$SoinMPsfind->getTitreSoinMP()} a été modifiée avec succée merci   ! ❤️",
+                    ]
+                );
             }
 
             if (!($avis==""))

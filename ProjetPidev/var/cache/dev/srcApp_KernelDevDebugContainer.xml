@@ -86,6 +86,9 @@
     <parameter key="kernel.container_class">srcApp_KernelDevDebugContainer</parameter>
     <parameter key="container.dumper.inline_class_loader">true</parameter>
     <parameter key="container.dumper.inline_factories">true</parameter>
+    <parameter key="twilio_sid">AC4e90752645b1901c9dd2da1f3a1d41d4</parameter>
+    <parameter key="twilio_token">78cfde211831c332f2b6251099c5ea4a</parameter>
+    <parameter key="twilio_number" type="string">+12402610130</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -487,6 +490,10 @@
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+    </service>
+    <service id="twilio.client" class="Twilio\Rest\Client" autowire="true" autoconfigure="true">
+      <argument>AC4e90752645b1901c9dd2da1f3a1d41d4</argument>
+      <argument>78cfde211831c332f2b6251099c5ea4a</argument>
     </service>
     <service id=".legacy_controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -5493,10 +5500,10 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.txaLixa" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.WdJYCNp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="mailer" type="service" id="mailer.mailer"/>
+        <argument key="client" type="service" id="twilio.client"/>
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
@@ -5506,7 +5513,7 @@
         <argument key="mailer" type="service" id="mailer.mailer"/>
       </argument>
     </service>
-    <service id=".service_locator.rGT8UNX" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.T6wQKy9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
@@ -5516,7 +5523,7 @@
         <argument key="App\Controller\CategorieSoinMPController::listCategoriesSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieSoinMPController::listCategoriesSoinMPs" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieSoinMPController::modifierCategorieSoinMP" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\NoteSoinMPController::ajouterNote" type="service" id=".service_locator.txaLixa"/>
+        <argument key="App\Controller\NoteSoinMPController::ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
         <argument key="App\Controller\SoinMPController::SupprimerSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
@@ -5553,7 +5560,7 @@
         <argument key="App\Controller\CategorieSoinMPController:listCategoriesSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieSoinMPController:listCategoriesSoinMPs" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieSoinMPController:modifierCategorieSoinMP" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\NoteSoinMPController:ajouterNote" type="service" id=".service_locator.txaLixa"/>
+        <argument key="App\Controller\NoteSoinMPController:ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
         <argument key="App\Controller\SoinMPController:SupprimerSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
@@ -6066,12 +6073,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.rGT8UNX"/>
+      <argument type="service" id=".service_locator.T6wQKy9"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.rGT8UNX"/>
+      <argument type="service" id=".service_locator.T6wQKy9"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6345,6 +6352,7 @@
     </service>
     <service id="Psr\Container\ContainerInterface" alias="service_container" public="false"/>
     <service id="Symfony\Component\DependencyInjection\ContainerInterface" alias="service_container" public="false"/>
+    <service id="Twilio\Rest\Client" alias="twilio.client"/>
     <service id="controller_name_converter" alias=".legacy_controller_name_converter" public="false">
       <deprecated>The "%alias_id%" service is deprecated since Symfony 4.3.</deprecated>
     </service>
@@ -6475,7 +6483,7 @@
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.rGT8UNX"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.T6wQKy9"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

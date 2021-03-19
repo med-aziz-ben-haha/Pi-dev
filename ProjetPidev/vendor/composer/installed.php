@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '16dbf4e5babf4251d6f9d03ea795f78ea1514116',
+    'reference' => 'fb3a6c4a152ea4ae039786267372aac49bf9efb7',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '16dbf4e5babf4251d6f9d03ea795f78ea1514116',
+      'reference' => 'fb3a6c4a152ea4ae039786267372aac49bf9efb7',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -1155,6 +1155,15 @@
       array (
       ),
       'reference' => '1f3b7e2c06cc05d42936a8ad508ff1db7975cdc5',
+    ),
+    'twilio/sdk' => 
+    array (
+      'pretty_version' => '6.19.0',
+      'version' => '6.19.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e4288c184ad2fddbb637c1036626cf16814618b0',
     ),
     'webmozart/assert' => 
     array (

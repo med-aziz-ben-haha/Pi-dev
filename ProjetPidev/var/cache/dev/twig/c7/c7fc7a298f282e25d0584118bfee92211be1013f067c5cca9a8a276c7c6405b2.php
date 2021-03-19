@@ -126,7 +126,7 @@ class __TwigTemplate_5d074b343ff98ef345ba802a3c6777c3f729857b4d7499374bb1af5f4bc
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Mon Compte</a>
+                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"";
         // line 77
@@ -287,7 +287,7 @@ class __TwigTemplate_5d074b343ff98ef345ba802a3c6777c3f729857b4d7499374bb1af5f4bc
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Mon Compte</a>
+                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"{{ asset('/connexion') }}\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"{{ asset('/inscription') }}\">S'inscrire</a>
