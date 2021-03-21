@@ -47,6 +47,36 @@ class TypeReclamationRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function OrderByid()
+    {
+        return $this->createQueryBuilder('m')
+            ->orderBy('m.id','DESC')
+            ->getQuery()->getResult()
+            ;
+
+    }
+    public function findByid($value)
+    {
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.id = :val')
+            ->setParameter('val', $value)
+            ->orderBy('s.id', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+    public function Search($word){
 
 
+        $qry=$this->createQueryBuilder('m')
+            ->where('m.id LIKE :param')
+            //      ->orwhere('m.id LIKE :param')
+//            ->orwhere('m.typeReclamation LIKE :param')
+//
+
+            ->setParameter('param', '%'.$word.'%');
+        return $qry->getQuery()->getResult();
+
+    }
 }

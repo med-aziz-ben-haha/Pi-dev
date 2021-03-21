@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Reclamation;
 use App\Entity\User;
 use App\Entity\TypeReclamation;
+use App\Repository\TypeReclamationRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,7 @@ class ReclamationsType extends AbstractType
 
 
             ->add('user',EntityType::class,
-                ['class'=>User::class,'choice_label'=>'id'])
+                ['class'=>User::class,'choice_label'=>'nom'])
 
             ->add('typeReclamation',EntityType::class,
                 ['class'=>TypeReclamation::class,'choice_label'=>'typeReclamation'])

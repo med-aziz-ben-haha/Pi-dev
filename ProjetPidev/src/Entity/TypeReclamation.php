@@ -30,7 +30,7 @@ class TypeReclamation
     private $typeReclamation;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="typeReclamation")
+     * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="typeReclamation", orphanRemoval=true)
      */
     private $reclamations;
 

@@ -1,4 +1,5 @@
 {% include 'temp1.html.twig' %}
+
 <style>
     button {
         color: #FFFFFF;
@@ -29,7 +30,9 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
-        <table id="example1" class="table table-bordered table-striped" >
+
+        <li>     <a href="{{path('afficherpdf') }}"> Imprimer </a> </li>
+        <table id="tableac" class="table table-bordered table-striped" >
             <thead>
             <tr>
 
@@ -40,15 +43,16 @@
                 <th>modifier</th>
             </tr>
             </thead>
+
             <tbody>
 
-            <form method="post" action="{{ path ('recherchetype') }}">
-                <label>Rechercher</label>
-                <input type="text" name="search"><input type="submit" value="Recherche">
-            </form>
+
+<li>
+            <a href="{{path('tri') }}"> TRI par type  </a></li>
+<tr>          <div><input type="text" id="search" class="form-control" placeholder="Search"></div>
+                <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
 
             {% for C in listtypereclamation %}
-                <tr>
 
                     <td>{{ C.id }}</td>
                     <td>{{ C.typeReclamation }}</td>
@@ -56,9 +60,45 @@
                     <td><form action=" {{path('supprimertypereclamation',{id:C.id})}} "><button>Supprimer</button></form></td>
                     <td><form action=" {{path('modifiertypereclamation',{id:C.id})}} "><button>modifier</button></form></td>
                 </tr>
+                <script>
+                    $(document).ready(function(){
+                        $('#search').keyup(function(){
+                            search_table($(this).val());
+                        });
+                        function search_table(value){
+                            $('#tableac tbody tr').each(function(){
+                                var found = 'false';
+                                $(this).each(function(){
+                                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                    {
+                                        found = 'true';
+                                    }
+                                });
+                                if(found == 'true')
+                                {
+                                    $(this).show();
+
+                                }
+                                else
+                                {
+                                    $(this).hide();
+
+                                }
+                            });
+                        }
+                    });
+                </script>
+
+
+
+
+
+
+
+
+
+
             {% endfor %}
-
-
 
             </tbody>
 
@@ -66,4 +106,16 @@
     </div>
     <!-- /.box-body -->
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" type="text/javascript"></script>
+<script src="https://code.highcharts.com/highcharts.js" type="text/javascript"></script>
+<script src="http://code.highcharts.com/modules/exporting.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    {{ chart(chart) }}
+</script>
+
+<div id="piechart" style="min-width: 400px; height: 400px; margin: 0 auto"> </div>
+
+
 {% include 'temp2.html.twig' %}

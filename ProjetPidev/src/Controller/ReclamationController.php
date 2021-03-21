@@ -11,7 +11,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ReclamationsType;
 use App\Form\ReclamationType;
-
+// Include Dompdf required namespaces
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 
 class ReclamationController extends AbstractController
@@ -36,6 +38,38 @@ class ReclamationController extends AbstractController
             $reclamation = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
             return $this->render('reclamation/listreclamation.html.twig', ['listreclamation' => $reclamation,]);
         }
+          /**
+                 * @return Response
+                 * @Route("/afficherpdf", name="afficherpdf")
+                 */
+                public function afficherpdf(): Response
+                {
+                   // Configure Dompdf according to your needs
+                           $pdfOptions = new Options();
+                           $pdfOptions->set('defaultFont', 'Arial');
+
+                           // Instantiate Dompdf with our options
+                           $dompdf = new Dompdf($pdfOptions);
+                        $reclamation = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
+
+
+                           // Retrieve the HTML generated in our twig file
+                           $html = $this->renderView('reclamation/list.html.twig', ['listreclamation' => $reclamation,]);
+
+                           // Load HTML to Dompdf
+                           $dompdf->loadHtml($html);
+
+                           // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+                           $dompdf->setPaper('A4', 'portrait');
+
+                           // Render the HTML as PDF
+                           $dompdf->render();
+
+                           // Output the generated PDF to Browser (force download)
+                           $dompdf->stream("mypdf.pdf", [
+                               "Attachment" => false
+                           ]);
+                }
 /**
      * @return Response
      * @Route("/afficherreclamations", name="afficherreclamations")
@@ -122,6 +156,56 @@ class ReclamationController extends AbstractController
         $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
         return $this->render('reclamation/reclamationencours.html.twig', ['reclamationencours' => $reclamationfind,]);
     }
+
+
+/**
+     * @Route("/testt", name="testtt")
+     */
+    public function backend(): Response
+    {
+        return $this->render('reclamation/mail.html.twig', [
+
+        ]);
+    }
+
+
+
+
+
+
+
+     /**
+         * @Route("/mail", name="user_mailing", methods={"POST"})
+         */
+
+        public function mailing(Request $request,\Swift_Mailer $mailer): Response
+        {
+            $value = $request->request->get('mail');
+
+
+            $message = (new \Swift_Message('Hello Email'))
+                ->setFrom('eya.ouellani@esprit.tn')
+                ->setTo($value)
+                ->setBody(
+                    $this->renderView(
+                    // templates/emails/registration.html.twig
+                        'reclamation/message.html.twig', [
+                        ]
+                    )
+
+                );
+
+
+return $this->render('reclamation/mail.html.twig');
+
+
+
+        }
+
+
+
+
+
 
 
 

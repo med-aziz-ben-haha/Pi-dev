@@ -89,7 +89,10 @@ class __TwigTemplate_baccaa2b2bbdee5a0ecaa9818dd19f984d6fdfea7a25ea1458763f14eac
             </thead>
             <tbody>
             <input type=\"text\" id=\"search\" class=\"form-control\" placeholder=\"Search\">
-
+            <a href=\"";
+        // line 46
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficherpdf");
+        echo "\"> Imprimer </a>
             ";
         // line 47
         $context['_parent'] = $context;
@@ -114,10 +117,14 @@ class __TwigTemplate_baccaa2b2bbdee5a0ecaa9818dd19f984d6fdfea7a25ea1458763f14eac
             // line 53
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["S"], "typeReclamation", [], "any", false, false, false, 53), "id", [], "any", false, false, false, 53), "html", null, true);
             echo "</td>
-                    <td>                       </td>
+
                     <td><form action=\" ";
             // line 55
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimerreclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["S"], "id", [], "any", false, false, false, 55)]), "html", null, true);
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("testtt");
+            echo " \"><button>repondre</button></form></td>
+                    <td><form action=\" ";
+            // line 56
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimerreclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["S"], "id", [], "any", false, false, false, 56)]), "html", null, true);
             echo " \"><button>Supprimer</button></form></td>
 
                 </tr>
@@ -154,7 +161,7 @@ class __TwigTemplate_baccaa2b2bbdee5a0ecaa9818dd19f984d6fdfea7a25ea1458763f14eac
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['S'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 87
+        // line 88
         echo "
             </tbody>
 
@@ -163,8 +170,8 @@ class __TwigTemplate_baccaa2b2bbdee5a0ecaa9818dd19f984d6fdfea7a25ea1458763f14eac
     <!-- /.box-body -->
 </div>
 ";
-        // line 94
-        $this->loadTemplate("temp2.html.twig", "reclamation/listreclamation.html.twig", 94)->display($context);
+        // line 95
+        $this->loadTemplate("temp2.html.twig", "reclamation/listreclamation.html.twig", 95)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -185,7 +192,7 @@ class __TwigTemplate_baccaa2b2bbdee5a0ecaa9818dd19f984d6fdfea7a25ea1458763f14eac
 
     public function getDebugInfo()
     {
-        return array (  167 => 94,  158 => 87,  120 => 55,  115 => 53,  111 => 52,  107 => 51,  103 => 50,  99 => 48,  95 => 47,  73 => 28,  45 => 2,  43 => 1,);
+        return array (  174 => 95,  165 => 88,  127 => 56,  123 => 55,  118 => 53,  114 => 52,  110 => 51,  106 => 50,  102 => 48,  98 => 47,  94 => 46,  73 => 28,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -235,7 +242,7 @@ class __TwigTemplate_baccaa2b2bbdee5a0ecaa9818dd19f984d6fdfea7a25ea1458763f14eac
             </thead>
             <tbody>
             <input type=\"text\" id=\"search\" class=\"form-control\" placeholder=\"Search\">
-
+            <a href=\"{{path('afficherpdf') }}\"> Imprimer </a>
             {% for S in listreclamation %}
                 <tr>
 
@@ -243,7 +250,8 @@ class __TwigTemplate_baccaa2b2bbdee5a0ecaa9818dd19f984d6fdfea7a25ea1458763f14eac
                     <td>{{ S.descriptionReclamation }}</td>
                     <td>{{ S.user.id }}</td>
                     <td>{{ S.typeReclamation.id }}</td>
-                    <td>                       </td>
+
+                    <td><form action=\" {{path('testtt')}} \"><button>repondre</button></form></td>
                     <td><form action=\" {{path('supprimerreclamation',{id:S.id})}} \"><button>Supprimer</button></form></td>
 
                 </tr>

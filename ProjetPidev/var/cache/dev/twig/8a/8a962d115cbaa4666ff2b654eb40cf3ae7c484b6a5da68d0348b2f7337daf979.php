@@ -75,7 +75,7 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">
-        <table id=\"example1\" class=\"table table-bordered table-striped\" >
+        <table id=\"tableac\" class=\"table table-bordered table-striped\" >
             <thead>
             <tr>
 
@@ -88,46 +88,97 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
             </thead>
             <tbody>
 
-            <form method=\"post\" action=\"";
-        // line 45
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("recherchetype");
-        echo "\">
-                <label>Rechercher</label>
-                <input type=\"text\" name=\"search\"><input type=\"submit\" value=\"Recherche\">
-            </form>
 
+            <input type=\"text\" id=\"search\" class=\"form-control\" placeholder=\"Search\">
+            <li>     <a href=\"";
+        // line 47
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficherpdf");
+        echo "\"> Imprimer </a> </li>
+            <li><input  class=\"form-control form-control-sm mr-3 w-75\"  aria-label=\"Search\" type=\"text\" placeholder=\"Search\" name=\"search\" id=\"re\" onkeyup=\"searchh()\" style=\"border-color:#003f81\">
+                <br></li>
+
+<li>
+            <a href=\"";
+        // line 52
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("tri");
+        echo "\"> TRI par type  </a></li>
+            <tr>
             ";
-        // line 50
+        // line 54
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listtypereclamation"]) || array_key_exists("listtypereclamation", $context) ? $context["listtypereclamation"] : (function () { throw new RuntimeError('Variable "listtypereclamation" does not exist.', 50, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["listtypereclamation"]) || array_key_exists("listtypereclamation", $context) ? $context["listtypereclamation"] : (function () { throw new RuntimeError('Variable "listtypereclamation" does not exist.', 54, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["C"]) {
-            // line 51
-            echo "                <tr>
-
+            // line 55
+            echo "
                     <td>";
-            // line 53
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 53), "html", null, true);
+            // line 56
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 56), "html", null, true);
             echo "</td>
                     <td>";
-            // line 54
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["C"], "typeReclamation", [], "any", false, false, false, 54), "html", null, true);
+            // line 57
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["C"], "typeReclamation", [], "any", false, false, false, 57), "html", null, true);
             echo "</td>
 
                     <td><form action=\" ";
-            // line 56
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimertypereclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 56)]), "html", null, true);
+            // line 59
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimertypereclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 59)]), "html", null, true);
             echo " \"><button>Supprimer</button></form></td>
                     <td><form action=\" ";
-            // line 57
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifiertypereclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 57)]), "html", null, true);
+            // line 60
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifiertypereclamation", ["id" => twig_get_attribute($this->env, $this->source, $context["C"], "id", [], "any", false, false, false, 60)]), "html", null, true);
             echo " \"><button>modifier</button></form></td>
                 </tr>
+                <script>
+                    \$(document).ready(function(){
+                        \$('#search').keyup(function(){
+                            search_table(\$(this).val());
+                        });
+                        function search_table(value){
+                            \$('#tableac tbody tr').each(function(){
+                                var found = 'false';
+                                \$(this).each(function(){
+                                    if(\$(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                    {
+                                        found = 'true';
+                                    }
+                                });
+                                if(found == 'true')
+                                {
+                                    \$(this).show();
+
+                                }
+                                else
+                                {
+                                    \$(this).hide();
+
+                                }
+                            });
+                        }
+                    });
+                </script>
+            <script>
+                function searchh(){
+                    var sch=\$(\"#re\").val();
+                    \$.ajax({
+                        url: \"";
+            // line 94
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ch");
+            echo "\",
+                        data:{dat: sch},
+                        type: \"POST\",
+                        success: function(data){
+                            \$('#det22').html(data).show();
+                        }
+                    });
+                }
+            </script>
+
             ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['C'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 60
+        // line 105
         echo "
 
 
@@ -138,8 +189,8 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
     <!-- /.box-body -->
 </div>
 ";
-        // line 69
-        $this->loadTemplate("temp2.html.twig", "typereclamation/listtypereclamation.html.twig", 69)->display($context);
+        // line 114
+        $this->loadTemplate("temp2.html.twig", "typereclamation/listtypereclamation.html.twig", 114)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -160,7 +211,7 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
 
     public function getDebugInfo()
     {
-        return array (  142 => 69,  131 => 60,  122 => 57,  118 => 56,  113 => 54,  109 => 53,  105 => 51,  101 => 50,  93 => 45,  72 => 27,  45 => 2,  43 => 1,);
+        return array (  193 => 114,  182 => 105,  165 => 94,  128 => 60,  124 => 59,  119 => 57,  115 => 56,  112 => 55,  108 => 54,  103 => 52,  95 => 47,  72 => 27,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -196,7 +247,7 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">
-        <table id=\"example1\" class=\"table table-bordered table-striped\" >
+        <table id=\"tableac\" class=\"table table-bordered table-striped\" >
             <thead>
             <tr>
 
@@ -209,13 +260,16 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
             </thead>
             <tbody>
 
-            <form method=\"post\" action=\"{{ path ('recherchetype') }}\">
-                <label>Rechercher</label>
-                <input type=\"text\" name=\"search\"><input type=\"submit\" value=\"Recherche\">
-            </form>
 
+            <input type=\"text\" id=\"search\" class=\"form-control\" placeholder=\"Search\">
+            <li>     <a href=\"{{path('afficherpdf') }}\"> Imprimer </a> </li>
+            <li><input  class=\"form-control form-control-sm mr-3 w-75\"  aria-label=\"Search\" type=\"text\" placeholder=\"Search\" name=\"search\" id=\"re\" onkeyup=\"searchh()\" style=\"border-color:#003f81\">
+                <br></li>
+
+<li>
+            <a href=\"{{path('tri') }}\"> TRI par type  </a></li>
+            <tr>
             {% for C in listtypereclamation %}
-                <tr>
 
                     <td>{{ C.id }}</td>
                     <td>{{ C.typeReclamation }}</td>
@@ -223,6 +277,48 @@ class __TwigTemplate_c0cecc970b9e4b5ef7abd267da76366c454c395a7f3adafd12de0c0eb6c
                     <td><form action=\" {{path('supprimertypereclamation',{id:C.id})}} \"><button>Supprimer</button></form></td>
                     <td><form action=\" {{path('modifiertypereclamation',{id:C.id})}} \"><button>modifier</button></form></td>
                 </tr>
+                <script>
+                    \$(document).ready(function(){
+                        \$('#search').keyup(function(){
+                            search_table(\$(this).val());
+                        });
+                        function search_table(value){
+                            \$('#tableac tbody tr').each(function(){
+                                var found = 'false';
+                                \$(this).each(function(){
+                                    if(\$(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                    {
+                                        found = 'true';
+                                    }
+                                });
+                                if(found == 'true')
+                                {
+                                    \$(this).show();
+
+                                }
+                                else
+                                {
+                                    \$(this).hide();
+
+                                }
+                            });
+                        }
+                    });
+                </script>
+            <script>
+                function searchh(){
+                    var sch=\$(\"#re\").val();
+                    \$.ajax({
+                        url: \"{{ path('ch') }}\",
+                        data:{dat: sch},
+                        type: \"POST\",
+                        success: function(data){
+                            \$('#det22').html(data).show();
+                        }
+                    });
+                }
+            </script>
+
             {% endfor %}
 
 

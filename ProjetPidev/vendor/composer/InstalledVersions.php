@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '053d6a118652e01255a348aafb0348bf4d2d7e6c',
+    'reference' => '374998d7d598a221bd9432e78996fa0ac0e95173',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '053d6a118652e01255a348aafb0348bf4d2d7e6c',
+      'reference' => '374998d7d598a221bd9432e78996fa0ac0e95173',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -89,6 +89,15 @@ private static $installed = array (
       ),
       'reference' => '2afde5a9844126bc311cd5f548b5475e75f800d3',
     ),
+    'doctrine/data-fixtures' => 
+    array (
+      'pretty_version' => '1.5.0',
+      'version' => '1.5.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '51d3d4880d28951fff42a635a2389f8c63baddc5',
+    ),
     'doctrine/dbal' => 
     array (
       'pretty_version' => '2.10.4',
@@ -106,6 +115,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '015fdd490074d4daa891e2d1df998dc35ba54924',
+    ),
+    'doctrine/doctrine-fixtures-bundle' => 
+    array (
+      'pretty_version' => '3.4.0',
+      'version' => '3.4.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '870189619a7770f468ffb0b80925302e065a3b34',
     ),
     'doctrine/doctrine-migrations-bundle' => 
     array (
@@ -188,6 +206,15 @@ private static $installed = array (
       ),
       'reference' => '56070bebac6e77230ed7d306ad13528e60732871',
     ),
+    'dompdf/dompdf' => 
+    array (
+      'pretty_version' => 'v1.0.2',
+      'version' => '1.0.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8768448244967a46d6e67b891d30878e0e15d25c',
+    ),
     'egulias/email-validator' => 
     array (
       'pretty_version' => '2.1.25',
@@ -224,6 +251,15 @@ private static $installed = array (
       ),
       'reference' => 'ce4dc0bdf3b14b7f9815775af9dfee80a63b4748',
     ),
+    'laminas/laminas-json' => 
+    array (
+      'pretty_version' => '3.2.0',
+      'version' => '3.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '1e3b64d3b21dac0511e628ae8debc81002d14e3c',
+    ),
     'laminas/laminas-zendframework-bridge' => 
     array (
       'pretty_version' => '1.1.1',
@@ -232,6 +268,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '6ede70583e101030bcace4dcddd648f760ddf642',
+    ),
+    'mgilet/notification-bundle' => 
+    array (
+      'pretty_version' => '4.0',
+      'version' => '4.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5dcd3f67d0c200b5d9fd81062d6fa0feffdbdda1',
     ),
     'monolog/monolog' => 
     array (
@@ -250,6 +295,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c6d052fc58cb876152f89f532b95a8d7907e7f0e',
+    ),
+    'ob/highcharts-bundle' => 
+    array (
+      'pretty_version' => '1.7',
+      'version' => '1.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7faa0a48aa8255ff047b2ff76ead6222bfffc2da',
     ),
     'ocramius/package-versions' => 
     array (
@@ -271,6 +325,24 @@ private static $installed = array (
       array (
         0 => '2.*',
       ),
+    ),
+    'phenx/php-font-lib' => 
+    array (
+      'pretty_version' => '0.5.2',
+      'version' => '0.5.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ca6ad461f032145fff5971b5985e5af9e7fa88d8',
+    ),
+    'phenx/php-svg-lib' => 
+    array (
+      'pretty_version' => 'v0.3.3',
+      'version' => '0.3.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '5fa61b65e612ce1ae15f69b3d223cb14ecc60e32',
     ),
     'php-http/async-client-implementation' => 
     array (
@@ -398,6 +470,15 @@ private static $installed = array (
       array (
         0 => '1.0',
       ),
+    ),
+    'sabberworm/php-css-parser' => 
+    array (
+      'pretty_version' => '8.3.1',
+      'version' => '8.3.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd217848e1396ef962fb1997cf3e2421acba7f796',
     ),
     'sensio/framework-extra-bundle' => 
     array (
@@ -1138,6 +1219,13 @@ private static $installed = array (
       'replaced' => 
       array (
         0 => '3.2.1',
+      ),
+    ),
+    'zendframework/zend-json' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '^3.1.2',
       ),
     ),
   ),
