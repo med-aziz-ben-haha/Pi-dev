@@ -282,12 +282,22 @@ class UserController extends AbstractController
 
     /**
      * @param Request $request
-     * @Route("/inscription", name="inscription")
+     * @Route("/inscription", name="inscription", methods={"GET","POST"})
      */
-    public function inscription(MailerInterface $mailer,Request $request): Response
-    {
+    public function inscription(MailerInterface $mailer,Request $request,SessionInterface $sesssion): Response
+    {   if(!(is_null($sesssion->get('googleuser'))))
+        {
+            $user= new User();
+            $gooleuser=$sesssion->get('googleuser');
+            $user->setEmail($gooleuser->getEmail());
+            $user->setNom($gooleuser->getName());
+            $user->setPrenom($gooleuser->getLastName());
+        }
+        else
+            {
+                $user = new User();
+            }
 
-        $user = new User();
         $form = $this->createForm(UserType::class, $user);
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
@@ -323,11 +333,22 @@ class UserController extends AbstractController
 
     /**
      * @param Request $request
-     * @Route("/inscriptionMed", name="inscriptionMed")
+     * @Route("/inscriptionMed", name="inscriptionMed", methods={"GET","POST"})
      */
-    public function inscriptionMed(MailerInterface $mailer, Request $request): Response
+    public function inscriptionMed(MailerInterface $mailer, Request $request,SessionInterface $sesssion): Response
     {
-        $user = new User();
+        if(!(is_null($sesssion->get('googleuser'))))
+        {
+            $user= new User();
+            $gooleuser=$sesssion->get('googleuser');
+            $user->setEmail($gooleuser->getEmail());
+            $user->setNom($gooleuser->getName());
+            $user->setPrenom($gooleuser->getLastName());
+        }
+        else
+        {
+            $user = new User();
+        }
         $form = $this->createForm(UserMedType::class, $user);
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
@@ -363,11 +384,22 @@ class UserController extends AbstractController
 
     /**
      * @param Request $request
-     * @Route("/inscriptionPharmacien", name="inscriptionPharmacien")
+     * @Route("/inscriptionPharmacien", name="inscriptionPharmacien", methods={"GET","POST"})
      */
-    public function inscriptionPharmacien(MailerInterface $mailer, Request $request): Response
+    public function inscriptionPharmacien(MailerInterface $mailer, Request $request,SessionInterface $sesssion): Response
     {
-        $user = new User();
+        if(!(is_null($sesssion->get('googleuser'))))
+        {
+            $user= new User();
+            $gooleuser=$sesssion->get('googleuser');
+            $user->setEmail($gooleuser->getEmail());
+            $user->setNom($gooleuser->getName());
+            $user->setPrenom($gooleuser->getLastName());
+        }
+        else
+        {
+            $user = new User();
+        }
         $form = $this->createForm(UserParaType::class, $user);
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
@@ -403,11 +435,22 @@ class UserController extends AbstractController
 
     /**
      * @param Request $request
-     * @Route("/inscriptionParapharmacien", name="inscriptionParapharmacien")
+     * @Route("/inscriptionParapharmacien", name="inscriptionParapharmacien", methods={"GET","POST"})
      */
-    public function inscriptionPara(MailerInterface $mailer, Request $request): Response
+    public function inscriptionPara(MailerInterface $mailer, Request $request,SessionInterface $sesssion): Response
     {
-        $user = new User();
+        if(!(is_null($sesssion->get('googleuser'))))
+        {
+            $user= new User();
+            $gooleuser=$sesssion->get('googleuser');
+            $user->setEmail($gooleuser->getEmail());
+            $user->setNom($gooleuser->getName());
+            $user->setPrenom($gooleuser->getLastName());
+        }
+        else
+        {
+            $user = new User();
+        }
         $form = $this->createForm(UserParaType::class, $user);
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);

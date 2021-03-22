@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/Container60g6m2Y/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerSuhbs7z/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -27,6 +27,8 @@ $classes[] = 'Symfony\Bundle\MakerBundle\MakerBundle';
 $classes[] = 'Symfony\Bundle\WebServerBundle\WebServerBundle';
 $classes[] = 'Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle';
 $classes[] = 'Knp\Bundle\PaginatorBundle\KnpPaginatorBundle';
+$classes[] = 'Ob\HighchartsBundle\ObHighchartsBundle';
+$classes[] = 'KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle';
 $classes[] = 'Symfony\Component\HttpClient\TraceableHttpClient';
 $classes[] = 'Symfony\Contracts\HttpClient\HttpClientInterface';
 $classes[] = 'Symfony\Component\HttpClient\HttpClient';
@@ -37,13 +39,18 @@ $classes[] = 'Symfony\Component\HttpFoundation\RequestMatcher';
 $classes[] = 'Symfony\Component\DependencyInjection\ServiceLocator';
 $classes[] = 'App\Controller\AdminController';
 $classes[] = 'App\Controller\CategorieSoinMPController';
+$classes[] = 'App\Controller\GoogleController';
 $classes[] = 'App\Controller\NoteSoinMPController';
+$classes[] = 'App\Controller\ReclamationController';
 $classes[] = 'App\Controller\SoinMPController';
+$classes[] = 'App\Controller\TypereclamationController';
 $classes[] = 'App\Controller\UserController';
 $classes[] = 'App\Form\CaptchaType';
 $classes[] = 'App\Form\CategorieSoinMPRechercheType';
 $classes[] = 'App\Form\CategorieSoinMPType';
 $classes[] = 'App\Form\ConnexionType';
+$classes[] = 'App\Form\ReclamationType';
+$classes[] = 'App\Form\ReclamationsType';
 $classes[] = 'App\Form\SoinMPRechercheType';
 $classes[] = 'App\Form\SoinMPTriDESCType';
 $classes[] = 'App\Form\SoinMPTriFormType';
@@ -273,6 +280,10 @@ $classes[] = 'Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscrib
 $classes[] = 'Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber';
 $classes[] = 'Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber';
 $classes[] = 'Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber';
+$classes[] = 'KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient';
+$classes[] = 'League\OAuth2\Client\Provider\Google';
+$classes[] = 'KnpU\OAuth2ClientBundle\DependencyInjection\ProviderFactory';
+$classes[] = 'KnpU\OAuth2ClientBundle\Client\ClientRegistry';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\LocaleAwareListener';
 $classes[] = 'Symfony\Component\HttpKernel\EventListener\LocaleListener';
 $classes[] = 'Symfony\Component\Mailer\EventListener\EnvelopeListener';
@@ -485,6 +496,7 @@ $classes[] = 'Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension';
 $classes[] = 'Symfony\Component\VarDumper\Dumper\HtmlDumper';
 $classes[] = 'Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension';
 $classes[] = 'Knp\Bundle\PaginatorBundle\Helper\Processor';
+$classes[] = 'Ob\HighchartsBundle\Twig\HighchartsExtension';
 $classes[] = 'Symfony\Bridge\Twig\AppVariable';
 $classes[] = 'Twig\RuntimeLoader\ContainerRuntimeLoader';
 $classes[] = 'Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor';

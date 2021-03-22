@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => 'fb3a6c4a152ea4ae039786267372aac49bf9efb7',
+    'reference' => '2a2888228440db513184c13c95ad7c95372df93a',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => 'fb3a6c4a152ea4ae039786267372aac49bf9efb7',
+      'reference' => '2a2888228440db513184c13c95ad7c95372df93a',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -233,6 +233,33 @@ private static $installed = array (
       ),
       'reference' => '121af47c9aee9c03031bdeca3fac0540f59aa5c3',
     ),
+    'guzzlehttp/guzzle' => 
+    array (
+      'pretty_version' => '7.2.0',
+      'version' => '7.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0aa74dfb41ae110835923ef10a9d803a22d50e79',
+    ),
+    'guzzlehttp/promises' => 
+    array (
+      'pretty_version' => '1.4.1',
+      'version' => '1.4.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '8e7d04f1f6450fef59366c399cfad4b9383aa30d',
+    ),
+    'guzzlehttp/psr7' => 
+    array (
+      'pretty_version' => '1.8.1',
+      'version' => '1.8.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '35ea11d335fd638b5882ff1725228b3d35496ab1',
+    ),
     'knplabs/knp-components' => 
     array (
       'pretty_version' => 'v2.5.1',
@@ -250,6 +277,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '87ca999b6ac886e3f20a1e3abc07523140509ca4',
+    ),
+    'knpuniversity/oauth2-client-bundle' => 
+    array (
+      'pretty_version' => 'v2.7.0',
+      'version' => '2.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'a6462eac7488435526052d4a06c83086566dbbb5',
     ),
     'laminas/laminas-code' => 
     array (
@@ -269,6 +305,15 @@ private static $installed = array (
       ),
       'reference' => 'ce4dc0bdf3b14b7f9815775af9dfee80a63b4748',
     ),
+    'laminas/laminas-json' => 
+    array (
+      'pretty_version' => '3.1.2',
+      'version' => '3.1.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '00dc0da7b5e5018904c5c4a8e80a5faa16c2c1c6',
+    ),
     'laminas/laminas-zendframework-bridge' => 
     array (
       'pretty_version' => '1.1.1',
@@ -277,6 +322,24 @@ private static $installed = array (
       array (
       ),
       'reference' => '6ede70583e101030bcace4dcddd648f760ddf642',
+    ),
+    'league/oauth2-client' => 
+    array (
+      'pretty_version' => '2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'badb01e62383430706433191b82506b6df24ad98',
+    ),
+    'league/oauth2-google' => 
+    array (
+      'pretty_version' => '3.0.4',
+      'version' => '3.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6b79441f244040760bed5fdcd092a2bda7cf34c6',
     ),
     'monolog/monolog' => 
     array (
@@ -295,6 +358,15 @@ private static $installed = array (
       array (
       ),
       'reference' => 'c6d052fc58cb876152f89f532b95a8d7907e7f0e',
+    ),
+    'ob/highcharts-bundle' => 
+    array (
+      'pretty_version' => '1.7',
+      'version' => '1.7.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7faa0a48aa8255ff047b2ff76ead6222bfffc2da',
     ),
     'ocramius/package-versions' => 
     array (
@@ -415,7 +487,32 @@ private static $installed = array (
         0 => '1.0',
       ),
     ),
+    'psr/http-client' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '2dfb5f6c5eff0e91e20e913f8c5452ed95b86621',
+    ),
     'psr/http-client-implementation' => 
+    array (
+      'provided' => 
+      array (
+        0 => '1.0',
+      ),
+    ),
+    'psr/http-message' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
+    ),
+    'psr/http-message-implementation' => 
     array (
       'provided' => 
       array (
@@ -461,6 +558,15 @@ private static $installed = array (
       array (
         0 => '1.0',
       ),
+    ),
+    'ralouphie/getallheaders' => 
+    array (
+      'pretty_version' => '3.0.3',
+      'version' => '3.0.3.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '120b605dfeb996808c31b6477290a714d356e822',
     ),
     'sabberworm/php-css-parser' => 
     array (
@@ -1210,6 +1316,13 @@ private static $installed = array (
       'replaced' => 
       array (
         0 => '3.2.1',
+      ),
+    ),
+    'zendframework/zend-json' => 
+    array (
+      'replaced' => 
+      array (
+        0 => '3.1.2',
       ),
     ),
   ),

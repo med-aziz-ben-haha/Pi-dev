@@ -23,6 +23,8 @@
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
       <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
+      <parameter key="ObHighchartsBundle">Ob\HighchartsBundle\ObHighchartsBundle</parameter>
+      <parameter key="KnpUOAuth2ClientBundle">KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -80,6 +82,14 @@
       <parameter key="KnpPaginatorBundle" type="collection">
         <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knplabs\knp-paginator-bundle</parameter>
         <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
+      </parameter>
+      <parameter key="ObHighchartsBundle" type="collection">
+        <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\ob\highcharts-bundle</parameter>
+        <parameter key="namespace">Ob\HighchartsBundle</parameter>
+      </parameter>
+      <parameter key="KnpUOAuth2ClientBundle" type="collection">
+        <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knpuniversity\oauth2-client-bundle\src</parameter>
+        <parameter key="namespace">KnpU\OAuth2ClientBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -267,6 +277,7 @@
     <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
     <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="knp_paginator.page_limit">null</parameter>
+    <parameter key="ob_highcharts.twig_extension.class">Ob\HighchartsBundle\Twig\HighchartsExtension</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -366,6 +377,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CategorieSoinMPController"/>
       </call>
     </service>
+    <service id="App\Controller\GoogleController" class="App\Controller\GoogleController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\GoogleController"/>
+      </call>
+    </service>
     <service id="App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -373,11 +391,25 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\NoteSoinMPController"/>
       </call>
     </service>
+    <service id="App\Controller\ReclamationController" class="App\Controller\ReclamationController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ReclamationController"/>
+      </call>
+    </service>
     <service id="App\Controller\SoinMPController" class="App\Controller\SoinMPController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\SoinMPController"/>
+      </call>
+    </service>
+    <service id="App\Controller\TypereclamationController" class="App\Controller\TypereclamationController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\TypereclamationController"/>
       </call>
     </service>
     <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
@@ -400,6 +432,12 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ReclamationsType" class="App\Form\ReclamationsType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true">
@@ -914,6 +952,8 @@
         <argument>App\Form\CategorieSoinMPRechercheType</argument>
         <argument>App\Form\CategorieSoinMPType</argument>
         <argument>App\Form\ConnexionType</argument>
+        <argument>App\Form\ReclamationType</argument>
+        <argument>App\Form\ReclamationsType</argument>
         <argument>App\Form\SoinMPRechercheType</argument>
         <argument>App\Form\SoinMPTriDESCType</argument>
         <argument>App\Form\SoinMPTriFormType</argument>
@@ -1255,7 +1295,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.7kCml.c"/>
+      <argument type="service" id=".service_locator.nBYsndR"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1374,6 +1414,11 @@
       <argument></argument>
       <argument type="service" id="assets.empty_version_strategy"/>
       <argument type="service" id="assets.context"/>
+    </service>
+    <service id="psr18.http_client" class="Symfony\Component\HttpClient\Psr18Client">
+      <argument type="service" id=".debug.http_client"/>
+      <argument>null</argument>
+      <argument>null</argument>
     </service>
     <service id="mailer.mailer" class="Symfony\Component\Mailer\Mailer">
       <argument type="service" id="mailer.transports"/>
@@ -1882,6 +1927,10 @@
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/DoctrineFixturesBundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpPaginatorBundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\ob\highcharts-bundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/ObHighchartsBundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knpuniversity\oauth2-client-bundle\src/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpUOAuth2ClientBundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -1918,6 +1967,10 @@
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/DoctrineFixturesBundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpPaginatorBundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\ob\highcharts-bundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/ObHighchartsBundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knpuniversity\oauth2-client-bundle\src/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpUOAuth2ClientBundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -4399,6 +4452,9 @@
       <call method="addExtension">
         <argument type="service" id="knp_paginator.twig.extension.pagination"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="ob_highcharts.twig.highcharts_extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -5133,18 +5189,71 @@
       <tag name="twig.extension"/>
       <argument type="service" id="knp_paginator.helper.processor"/>
     </service>
+    <service id="ob_highcharts.twig.highcharts_extension" class="Ob\HighchartsBundle\Twig\HighchartsExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="knpu.oauth2.provider_factory" class="KnpU\OAuth2ClientBundle\DependencyInjection\ProviderFactory" public="false">
+      <argument type="service" id="router.default"/>
+    </service>
+    <service id="knpu.oauth2.registry" class="KnpU\OAuth2ClientBundle\Client\ClientRegistry" public="true">
+      <argument type="service" id="service_container"/>
+      <argument type="collection">
+        <argument key="google_connect">knpu.oauth2.client.google_connect</argument>
+        <argument key="google_inscription">knpu.oauth2.client.google_inscription</argument>
+      </argument>
+    </service>
+    <service id="knpu.oauth2.user_provider" class="KnpU\OAuth2ClientBundle\Security\User\OAuthUserProvider" public="false"/>
+    <service id="knpu.oauth2.provider.google_connect" class="League\OAuth2\Client\Provider\Google" public="false">
+      <argument>League\OAuth2\Client\Provider\Google</argument>
+      <argument type="collection">
+        <argument key="clientId">%env(GOOGLE_CLIENT_ID)%</argument>
+        <argument key="clientSecret">%env(GOOGLE_CLIENT_SECRET)%</argument>
+      </argument>
+      <argument>connect_google_check</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <factory service="knpu.oauth2.provider_factory" method="createProvider"/>
+    </service>
+    <service id="knpu.oauth2.client.google_connect" class="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" public="true">
+      <argument type="service" id="knpu.oauth2.provider.google_connect"/>
+      <argument type="service" id="request_stack"/>
+    </service>
+    <service id="knpu.oauth2.provider.google_inscription" class="League\OAuth2\Client\Provider\Google" public="false">
+      <argument>League\OAuth2\Client\Provider\Google</argument>
+      <argument type="collection">
+        <argument key="clientId">%env(GOOGLE_CLIENT_ID)%</argument>
+        <argument key="clientSecret">%env(GOOGLE_CLIENT_SECRET)%</argument>
+      </argument>
+      <argument>inscription_google_check</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <factory service="knpu.oauth2.provider_factory" method="createProvider"/>
+    </service>
+    <service id="knpu.oauth2.client.google_inscription" class="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" public="true">
+      <argument type="service" id="knpu.oauth2.provider.google_inscription"/>
+      <argument type="service" id="request_stack"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SoinMPController" class="App\Controller\SoinMPController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SoinMPController" class="App\Controller\SoinMPController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SoinMPController" class="App\Controller\SoinMPController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TypereclamationController" class="App\Controller\TypereclamationController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TypereclamationController" class="App\Controller\TypereclamationController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\TypereclamationController" class="App\Controller\TypereclamationController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5158,6 +5267,10 @@
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationsType" class="App\Form\ReclamationsType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ReclamationsType" class="App\Form\ReclamationsType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPTriDESCType" class="App\Form\SoinMPTriDESCType" autowire="true" abstract="true"/>
@@ -5500,6 +5613,26 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.M1_Y_xF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="clientRegistry" type="service" id="knpu.oauth2.registry"/>
+      </argument>
+    </service>
+    <service id=".service_locator.cSxFMnv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="clientRegistry" type="service" id="knpu.oauth2.registry"/>
+        <argument key="sesssion" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Jm3FXCg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="clientRegistry" type="service" id="knpu.oauth2.registry"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.WdJYCNp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5507,13 +5640,21 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.iP8eVIx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.tG8ZREQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\TypeReclamationRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.d1Mhi6l" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="mailer" type="service" id="mailer.mailer"/>
+        <argument key="sesssion" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.T6wQKy9" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.C5ebQxc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
@@ -5523,7 +5664,20 @@
         <argument key="App\Controller\CategorieSoinMPController::listCategoriesSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieSoinMPController::listCategoriesSoinMPs" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieSoinMPController::modifierCategorieSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\GoogleController::connectAction" type="service" id=".service_locator.M1_Y_xF"/>
+        <argument key="App\Controller\GoogleController::connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
+        <argument key="App\Controller\GoogleController::inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
+        <argument key="App\Controller\GoogleController::inscriptionCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
         <argument key="App\Controller\NoteSoinMPController::ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
+        <argument key="App\Controller\ReclamationController::Supprimerreclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController::Supprimerreclamations" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController::afficherpdf" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController::ajouterreclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController::envoyerreponse" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController::listreclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController::listreclamations" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController::modifierreclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController::repondrereclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::SupprimerSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
@@ -5531,6 +5685,12 @@
         <argument key="App\Controller\SoinMPController::listSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::listSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::modifierSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController::OrderByid" type="service" id=".service_locator.tG8ZREQ"/>
+        <argument key="App\Controller\TypereclamationController::Supprimertypereclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController::afficherpdft" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController::ajoutertypereclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController::listtypereclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController::modifiertypereclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::ListMedcins" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::ListParapharmaciens" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::ListPatients" type="service" id=".service_locator.o3htLhs"/>
@@ -5545,10 +5705,10 @@
         <argument key="App\Controller\UserController::accueilPharmacien" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::afficherUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::connexion" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\UserController::inscription" type="service" id=".service_locator.iP8eVIx"/>
-        <argument key="App\Controller\UserController::inscriptionMed" type="service" id=".service_locator.iP8eVIx"/>
-        <argument key="App\Controller\UserController::inscriptionPara" type="service" id=".service_locator.iP8eVIx"/>
-        <argument key="App\Controller\UserController::inscriptionPharmacien" type="service" id=".service_locator.iP8eVIx"/>
+        <argument key="App\Controller\UserController::inscription" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController::inscriptionMed" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController::inscriptionPara" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController::inscriptionPharmacien" type="service" id=".service_locator.d1Mhi6l"/>
         <argument key="App\Controller\UserController::logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierPhar" type="service" id=".service_locator.o3htLhs"/>
@@ -5560,7 +5720,20 @@
         <argument key="App\Controller\CategorieSoinMPController:listCategoriesSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieSoinMPController:listCategoriesSoinMPs" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieSoinMPController:modifierCategorieSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\GoogleController:connectAction" type="service" id=".service_locator.M1_Y_xF"/>
+        <argument key="App\Controller\GoogleController:connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
+        <argument key="App\Controller\GoogleController:inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
+        <argument key="App\Controller\GoogleController:inscriptionCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
         <argument key="App\Controller\NoteSoinMPController:ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
+        <argument key="App\Controller\ReclamationController:Supprimerreclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController:Supprimerreclamations" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController:afficherpdf" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController:ajouterreclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController:envoyerreponse" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController:listreclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController:listreclamations" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController:modifierreclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ReclamationController:repondrereclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:SupprimerSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
@@ -5568,6 +5741,12 @@
         <argument key="App\Controller\SoinMPController:listSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:listSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:modifierSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController:OrderByid" type="service" id=".service_locator.tG8ZREQ"/>
+        <argument key="App\Controller\TypereclamationController:Supprimertypereclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController:afficherpdft" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController:ajoutertypereclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController:listtypereclamation" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\TypereclamationController:modifiertypereclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:ListMedcins" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:ListParapharmaciens" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:ListPatients" type="service" id=".service_locator.o3htLhs"/>
@@ -5582,10 +5761,10 @@
         <argument key="App\Controller\UserController:accueilPharmacien" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:afficherUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:connexion" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\UserController:inscription" type="service" id=".service_locator.iP8eVIx"/>
-        <argument key="App\Controller\UserController:inscriptionMed" type="service" id=".service_locator.iP8eVIx"/>
-        <argument key="App\Controller\UserController:inscriptionPara" type="service" id=".service_locator.iP8eVIx"/>
-        <argument key="App\Controller\UserController:inscriptionPharmacien" type="service" id=".service_locator.iP8eVIx"/>
+        <argument key="App\Controller\UserController:inscription" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController:inscriptionMed" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController:inscriptionPara" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController:inscriptionPharmacien" type="service" id=".service_locator.d1Mhi6l"/>
         <argument key="App\Controller\UserController:logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierPhar" type="service" id=".service_locator.o3htLhs"/>
@@ -5651,13 +5830,15 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.7kCml.c" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.nBYsndR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
         <argument key="App\Form\CategorieSoinMPRechercheType" type="service" id="App\Form\CategorieSoinMPRechercheType"/>
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
         <argument key="App\Form\ConnexionType" type="service" id="App\Form\ConnexionType"/>
+        <argument key="App\Form\ReclamationType" type="service" id="App\Form\ReclamationType"/>
+        <argument key="App\Form\ReclamationsType" type="service" id="App\Form\ReclamationsType"/>
         <argument key="App\Form\SoinMPRechercheType" type="service" id="App\Form\SoinMPRechercheType"/>
         <argument key="App\Form\SoinMPTriDESCType" type="service" id="App\Form\SoinMPTriDESCType"/>
         <argument key="App\Form\SoinMPTriFormType" type="service" id="App\Form\SoinMPTriFormType"/>
@@ -5912,15 +6093,33 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\GoogleController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\GoogleController"/>
+      <argument>App\Controller\GoogleController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\NoteSoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\NoteSoinMPController"/>
       <argument>App\Controller\NoteSoinMPController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\ReclamationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ReclamationController"/>
+      <argument>App\Controller\ReclamationController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\SoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\SoinMPController"/>
       <argument>App\Controller\SoinMPController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\TypereclamationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\TypereclamationController"/>
+      <argument>App\Controller\TypereclamationController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6073,12 +6272,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.T6wQKy9"/>
+      <argument type="service" id=".service_locator.C5ebQxc"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.T6wQKy9"/>
+      <argument type="service" id=".service_locator.C5ebQxc"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6401,6 +6600,7 @@
     <service id="form.choice_list_factory" alias="form.choice_list_factory.cached" public="false"/>
     <service id="Symfony\Component\Asset\Packages" alias="assets.packages" public="false"/>
     <service id="Symfony\Contracts\HttpClient\HttpClientInterface" alias=".debug.http_client"/>
+    <service id="Psr\Http\Client\ClientInterface" alias="psr18.http_client"/>
     <service id="mailer" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\MailerInterface" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\Transport\TransportInterface" alias="mailer.default_transport"/>
@@ -6481,9 +6681,12 @@
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
     <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
+    <service id="KnpU\OAuth2ClientBundle\Client\ClientRegistry" alias="knpu.oauth2.registry" public="false"/>
+    <service id="oauth2.registry" alias="knpu.oauth2.registry" public="true"/>
+    <service id="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" alias="knpu.oauth2.client.google_connect" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.T6wQKy9"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.C5ebQxc"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

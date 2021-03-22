@@ -34,6 +34,11 @@ class Reclamation
      */
     private $typeReclamation;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $reponse;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +76,18 @@ class Reclamation
     public function setTypeReclamation(?TypeReclamation $typeReclamation): self
     {
         $this->typeReclamation = $typeReclamation;
+
+        return $this;
+    }
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(?string $reponse): self
+    {
+        $this->reponse = $reponse;
 
         return $this;
     }

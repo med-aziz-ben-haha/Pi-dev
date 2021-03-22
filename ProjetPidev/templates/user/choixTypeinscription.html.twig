@@ -1,0 +1,43 @@
+{% include 'tempFrontAccueil1.html.twig' %}
+<style> .btn-primary {
+                background-color: #EA3D48 !important;
+                border-color: #EA3D48 !important;
+                border-radius: 30px;
+                margin-top:3% !important;
+                width:400px;
+                padding-top:2px;
+                padding-bottom:2px;
+                margin:2% !important;
+
+        }
+        .btn-primary:hover {
+                opacity: 0.8;
+                background-color: #EA3D48 !important;
+                border-color: #EA3D48 !important;
+                border-radius: 30px;
+                margin-top:3% !important;
+                width:400px;
+                padding-top:2px;
+                padding-bottom:2px;
+                margin:2% !important;
+        }
+        .btn-primary:active {
+                background-color: #EA3D48 !important;
+                border-color: #EA3D48 !important;
+                border-radius: 30px;
+                margin-top:3% !important;
+                width:400px;
+                padding-top:2px;
+                padding-bottom:2px;
+                margin:2% !important;
+        }
+</style>
+<div style ="margin-left: 28%; margin-right: 28%;  border: solid 1px #EA3D48; padding:2%; border-radius: 30px; margin-bottom: 25px ">
+    <center>
+        <form action="{{ path('inscription') }}"><button class="btn-primary" >S'inscrire</button><br></form>
+        <form action="{{ path('inscriptionMed') }}"><button class="btn-primary" >S'inscrire en tant que médecin</button><br></form>
+        <form action="{{ path('inscriptionPharmacien') }}"><button class="btn-primary" >S'inscrire en tant que pharmacien</button><br></form>
+        <form action="{{ path('inscriptionParapharmacien') }}"><button class="btn-primary">S'inscrire en tant que parapharmacien</button></form>
+    </center>
+    </div>
+{% include 'tempFrontAccueil2.html.twig' %}
