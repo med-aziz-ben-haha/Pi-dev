@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '2a2888228440db513184c13c95ad7c95372df93a',
+    'reference' => '701869b952b71482409f3dd5e492807e2e18289e',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,25 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '2a2888228440db513184c13c95ad7c95372df93a',
+      'reference' => '701869b952b71482409f3dd5e492807e2e18289e',
+    ),
+    'captcha-com/captcha' => 
+    array (
+      'pretty_version' => '4.2.5',
+      'version' => '4.2.5.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '4b8b642509bfc63d2f295dccf1c1b4d0e2266a15',
+    ),
+    'captcha-com/symfony-captcha-bundle' => 
+    array (
+      'pretty_version' => '4.2.12',
+      'version' => '4.2.12.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fd071c3f36d646ff87b591ddb3ea531c5f3678c2',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -224,6 +242,15 @@ private static $installed = array (
       ),
       'reference' => '0dbf5d78455d4d6a41d186da50adc1122ec066f4',
     ),
+    'ezyang/htmlpurifier' => 
+    array (
+      'pretty_version' => 'v4.13.0',
+      'version' => '4.13.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '08e27c97e4c6ed02f37c5b2b20488046c8d90d75',
+    ),
     'friendsofphp/proxy-manager-lts' => 
     array (
       'pretty_version' => 'v1.0.3',
@@ -341,6 +368,33 @@ private static $installed = array (
       ),
       'reference' => '6b79441f244040760bed5fdcd092a2bda7cf34c6',
     ),
+    'maennchen/zipstream-php' => 
+    array (
+      'pretty_version' => '2.1.0',
+      'version' => '2.1.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c4c5803cc1f93df3d2448478ef79394a5981cc58',
+    ),
+    'markbaker/complex' => 
+    array (
+      'pretty_version' => '2.0.0',
+      'version' => '2.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '9999f1432fae467bc93c53f357105b4c31bb994c',
+    ),
+    'markbaker/matrix' => 
+    array (
+      'pretty_version' => '2.1.2',
+      'version' => '2.1.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '361c0f545c3172ee26c3d596a0aa03f0cef65e6a',
+    ),
     'monolog/monolog' => 
     array (
       'pretty_version' => '1.26.0',
@@ -349,6 +403,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '2209ddd84e7ef1256b7af205d0717fb62cfc9c33',
+    ),
+    'myclabs/php-enum' => 
+    array (
+      'pretty_version' => '1.7.7',
+      'version' => '1.7.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd178027d1e679832db9f38248fcc7200647dc2b7',
     ),
     'nikic/php-parser' => 
     array (
@@ -448,6 +511,15 @@ private static $installed = array (
       ),
       'reference' => '6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0',
     ),
+    'phpoffice/phpspreadsheet' => 
+    array (
+      'pretty_version' => '1.17.1',
+      'version' => '1.17.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'c55269cb06911575a126dc225a05c0e4626e5fb4',
+    ),
     'psr/cache' => 
     array (
       'pretty_version' => '1.0.1',
@@ -503,6 +575,15 @@ private static $installed = array (
         0 => '1.0',
       ),
     ),
+    'psr/http-factory' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
+    ),
     'psr/http-message' => 
     array (
       'pretty_version' => '1.0.1',
@@ -551,6 +632,15 @@ private static $installed = array (
         0 => '1.0.0',
         1 => '1.0',
       ),
+    ),
+    'psr/simple-cache' => 
+    array (
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '408d5eafb83c57f6365a3ca330ff23aa4a5fa39b',
     ),
     'psr/simple-cache-implementation' => 
     array (

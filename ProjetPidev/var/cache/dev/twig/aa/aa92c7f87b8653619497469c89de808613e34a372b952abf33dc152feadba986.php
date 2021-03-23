@@ -46,8 +46,8 @@ class __TwigTemplate_37287a4a881764502c24ee739e9ad035067afc45a2d96e2cfca7d1b9ac2
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Pharmacien  </h1>
-<a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Medicament<i class=\"fas fa-chevron-right\"></i></a>
+
+<a href=\"/listmedicament\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Gestion des Medicaments<i class=\"fas fa-chevron-right\"></i></a>
 
 ";
         // line 9
@@ -82,8 +82,8 @@ class __TwigTemplate_37287a4a881764502c24ee739e9ad035067afc45a2d96e2cfca7d1b9ac2
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Pharmacien  </h1>
-<a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Medicament<i class=\"fas fa-chevron-right\"></i></a>
+
+<a href=\"/listmedicament\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Gestion des Medicaments<i class=\"fas fa-chevron-right\"></i></a>
 
 {% include 'templateAccueilFooter.html.twig' %}", "user/accueilOnlinePharmacien.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlinePharmacien.html.twig");
     }

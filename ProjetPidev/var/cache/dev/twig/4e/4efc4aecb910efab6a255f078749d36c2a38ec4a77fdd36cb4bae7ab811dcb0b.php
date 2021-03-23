@@ -45,7 +45,7 @@ class __TwigTemplate_0122f2489ccdeb2f4546431bc6e8038bdbda4acc490990d18bd07d6f920
         echo "
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Parapharmacien  </h1>
+
 <a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Produit Parapharmaceutique<i class=\"fas fa-chevron-right\"></i></a>
 ";
         // line 7
@@ -79,7 +79,7 @@ class __TwigTemplate_0122f2489ccdeb2f4546431bc6e8038bdbda4acc490990d18bd07d6f920
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Parapharmacien  </h1>
+
 <a href=\"\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Ajouter Produit Parapharmaceutique<i class=\"fas fa-chevron-right\"></i></a>
 {% include 'templateAccueilFooter.html.twig' %}", "user/accueilOnlineParapharmacien.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlineParapharmacien.html.twig");
     }

@@ -1,0 +1,23 @@
+{% include 'templateAccueilMed.html.twig'  %}
+
+
+<div class="container">
+    <div class="form-group">
+        {{ form_start( Ordonnanceajout,{'attr': {'novalidate': 'novalidate'}} ) }}
+        <h1> Ajout Ordonnance </h1>
+        <div class="form-group">
+            {{ form_label( Ordonnanceajout.contenu_ord,"Contenu ordonnance") }}
+            {{ form_widget(Ordonnanceajout.contenu_ord) }}
+        </div>
+        <div class="form-group">
+            {{ form_label( Ordonnanceajout.medicaments, "Liste des médicament" )}}
+            {{ form_widget( Ordonnanceajout.medicaments ) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(Ordonnanceajout.date_ord,"Date de saisie") }}
+            {{ form_widget(Ordonnanceajout.date_ord) }}
+        </div>
+        {{ form_end(Ordonnanceajout) }}
+    </div>
+</div>
+{% include 'tempFront2MO.html.twig' %}

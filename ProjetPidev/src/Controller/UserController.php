@@ -40,8 +40,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $user = $this->getDoctrine()->getRepository(User::class)->findByRole(1);
-        return $this->render('user/ListPatients.html.twig', ['listPatients' => $user,]);
+        return $this->render('user/ListPatients.html.twig', ['listPatients' => $user,'user'=>$userfind,]);
     }
 
     /**
@@ -56,11 +58,13 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $patientfind = $this->getDoctrine()->getRepository(User::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($patientfind);
         $em->flush();
-        return $this->redirectToRoute('Patients');
+        return $this->redirectToRoute('Patients',['user'=>$userfind,]);
     }
 
 
@@ -75,8 +79,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $user = $this->getDoctrine()->getRepository(User::class)->findByRole(2);
-        return $this->render('user/ListMedecins.html.twig', ['listMedecins' => $user,]);
+        return $this->render('user/ListMedecins.html.twig', ['listMedecins' => $user,'user'=>$userfind,]);
     }
 
     /**
@@ -91,11 +97,13 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $medecinfind = $this->getDoctrine()->getRepository(User::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($medecinfind);
         $em->flush();
-        return $this->redirectToRoute('Medecins');
+        return $this->redirectToRoute('Medecins',['user'=>$userfind,]);
 
     }
 
@@ -110,8 +118,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $user = $this->getDoctrine()->getRepository(User::class)->findByRole(3);
-        return $this->render('user/ListPharmaciens.html.twig', ['listPharmaciens' => $user,]);
+        return $this->render('user/ListPharmaciens.html.twig', ['listPharmaciens' => $user,'user'=>$userfind,]);
     }
 
     /**
@@ -127,11 +137,13 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $pharmacienfind = $this->getDoctrine()->getRepository(User::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($pharmacienfind);
         $em->flush();
-        return $this->redirectToRoute('Pharmaciens');
+        return $this->redirectToRoute('Pharmaciens',['user'=>$userfind,]);
 
     }
 
@@ -146,8 +158,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $user = $this->getDoctrine()->getRepository(User::class)->findByRole(4);
-        return $this->render('user/ListParapharmaciens.html.twig', ['listPharmaciens' => $user,]);
+        return $this->render('user/ListParapharmaciens.html.twig', ['listPharmaciens' => $user,'user'=>$userfind,]);
     }
 
     /**
@@ -163,11 +177,13 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $parapharmacienfind = $this->getDoctrine()->getRepository(User::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($parapharmacienfind);
         $em->flush();
-        return $this->redirectToRoute('Parapharmaciens');
+        return $this->redirectToRoute('Parapharmaciens',['user'=>$userfind,]);
 
     }
 
@@ -176,6 +192,7 @@ class UserController extends AbstractController
      */
     public function connexion(Request $request, SessionInterface $session): Response
     {  $useronline=new User();
+
         $form=$this->createForm(ConnexionType::class,$useronline);
         $form->add('Connexion', SubmitType::class);
         $form->handleRequest($request);
@@ -188,9 +205,11 @@ class UserController extends AbstractController
             } else {
                 $role=$verifuser->getRole();
                 $session->set('user',$verifuser);
+                $iduser=$verifuser->getId();
+                $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
                     if ($role==1)
                     {
-                        return $this->redirectToRoute('accueilOnline',array('iduser'=>$verifuser->getId()));
+                        return $this->redirectToRoute('accueilOnline',array('iduser'=>$verifuser->getId(),'user'=>$userfind,));
                     }
                     else if ($role==2)
                     {
@@ -233,8 +252,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         return $this->render('user/accueilOnline.html.twig', [
-            'iduser' => $iduser, ]);
+            'iduser' => $iduser,'user'=>$userfind,]);
 
     }
 
@@ -247,8 +268,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         return $this->render('user/accueilOnlineMed.html.twig', [
-           'iduser' => $iduser,
+           'iduser' => $iduser,'user'=>$userfind,
         ]);
     }
 
@@ -261,8 +284,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         return $this->render('user/accueilOnlinePharmacien.html.twig', [
-            'iduser' => $iduser,
+            'iduser' => $iduser,'user'=>$userfind,
         ]);
     }
 
@@ -275,8 +300,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         return $this->render('user/accueilOnlineParapharmacien.html.twig', [
-            'iduser' => $iduser,
+            'iduser' => $iduser,'user'=>$userfind,
         ]);
     }
 
@@ -498,6 +525,8 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $iduser])[0];
         $form = $this->createForm(UserType::class, $UserFind);
         $form->add('modifier', SubmitType::class);
@@ -521,14 +550,14 @@ class UserController extends AbstractController
 
             if ($UserFind->getRole()==1)
             {
-                return $this->redirectToRoute('afficherUser', ['iduser' => $iduser, 'userFind' => $UserFind]);
+                return $this->redirectToRoute('afficherUser', ['iduser' => $iduser, 'userFind' => $UserFind,'user'=>$userfind,]);
             }
             if (($UserFind->getRole()==3)or($UserFind->getRole()==4))
             {
-                return $this->redirectToRoute('afficherPara', ['iduser' => $iduser, 'userFind' => $UserFind]);
+                return $this->redirectToRoute('afficherPara', ['iduser' => $iduser, 'userFind' => $UserFind,'user'=>$userfind,]);
             }
         }
-        return $this->render('user/templateModifierProfil.html.twig', ['formModifierUser' => $form->createView(), 'iduser'=>$iduser, 'userFind'=>$UserFind]);
+        return $this->render('user/templateModifierProfil.html.twig', ['formModifierUser' => $form->createView(), 'iduser'=>$iduser, 'userFind'=>$UserFind, 'user'=>$userfind,]);
 
     }
 
@@ -545,6 +574,8 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $iduser])[0];
         $form = $this->createForm(UserMedType::class, $UserFind);
         $form->add('modifier', SubmitType::class);
@@ -565,7 +596,7 @@ class UserController extends AbstractController
             }
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('afficherUser', ['iduser' => $iduser, 'userFind' => $UserFind]);
+            return $this->redirectToRoute('afficherUser', ['iduser' => $iduser, 'userFind' => $UserFind,  'user'=>$userfind,]);
         }
         return $this->render('user/templateModifierProfilMed.html.twig', ['formModifierUser' => $form->createView(), 'iduser'=>$iduser, 'userFind'=>$UserFind]);
     }
@@ -583,6 +614,7 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $iduser])[0];
         $form = $this->createForm(UserParaType::class, $UserFind);
         $form->add('modifier', SubmitType::class);
@@ -603,9 +635,9 @@ class UserController extends AbstractController
             }
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('afficherUser', ['iduser' => $iduser, 'userFind' => $UserFind]);
+            return $this->redirectToRoute('afficherUser', ['iduser' => $iduser, 'userFind' => $UserFind,'user'=>$userfind,]);
         }
-        return $this->render('user/templateModifierProfilPhar.html.twig', ['formModifierUser' => $form->createView(), 'iduser'=>$iduser, 'userFind'=>$UserFind]);
+        return $this->render('user/templateModifierProfilPhar.html.twig', ['formModifierUser' => $form->createView(), 'iduser'=>$iduser, 'userFind'=>$UserFind,'user'=>$userfind,]);
     }
 
     /**
@@ -620,18 +652,19 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $iduser])[0];
         if ($UserFind->getRole()==1) {
-            return $this->render('user/templateAfficherProfil.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,]);
+            return $this->render('user/templateAfficherProfil.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,'user'=>$userfind,]);
         }
         if ($UserFind->getRole()==2)
         {
-            return $this->render('user/templateAfficherProfilMed.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,]);
+            return $this->render('user/templateAfficherProfilMed.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,'user'=>$userfind,]);
 
         }
         if (($UserFind->getRole()==3)or($UserFind->getRole()==4))
         {
-            return $this->render('user/templateAfficherProfilPara.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,]);
+            return $this->render('user/templateAfficherProfilPara.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,'user'=>$userfind,]);
 
         }
 

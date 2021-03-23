@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\CategorieSoinMP;
+use App\Entity\User;
 use App\Form\CategorieSoinMPType;
 use App\Form\CategorieSoinMPRechercheType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -37,6 +38,8 @@ class CategorieSoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
         $form=$this->createForm(CategorieSoinMPRechercheType::class);
         $form->handleRequest($request);
@@ -44,9 +47,9 @@ class CategorieSoinMPController extends AbstractController
         {   $data=$form->getData();
             $titre=$data['recherche'];
             $categorieSoinMPfind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
-            return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categorieSoinMPfind,'formSearch'=>$form->createView(),]);
+            return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categorieSoinMPfind,'formSearch'=>$form->createView(),'user'=>$userfind,]);
         }
-        return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categoriesSoinMP,'formSearch'=>$form->createView(),]);
+        return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categoriesSoinMP,'formSearch'=>$form->createView(),'user'=>$userfind,]);
     }
 
     /**
@@ -62,6 +65,8 @@ class CategorieSoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $donnees = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
 
         $categoriesSoinMP = $paginator->paginate(
@@ -80,9 +85,9 @@ class CategorieSoinMPController extends AbstractController
                 $request->query->getInt('page', 1),
                 3
             );
-            return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categorieSoinMPfind,'formSearch'=>$form->createView(), 'iduser'=>$iduser,]);
+            return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categorieSoinMPfind,'formSearch'=>$form->createView(), 'iduser'=>$iduser,'user'=>$userfind,]);
         }
-        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(), 'iduser'=>$iduser,]);
+        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(), 'iduser'=>$iduser,'user'=>$userfind,]);
     }
 
     /**
@@ -97,6 +102,8 @@ class CategorieSoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $CategorieSoinMP= new CategorieSoinMP();
         $form= $this->createForm(CategorieSoinMPType::class,$CategorieSoinMP);
         $form->add('ajouter',SubmitType::class);
@@ -118,10 +125,10 @@ class CategorieSoinMPController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->persist($CategorieSoinMP);
             $em-> flush();
-            return $this->redirectToRoute('afficherCategorieSoinMP');
+            return $this->redirectToRoute('afficherCategorieSoinMP',['user'=>$userfind,]);
 
         }
-        return $this->render('categorie_soin_mp/ajouterCategorieSoinMP.html.twig', ['formAjouterCategorieSoinMP' => $form->createView()]);
+        return $this->render('categorie_soin_mp/ajouterCategorieSoinMP.html.twig', ['formAjouterCategorieSoinMP' => $form->createView(),'user'=>$userfind,]);
     }
 
     /**
@@ -136,11 +143,13 @@ class CategorieSoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $CategorieSoinMPfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($CategorieSoinMPfind);
         $em->flush();
-        return $this->redirectToRoute('afficherCategorieSoinMP');
+        return $this->redirectToRoute('afficherCategorieSoinMP',['user'=>$userfind,]);
 
     }
 
@@ -156,6 +165,8 @@ class CategorieSoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $CategorieSoinMPfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(CategorieSoinMPType::class, $CategorieSoinMPfind);
         $form->add('modifier', SubmitType::class);
@@ -178,10 +189,10 @@ class CategorieSoinMPController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('afficherCategorieSoinMP');
+            return $this->redirectToRoute('afficherCategorieSoinMP' ,['user'=>$userfind,]);
 
         }
-        return $this->render('categorie_soin_mp/modifierCategorieSoinMP.html.twig', ['formModifierCategorieSoinMP' => $form->createView()]);
+        return $this->render('categorie_soin_mp/modifierCategorieSoinMP.html.twig', ['formModifierCategorieSoinMP' => $form->createView(),'user'=>$userfind,]);
 
     }
 }

@@ -260,8 +260,8 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
                     </ul>
                 </li>
 
-                <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des laboratoires</span></a></li>
-                <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
+                <li><a href=\"/listmedicament\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
+                <li><a href=\"/listordonnance\"><i class=\"fa fa-book\"></i> <span>Gestion Ordonnance</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
 
             </ul>
@@ -473,8 +473,8 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
                     </ul>
                 </li>
 
-                <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des laboratoires</span></a></li>
-                <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
+                <li><a href=\"/listmedicament\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
+                <li><a href=\"/listordonnance\"><i class=\"fa fa-book\"></i> <span>Gestion Ordonnance</span></a></li>
                 <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
 
             </ul>

@@ -126,6 +126,11 @@ class User
      */
     private $noteSoinMPs;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Ordonnance::class, mappedBy="User")
+     */
+    private $ordonnances;
+
     public function __construct()
     {
         $this->reclamations = new ArrayCollection();
@@ -134,6 +139,7 @@ class User
 
         $this->listRendezvous = new ArrayCollection();
         $this->noteSoinMPs = new ArrayCollection();
+        $this->ordonnances = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -440,5 +446,40 @@ class User
         return $this;
     }
 
+    /**
+     * @return Collection|Ordonnance[]
+     */
+    public function getOrdonnances(): Collection
+    {
+        return $this->ordonnances;
+    }
+
+    public function addOrdonnance(Ordonnance $ordonnance): self
+    {
+        if (!$this->ordonnances->contains($ordonnance)) {
+            $this->ordonnances[] = $ordonnance;
+            $ordonnance->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdonnance(Ordonnance $ordonnance): self
+    {
+        if ($this->ordonnances->removeElement($ordonnance)) {
+            // set the owning side to null (unless already changed)
+            if ($ordonnance->getUser() === $this) {
+                $ordonnance->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+
+    {
+        return(string) $this->getLogin();
+    }
 
 }

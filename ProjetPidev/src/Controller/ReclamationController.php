@@ -43,8 +43,10 @@ class ReclamationController extends AbstractController
                 return $this->redirectToRoute('connexion');
             }
             $iduser=$user->getId();
+            $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
+
             $reclamation = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
-            return $this->render('reclamation/listreclamation.html.twig', ['listreclamation' => $reclamation, 'iduser'=>$iduser,]);
+            return $this->render('reclamation/listreclamation.html.twig', ['listreclamation' => $reclamation, 'iduser'=>$iduser, 'user'=>$userfind,]);
         }
 
           /**
@@ -59,6 +61,7 @@ class ReclamationController extends AbstractController
                         return $this->redirectToRoute('connexion');
                     }
                     $iduser=$user->getId();
+                    $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
                    // Configure Dompdf according to your needs
                            $pdfOptions = new Options();
                            $pdfOptions->set('defaultFont', 'Arial');
@@ -69,7 +72,7 @@ class ReclamationController extends AbstractController
 
 
                            // Retrieve the HTML generated in our twig file
-                           $html = $this->renderView('reclamation/list.html.twig', ['listreclamation' => $reclamation,'iduser'=>$iduser,]);
+                           $html = $this->renderView('reclamation/list.html.twig', ['listreclamation' => $reclamation,'iduser'=>$iduser,'user'=>$userfind,]);
 
                            // Load HTML to Dompdf
                            $dompdf->loadHtml($html);
@@ -98,9 +101,9 @@ class ReclamationController extends AbstractController
             return $this->redirectToRoute('connexion');
         }
         $iduser=$user->getId();
-
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->findby(array('user'=>$iduser));
-        return $this->render('reclamation/listreclamations.html.twig', ['listreclamations' => $reclamationfind, 'iduser'=>$iduser,]);
+        return $this->render('reclamation/listreclamations.html.twig', ['listreclamations' => $reclamationfind, 'iduser'=>$iduser,'user'=>$userfind,]);
     }
 
     /**
@@ -116,11 +119,12 @@ class ReclamationController extends AbstractController
             return $this->redirectToRoute('connexion');
         }
         $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($reclamationfind);
         $em->flush();
-        return $this->redirectToRoute('afficherreclamation',['iduser'=>$iduser,]);
+        return $this->redirectToRoute('afficherreclamation',['iduser'=>$iduser,'user'=>$userfind,]);
     }
 
     /**
@@ -136,11 +140,12 @@ class ReclamationController extends AbstractController
             return $this->redirectToRoute('connexion');
         }
         $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($reclamationfind);
         $em->flush();
-        return $this->redirectToRoute('afficherreclamations',['iduser'=>$iduser,]);
+        return $this->redirectToRoute('afficherreclamations',['iduser'=>$iduser,'user'=>$userfind,]);
 
     }
 
@@ -157,6 +162,7 @@ class ReclamationController extends AbstractController
             return $this->redirectToRoute('connexion');
         }
         $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $reclamationfind = $this->getDoctrine()->getRepository(reclamation::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(ReclamationType::class, $reclamationfind);
         $form->add('modifier', SubmitType::class);
@@ -166,9 +172,9 @@ class ReclamationController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('afficherreclamations',[ 'iduser'=>$iduser,]);}
+            return $this->redirectToRoute('afficherreclamations',[ 'iduser'=>$iduser,'user'=>$userfind,]);}
 
-        return $this->render('reclamation/modifierreclamations.html.twig', ['f' => $form->createView(), 'iduser'=>$iduser,]);
+        return $this->render('reclamation/modifierreclamations.html.twig', ['f' => $form->createView(), 'iduser'=>$iduser,'user'=>$userfind,]);
 
     }
 
@@ -185,6 +191,7 @@ class ReclamationController extends AbstractController
             return $this->redirectToRoute('connexion');
         }
         $iduser=$user->getId();
+
         $reponse="Reclamation en cours";
         $reclamation = new reclamation();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -198,9 +205,9 @@ class ReclamationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
-            return $this->redirectToRoute('afficherreclamations',[ 'iduser'=>$iduser,]); }
+            return $this->redirectToRoute('afficherreclamations',[ 'iduser'=>$iduser,'user'=>$userfind,]); }
 
-        return $this->render('reclamation/ajouterreclamation.html.twig', ['f' => $form->createView(), 'iduser'=>$iduser,]);
+        return $this->render('reclamation/ajouterreclamation.html.twig', ['f' => $form->createView(), 'iduser'=>$iduser,'user'=>$userfind,]);
     }
 
     /**
@@ -217,8 +224,8 @@ class ReclamationController extends AbstractController
             return $this->redirectToRoute('connexion');
         }
         $iduser=$user->getId();
-
-        return $this->render('reclamation/repondre.html.twig', [ 'iduser'=>$iduser,'id'=>$id,]);
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
+        return $this->render('reclamation/repondre.html.twig', [ 'iduser'=>$iduser,'id'=>$id,'user'=>$userfind,]);
     }
 
     /**
@@ -243,8 +250,8 @@ class ReclamationController extends AbstractController
 
         $iduser=$user->getId();
 
-
-        return $this->redirectToRoute('afficherreclamation',[ 'iduser'=>$iduser,'id'=>$id,]);
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
+        return $this->redirectToRoute('afficherreclamation',[ 'iduser'=>$iduser,'id'=>$id,'user'=>$userfind,]);
     }
 
 

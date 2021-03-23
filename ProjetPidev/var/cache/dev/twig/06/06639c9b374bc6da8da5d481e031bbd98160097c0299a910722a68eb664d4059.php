@@ -42,10 +42,11 @@ class __TwigTemplate_3c844029a41a7711d25bd6e653c6cad67946c8e8ab87578a6b564acd570
         // line 1
         $this->loadTemplate("templateAccueil.html.twig", "user/accueilOnlineMed.html.twig", 1)->display($context);
         // line 2
-        echo "<h1 style =\"margin-bottom: 30%; text-align: center; color: #EA3D48 ; \" > Espace Medecin  </h1>
+        echo "
+<a href=\"/listordonnance\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Gestion des Ordonnances<i class=\"fas fa-chevron-right\"></i></a>
 ";
-        // line 3
-        $this->loadTemplate("templateAccueilFooter.html.twig", "user/accueilOnlineMed.html.twig", 3)->display($context);
+        // line 4
+        $this->loadTemplate("templateAccueilFooter.html.twig", "user/accueilOnlineMed.html.twig", 4)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -66,13 +67,14 @@ class __TwigTemplate_3c844029a41a7711d25bd6e653c6cad67946c8e8ab87578a6b564acd570
 
     public function getDebugInfo()
     {
-        return array (  48 => 3,  45 => 2,  43 => 1,);
+        return array (  49 => 4,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% include 'templateAccueil.html.twig'  %}
-<h1 style =\"margin-bottom: 30%; text-align: center; color: #EA3D48 ; \" > Espace Medecin  </h1>
+
+<a href=\"/listordonnance\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Gestion des Ordonnances<i class=\"fas fa-chevron-right\"></i></a>
 {% include 'templateAccueilFooter.html.twig' %}", "user/accueilOnlineMed.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlineMed.html.twig");
     }
 }

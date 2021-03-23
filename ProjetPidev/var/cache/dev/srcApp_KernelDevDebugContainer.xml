@@ -25,6 +25,7 @@
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="ObHighchartsBundle">Ob\HighchartsBundle\ObHighchartsBundle</parameter>
       <parameter key="KnpUOAuth2ClientBundle">KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle</parameter>
+      <parameter key="CaptchaBundle">Captcha\Bundle\CaptchaBundle\CaptchaBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -90,6 +91,10 @@
       <parameter key="KnpUOAuth2ClientBundle" type="collection">
         <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knpuniversity\oauth2-client-bundle\src</parameter>
         <parameter key="namespace">KnpU\OAuth2ClientBundle</parameter>
+      </parameter>
+      <parameter key="CaptchaBundle" type="collection">
+        <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle</parameter>
+        <parameter key="namespace">Captcha\Bundle\CaptchaBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -247,6 +252,7 @@
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
     <parameter key="twig.exception_listener.controller">null</parameter>
     <parameter key="twig.form.resources" type="collection">
+      <parameter>@Captcha/captcha.html.twig</parameter>
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>bootstrap_4_layout.html.twig</parameter>
     </parameter>
@@ -278,6 +284,21 @@
     <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="knp_paginator.page_limit">null</parameter>
     <parameter key="ob_highcharts.twig_extension.class">Ob\HighchartsBundle\Twig\HighchartsExtension</parameter>
+    <parameter key="botdetect_captcha.class">Captcha\Bundle\CaptchaBundle\Integration\BotDetectCaptcha</parameter>
+    <parameter key="botdetect_simple_captcha.class">Captcha\Bundle\CaptchaBundle\Integration\BotDetectSimpleCaptcha</parameter>
+    <parameter key="captcha_routes_loader.class">Captcha\Bundle\CaptchaBundle\Routing\CaptchaRoutesLoader</parameter>
+    <parameter key="captcha_type.class">Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType</parameter>
+    <parameter key="simple_captcha_type.class">Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType</parameter>
+    <parameter key="valid_captcha_validator.class">Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptchaValidator</parameter>
+    <parameter key="valid_simple_captcha_validator.class">Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidSimpleCaptchaValidator</parameter>
+    <parameter key="captcha.config" type="collection">
+      <parameter key="botdetect_captcha_path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle\Support/../../captcha/botdetect-captcha-lib</parameter>
+      <parameter key="captchaConfig">null</parameter>
+      <parameter key="captchaStyleName">null</parameter>
+    </parameter>
+    <parameter key="captcha.config.botdetect_captcha_path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle\Support/../../captcha/botdetect-captcha-lib</parameter>
+    <parameter key="captcha.config.captchaConfig">null</parameter>
+    <parameter key="captcha.config.captchaStyleName">null</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -384,11 +405,25 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\GoogleController"/>
       </call>
     </service>
+    <service id="App\Controller\MedicamentController" class="App\Controller\MedicamentController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\MedicamentController"/>
+      </call>
+    </service>
     <service id="App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\NoteSoinMPController"/>
+      </call>
+    </service>
+    <service id="App\Controller\OrdonnanceController" class="App\Controller\OrdonnanceController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\OrdonnanceController"/>
       </call>
     </service>
     <service id="App\Controller\ReclamationController" class="App\Controller\ReclamationController" public="true" autowire="true" autoconfigure="true">
@@ -432,6 +467,12 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\MedicamentType" class="App\Form\MedicamentType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\OrdonnanceType" class="App\Form\OrdonnanceType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" autoconfigure="true">
@@ -494,6 +535,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\NoteSoinMPRepository" class="App\Repository\NoteSoinMPRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\OrdonnanceRepository" class="App\Repository\OrdonnanceRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -946,12 +991,15 @@
         <argument>Symfony\Component\Form\Extension\Core\Type</argument>
         <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
+        <argument></argument>
       </argument>
       <argument type="collection">
         <argument>App\Form\CaptchaType</argument>
         <argument>App\Form\CategorieSoinMPRechercheType</argument>
         <argument>App\Form\CategorieSoinMPType</argument>
         <argument>App\Form\ConnexionType</argument>
+        <argument>App\Form\MedicamentType</argument>
+        <argument>App\Form\OrdonnanceType</argument>
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\ReclamationsType</argument>
         <argument>App\Form\SoinMPRechercheType</argument>
@@ -965,6 +1013,8 @@
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
+        <argument>Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType</argument>
+        <argument>Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType</argument>
       </argument>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension</argument>
@@ -1295,7 +1345,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.nBYsndR"/>
+      <argument type="service" id=".service_locator.yPyPTHi"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1533,7 +1583,7 @@
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
     <service id="validator.validator_factory" class="Symfony\Component\Validator\ContainerConstraintValidatorFactory" public="false">
-      <argument type="service" id=".service_locator.Y7gDuDN"/>
+      <argument type="service" id=".service_locator.u8z4W6F"/>
     </service>
     <service id="validator.expression" class="Symfony\Component\Validator\Constraints\ExpressionValidator" public="false">
       <tag name="validator.constraint_validator" alias="validator.expression"/>
@@ -1931,6 +1981,8 @@
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/ObHighchartsBundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knpuniversity\oauth2-client-bundle\src/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpUOAuth2ClientBundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/CaptchaBundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -1971,6 +2023,8 @@
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/ObHighchartsBundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knpuniversity\oauth2-client-bundle\src/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpUOAuth2ClientBundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/CaptchaBundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -2914,6 +2968,9 @@
         <argument type="service" id="routing.loader.container"/>
       </call>
       <call method="addLoader">
+        <argument type="service" id="captcha.routing_loader"/>
+      </call>
+      <call method="addLoader">
         <argument type="service" id="routing.loader.annotation"/>
       </call>
       <call method="addLoader">
@@ -3453,7 +3510,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.nwzavVU"/>
+      <argument type="service" id=".service_locator.IIiGGU5"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4572,6 +4629,14 @@
         <argument>!KnpPaginator</argument>
       </call>
       <call method="addPath">
+        <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle/Resources/views</argument>
+        <argument>Captcha</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle/Resources/views</argument>
+        <argument>!Captcha</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/templates</argument>
       </call>
       <call method="addPath">
@@ -5233,6 +5298,33 @@
       <argument type="service" id="knpu.oauth2.provider.google_inscription"/>
       <argument type="service" id="request_stack"/>
     </service>
+    <service id="captcha" class="Captcha\Bundle\CaptchaBundle\Integration\BotDetectCaptcha" public="true">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="simple_captcha" class="Captcha\Bundle\CaptchaBundle\Integration\BotDetectSimpleCaptcha" public="true">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="captcha.routing_loader" class="Captcha\Bundle\CaptchaBundle\Routing\CaptchaRoutesLoader">
+      <tag name="routing.loader"/>
+    </service>
+    <service id="captcha.form.type" class="Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType" public="true">
+      <tag name="form.type" alias="captcha"/>
+      <argument type="service" id="service_container"/>
+      <argument>%captcha.config%</argument>
+    </service>
+    <service id="simple_captcha.form.type" class="Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType" public="true">
+      <tag name="form.type" alias="captcha"/>
+      <argument type="service" id="service_container"/>
+      <argument>%captcha.config%</argument>
+    </service>
+    <service id="captcha.validator" class="Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptchaValidator" public="true">
+      <tag name="validator.constraint_validator" alias="valid_captcha"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="simple_captcha.validator" class="Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidSimpleCaptchaValidator" public="true">
+      <tag name="validator.constraint_validator" alias="valid_simple_captcha"/>
+      <argument type="service" id="service_container"/>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5242,9 +5334,15 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MedicamentController" class="App\Controller\MedicamentController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MedicamentController" class="App\Controller\MedicamentController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MedicamentController" class="App\Controller\MedicamentController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\OrdonnanceController" class="App\Controller\OrdonnanceController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\OrdonnanceController" class="App\Controller\OrdonnanceController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\OrdonnanceController" class="App\Controller\OrdonnanceController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ReclamationController" class="App\Controller\ReclamationController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5267,6 +5365,10 @@
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MedicamentType" class="App\Form\MedicamentType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MedicamentType" class="App\Form\MedicamentType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\OrdonnanceType" class="App\Form\OrdonnanceType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\OrdonnanceType" class="App\Form\OrdonnanceType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationsType" class="App\Form\ReclamationsType" autowire="true" abstract="true"/>
@@ -5303,6 +5405,8 @@
     <service id=".abstract.instanceof.App\Repository\MedicamentRepository" class="App\Repository\MedicamentRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NoteSoinMPRepository" class="App\Repository\NoteSoinMPRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\NoteSoinMPRepository" class="App\Repository\NoteSoinMPRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\OrdonnanceRepository" class="App\Repository\OrdonnanceRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\OrdonnanceRepository" class="App\Repository\OrdonnanceRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" abstract="true"/>
@@ -5633,6 +5737,14 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.KFbFhB7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="repository" type="service" id="App\Repository\MedicamentRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.WdJYCNp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5654,7 +5766,7 @@
         <argument key="sesssion" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.C5ebQxc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.tn8pWM7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
@@ -5668,7 +5780,24 @@
         <argument key="App\Controller\GoogleController::connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
         <argument key="App\Controller\GoogleController::inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController::inscriptionCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
+        <argument key="App\Controller\MedicamentController::Medicamentajout" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController::export" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController::frontlistmedicament" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\MedicamentController::hello" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController::index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController::listmedicament" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\MedicamentController::medicamentmodifier" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController::orderbynameqb" type="service" id=".service_locator.KFbFhB7"/>
+        <argument key="App\Controller\MedicamentController::recherche" type="service" id=".service_locator.KFbFhB7"/>
+        <argument key="App\Controller\MedicamentController::recherche2" type="service" id=".service_locator.KFbFhB7"/>
+        <argument key="App\Controller\MedicamentController::remove" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\NoteSoinMPController::ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
+        <argument key="App\Controller\OrdonnanceController::Ordonnanceajout" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController::index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController::listordonnance" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController::listordonnanceuser" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController::modifier" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController::remove" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ReclamationController::Supprimerreclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ReclamationController::Supprimerreclamations" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ReclamationController::afficherpdf" type="service" id=".service_locator.o3htLhs"/>
@@ -5679,6 +5808,7 @@
         <argument key="App\Controller\ReclamationController::modifierreclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ReclamationController::repondrereclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::SupprimerSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SoinMPController::afficherStatSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::detailSoinMPsnote" type="service" id=".service_locator.o3htLhs"/>
@@ -5724,7 +5854,24 @@
         <argument key="App\Controller\GoogleController:connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
         <argument key="App\Controller\GoogleController:inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController:inscriptionCheckAction" type="service" id=".service_locator.Jm3FXCg"/>
+        <argument key="App\Controller\MedicamentController:Medicamentajout" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController:export" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController:frontlistmedicament" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\MedicamentController:hello" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController:index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController:listmedicament" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\MedicamentController:medicamentmodifier" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\MedicamentController:orderbynameqb" type="service" id=".service_locator.KFbFhB7"/>
+        <argument key="App\Controller\MedicamentController:recherche" type="service" id=".service_locator.KFbFhB7"/>
+        <argument key="App\Controller\MedicamentController:recherche2" type="service" id=".service_locator.KFbFhB7"/>
+        <argument key="App\Controller\MedicamentController:remove" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\NoteSoinMPController:ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
+        <argument key="App\Controller\OrdonnanceController:Ordonnanceajout" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController:index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController:listordonnance" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController:listordonnanceuser" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController:modifier" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController:remove" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ReclamationController:Supprimerreclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ReclamationController:Supprimerreclamations" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ReclamationController:afficherpdf" type="service" id=".service_locator.o3htLhs"/>
@@ -5735,6 +5882,7 @@
         <argument key="App\Controller\ReclamationController:modifierreclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\ReclamationController:repondrereclamation" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:SupprimerSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SoinMPController:afficherStatSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:detailSoinMPsnote" type="service" id=".service_locator.o3htLhs"/>
@@ -5771,9 +5919,11 @@
         <argument key="App\Controller\UserController:modifierUser" type="service" id=".service_locator.o3htLhs"/>
       </argument>
     </service>
-    <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.u8z4W6F" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptchaValidator" type="service" id="captcha.validator"/>
+        <argument key="Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidSimpleCaptchaValidator" type="service" id="simple_captcha.validator"/>
         <argument key="Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator" type="service" id="doctrine.orm.validator.unique"/>
         <argument key="Symfony\Component\Security\Core\Validator\Constraints\UserPasswordValidator" type="service" id="security.validator.user_password"/>
         <argument key="Symfony\Component\Validator\Constraints\EmailValidator" type="service" id="validator.email"/>
@@ -5781,6 +5931,8 @@
         <argument key="Symfony\Component\Validator\Constraints\NotCompromisedPasswordValidator" type="service" id="validator.not_compromised_password"/>
         <argument key="doctrine.orm.validator.unique" type="service" id="doctrine.orm.validator.unique"/>
         <argument key="security.validator.user_password" type="service" id="security.validator.user_password"/>
+        <argument key="valid_captcha" type="service" id="captcha.validator"/>
+        <argument key="valid_simple_captcha" type="service" id="simple_captcha.validator"/>
         <argument key="validator.expression" type="service" id="validator.expression"/>
       </argument>
     </service>
@@ -5830,13 +5982,15 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.nBYsndR" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.yPyPTHi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
         <argument key="App\Form\CategorieSoinMPRechercheType" type="service" id="App\Form\CategorieSoinMPRechercheType"/>
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
         <argument key="App\Form\ConnexionType" type="service" id="App\Form\ConnexionType"/>
+        <argument key="App\Form\MedicamentType" type="service" id="App\Form\MedicamentType"/>
+        <argument key="App\Form\OrdonnanceType" type="service" id="App\Form\OrdonnanceType"/>
         <argument key="App\Form\ReclamationType" type="service" id="App\Form\ReclamationType"/>
         <argument key="App\Form\ReclamationsType" type="service" id="App\Form\ReclamationsType"/>
         <argument key="App\Form\SoinMPRechercheType" type="service" id="App\Form\SoinMPRechercheType"/>
@@ -5846,6 +6000,8 @@
         <argument key="App\Form\UserMedType" type="service" id="App\Form\UserMedType"/>
         <argument key="App\Form\UserParaType" type="service" id="App\Form\UserParaType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
+        <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType" type="service" id="captcha.form.type"/>
+        <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType" type="service" id="simple_captcha.form.type"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5863,7 +6019,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.nwzavVU" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.IIiGGU5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ActualiteRepository" type="service" id="App\Repository\ActualiteRepository"/>
@@ -5875,6 +6031,7 @@
         <argument key="App\Repository\MediaRepository" type="service" id="App\Repository\MediaRepository"/>
         <argument key="App\Repository\MedicamentRepository" type="service" id="App\Repository\MedicamentRepository"/>
         <argument key="App\Repository\NoteSoinMPRepository" type="service" id="App\Repository\NoteSoinMPRepository"/>
+        <argument key="App\Repository\OrdonnanceRepository" type="service" id="App\Repository\OrdonnanceRepository"/>
         <argument key="App\Repository\ParapharmacieRepository" type="service" id="App\Repository\ParapharmacieRepository"/>
         <argument key="App\Repository\ProduitRepository" type="service" id="App\Repository\ProduitRepository"/>
         <argument key="App\Repository\ReclamationRepository" type="service" id="App\Repository\ReclamationRepository"/>
@@ -6099,9 +6256,21 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\MedicamentController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\MedicamentController"/>
+      <argument>App\Controller\MedicamentController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\NoteSoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\NoteSoinMPController"/>
       <argument>App\Controller\NoteSoinMPController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\OrdonnanceController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\OrdonnanceController"/>
+      <argument>App\Controller\OrdonnanceController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6272,12 +6441,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.C5ebQxc"/>
+      <argument type="service" id=".service_locator.tn8pWM7"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.C5ebQxc"/>
+      <argument type="service" id=".service_locator.tn8pWM7"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6686,7 +6855,7 @@
     <service id="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" alias="knpu.oauth2.client.google_connect" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.C5ebQxc"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.tn8pWM7"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -6700,7 +6869,8 @@
     <service id="Psr\Log\LoggerInterface $doctrineLogger" alias="monolog.logger.doctrine"/>
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
-    <service id=".service_locator.tHpW6v3" alias=".service_locator.Y7gDuDN" public="false"/>
+    <service id=".service_locator.xkmSecI" alias=".service_locator.u8z4W6F" public="false"/>
+    <service id=".service_locator.MqD4esP" alias=".service_locator.yPyPTHi" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

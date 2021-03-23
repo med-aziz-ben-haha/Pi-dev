@@ -57,17 +57,36 @@
             </button>
             <div class="navbar-collapse hk-offcanvas" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
+                    {% if user.role==3 %}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{asset("/accueilOnlinePharmacien/" ~iduser) }}">Home <span class="sr-only">(current)</span></a>
+
+                        </li>
+                    {%endif%}
+                    {% if user.role==2 %}
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{asset("/accueilOnlineMed/" ~iduser) }}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                    {%endif%}
+
+                    {% if user.role==4 %}
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{asset("/accueilOnlineParapharmacien/" ~iduser) }}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                    {%endif%}
+
+                    {% if user.role==1 %}
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{asset("/accueilOnline/" ~iduser) }}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                    {%endif%}
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ asset("/afficherCategorieSoinMPs/"~ iduser) }}">Médecine Parallèle</a>
                     </li>
-
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Réclamation</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -75,9 +94,11 @@
                             <a class="nav-link" href="{{ asset("/afficherreclamations") }}"> Consulter mes réclamations</a>
                         </div>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link" href="{{ asset("/frontlistmedicament") }}">Medicament</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ asset("/listordonnanceuser") }}">Ordonnances</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ml-auto">
@@ -91,12 +112,6 @@
                         </div>
                     </li>
                 </ul>
-                <span class="navbar-text hk-header-social">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-instagram"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-youtube"></i></a>
-                  </span>
             </div>
         </div>
     </nav>

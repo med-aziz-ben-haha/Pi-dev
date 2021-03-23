@@ -47,4 +47,20 @@ class MedicamentRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function OrderByNameQB()
+    {
+        return $this->createQueryBuilder('m')
+            ->orderBy('m.nomMedicament','ASC')
+            ->getQuery()->getResult()
+            ;
+    }
+
+    public function SearchName($data)
+    {
+        return $this->createQueryBuilder('m')
+            ->where('m.nomMedicament LIKE :data')->orWhere('m.descmedicament Like :data ')
+            ->setParameter('data', '%'.$data.'%')
+            ->getQuery()->getResult()
+            ;
+    }
 }

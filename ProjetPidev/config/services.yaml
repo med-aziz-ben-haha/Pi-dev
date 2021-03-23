@@ -39,3 +39,5 @@ services:
 knp_paginator:
     template:
         pagination: "twitter_bootstrap_v4_pagination.html.twig"
+        sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
+        filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template

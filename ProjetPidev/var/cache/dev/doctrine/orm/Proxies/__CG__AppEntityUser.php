@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'login', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mdp', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'matriculeFiscale', '' . "\0" . 'App\\Entity\\User' . "\0" . 'adresseUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\User' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienImageUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienIconeUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reclamations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actualites', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'listRendezvous', '' . "\0" . 'App\\Entity\\User' . "\0" . 'noteSoinMPs'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'login', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mdp', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'matriculeFiscale', '' . "\0" . 'App\\Entity\\User' . "\0" . 'adresseUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\User' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienImageUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienIconeUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reclamations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actualites', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'listRendezvous', '' . "\0" . 'App\\Entity\\User' . "\0" . 'noteSoinMPs', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ordonnances'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'login', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mdp', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'matriculeFiscale', '' . "\0" . 'App\\Entity\\User' . "\0" . 'adresseUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\User' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienImageUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienIconeUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reclamations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actualites', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'listRendezvous', '' . "\0" . 'App\\Entity\\User' . "\0" . 'noteSoinMPs'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'login', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mdp', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'matriculeFiscale', '' . "\0" . 'App\\Entity\\User' . "\0" . 'adresseUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\User' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienImageUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienIconeUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reclamations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actualites', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'listRendezvous', '' . "\0" . 'App\\Entity\\User' . "\0" . 'noteSoinMPs', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ordonnances'];
     }
 
     /**
@@ -640,6 +640,50 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeNoteSoinMP', [$noteSoinMP]);
 
         return parent::removeNoteSoinMP($noteSoinMP);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getOrdonnances(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getOrdonnances', []);
+
+        return parent::getOrdonnances();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addOrdonnance(\App\Entity\Ordonnance $ordonnance): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addOrdonnance', [$ordonnance]);
+
+        return parent::addOrdonnance($ordonnance);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeOrdonnance(\App\Entity\Ordonnance $ordonnance): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeOrdonnance', [$ordonnance]);
+
+        return parent::removeOrdonnance($ordonnance);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
+
+        return parent::__toString();
     }
 
 }

@@ -1,0 +1,23 @@
+{% include 'templateAccueilMed.html.twig'  %}
+
+
+<div class="container">
+    <div class="form-group">
+        {{ form_start( editordonnance) }}
+        <h1> Edit Ordonnance </h1>
+        <div class="form-group">
+            {{ form_label( editordonnance.contenu_ord,"Contenu ordonnance") }}
+            {{ form_widget(editordonnance.contenu_ord) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(editordonnance.date_ord,"Date de saisie") }}
+            {{ form_widget(editordonnance.date_ord) }}
+        </div>
+        <div class="form-group">
+            {{ form_label( editordonnance.medicaments, "Liste des médicament" )}}
+            {{ form_widget( editordonnance.medicaments ) }}
+        </div>
+        {{ form_end(editordonnance) }}
+    </div>
+</div>
+{% include 'tempFront2MO.html.twig' %}

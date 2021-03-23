@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller;
+use App\Entity\User;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Entity\TypeReclamation;
 use App\Entity\Reclamation;
@@ -39,6 +40,8 @@ class TypereclamationController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $typereclamation = $this->getDoctrine()->getRepository(TypeReclamation::class)->findAll();
 
 
@@ -61,7 +64,7 @@ class TypereclamationController extends AbstractController
 
         $ob->series(array(array('type' => 'pie', 'name' =>'', 'data' => $data)));
 
-        return $this->render('typereclamation/listtypereclamation.html.twig', ['listtypereclamation' => $typereclamation, 'chart'=> $ob]);
+        return $this->render('typereclamation/listtypereclamation.html.twig', ['listtypereclamation' => $typereclamation, 'chart'=> $ob, 'user'=>$userfind,]);
     }
 
     /**
@@ -76,11 +79,13 @@ class TypereclamationController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $Typereclamationfind = $this->getDoctrine()->getRepository(TypeReclamation::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($Typereclamationfind);
         $em->flush();
-        return $this->redirectToRoute('affichertypereclamation');
+        return $this->redirectToRoute('affichertypereclamation',['user'=>$userfind,]);
 
     }
 
@@ -97,6 +102,8 @@ class TypereclamationController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $TypeReclamation = new TypeReclamation();
         $form = $this->createForm(ReclamationType::class, $TypeReclamation);
         $form->add('ajouter', SubmitType::class);
@@ -105,9 +112,9 @@ class TypereclamationController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($TypeReclamation);
             $em->flush();
-            return $this->redirectToRoute('affichertypereclamation'); }
+            return $this->redirectToRoute('affichertypereclamation',['user'=>$userfind,]); }
 
-        return $this->render('typereclamation/ajoutertypereclamation.html.twig', ['f' => $form->createView()]);
+        return $this->render('typereclamation/ajoutertypereclamation.html.twig', ['f' => $form->createView(),'user'=>$userfind,]);
     }
 
 
@@ -126,6 +133,8 @@ class TypereclamationController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $typereclamationfind = $this->getDoctrine()->getRepository(TypeReclamation::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(ReclamationType::class, $typereclamationfind);
         $form->add('modifier', SubmitType::class);
@@ -136,10 +145,10 @@ class TypereclamationController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('affichertypereclamation');
+            return $this->redirectToRoute('affichertypereclamation',['user'=>$userfind,]);
         }
 
-        return $this->render('typereclamation/modifiertypereclamation.html.twig', ['f' => $form->createView(),]);
+        return $this->render('typereclamation/modifiertypereclamation.html.twig', ['f' => $form->createView(),'user'=>$userfind,]);
     }
     /**
      * @return Response
@@ -152,6 +161,8 @@ class TypereclamationController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         // Configure Dompdf according to your needs
         $pdfOptions = new Options();
         $pdfOptions->set('defaultFont', 'Arial');
@@ -161,7 +172,7 @@ class TypereclamationController extends AbstractController
         $typereclamation = $this->getDoctrine()->getRepository(TypeReclamation::class)->findAll();
 
         // Retrieve the HTML generated in our twig file
-        $html = $this->renderView('typereclamation/pdf.html.twig', ['listtypereclamation' => $typereclamation,]);
+        $html = $this->renderView('typereclamation/pdf.html.twig', ['listtypereclamation' => $typereclamation,'user'=>$userfind,]);
 
         // Load HTML to Dompdf
         $dompdf->loadHtml($html);
@@ -188,6 +199,8 @@ class TypereclamationController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $TypeReclamation=$repository->OrderByid();
         $typereclamation = $this->getDoctrine()->getRepository(TypeReclamation::class)->findAll();
 
@@ -210,7 +223,7 @@ class TypereclamationController extends AbstractController
 
         $ob->series(array(array('type' => 'pie', 'name' =>'', 'data' => $data)));
 
-        return $this->render('TypeReclamation/listtypereclamation.html.twig', ['listtypereclamation' => $TypeReclamation, 'chart'=> $ob]);
+        return $this->render('TypeReclamation/listtypereclamation.html.twig', ['listtypereclamation' => $TypeReclamation, 'chart'=> $ob, 'user'=>$userfind,]);
     }
 
 }

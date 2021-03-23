@@ -1,0 +1,61 @@
+{% include 'templateAccueilMed.html.twig'  %}
+
+<style> .btn-primary {
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+
+    }
+    .btn-primary:hover {
+        opacity: 0.8;
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+    }
+    .btn-primary:active {
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+    }
+</style>
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" id="id">Ordonnances</h2>
+            </div>
+            <table id="example1" class="table table-bordered table-striped" >
+                <tr>
+                    <td>id</td>
+                    <td> Contenu de l'ordonnance </td>
+                    <td> Date du saisi </td>
+                    <td> Patient </td>
+                    <td> Medicament list </td>
+                    <td> Supprimer </td>
+                    <td> Edit </td>
+                </tr>
+                {% for i in listordonnance%}
+                    <tr>
+                        <td>{{ i.id }}</td>
+                        <td>{{ i.ContenuOrd }}</td>
+                        <td>{{ i.DateOrd|date("d/m/Y") }}</td>
+                        <td>{{ i.user}}</td>
+                        <td>
+                            {% for medicament in i.medicaments|length %}
+                                {{ medicament.nomMedicament }}
+                            {% endfor %}
+                        </td>
+                        <td><a href="{{ path('Ordonnanceremove',{'id':i.id} )}}">Supprimer</a></td>
+                        <td><a href="{{ path('Ordonnancemodifier',{'id':i.id} )}}">Editer</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <a style="font-size: 20px"; href="{{ path('Ordonnanceajout') }}"><button class="btn-primary">Ajouter ordonnance</button></a>
+        </div>
+    </div>
+</section>
+
+{% include 'tempFront2MO.html.twig' %}
+
+

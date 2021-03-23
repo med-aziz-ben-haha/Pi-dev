@@ -21,7 +21,20 @@ return [
         '/connect/google/check' => [[['_route' => 'connect_google_check', '_controller' => 'App\\Controller\\GoogleController::connectCheckAction'], null, null, null, true, false, null]],
         '/inscription/google' => [[['_route' => 'inscription_google_start', '_controller' => 'App\\Controller\\GoogleController::inscriptionAction'], null, null, null, true, false, null]],
         '/inscription/google/check' => [[['_route' => 'inscription_google_check', '_controller' => 'App\\Controller\\GoogleController::inscriptionCheckAction'], null, null, null, true, false, null]],
+        '/medicament' => [[['_route' => 'medicament', '_controller' => 'App\\Controller\\MedicamentController::index'], null, null, null, false, false, null]],
+        '/listmedicament' => [[['_route' => 'listmedicament', '_controller' => 'App\\Controller\\MedicamentController::listmedicament'], null, null, null, false, false, null]],
+        '/Medicamentajout' => [[['_route' => 'Medicamentajout', '_controller' => 'App\\Controller\\MedicamentController::Medicamentajout'], null, null, null, false, false, null]],
+        '/recherchemed' => [[['_route' => 'recherchemed', '_controller' => 'App\\Controller\\MedicamentController::recherche'], null, null, null, false, false, null]],
+        '/frontlistmedicament' => [[['_route' => 'frontlistmedicament', '_controller' => 'App\\Controller\\MedicamentController::frontlistmedicament'], null, null, null, false, false, null]],
+        '/recherchemed2' => [[['_route' => 'recherchemed2', '_controller' => 'App\\Controller\\MedicamentController::recherche2'], null, null, null, false, false, null]],
+        '/trimedicament' => [[['_route' => 'trimedicament', '_controller' => 'App\\Controller\\MedicamentController::orderbynameqb'], null, null, null, false, false, null]],
+        '/PDF' => [[['_route' => 'PDF', '_controller' => 'App\\Controller\\MedicamentController::hello'], null, null, null, false, false, null]],
+        '/Excel' => [[['_route' => 'Excel', '_controller' => 'App\\Controller\\MedicamentController::export'], null, null, null, false, false, null]],
         '/note/soin/m/p' => [[['_route' => 'note_soin_m_p', '_controller' => 'App\\Controller\\NoteSoinMPController::index'], null, null, null, false, false, null]],
+        '/ordonnance' => [[['_route' => 'ordonnance', '_controller' => 'App\\Controller\\OrdonnanceController::index'], null, null, null, false, false, null]],
+        '/listordonnance' => [[['_route' => 'listordonnance', '_controller' => 'App\\Controller\\OrdonnanceController::listordonnance'], null, null, null, false, false, null]],
+        '/listordonnanceuser' => [[['_route' => 'listordonnanceuser', '_controller' => 'App\\Controller\\OrdonnanceController::listordonnanceuser'], null, null, null, false, false, null]],
+        '/Ordonnanceajout' => [[['_route' => 'Ordonnanceajout', '_controller' => 'App\\Controller\\OrdonnanceController::Ordonnanceajout'], null, null, null, false, false, null]],
         '/reclamation' => [[['_route' => 'reclamation', '_controller' => 'App\\Controller\\ReclamationController::index'], null, null, null, false, false, null]],
         '/afficherreclamation' => [[['_route' => 'afficherreclamation', '_controller' => 'App\\Controller\\ReclamationController::listreclamation'], null, null, null, false, false, null]],
         '/afficherpdf' => [[['_route' => 'afficherpdf', '_controller' => 'App\\Controller\\ReclamationController::afficherpdf'], null, null, null, false, false, null]],
@@ -49,6 +62,8 @@ return [
         '/inscriptionPharmacien' => [[['_route' => 'inscriptionPharmacien', '_controller' => 'App\\Controller\\UserController::inscriptionPharmacien'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/inscriptionParapharmacien' => [[['_route' => 'inscriptionParapharmacien', '_controller' => 'App\\Controller\\UserController::inscriptionPara'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/afficherStatUser' => [[['_route' => 'afficherStatUser', '_controller' => 'App\\Controller\\UserController::afficherStatUser'], null, null, null, false, false, null]],
+        '/captcha-handler' => [[['_route' => 'captcha_handler', '_controller' => 'CaptchaBundle:CaptchaHandler:index'], null, ['GET' => 0], null, false, false, null]],
+        '/simple-captcha-handler' => [[['_route' => 'simple_captcha_handler', '_controller' => 'CaptchaBundle:SimpleCaptchaHandler:index'], null, ['GET' => 0], null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -111,10 +126,18 @@ return [
                     .'|Med/([^/]++)(*:929)'
                     .'|Phar/([^/]++)(*:950)'
                 .')'
-                .'|/repondre/([^/]++)(*:977)'
-                .'|/envreponse/([^/]++)(*:1005)'
-                .'|/AfficherdetailSoinMPnote/([^/]++)/([^/]++)(*:1057)'
-                .'|/impression/([^/]++)/([^/]++)(*:1095)'
+                .'|/Medicament(?'
+                    .'|remove/([^/]++)(*:988)'
+                    .'|modifier/([^/]++)(*:1013)'
+                .')'
+                .'|/Ordonnance(?'
+                    .'|remove/([^/]++)(*:1052)'
+                    .'|modifier/([^/]++)(*:1078)'
+                .')'
+                .'|/repondre/([^/]++)(*:1106)'
+                .'|/envreponse/([^/]++)(*:1135)'
+                .'|/AfficherdetailSoinMPnote/([^/]++)/([^/]++)(*:1187)'
+                .'|/impression/([^/]++)/([^/]++)(*:1225)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -151,10 +174,14 @@ return [
         909 => [[['_route' => 'modifierUser', '_controller' => 'App\\Controller\\UserController::modifierUser'], ['iduser'], null, null, false, true, null]],
         929 => [[['_route' => 'modifierMed', '_controller' => 'App\\Controller\\UserController::modifierMed'], ['iduser'], null, null, false, true, null]],
         950 => [[['_route' => 'modifierPhar', '_controller' => 'App\\Controller\\UserController::modifierPhar'], ['iduser'], null, null, false, true, null]],
-        977 => [[['_route' => 'repondre', '_controller' => 'App\\Controller\\ReclamationController::repondrereclamation'], ['id'], null, null, false, true, null]],
-        1005 => [[['_route' => 'envreponse', '_controller' => 'App\\Controller\\ReclamationController::envoyerreponse'], ['id'], ['GET' => 0], null, false, true, null]],
-        1057 => [[['_route' => 'AfficherdetailSoinMPnote', '_controller' => 'App\\Controller\\SoinMPController::detailSoinMPsnote'], ['id', 'iduser'], null, null, false, true, null]],
-        1095 => [
+        988 => [[['_route' => 'Medicamentremove', '_controller' => 'App\\Controller\\MedicamentController::remove'], ['id'], null, null, false, true, null]],
+        1013 => [[['_route' => 'Medicamentmodifier', '_controller' => 'App\\Controller\\MedicamentController::medicamentmodifier'], ['id'], null, null, false, true, null]],
+        1052 => [[['_route' => 'Ordonnanceremove', '_controller' => 'App\\Controller\\OrdonnanceController::remove'], ['id'], null, null, false, true, null]],
+        1078 => [[['_route' => 'Ordonnancemodifier', '_controller' => 'App\\Controller\\OrdonnanceController::modifier'], ['id'], null, null, false, true, null]],
+        1106 => [[['_route' => 'repondre', '_controller' => 'App\\Controller\\ReclamationController::repondrereclamation'], ['id'], null, null, false, true, null]],
+        1135 => [[['_route' => 'envreponse', '_controller' => 'App\\Controller\\ReclamationController::envoyerreponse'], ['id'], ['GET' => 0], null, false, true, null]],
+        1187 => [[['_route' => 'AfficherdetailSoinMPnote', '_controller' => 'App\\Controller\\SoinMPController::detailSoinMPsnote'], ['id', 'iduser'], null, null, false, true, null]],
+        1225 => [
             [['_route' => 'impression', '_controller' => 'App\\Controller\\SoinMPController::impression'], ['id', 'iduser'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

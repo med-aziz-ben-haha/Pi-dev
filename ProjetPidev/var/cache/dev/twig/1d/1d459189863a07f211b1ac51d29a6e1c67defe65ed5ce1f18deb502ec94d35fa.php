@@ -71,11 +71,21 @@ class __TwigTemplate_3195b64ba721040261883baadbbd3dea48e9684b7498e1a8ec200b460e5
         // line 19
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 19, $this->source); })()), "descriptionReclamation", [], "any", false, false, false, 19), 'widget');
         echo "
-
-
+                    ";
+        // line 20
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 20, $this->source); })()), 'form_end');
+        echo "
+                    ";
+        // line 21
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 21, $this->source); })()), 'form_start', ["attr" => ["novalidate" => "novalidate"]]);
+        echo "
                     ";
         // line 22
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 22, $this->source); })()), 'form_end');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 22, $this->source); })()), "captchaCode", [], "any", false, false, false, 22), 'widget');
+        echo "
+                    ";
+        // line 23
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["f"]) || array_key_exists("f", $context) ? $context["f"] : (function () { throw new RuntimeError('Variable "f" does not exist.', 23, $this->source); })()), 'form_end');
         echo "
                 </div>
 
@@ -85,8 +95,8 @@ class __TwigTemplate_3195b64ba721040261883baadbbd3dea48e9684b7498e1a8ec200b460e5
 </section>
 
 ";
-        // line 30
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "reclamation/ajouterreclamation.html.twig", 30)->display($context);
+        // line 31
+        $this->loadTemplate("tempFront2SoinMP.html.twig", "reclamation/ajouterreclamation.html.twig", 31)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -107,7 +117,7 @@ class __TwigTemplate_3195b64ba721040261883baadbbd3dea48e9684b7498e1a8ec200b460e5
 
     public function getDebugInfo()
     {
-        return array (  89 => 30,  78 => 22,  72 => 19,  68 => 18,  62 => 15,  49 => 4,  47 => 3,  43 => 1,);
+        return array (  99 => 31,  88 => 23,  84 => 22,  80 => 21,  76 => 20,  72 => 19,  68 => 18,  62 => 15,  49 => 4,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -131,8 +141,9 @@ class __TwigTemplate_3195b64ba721040261883baadbbd3dea48e9684b7498e1a8ec200b460e5
 
                     {{ form_label(f.descriptionReclamation,\"Reclamation\") }}
                     {{ form_widget(f.descriptionReclamation)}}
-
-
+                    {{ form_end(f) }}
+                    {{ form_start(f,{'attr': {'novalidate': 'novalidate'}} ) }}
+                    {{ form_widget( f.captchaCode ) }}
                     {{ form_end(f) }}
                 </div>
 

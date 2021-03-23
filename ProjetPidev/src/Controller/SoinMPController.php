@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use App\Form\SoinMPRechercheType;
 use App\Form\SoinMPTriFormType;
 use App\Form\SoinMPTriDESCType;
@@ -44,6 +45,8 @@ class SoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $SoinMP = $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
         $SoinMPtri = $this->getDoctrine()->getRepository(SoinMP::class)->findAlltri();
         $SoinMPtriDesc = $this->getDoctrine()->getRepository(SoinMP::class)->findAlltriDESC();
@@ -63,21 +66,21 @@ class SoinMPController extends AbstractController
             $titre=$data['recherche'];
             $searchSoinMPfind=$this->getDoctrine()->getRepository(SoinMP::class)->search($titre);
             return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $searchSoinMPfind,'formSearch'=>$form->createView(),
-                'formtri' => $formtri->createView(),'formtriDESC' => $formtriDesc->createView(),]);
+                'formtri' => $formtri->createView(),'formtriDESC' => $formtriDesc->createView(),'user'=>$userfind,]);
 
         }
         else if ($formtri->isSubmitted()) {
 
             return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMPtri,'formSearch'=>$form->createView(),
-                'formtri' => $formtri->createView(),'formtriDESC' => $formtriDesc->createView(),]);
+                'formtri' => $formtri->createView(),'formtriDESC' => $formtriDesc->createView(),'user'=>$userfind,]);
         }
         else if ($formtriDesc->isSubmitted()) {
 
             return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMPtriDesc,'formSearch'=>$form->createView(),
-                'formtriDESC' => $formtriDesc->createView(),'formtri' => $formtri->createView(),]);
+                'formtriDESC' => $formtriDesc->createView(),'formtri' => $formtri->createView(),'user'=>$userfind,]);
         }
         return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMP,'formSearch'=>$form->createView(),
-            'formtri' => $formtri->createView(), 'formtriDESC' => $formtriDesc->createView(),]);
+            'formtri' => $formtri->createView(), 'formtriDESC' => $formtriDesc->createView(),'user'=>$userfind,]);
     }
 
 
@@ -95,6 +98,8 @@ class SoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
         $categorieid=$SoinMPfind[0]->getCategorieSoinMP();
         $form=$this->createForm(SoinMPRechercheType::class);
@@ -104,10 +109,10 @@ class SoinMPController extends AbstractController
             $data=$form->getData();
             $titre=$data['recherche'];
             $searchSoinMPfind=$this->getDoctrine()->getRepository(SoinMP::class)->searchs($titre,$categorieid);
-            return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $searchSoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,]);
+            return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $searchSoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,'user'=>$userfind,]);
 
         }
-        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,]);
+        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,'user'=>$userfind,]);
     }
 
 
@@ -125,6 +130,8 @@ class SoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
@@ -138,13 +145,13 @@ class SoinMPController extends AbstractController
             $verif=$data['Captcha'];
             if($findCaptcha->getValue()==$verif)
             {
-                return $this->redirectToRoute('AfficherdetailSoinMPnote', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'id'=>$id, ]);}
+                return $this->redirectToRoute('AfficherdetailSoinMPnote', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'id'=>$id,'user'=>$userfind, ]);}
         }
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
         $formCaptcha= $this->createForm(CaptchaType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
-        return $this->render('soin_mp/DetailSoinMPS.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),]);
+        return $this->render('soin_mp/DetailSoinMPS.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),'user'=>$userfind,]);
     }
 
     /**
@@ -161,6 +168,8 @@ class SoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $note=0;
         $Moyenne=0;
         $aviss="";
@@ -178,7 +187,7 @@ class SoinMPController extends AbstractController
             $note = $x->getValeur();
             $aviss = $x->getAvis();
         }
-        return $this->render('soin_mp/DetailSoinMPSnote.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
+        return $this->render('soin_mp/DetailSoinMPSnote.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,'user'=>$userfind,]);
 
     }
 
@@ -194,6 +203,8 @@ class SoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $SoinMP = new SoinMP();
         $form = $this->createForm(SoinMPType::class, $SoinMP);
         $form->add('ajouter', SubmitType::class);
@@ -215,9 +226,9 @@ class SoinMPController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($SoinMP);
             $em->flush();
-            return $this->redirectToRoute('afficherSoinMP');
+            return $this->redirectToRoute('afficherSoinMP',['user'=>$userfind,]);
         }
-        return $this->render('soin_mp/ajouterSoinMP.html.twig', ['formAjouterSoinMP' => $form->createView()]);
+        return $this->render('soin_mp/ajouterSoinMP.html.twig', ['formAjouterSoinMP' => $form->createView(),'user'=>$userfind,]);
     }
     /**
      * @param $id
@@ -231,11 +242,13 @@ class SoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($SoinMPfind);
         $em->flush();
-        return $this->redirectToRoute('afficherSoinMP');
+        return $this->redirectToRoute('afficherSoinMP',['user'=>$userfind,]);
 
     }
     /**
@@ -250,6 +263,8 @@ class SoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        $iduser=$user->getId();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(SoinMPType::class, $SoinMPfind);
         $form->add('modifier', SubmitType::class);
@@ -270,9 +285,9 @@ class SoinMPController extends AbstractController
             }
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('afficherSoinMP');
+            return $this->redirectToRoute('afficherSoinMP',['user'=>$userfind,]);
         }
-        return $this->render('soin_mp/modifierSoinMP.html.twig', ['formModifierSoinMP' => $form->createView(),]);
+        return $this->render('soin_mp/modifierSoinMP.html.twig', ['formModifierSoinMP' => $form->createView(),'user'=>$userfind,]);
 
     }
     /**
@@ -296,8 +311,12 @@ class SoinMPController extends AbstractController
      * @Route ("/afficherStatSoinMP", name="afficherStatSoinMP")
      */
 
-    public function afficherStatSoinMP()
-    {
+    public function afficherStatSoinMP(SessionInterface $session)
+    {   $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
 
         $SoinMP= $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
         $SoinMPs = [];
