@@ -44,6 +44,8 @@ class RegionsController extends AbstractController
         $em=$this->getDoctrine()->getManager();
         $em->remove($region);
         $em->flush();
+        $this->addFlash('success','Region  Supprimée avec succée');
+
         return $this->redirectToRoute('afficheRegions');
     }
 
@@ -67,6 +69,8 @@ class RegionsController extends AbstractController
 
             $em->persist($region);
             $em->flush();
+            $this->addFlash('success','Region  Ajoutée avec succée');
+
             return $this->redirectToRoute('afficheRegions');
         }
         return $this->render('regions/AjoutRegion.html.twig',[
@@ -90,6 +94,8 @@ class RegionsController extends AbstractController
 
             $em=$this->getDoctrine()->getManager();
             $em->flush();
+            $this->addFlash('success','Region  Modifiée avec succée');
+
             return $this->redirectToRoute('afficheRegions');
         }
         return $this->render('regions/ModifierRegion.html.twig',[

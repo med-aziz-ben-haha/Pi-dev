@@ -143,6 +143,6 @@ class __TwigTemplate_95e8818c71ac8cfebb99c6732a2481bc58e29da39aee171b937192728b5
 
     {{ form_end(form)  }}
 
-{% include 'temp2.html.twig' %}", "parapharmacie/AjoutParapharmacie.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\parapharmacie\\AjoutParapharmacie.html.twig");
+{% include 'temp2.html.twig' %}", "parapharmacie/AjoutParapharmacie.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\parapharmacie\\AjoutParapharmacie.html.twig");
     }
 }

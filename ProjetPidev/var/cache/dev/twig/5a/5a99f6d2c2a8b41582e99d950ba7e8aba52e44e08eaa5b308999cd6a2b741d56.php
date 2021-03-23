@@ -136,7 +136,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: #e40f00;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: grey; color:black;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -147,7 +147,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class=\"navbar navbar-static-top\" style=\"background-color: #e40f00;\" >
+        <nav class=\"navbar navbar-static-top\" style=\"background-color: grey;\" >
             <!-- Sidebar toggle button-->
             <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
@@ -170,7 +170,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
-                            <li class=\"user-header\" style=\"background-color: #d11414;\">
+                            <li class=\"user-header\" style=\"background-color: grey;\">
                                 <img src=\"";
         // line 99
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
@@ -178,16 +178,19 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
                                 <p>
                                     Emna Besbes - admin/Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    <!--small >Member since Nov. 2012</small-->
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
+                                    <a href=\"#\" class=\"btn btn-primary\">Profile</a>
                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"";
+        // line 112
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
+        echo "\" class=\"btn btn-primary\">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -199,7 +202,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class=\"main-sidebar\" style=\"background-color: #e40f00; color:white\">
+    <aside class=\"main-sidebar\" style=\"background-color: grey; color:white\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
             <!-- Sidebar user panel -->
@@ -225,6 +228,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                         <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des patients</a></li>
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
                         <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
+                        <li><a href=\"/Parapharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmaciens</a></li>
                     </ul>
                 </li>
 
@@ -273,7 +277,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
     public function getDebugInfo()
     {
-        return array (  210 => 130,  176 => 99,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  213 => 130,  192 => 112,  176 => 99,  167 => 93,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -344,7 +348,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
 
         <!-- Logo -->
 
-        <a href=\"/admin\" class=\"logo\" style=\"background-color: #e40f00;\">
+        <a href=\"/admin\" class=\"logo\" style=\"background-color: grey; color:black;\">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class=\"logo-mini\"><b>A</b>LT</span>
@@ -355,7 +359,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class=\"navbar navbar-static-top\" style=\"background-color: #e40f00;\" >
+        <nav class=\"navbar navbar-static-top\" style=\"background-color: grey;\" >
             <!-- Sidebar toggle button-->
             <a href=\"#\" class=\"sidebar-toggle\" data-toggle=\"push-menu\" role=\"button\">
                 <span class=\"sr-only\">Toggle navigation</span>
@@ -375,21 +379,21 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                         </a>
                         <ul class=\"dropdown-menu\">
                             <!-- User image -->
-                            <li class=\"user-header\" style=\"background-color: #d11414;\">
+                            <li class=\"user-header\" style=\"background-color: grey;\">
                                 <img src=\"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" class=\"img-circle\" alt=\"User Image\">
 
                                 <p>
                                     Emna Besbes - admin/Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    <!--small >Member since Nov. 2012</small-->
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
                                 <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Profile</a>
+                                    <a href=\"#\" class=\"btn btn-primary\">Profile</a>
                                 </div>
                                 <div class=\"pull-right\">
-                                    <a href=\"#\" class=\"btn btn-default btn-flat\">Sign out</a>
+                                    <a href=\"{{ asset ('/connexion') }}\" class=\"btn btn-primary\">Sign out</a>
                                 </div>
                             </li>
                         </ul>
@@ -401,7 +405,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class=\"main-sidebar\" style=\"background-color: #e40f00; color:white\">
+    <aside class=\"main-sidebar\" style=\"background-color: grey; color:white\">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class=\"sidebar\">
             <!-- Sidebar user panel -->
@@ -424,6 +428,7 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
                         <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des patients</a></li>
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
                         <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
+                        <li><a href=\"/Parapharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmaciens</a></li>
                     </ul>
                 </li>
 
@@ -451,6 +456,6 @@ class __TwigTemplate_baf7d705d3c51382568f46995f3914336b3a78bb27ee2272294c728c9d9
     <!-- Content Wrapper. Contains page content -->
     <div class=\"content-wrapper\">
 
-", "temp1.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\temp1.html.twig");
+", "temp1.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\temp1.html.twig");
     }
 }

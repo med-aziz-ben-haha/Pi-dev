@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\CategorieProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,6 +21,7 @@ class CategorieProduit
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champs categorie est obligatoire * ")
      */
     private $categorie;
 
@@ -65,6 +67,8 @@ class CategorieProduit
 
         return $this;
     }
+
+
 
 
 

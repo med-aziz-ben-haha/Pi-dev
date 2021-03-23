@@ -222,6 +222,6 @@ class __TwigTemplate_aa3deb64333fb8cb68f25ae6380ae030c1e2b90ff720404fce6d00db588
         <!-- /.box-body -->
     </div>
 
-{% include 'temp2.html.twig' %}", "parapharmacie/ListParapharmacie.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\parapharmacie\\ListParapharmacie.html.twig");
+{% include 'temp2.html.twig' %}", "parapharmacie/ListParapharmacie.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\parapharmacie\\ListParapharmacie.html.twig");
     }
 }

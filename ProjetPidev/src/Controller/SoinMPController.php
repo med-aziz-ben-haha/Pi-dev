@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Form\SoinMPRechercheType;
+use App\Form\SoinMPTriFormType;
 use App\Form\SoinMPType;
 use App\Entity\SoinMP;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,20 +28,53 @@ class SoinMPController extends AbstractController
      * @return Response
      * @Route("/afficherSoinMP", name="afficherSoinMP")
      */
-    public function listSoinMP(): Response
+    public function listSoinMP(Request $request): Response
     {
         $SoinMP = $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
-        return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMP,]);
+        $SoinMPtri = $this->getDoctrine()->getRepository(SoinMP::class)->findAlltri();
+        $formtri=$this->createForm(SoinMPTriFormType::class);
+        $formtri->handleRequest($request);
+        $form=$this->createForm(SoinMPRechercheType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $searchSoinMPfind=$this->getDoctrine()->getRepository(SoinMP::class)->search($titre);
+            return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $searchSoinMPfind,'formSearch'=>$form->createView(),
+                'formtri' => $formtri->createView(),]);
+
+        }
+        else if ($formtri->isSubmitted()) {
+
+            return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMPtri,'formSearch'=>$form->createView(),
+                'formtri' => $formtri->createView(),]);
+        }
+        return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMP,'formSearch'=>$form->createView(),
+            'formtri' => $formtri->createView(),]);
     }
+
 
     /**
      * @return Response
      * @Route("/afficherSoinMPs/{id}", name="afficherSoinMPs")
      */
-    public function listSoinMPs($id): Response
-    {
-        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
-        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,]);
+    public function listSoinMPs($id,Request $request): Response
+    {   $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
+
+        $categorieid=$SoinMPfind[0]->getCategorieSoinMP();
+        $form=$this->createForm(SoinMPRechercheType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $searchSoinMPfind=$this->getDoctrine()->getRepository(SoinMP::class)->searchs($titre,$categorieid);
+            return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $searchSoinMPfind,'formSearch'=>$form->createView(),]);
+
+        }
+        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,'formSearch'=>$form->createView(),]);
     }
 
     /**
@@ -54,7 +89,6 @@ class SoinMPController extends AbstractController
         $form->add('ajouter', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -72,7 +106,6 @@ class SoinMPController extends AbstractController
             $em->persist($SoinMP);
             $em->flush();
             return $this->redirectToRoute('afficherSoinMP');
-
         }
         return $this->render('soin_mp/ajouterSoinMP.html.twig', ['formAjouterSoinMP' => $form->createView()]);
     }

@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\ProduitRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -18,22 +21,38 @@ class Produit
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255 , nullable=false)
+     * @Assert\NotBlank(message="Le champs nom produit est obligatoire * ")
      */
     private $nomProduit;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float" , nullable=false)
+     * @Assert\NotBlank(message="Le champs prix produit est obligatoire * ")
      */
     private $prixProduit;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer" , nullable=false)
+     * @Assert\NotBlank(message="Le champs quantite produit est obligatoire * ")
      */
     private $quantiteProduit;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="integer" , nullable=false)
+     * @Assert\NotBlank(message="Le champs tva produit est obligatoire * ")
+     * @Assert\Length(min=1,minMessage="TVA doit contenir au minimum 1 caractères.",max=2,maxMessage="TVA ne doit depasser 2 caractères."))
+     */
+    private $tva;
+
+    /**
+     * @ORM\Column(type="text" , nullable=false)
+     * @Assert\NotBlank(message="Le champs description produit est obligatoire * ")
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $img_Prod;
 
@@ -58,6 +77,20 @@ class Produit
      */
     private $parapharmacie;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=ListProduit::class, mappedBy="produit")
+     */
+    private $listProduit;
+
+    public function __construct()
+    {
+        $this->listProduit = new ArrayCollection();
+    }
+
+
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -74,6 +107,24 @@ class Produit
 
         return $this;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getTva()
+    {
+        return $this->tva;
+    }
+
+    /**
+     * @param mixed $tva
+     */
+    public function setTva($tva): void
+    {
+        $this->tva = $tva;
+    }
+
+
 
     public function getPrixProduit(): ?float
     {
@@ -131,6 +182,22 @@ class Produit
         $this->img_Prod = $img_Prod;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param mixed $description
+     */
+    public function setDescription($description): void
+    {
+        $this->description = $description;
+    }
+
 
     public function getParapharmacie(): ?Parapharmacie
     {
@@ -157,4 +224,35 @@ class Produit
 
         return $this;
     }
+
+    /**
+     * @return Collection|ListProduit[]
+     */
+    public function getListProduit(): Collection
+    {
+        return $this->listProduit;
+    }
+
+    public function addListProduit(ListProduit $listProduit): self
+    {
+        if (!$this->listProduit->contains($listProduit)) {
+            $this->listProduit[] = $listProduit;
+            $listProduit->addProduit($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListProduit(ListProduit $listProduit): self
+    {
+        if ($this->listProduit->removeElement($listProduit)) {
+            $listProduit->removeProduit($this);
+        }
+
+        return $this;
+    }
+
+
+
+
 }

@@ -65,12 +65,16 @@ class __TwigTemplate_fa7ae09ff7dc9b599c29c1da2260ec7ab4e2e4754eb374fa0d035fb0e7a
 </style>
 <div class=\"box\">
     <div class=\"box-header\">
-        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion Des Categories Soins Médecine Parallèle </h1>
+        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion des Catégories des Soins de Médecine Parallèle </h1>
 
         <form action=\"  ";
         // line 27
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ajouterCategorieSoinMP");
         echo " \"><button>Ajouter</button></form>
+        ";
+        // line 28
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formSearch"]) || array_key_exists("formSearch", $context) ? $context["formSearch"] : (function () { throw new RuntimeError('Variable "formSearch" does not exist.', 28, $this->source); })()), 'form', ["attr" => ["novalidate" => "novalidate"]]);
+        echo "
 
     </div>
     <!-- /.box-header -->
@@ -90,31 +94,31 @@ class __TwigTemplate_fa7ae09ff7dc9b599c29c1da2260ec7ab4e2e4754eb374fa0d035fb0e7a
 
 
             ";
-        // line 46
+        // line 47
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listCategorieSoinMP"]) || array_key_exists("listCategorieSoinMP", $context) ? $context["listCategorieSoinMP"] : (function () { throw new RuntimeError('Variable "listCategorieSoinMP" does not exist.', 46, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["listCategorieSoinMP"]) || array_key_exists("listCategorieSoinMP", $context) ? $context["listCategorieSoinMP"] : (function () { throw new RuntimeError('Variable "listCategorieSoinMP" does not exist.', 47, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["CSMP"]) {
-            // line 47
+            // line 48
             echo "                <tr>
                     <td><img style=\" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;\" src=\"";
-            // line 48
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, $context["CSMP"], "getLienIconeCSMP", [], "method", false, false, false, 48))), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, $context["CSMP"], "getLienIconeCSMP", [], "method", false, false, false, 49))), "html", null, true);
             echo "\"></td>
                     <td>";
-            // line 49
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["CSMP"], "Id", [], "any", false, false, false, 49), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["CSMP"], "Id", [], "any", false, false, false, 50), "html", null, true);
             echo "</td>
                     <td>";
-            // line 50
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["CSMP"], "libelleCategorieSoinMP", [], "any", false, false, false, 50), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["CSMP"], "libelleCategorieSoinMP", [], "any", false, false, false, 51), "html", null, true);
             echo "</td>
                     <td><form action=\"  ";
-            // line 51
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifierCategorieSoinMP", ["id" => twig_get_attribute($this->env, $this->source, $context["CSMP"], "id", [], "any", false, false, false, 51)]), "html", null, true);
+            // line 52
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifierCategorieSoinMP", ["id" => twig_get_attribute($this->env, $this->source, $context["CSMP"], "id", [], "any", false, false, false, 52)]), "html", null, true);
             echo " \"><button>Modifier</button></form></td>
                     <td><form action=\"  ";
-            // line 52
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimerCategorieSoinMP", ["id" => twig_get_attribute($this->env, $this->source, $context["CSMP"], "id", [], "any", false, false, false, 52)]), "html", null, true);
+            // line 53
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimerCategorieSoinMP", ["id" => twig_get_attribute($this->env, $this->source, $context["CSMP"], "id", [], "any", false, false, false, 53)]), "html", null, true);
             echo " \"><button>Supprimer</button></form></td>
 
                 </tr>
@@ -123,7 +127,7 @@ class __TwigTemplate_fa7ae09ff7dc9b599c29c1da2260ec7ab4e2e4754eb374fa0d035fb0e7a
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['CSMP'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 56
+        // line 57
         echo "
 
 
@@ -134,8 +138,8 @@ class __TwigTemplate_fa7ae09ff7dc9b599c29c1da2260ec7ab4e2e4754eb374fa0d035fb0e7a
     <!-- /.box-body -->
 </div>
 ";
-        // line 65
-        $this->loadTemplate("temp2.html.twig", "categorie_soin_mp/listCategoriesSoinMP.html.twig", 65)->display($context);
+        // line 66
+        $this->loadTemplate("temp2.html.twig", "categorie_soin_mp/listCategoriesSoinMP.html.twig", 66)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -156,7 +160,7 @@ class __TwigTemplate_fa7ae09ff7dc9b599c29c1da2260ec7ab4e2e4754eb374fa0d035fb0e7a
 
     public function getDebugInfo()
     {
-        return array (  138 => 65,  127 => 56,  117 => 52,  113 => 51,  109 => 50,  105 => 49,  101 => 48,  98 => 47,  94 => 46,  72 => 27,  45 => 2,  43 => 1,);
+        return array (  142 => 66,  131 => 57,  121 => 53,  117 => 52,  113 => 51,  109 => 50,  105 => 49,  102 => 48,  98 => 47,  76 => 28,  72 => 27,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -185,9 +189,10 @@ class __TwigTemplate_fa7ae09ff7dc9b599c29c1da2260ec7ab4e2e4754eb374fa0d035fb0e7a
 </style>
 <div class=\"box\">
     <div class=\"box-header\">
-        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion Des Categories Soins Médecine Parallèle </h1>
+        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion des Catégories des Soins de Médecine Parallèle </h1>
 
         <form action=\"  {{path('ajouterCategorieSoinMP')}} \"><button>Ajouter</button></form>
+        {{ form(formSearch,{'attr': {'novalidate': 'novalidate'}}) }}
 
     </div>
     <!-- /.box-header -->
@@ -226,6 +231,6 @@ class __TwigTemplate_fa7ae09ff7dc9b599c29c1da2260ec7ab4e2e4754eb374fa0d035fb0e7a
     <!-- /.box-body -->
 </div>
 {% include 'temp2.html.twig' %}
-", "categorie_soin_mp/listCategoriesSoinMP.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\categorie_soin_mp\\listCategoriesSoinMP.html.twig");
+", "categorie_soin_mp/listCategoriesSoinMP.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\categorie_soin_mp\\listCategoriesSoinMP.html.twig");
     }
 }

@@ -14,8 +14,8 @@
                         <h3 class="service-box-title">{{ p.region.region }}</h3>
                         <h3 class="service-box-title">{{ p.adressePara }}</h3>
                         <h3 class="service-box-title">{{ p.telPara }}</h3>
-                        <a href="{{ path("afficheCategorieProd",{'id':p.getId() } ) }}" class="btn btn-main-outline mt-2">Gestion Categorie<i class="fas fa-chevron-right"></i></a>
-                        <a href="{{ path("afficheProd",{'id':p.getId() } ) }}" class="btn btn-main-outline mt-2">Visiter<i class="fas fa-chevron-right"></i></a>
+                        <a href="{{ path("afficheCategorieProd",{ 'id':p.getId()}) }}" class="btn btn-main-outline mt-2">Gestion Categorie<i class="fas fa-chevron-right"></i></a>
+                        <a href="{{ path("choixCategorie",{'id':p.getId() } ) }}" class="btn btn-main-outline mt-2">Gestion Des Produits<i class="fas fa-chevron-right"></i></a>
 
 
                     </div>

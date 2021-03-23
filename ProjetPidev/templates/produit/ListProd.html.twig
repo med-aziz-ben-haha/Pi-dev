@@ -1,12 +1,29 @@
-{% include 'tempFront1SoinMP.html.twig' %}
+{% include 'tempParapharmacien.html.twig' %}
 
 <section class="services-section hk-section section-bg" >
     <div class="box">
         <div class="box-header">
             <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des Produits </h1>
-            <div class="col-sm-8"></div>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
 
-            <div class="col-sm-4"><a href="" class="btn btn-block btn-primary" role="button">Ajouter Produit</a></div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="hero-btns" style="margin-top: 10%;">
+                        <a href="{{ path('AjoutProduit',{'id':idC , 'iduser':iduser} ) }}" class="btn btn-main" role="button">Ajouter Produit</a>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="hero-btns" style="margin-top: 10%;">
+                        <a href="{{ path('accueilOnlineParapharmacien',{'iduser':iduser}  ) }}" class="btn btn-main" role="button">Retour a mon Parapharmacie</a>
+                    </div>
+                </div>
+
+            </div>
 
 
 
@@ -17,12 +34,13 @@
             <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                    <th>Image Parapharmacie</th>
+                    <th>Image Produit</th>
                     <th>id</th>
                     <th>Nom Produit</th>
-                    <th>Categorie</th>
+                    <th>Description</th>
                     <th>Quantite</th>
                     <th>Prix</th>
+                    <th>Tva</th>
                     <th>Modifier Produit</th>
                     <th>Supprimer Produit</th>
 
@@ -32,13 +50,16 @@
                 <tbody>
                 <tr {% for p in produit %}>
 
-
+                    <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ p.getLienImgP)}}"></td>
                     <td>{{ p.id }}</td>
                     <td>{{ p.nomProduit }}</td>
-                    <td>{{ p.nomProduit }}</td>
+                    <td>{{ p.description }}</td>
                     <td>{{ p.quantiteProduit }}</td>
                     <td>{{ p.prixProduit }}</td>
-                    <td><a href="{{ path('deleteProduit',{'id':p.id}) }}" class="btn btn-block btn-danger" role="button">Supprimer</a></td>
+                    <td>{{ p.tva }}</td>
+                    <td><a href="{{ path('modifierProduit',{'id':p.id , 'iduser':iduser}) }}" class="btn btn-block btn-warning" role="button">Modifier</a></td>
+
+                    <td><a href="{{ path('deleteProduit',{'id':p.id ,'iduser':iduser}) }}" class="btn btn-block btn-danger" role="button">Supprimer</a></td>
 
 
 

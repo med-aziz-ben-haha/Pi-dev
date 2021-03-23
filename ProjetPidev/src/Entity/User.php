@@ -7,10 +7,13 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @UniqueEntity(fields={"login"}, message="Ce login est deja utilisé!")
+ * @UniqueEntity(fields={"email"}, message="Cette adresses email est déja utilisée!")
  */
 class User
 {
@@ -29,13 +32,15 @@ class User
 
     /**
      * @ORM\Column(type="string", length=30)
-     * @Assert\Length(min=6,minMessage="Votre mot de passe doit contenir au minimum 6 caractères *")
+     * @Assert\Length(min=4,minMessage="Votre mot de passe doit contenir au minimum 4 caractères *")
+     * @Assert\NotBlank(message="Le champs mot de passe est obligatoire * ")
      */
     private $mdp;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\Email(message="Votre adresse mail non valide *")
+     * @Assert\NotBlank(message="Le champs email est obligatoire * ")
      */
     private $email;
 
@@ -63,6 +68,7 @@ class User
 
     /**
      * @ORM\Column(type="string", length=20)
+     * @Assert\NotBlank(message="Le champs telephone est obligatoire * ")
      * @Assert\Length(min=8,minMessage="Votre numero de telephne doit contenir au minimum 8 caractères.",max=15,maxMessage="Votre numero de telephne ne doit depasser 15 caractères."))
      */
     private $telephone;
@@ -107,12 +113,30 @@ class User
      */
     private $reservations;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Parapharmacie::class, inversedBy="parapharmacien")
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $parapharmacie;
+
 
 
     /**
      * @ORM\OneToMany(targetEntity=RendezVous::class, mappedBy="user", orphanRemoval=true)
      */
     private $listRendezvous;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Panier::class, mappedBy="user")
+     */
+    private $paniers;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ListProduit::class, mappedBy="user")
+     */
+    private $listProduit;
+
+
 
     public function __construct()
     {
@@ -121,6 +145,9 @@ class User
         $this->reservations = new ArrayCollection();
 
         $this->listRendezvous = new ArrayCollection();
+        $this->paniers = new ArrayCollection();
+        $this->listProduit = new ArrayCollection();
+
     }
 
     public function getId(): ?int
@@ -396,4 +423,78 @@ class User
 
         return $this;
     }
+
+    public function getParapharmacie(): ?Parapharmacie
+    {
+        return $this->parapharmacie;
+    }
+
+    public function setParapharmacie(?Parapharmacie $Parapharmacie): self
+    {
+        $this->parapharmacie = $Parapharmacie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Panier[]
+     */
+    public function getPaniers(): Collection
+    {
+        return $this->paniers;
+    }
+
+    public function addPanier(Panier $panier): self
+    {
+        if (!$this->paniers->contains($panier)) {
+            $this->paniers[] = $panier;
+            $panier->setParapharmacie($this);
+        }
+
+        return $this;
+    }
+
+    public function removePanier(Panier $panier): self
+    {
+        if ($this->paniers->removeElement($panier)) {
+            // set the owning side to null (unless already changed)
+            if ($panier->getParapharmacie() === $this) {
+                $panier->setParapharmacie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ListProduit[]
+     */
+    public function getListProduit(): Collection
+    {
+        return $this->listProduit;
+    }
+
+    public function addListProduit(ListProduit $listProduit): self
+    {
+        if (!$this->listProduit->contains($listProduit)) {
+            $this->listProduit[] = $listProduit;
+            $listProduit->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListProduit(ListProduit $listProduit): self
+    {
+        if ($this->listProduit->removeElement($listProduit)) {
+            // set the owning side to null (unless already changed)
+            if ($listProduit->getUser() === $this) {
+                $listProduit->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 }

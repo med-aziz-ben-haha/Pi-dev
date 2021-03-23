@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
-    <parameter key="kernel.root_dir">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src</parameter>
-    <parameter key="kernel.project_dir">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</parameter>
+    <parameter key="kernel.root_dir">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src</parameter>
+    <parameter key="kernel.project_dir">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</parameter>
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">src</parameter>
-    <parameter key="kernel.cache_dir">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev</parameter>
-    <parameter key="kernel.logs_dir">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\log</parameter>
+    <parameter key="kernel.cache_dir">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev</parameter>
+    <parameter key="kernel.logs_dir">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
@@ -21,55 +21,65 @@
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="WebServerBundle">Symfony\Bundle\WebServerBundle\WebServerBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
+      <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\framework-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\framework-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\FrameworkBundle</parameter>
       </parameter>
       <parameter key="SensioFrameworkExtraBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\sensio\framework-extra-bundle\src</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\sensio\framework-extra-bundle\src</parameter>
         <parameter key="namespace">Sensio\Bundle\FrameworkExtraBundle</parameter>
       </parameter>
       <parameter key="DoctrineBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\doctrine\doctrine-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\DoctrineBundle</parameter>
       </parameter>
       <parameter key="DoctrineMigrationsBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-migrations-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\doctrine\doctrine-migrations-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\MigrationsBundle</parameter>
       </parameter>
       <parameter key="SecurityBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\SecurityBundle</parameter>
       </parameter>
       <parameter key="TwigBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\TwigBundle</parameter>
       </parameter>
       <parameter key="TwigExtraBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\twig\extra-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\twig\extra-bundle</parameter>
         <parameter key="namespace">Twig\Extra\TwigExtraBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\web-profiler-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\web-profiler-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebProfilerBundle</parameter>
       </parameter>
       <parameter key="MonologBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\monolog-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\monolog-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\MonologBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\debug-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\debug-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\DebugBundle</parameter>
       </parameter>
       <parameter key="MakerBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\maker-bundle\src</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\maker-bundle\src</parameter>
         <parameter key="namespace">Symfony\Bundle\MakerBundle</parameter>
       </parameter>
       <parameter key="WebServerBundle" type="collection">
-        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\web-server-bundle</parameter>
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\web-server-bundle</parameter>
         <parameter key="namespace">Symfony\Bundle\WebServerBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
+      </parameter>
+      <parameter key="WebpackEncoreBundle" type="collection">
+        <parameter key="path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\webpack-encore-bundle\src</parameter>
+        <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -122,21 +132,21 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/sessions</parameter>
+    <parameter key="session.save_path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
     <parameter key="asset.request_context.base_path"></parameter>
     <parameter key="asset.request_context.secure">false</parameter>
-    <parameter key="validator.mapping.cache.file">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="translator.logging">false</parameter>
-    <parameter key="translator.default_path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/translations</parameter>
+    <parameter key="translator.default_path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/translations</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
@@ -144,7 +154,7 @@
     <parameter key="router.cache_class_prefix">srcApp_KernelDevDebugContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/serialization.php</parameter>
+    <parameter key="serializer.mapping.cache.file">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/serialization.php</parameter>
     <parameter key="doctrine.dbal.logger.chain.class">Doctrine\DBAL\Logging\LoggerChain</parameter>
     <parameter key="doctrine.dbal.logger.profiling.class">Doctrine\DBAL\Logging\DebugStack</parameter>
     <parameter key="doctrine.dbal.logger.class">Symfony\Bridge\Doctrine\Logger\DbalLogger</parameter>
@@ -210,7 +220,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -227,7 +237,7 @@
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>bootstrap_4_layout.html.twig</parameter>
     </parameter>
-    <parameter key="twig.default_path">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/templates</parameter>
+    <parameter key="twig.default_path">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
     <parameter key="web_profiler.debug_toolbar.mode">2</parameter>
     <parameter key="monolog.use_microseconds">true</parameter>
@@ -249,6 +259,11 @@
       </parameter>
     </parameter>
     <parameter key="env(VAR_DUMPER_SERVER)">127.0.0.1:9912</parameter>
+    <parameter key="knp_paginator.template.pagination">@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">@KnpPaginator/Pagination/filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">@KnpPaginator/Pagination/sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
+    <parameter key="knp_paginator.page_limit">null</parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -355,6 +370,20 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CategorieSoinMPController"/>
       </call>
     </service>
+    <service id="App\Controller\ListProduitController" class="App\Controller\ListProduitController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ListProduitController"/>
+      </call>
+    </service>
+    <service id="App\Controller\PanierController" class="App\Controller\PanierController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\PanierController"/>
+      </call>
+    </service>
     <service id="App\Controller\ParapharmacieController" class="App\Controller\ParapharmacieController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -393,7 +422,16 @@
     <service id="App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\CategorieSoinMPRechercheType" class="App\Form\CategorieSoinMPRechercheType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" autoconfigure="true">
@@ -405,7 +443,25 @@
     <service id="App\Form\RegionsType" class="App\Form\RegionsType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SoinMPTriFormType" class="App\Form\SoinMPTriFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\SoinMPType" class="App\Form\SoinMPType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserMedType" class="App\Form\UserMedType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserParaType" class="App\Form\UserParaType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserParaphType" class="App\Form\UserParaphType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" autoconfigure="true">
@@ -432,11 +488,19 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\ListProduitRepository" class="App\Repository\ListProduitRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\MedicamentRepository" class="App\Repository\MedicamentRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -449,10 +513,6 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" autoconfigure="true">
-      <tag name="doctrine.repository_service"/>
-      <argument type="service" id="doctrine"/>
-    </service>
-    <service id="App\Repository\RegionRepository" class="App\Repository\RegionRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -549,7 +609,7 @@
     <service id="cache_warmer" class="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate" public="true">
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer" public="true">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -557,9 +617,9 @@
     <service id="filesystem" class="Symfony\Component\Filesystem\Filesystem" public="true"/>
     <service id="file_locator" class="Symfony\Component\HttpKernel\Config\FileLocator" public="false">
       <argument type="service" id="kernel"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources</argument>
       <argument type="collection">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src</argument>
       </argument>
       <argument>false</argument>
     </service>
@@ -596,6 +656,9 @@
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.main" type="service" id="monolog.handler.main" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.console" type="service" id="monolog.handler.console" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.tag_renderer" type="service" id="webpack_encore.tag_renderer" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="service" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
         <argument key="cache.app" type="collection">
@@ -653,6 +716,15 @@
         <argument key="monolog.handler.console" type="collection">
           <argument>reset</argument>
         </argument>
+        <argument key="webpack_encore.tag_renderer" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.webpack_encore" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="collection">
+          <argument>reset</argument>
+        </argument>
       </argument>
     </service>
     <service id="reverse_container" class="Symfony\Component\DependencyInjection\ReverseContainer" public="false">
@@ -686,21 +758,21 @@
         <argument>/_fragment</argument>
       </call>
     </service>
-    <service id=".2_~aHkA_l9" public="false">
+    <service id=".2_~wm0jB9b" public="false">
       <argument type="service" id="request_stack"/>
       <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="getAndCleanOutputBuffer"/>
     </service>
-    <service id=".1_~aHkA_l9" public="false">
+    <service id=".1_~wm0jB9b" public="false">
       <argument type="service" id="request_stack"/>
       <argument>true</argument>
       <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="isDebug"/>
     </service>
     <service id="error_handler.error_renderer.html" class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer">
-      <argument type="service" id=".1_~aHkA_l9"/>
+      <argument type="service" id=".1_~wm0jB9b"/>
       <argument>UTF-8</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
-      <argument type="service" id=".2_~aHkA_l9"/>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
+      <argument type="service" id=".2_~wm0jB9b"/>
       <argument type="service" id="monolog.logger" on-invalid="null"/>
     </service>
     <service id="console.error_listener" class="Symfony\Component\Console\EventListener\ErrorListener" public="false">
@@ -720,7 +792,7 @@
     <service id="console.command.assets_install" class="Symfony\Bundle\FrameworkBundle\Command\AssetsInstallCommand" public="false">
       <tag name="console.command" command="assets:install"/>
       <argument type="service" id="filesystem"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <call method="setName">
         <argument>assets:install</argument>
       </call>
@@ -767,6 +839,7 @@
         <argument>cache.doctrine.orm.default.result</argument>
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
+        <argument>cache.webpack_encore</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:list</argument>
@@ -838,16 +911,16 @@
       <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/translations</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/templates</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/translations</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/templates</argument>
       <argument type="collection">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations</argument>
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations</argument>
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </argument>
       <call method="setName">
         <argument>debug:translation</argument>
@@ -859,16 +932,16 @@
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
       <argument>en</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/translations</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/templates</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/translations</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/templates</argument>
       <argument type="collection">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations</argument>
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations</argument>
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations</argument>
       </argument>
       <argument type="collection">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </argument>
       <call method="setName">
         <argument>translation:update</argument>
@@ -896,11 +969,20 @@
       </argument>
       <argument type="collection">
         <argument>App\Form\CategorieProduitType</argument>
+        <argument>App\Form\CategorieSoinMPRechercheType</argument>
         <argument>App\Form\CategorieSoinMPType</argument>
+        <argument>App\Form\ConnexionType</argument>
+        <argument>App\Form\ListProduitType</argument>
         <argument>App\Form\ParapharmacieType</argument>
         <argument>App\Form\ProduitType</argument>
         <argument>App\Form\RegionsType</argument>
+        <argument>App\Form\SoinMPRechercheType</argument>
+        <argument>App\Form\SoinMPTriFormType</argument>
         <argument>App\Form\SoinMPType</argument>
+        <argument>App\Form\UserMedType</argument>
+        <argument>App\Form\UserParaType</argument>
+        <argument>App\Form\UserParaphType</argument>
+        <argument>App\Form\UserType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1016,7 +1098,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1045,7 +1127,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1118,6 +1200,7 @@
         <argument key="cache.annotations" type="service" id="cache.annotations" on-invalid="ignore_uninitialized"/>
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="cache.global_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
@@ -1133,6 +1216,7 @@
         <argument key="cache.doctrine.orm.default.result" type="service" id="cache.doctrine.orm.default.result" on-invalid="ignore_uninitialized"/>
         <argument key="cache.doctrine.orm.default.query" type="service" id="cache.doctrine.orm.default.query" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="identity_translator" class="Symfony\Component\Translation\IdentityTranslator" public="false"/>
@@ -1157,8 +1241,8 @@
       <argument>0</argument>
       <argument>false</argument>
     </service>
-    <service id=".1_NativeFileSessionHandler~5amtut8" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/sessions</argument>
+    <service id=".1_NativeFileSessionHandler~EAVKOgD" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/sessions</argument>
     </service>
     <service id="session" class="Symfony\Component\HttpFoundation\Session\Session" public="true">
       <argument type="service" id="session.storage.native"/>
@@ -1184,12 +1268,12 @@
       <factory service="session" method="getBag"/>
     </service>
     <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/sessions</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
     <service id="session.handler.native_file" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\StrictSessionHandler" public="false">
-      <argument type="service" id=".1_NativeFileSessionHandler~5amtut8"/>
+      <argument type="service" id=".1_NativeFileSessionHandler~EAVKOgD"/>
     </service>
     <service id="session.abstract_handler" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\AbstractSessionHandler" public="false">
       <argument></argument>
@@ -1222,7 +1306,7 @@
       <tag name="twig.extension"/>
     </service>
     <service id="form.resolved_type_factory" class="Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy" public="false">
-      <argument type="service" id=".1_ResolvedFormTypeFactory~rleF2Dc"/>
+      <argument type="service" id=".1_ResolvedFormTypeFactory~tVvhhC7"/>
       <argument type="service" id="data_collector.form"/>
     </service>
     <service id="form.registry" class="Symfony\Component\Form\FormRegistry" public="false">
@@ -1235,7 +1319,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.5e_c0H6"/>
+      <argument type="service" id=".service_locator.7o5geKl"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1350,9 +1434,12 @@
     <service id="assets.json_manifest_version_strategy" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy" public="false" abstract="true">
       <argument></argument>
     </service>
+    <service id="assets._version__default" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy" public="false">
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/public/build/manifest.json</argument>
+    </service>
     <service id="assets._default_package" class="Symfony\Component\Asset\PathPackage" public="false">
       <argument></argument>
-      <argument type="service" id="assets.empty_version_strategy"/>
+      <argument type="service" id="assets._version__default"/>
       <argument type="service" id="assets.context"/>
     </service>
     <service id="mailer.mailer" class="Symfony\Component\Mailer\Mailer">
@@ -1425,7 +1512,7 @@
       </call>
       <call method="addXmlMappings">
         <argument type="collection">
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/config/validation.xml</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/config/validation.xml</argument>
         </argument>
       </call>
       <call method="enableAnnotationMapping">
@@ -1450,14 +1537,14 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/validation.php</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.symfony" class="Symfony\Component\Validator\Mapping\Cache\Psr6Cache" public="false">
       <argument type="service" id="validator.mapping.cache.adapter"/>
       <deprecated>The "%service_id%" service is deprecated since Symfony 4.4. Use validator.mapping.cache.adapter instead.</deprecated>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/validation.php</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1528,333 +1615,371 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/translations</argument>
+        <argument key="cache_dir">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
-          <argument key="af" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.af.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.af.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
-          </argument>
           <argument key="ar" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
-          </argument>
-          <argument key="az" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.az.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
-          </argument>
-          <argument key="be" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.be.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.be.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ar.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ar.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ar.xlf</argument>
           </argument>
           <argument key="bg" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
-          </argument>
-          <argument key="bs" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.bs.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.bs.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.bs.xlf</argument>
-          </argument>
-          <argument key="ca" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.bg.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.bg.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.bg.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.bg.xlf</argument>
           </argument>
           <argument key="cs" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.cs.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.cs.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.cs.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.cs.xlf</argument>
           </argument>
           <argument key="da" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.da.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.da.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.da.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.da.xlf</argument>
           </argument>
           <argument key="de" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
-          </argument>
-          <argument key="el" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.de.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
           </argument>
           <argument key="en" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.en.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
-          </argument>
-          <argument key="et" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.es.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.es.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.es.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.es.xlf</argument>
           </argument>
           <argument key="eu" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.eu.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.eu.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.eu.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.eu.xlf</argument>
           </argument>
           <argument key="fa" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
-          </argument>
-          <argument key="fi" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fa.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.fa.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.fa.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.fa.xlf</argument>
           </argument>
           <argument key="fr" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
-          </argument>
-          <argument key="gl" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.gl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
-          </argument>
-          <argument key="he" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.he.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.he.xlf</argument>
-          </argument>
-          <argument key="hr" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.fr.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.fr.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.fr.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.fr.xlf</argument>
           </argument>
           <argument key="hu" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
-          </argument>
-          <argument key="hy" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.hu.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.hu.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.hu.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.hu.xlf</argument>
           </argument>
           <argument key="id" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.id.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.id.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.id.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.id.xlf</argument>
           </argument>
           <argument key="it" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.it.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.it.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.it.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.it.xlf</argument>
           </argument>
           <argument key="ja" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ja.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ja.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ja.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ja.xlf</argument>
           </argument>
-          <argument key="lb" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
+          <argument key="ky" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ky.xliff</argument>
           </argument>
           <argument key="lt" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
-          </argument>
-          <argument key="lv" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.lv.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
-          </argument>
-          <argument key="mn" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.mn.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
-          </argument>
-          <argument key="nb" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.nb.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.nb.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.lt.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.lt.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.lt.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.lt.xlf</argument>
           </argument>
           <argument key="nl" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
-          </argument>
-          <argument key="nn" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.nl.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.nl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.nl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.nl.xlf</argument>
           </argument>
           <argument key="no" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.no.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.no.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.no.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.no.xlf</argument>
           </argument>
           <argument key="pl" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
-          </argument>
-          <argument key="pt" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pl.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.pl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.pl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.pl.xlf</argument>
           </argument>
           <argument key="pt_BR" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.pt_BR.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.pt_BR.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.pt_BR.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.pt_BR.xlf</argument>
           </argument>
           <argument key="ro" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ro.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ro.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ro.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ro.xlf</argument>
           </argument>
           <argument key="ru" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
-          </argument>
-          <argument key="sk" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
-          </argument>
-          <argument key="sl" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
-          </argument>
-          <argument key="sq" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sq.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sq.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
-          </argument>
-          <argument key="sr_Cyrl" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sr_Cyrl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
-          </argument>
-          <argument key="sr_Latn" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ru.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ru.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ru.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ru.xlf</argument>
           </argument>
           <argument key="sv" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sv.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sv.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sv.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sv.xlf</argument>
           </argument>
-          <argument key="th" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.th.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
-          </argument>
-          <argument key="tl" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.tl.xlf</argument>
+          <argument key="sw" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.sw.xliff</argument>
           </argument>
           <argument key="tr" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.tr.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.tr.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.tr.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.tr.xlf</argument>
           </argument>
           <argument key="uk" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.uk.xliff</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.uk.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.uk.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.uk.xlf</argument>
+          </argument>
+          <argument key="af" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.af.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.af.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.af.xlf</argument>
+          </argument>
+          <argument key="az" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.az.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.az.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.az.xlf</argument>
+          </argument>
+          <argument key="be" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.be.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.be.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.be.xlf</argument>
+          </argument>
+          <argument key="bs" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.bs.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.bs.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.bs.xlf</argument>
+          </argument>
+          <argument key="ca" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ca.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.ca.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.ca.xlf</argument>
+          </argument>
+          <argument key="el" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.el.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.el.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.el.xlf</argument>
+          </argument>
+          <argument key="et" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.et.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.et.xlf</argument>
+          </argument>
+          <argument key="fi" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.fi.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.fi.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.fi.xlf</argument>
+          </argument>
+          <argument key="gl" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.gl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.gl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.gl.xlf</argument>
+          </argument>
+          <argument key="he" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.he.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.he.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.he.xlf</argument>
+          </argument>
+          <argument key="hr" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.hr.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.hr.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.hr.xlf</argument>
+          </argument>
+          <argument key="hy" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.hy.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.hy.xlf</argument>
+          </argument>
+          <argument key="lb" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.lb.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.lb.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.lb.xlf</argument>
+          </argument>
+          <argument key="lv" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.lv.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.lv.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.lv.xlf</argument>
+          </argument>
+          <argument key="mn" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.mn.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.mn.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.mn.xlf</argument>
+          </argument>
+          <argument key="nb" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.nb.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.nb.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.nb.xlf</argument>
+          </argument>
+          <argument key="nn" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.nn.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
+          </argument>
+          <argument key="pt" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
+          </argument>
+          <argument key="sk" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sk.xlf</argument>
+          </argument>
+          <argument key="sl" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sl.xlf</argument>
+          </argument>
+          <argument key="sq" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sq.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sq.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sq.xlf</argument>
+          </argument>
+          <argument key="sr_Cyrl" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sr_Cyrl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sr_Cyrl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sr_Cyrl.xlf</argument>
+          </argument>
+          <argument key="sr_Latn" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sr_Latn.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sr_Latn.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.sr_Latn.xlf</argument>
+          </argument>
+          <argument key="th" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.th.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.th.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.th.xlf</argument>
+          </argument>
+          <argument key="tl" type="collection">
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.tl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.tl.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.tl.xlf</argument>
           </argument>
           <argument key="vi" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.vi.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.vi.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.vi.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.vi.xlf</argument>
           </argument>
           <argument key="zh_CN" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.zh_CN.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.zh_CN.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.zh_CN.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.zh_CN.xlf</argument>
           </argument>
           <argument key="zh_TW" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations\validators.zh_TW.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.zh_TW.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.zh_TW.xlf</argument>
           </argument>
           <argument key="cy" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.cy.xlf</argument>
           </argument>
         </argument>
         <argument key="scanned_directories" type="collection">
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\framework-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/FrameworkBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\sensio\framework-extra-bundle\src/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/SensioFrameworkExtraBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/DoctrineBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/DoctrineMigrationsBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/SecurityBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/TwigBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\twig\extra-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/TwigExtraBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\web-profiler-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/WebProfilerBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\monolog-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/MonologBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\debug-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/DebugBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\maker-bundle\src/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/MakerBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\web-server-bundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/WebServerBundle/translations</argument>
-          <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\framework-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/FrameworkBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\sensio\framework-extra-bundle\src/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/SensioFrameworkExtraBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\doctrine\doctrine-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/DoctrineBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/DoctrineMigrationsBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/SecurityBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/TwigBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\twig\extra-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/TwigExtraBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\web-profiler-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/WebProfilerBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\monolog-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/MonologBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\debug-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/DebugBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\maker-bundle\src/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/MakerBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\web-server-bundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/WebServerBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/KnpPaginatorBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\webpack-encore-bundle\src/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/WebpackEncoreBundle/translations</argument>
+          <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\validator/Resources/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\form/Resources/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-core/Resources/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations</argument>
             <argument>translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\framework-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/FrameworkBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\sensio\framework-extra-bundle\src/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/SensioFrameworkExtraBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/DoctrineBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/DoctrineMigrationsBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/SecurityBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/TwigBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\twig\extra-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/TwigExtraBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\web-profiler-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/WebProfilerBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\monolog-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/MonologBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\debug-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/DebugBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\maker-bundle\src/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/MakerBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\web-server-bundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/WebServerBundle/translations</argument>
-            <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\framework-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/FrameworkBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\sensio\framework-extra-bundle\src/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/SensioFrameworkExtraBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\doctrine\doctrine-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/DoctrineBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\doctrine\doctrine-migrations-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/DoctrineMigrationsBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/SecurityBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/TwigBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\twig\extra-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/TwigExtraBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\web-profiler-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/WebProfilerBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\monolog-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/MonologBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\debug-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/DebugBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\maker-bundle\src/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/MakerBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\web-server-bundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/WebServerBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/KnpPaginatorBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\webpack-encore-bundle\src/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/WebpackEncoreBundle/translations</argument>
+            <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src/Resources/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2125,7 +2250,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-      <argument>file:C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/profiler</argument>
+      <argument>file:C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -2163,7 +2288,7 @@
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainer</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainer</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector" public="false">
@@ -2221,8 +2346,12 @@
         <argument>cache.security_expression_language</argument>
         <argument type="service" id="cache.security_expression_language"/>
       </call>
+      <call method="addInstance">
+        <argument>cache.webpack_encore</argument>
+        <argument type="service" id="cache.webpack_encore"/>
+      </call>
     </service>
-    <service id=".1_ResolvedFormTypeFactory~rleF2Dc" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
+    <service id=".1_ResolvedFormTypeFactory~tVvhhC7" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
     <service id="form.type_extension.form.data_collector" class="Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension" public="false">
       <tag name="form.type_extension"/>
       <argument type="service" id="data_collector.form"/>
@@ -2273,7 +2402,7 @@
     <service id="debug.file_link_formatter" class="Symfony\Component\HttpKernel\Debug\FileLinkFormatter" public="false">
       <argument>null</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <argument type="service" id="debug.file_link_formatter.url_format"/>
     </service>
     <service id="debug.stopwatch" class="Symfony\Component\Stopwatch\Stopwatch">
@@ -2293,6 +2422,22 @@
         <argument type="collection">
           <argument type="service" id="data_collector.router"/>
           <argument>onKernelController</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service" id="webpack_encore.exception_listener"/>
+          <argument>onKernelException</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2712,6 +2857,46 @@
         </argument>
         <argument>0</argument>
       </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.paginate"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sortable"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.filtration"/>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver" public="false">
       <tag name="monolog.logger" channel="request"/>
@@ -2725,7 +2910,7 @@
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor" public="false">
       <argument type="service" id="request_stack"/>
     </service>
-    <service id=".1_LegacyRouteLoaderContainer~s0UYF5X" class="Symfony\Bundle\FrameworkBundle\Routing\LegacyRouteLoaderContainer" public="false">
+    <service id=".1_LegacyRouteLoaderContainer~9736SHs" class="Symfony\Bundle\FrameworkBundle\Routing\LegacyRouteLoaderContainer" public="false">
       <argument type="service" id="service_container"/>
       <argument type="service" id=".service_locator.XwZNkPh"/>
     </service>
@@ -2784,7 +2969,7 @@
     </service>
     <service id="routing.loader.container" class="Symfony\Component\Routing\Loader\ContainerLoader" public="false">
       <tag name="routing.loader"/>
-      <argument type="service" id=".1_LegacyRouteLoaderContainer~s0UYF5X"/>
+      <argument type="service" id=".1_LegacyRouteLoaderContainer~9736SHs"/>
     </service>
     <service id="routing.loader" class="Symfony\Bundle\FrameworkBundle\Routing\DelegatingLoader" public="true">
       <argument type="service" id="routing.resolver"/>
@@ -2799,7 +2984,7 @@
       <argument type="service" id=".service_locator.n0p5GNi.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev</argument>
+        <argument key="cache_dir">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -2838,7 +3023,7 @@
       <argument type="service" id="request_stack"/>
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.request" on-invalid="ignore"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <argument>true</argument>
     </service>
     <service id="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" class="Symfony\Bundle\FrameworkBundle\Controller\RedirectController" public="true">
@@ -2864,12 +3049,12 @@
       <argument type="service" id="file_locator"/>
       <argument type="service" id="routing.loader.annotation"/>
     </service>
-    <service id=".2_PhpArrayAdapter~V7DIqnn" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/annotations.php</argument>
+    <service id=".2_PhpArrayAdapter~jxgOm7d" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
-    <service id=".1_ArrayCache~V7DIqnn" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
+    <service id=".1_ArrayCache~jxgOm7d" class="Doctrine\Common\Cache\ArrayCache" public="false"/>
     <service id="annotations.reader" class="Doctrine\Common\Annotations\AnnotationReader" public="false">
       <call method="addGlobalIgnoredName">
         <argument>required</argument>
@@ -2884,7 +3069,7 @@
     <service id="annotations.cached_reader" class="Doctrine\Common\Annotations\CachedReader" public="false">
       <tag name="annotations.cached_reader"/>
       <argument type="service" id="annotations.reader"/>
-      <argument type="service" id=".1_ArrayCache~V7DIqnn"/>
+      <argument type="service" id=".1_ArrayCache~jxgOm7d"/>
       <argument>true</argument>
       <property name="cacheProviderBackup" type="service" id="annotations.cache"/>
     </service>
@@ -2894,12 +3079,12 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/annotations.php</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/annotations.php</argument>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
       <argument>true</argument>
     </service>
     <service id="annotations.cache" class="Symfony\Component\Cache\DoctrineProvider" public="false">
-      <argument type="service" id=".2_PhpArrayAdapter~V7DIqnn"/>
+      <argument type="service" id=".2_PhpArrayAdapter~jxgOm7d"/>
     </service>
     <service id="property_accessor" class="Symfony\Component\PropertyAccess\PropertyAccessor" public="false">
       <argument>false</argument>
@@ -2909,18 +3094,18 @@
     </service>
     <service id="secrets.vault" class="Symfony\Bundle\FrameworkBundle\Secrets\SodiumVault">
       <tag name="container.env_var_loader"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/config/secrets/dev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/config/secrets/dev</argument>
       <argument>%env(base64:default::SYMFONY_DECRYPTION_SECRET)%</argument>
     </service>
     <service id="secrets.local_vault" class="Symfony\Bundle\FrameworkBundle\Secrets\DotenvVault">
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/.env.dev.local</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/.env.dev.local</argument>
     </service>
-    <service id=".2_~HkYjVFP" public="false">
+    <service id=".2_~1_fG_wh" public="false">
       <argument type="service" id="request_stack"/>
       <argument>true</argument>
       <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer" method="isDebug"/>
     </service>
-    <service id=".1_~HkYjVFP" public="false">
+    <service id=".1_~1_fG_wh" public="false">
       <argument type="service" id="request_stack"/>
       <factory class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer" method="getPreferredFormat"/>
     </service>
@@ -3005,10 +3190,10 @@
           </service>
         </argument>
       </argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/serialization.php</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface" public="false">
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/serialization.php</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3034,9 +3219,9 @@
     </service>
     <service id="error_handler.error_renderer.serializer" class="Symfony\Component\ErrorHandler\ErrorRenderer\SerializerErrorRenderer" public="false">
       <argument type="service" id="serializer"/>
-      <argument type="service" id=".1_~HkYjVFP"/>
+      <argument type="service" id=".1_~1_fG_wh"/>
       <argument type="service" id="twig.error_renderer.html"/>
-      <argument type="service" id=".2_~HkYjVFP"/>
+      <argument type="service" id=".2_~1_fG_wh"/>
     </service>
     <service id="property_info" class="Symfony\Component\PropertyInfo\PropertyInfoExtractor" public="false">
       <argument type="iterator">
@@ -3267,7 +3452,7 @@
       <argument type="collection"/>
       <factory service="doctrine.dbal.connection_factory" method="createConnection"/>
     </service>
-    <service id=".1_ServiceLocator~MgMfSNh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".1_ServiceLocator~e8o9mOn" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <argument type="collection"/>
     </service>
     <service id="doctrine.orm.proxy_cache_warmer" class="Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer" public="false">
@@ -3288,7 +3473,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.UQpknUc"/>
+      <argument type="service" id=".service_locator.loLPUJA"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3425,7 +3610,7 @@
         <argument type="service" id="doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/doctrine/orm/Proxies</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -3455,7 +3640,7 @@
     <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
       <argument type="service" id="annotations.cached_reader"/>
       <argument type="collection">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src\Entity</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src\Entity</argument>
       </argument>
     </service>
     <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Persistence\Mapping\Driver\MappingDriverChain" public="false">
@@ -3529,7 +3714,7 @@
     <service id="doctrine.migrations.configuration" class="Doctrine\Migrations\Configuration\Configuration" public="false">
       <call method="addMigrationsDirectory">
         <argument>DoctrineMigrations</argument>
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/migrations</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/migrations</argument>
       </call>
       <call method="setAllOrNothing">
         <argument>false</argument>
@@ -4216,7 +4401,7 @@
         <argument>security:encode-password</argument>
       </call>
     </service>
-    <service id=".1_~RiULnJZ" public="false">
+    <service id=".1_~I8Gf7bq" public="false">
       <argument type="service" id="request_stack"/>
       <argument>true</argument>
       <factory class="Symfony\Bridge\Twig\ErrorRenderer\TwigErrorRenderer" method="isDebug"/>
@@ -4227,7 +4412,7 @@
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
         <argument key="autoescape">name</argument>
-        <argument key="cache">C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/twig</argument>
+        <argument key="cache">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
       </argument>
       <call method="addExtension">
@@ -4284,6 +4469,15 @@
       <call method="addExtension">
         <argument type="service" id="twig.extension.webprofiler"/>
       </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="webpack_encore.twig_entry_files_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="webpack_encore.twig_stimulus_extension"/>
+      </call>
       <call method="addGlobal">
         <argument>app</argument>
         <argument type="service" id="twig.app_variable"/>
@@ -4327,12 +4521,12 @@
     </service>
     <service id="twig.template_iterator" class="Symfony\Bundle\TwigBundle\TemplateIterator" public="false">
       <argument type="service" id="kernel"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src</argument>
       <argument type="collection">
-        <argument key="C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email">email</argument>
-        <argument key="C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
+        <argument key="C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email">email</argument>
+        <argument key="C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Form">null</argument>
       </argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/templates</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/templates</argument>
     </service>
     <service id="twig.template_cache_warmer" class="Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
@@ -4343,68 +4537,76 @@
     <service id="twig.loader.native_filesystem" class="Symfony\Bundle\TwigBundle\Loader\NativeFilesystemLoader" public="false">
       <tag name="twig.loader"/>
       <argument type="collection"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\framework-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\framework-bundle/Resources/views</argument>
         <argument>Framework</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\framework-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\framework-bundle/Resources/views</argument>
         <argument>!Framework</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\doctrine\doctrine-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\doctrine\doctrine-bundle/Resources/views</argument>
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\security-bundle/Resources/views</argument>
         <argument>!Security</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bundle/Resources/views</argument>
         <argument>Twig</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bundle/Resources/views</argument>
         <argument>!Twig</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\web-profiler-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\web-profiler-bundle/Resources/views</argument>
         <argument>!WebProfiler</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\debug-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\debug-bundle/Resources/views</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\debug-bundle/Resources/views</argument>
         <argument>!Debug</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/templates</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\knplabs\knp-paginator-bundle/templates</argument>
+        <argument>!KnpPaginator</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/templates</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
         <argument>email</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Email</argument>
         <argument>!email</argument>
       </call>
       <call method="addPath">
-        <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
+        <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\vendor\symfony\twig-bridge/Resources/views/Form</argument>
       </call>
     </service>
     <service id="twig.loader.chain" class="Twig\Loader\ChainLoader" public="false"/>
@@ -4430,7 +4632,7 @@
     <service id="twig.extension.code" class="Symfony\Bridge\Twig\Extension\CodeExtension" public="false">
       <tag name="twig.extension"/>
       <argument type="service" id="debug.file_link_formatter" on-invalid="ignore"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <argument>UTF-8</argument>
     </service>
     <service id="twig.extension.routing" class="Symfony\Bridge\Twig\Extension\RoutingExtension" public="false">
@@ -4492,7 +4694,7 @@
     <service id="twig.error_renderer.html" class="Symfony\Bridge\Twig\ErrorRenderer\TwigErrorRenderer" public="false">
       <argument type="service" id="twig"/>
       <argument type="service" id="error_handler.error_renderer.html"/>
-      <argument type="service" id=".1_~RiULnJZ"/>
+      <argument type="service" id=".1_~I8Gf7bq"/>
     </service>
     <service id="twig.extension.form" class="Symfony\Bridge\Twig\Extension\FormExtension" public="false">
       <tag name="twig.extension"/>
@@ -4509,11 +4711,11 @@
     <service id="twig.command.debug" class="Symfony\Bridge\Twig\Command\DebugCommand" public="false">
       <tag name="console.command" command="debug:twig"/>
       <argument type="service" id="twig"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <argument>%kernel.bundles_metadata%</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/templates</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/templates</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\src</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\src</argument>
       <call method="setName">
         <argument>debug:twig</argument>
       </call>
@@ -4534,7 +4736,7 @@
       <argument type="service" id="twig"/>
     </service>
     <service id="twig.missing_extension_suggestor" class="Twig\Extra\TwigExtraBundle\MissingExtensionSuggestor"/>
-    <service id=".2_HtmlDumper~B2WzVAh" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
+    <service id=".2_HtmlDumper~_31aPr2" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
       <argument>null</argument>
       <argument>UTF-8</argument>
       <argument>1</argument>
@@ -4545,14 +4747,14 @@
         </argument>
       </call>
     </service>
-    <service id=".1_NonceGenerator~B2WzVAh" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
+    <service id=".1_NonceGenerator~_31aPr2" class="Symfony\Bundle\WebProfilerBundle\Csp\NonceGenerator" public="false"/>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController" public="true">
       <argument type="service" id="router.default" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
       <argument type="service" id="twig"/>
       <argument>%data_collector.templates%</argument>
       <argument type="service" id="web_profiler.csp.handler"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
     </service>
     <service id="web_profiler.controller.router" class="Symfony\Bundle\WebProfilerBundle\Controller\RouterController" public="true">
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -4574,11 +4776,11 @@
       <argument type="service" id="profiler" on-invalid="null"/>
     </service>
     <service id="web_profiler.csp.handler" class="Symfony\Bundle\WebProfilerBundle\Csp\ContentSecurityPolicyHandler" public="false">
-      <argument type="service" id=".1_NonceGenerator~B2WzVAh"/>
+      <argument type="service" id=".1_NonceGenerator~_31aPr2"/>
     </service>
     <service id="twig.extension.webprofiler" class="Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension" public="false">
       <tag name="twig.extension"/>
-      <argument type="service" id=".2_HtmlDumper~B2WzVAh"/>
+      <argument type="service" id=".2_HtmlDumper~_31aPr2"/>
     </service>
     <service id="debug.file_link_formatter.url_format" class="string" public="false">
       <argument type="service" id="router.default"/>
@@ -4639,7 +4841,7 @@
     <service id="monolog.processor.psr_log_message" class="Monolog\Processor\PsrLogMessageProcessor" public="false"/>
     <service id="monolog.handler.main" class="Monolog\Handler\StreamHandler">
       <tag name="kernel.reset" method="reset"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\log/dev.log</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\log/dev.log</argument>
       <argument>100</argument>
       <argument>true</argument>
       <argument>null</argument>
@@ -4656,24 +4858,24 @@
       <argument type="collection"/>
       <argument type="collection"/>
     </service>
-    <service id=".6_HtmlDescriptor~7bXuwHC" class="Symfony\Component\VarDumper\Command\Descriptor\HtmlDescriptor" public="false">
+    <service id=".6_HtmlDescriptor~BBIpoYn" class="Symfony\Component\VarDumper\Command\Descriptor\HtmlDescriptor" public="false">
       <argument type="service" id="var_dumper.html_dumper"/>
     </service>
-    <service id=".5_CliDescriptor~7bXuwHC" class="Symfony\Component\VarDumper\Command\Descriptor\CliDescriptor" public="false">
+    <service id=".5_CliDescriptor~BBIpoYn" class="Symfony\Component\VarDumper\Command\Descriptor\CliDescriptor" public="false">
       <argument type="service" id="var_dumper.contextualized_cli_dumper.inner"/>
     </service>
-    <service id=".4_CliContextProvider~7bXuwHC" class="Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider" public="false"/>
-    <service id=".3_RequestContextProvider~7bXuwHC" class="Symfony\Component\VarDumper\Dumper\ContextProvider\RequestContextProvider" public="false">
+    <service id=".4_CliContextProvider~BBIpoYn" class="Symfony\Component\VarDumper\Dumper\ContextProvider\CliContextProvider" public="false"/>
+    <service id=".3_RequestContextProvider~BBIpoYn" class="Symfony\Component\VarDumper\Dumper\ContextProvider\RequestContextProvider" public="false">
       <argument type="service" id="request_stack"/>
     </service>
-    <service id=".2_SourceContextProvider~7bXuwHC" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
+    <service id=".2_SourceContextProvider~BBIpoYn" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
       <argument>UTF-8</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
     </service>
-    <service id=".1_SourceContextProvider~7bXuwHC" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
+    <service id=".1_SourceContextProvider~BBIpoYn" class="Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider" public="false">
       <argument>UTF-8</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <argument type="service" id="debug.file_link_formatter" on-invalid="null"/>
     </service>
     <service id="twig.extension.dump" class="Symfony\Bridge\Twig\Extension\DumpExtension" public="false">
@@ -4714,7 +4916,7 @@
     <service id="var_dumper.contextualized_cli_dumper" class="Symfony\Component\VarDumper\Dumper\ContextualizedDumper" public="false">
       <argument type="service" id="var_dumper.contextualized_cli_dumper.inner"/>
       <argument type="collection">
-        <argument key="source" type="service" id=".1_SourceContextProvider~7bXuwHC"/>
+        <argument key="source" type="service" id=".1_SourceContextProvider~BBIpoYn"/>
       </argument>
     </service>
     <service id="var_dumper.html_dumper" class="Symfony\Component\VarDumper\Dumper\HtmlDumper" public="false">
@@ -4730,9 +4932,9 @@
     <service id="var_dumper.server_connection" class="Symfony\Component\VarDumper\Server\Connection" public="false">
       <argument>tcp://%env(VAR_DUMPER_SERVER)%</argument>
       <argument type="collection">
-        <argument key="source" type="service" id=".2_SourceContextProvider~7bXuwHC"/>
-        <argument key="request" type="service" id=".3_RequestContextProvider~7bXuwHC"/>
-        <argument key="cli" type="service" id=".4_CliContextProvider~7bXuwHC"/>
+        <argument key="source" type="service" id=".2_SourceContextProvider~BBIpoYn"/>
+        <argument key="request" type="service" id=".3_RequestContextProvider~BBIpoYn"/>
+        <argument key="cli" type="service" id=".4_CliContextProvider~BBIpoYn"/>
       </argument>
     </service>
     <service id="var_dumper.dump_server" class="Symfony\Component\VarDumper\Server\DumpServer" public="false">
@@ -4744,8 +4946,8 @@
       <tag name="console.command" command="server:dump"/>
       <argument type="service" id="var_dumper.dump_server"/>
       <argument type="collection">
-        <argument key="cli" type="service" id=".5_CliDescriptor~7bXuwHC"/>
-        <argument key="html" type="service" id=".6_HtmlDescriptor~7bXuwHC"/>
+        <argument key="cli" type="service" id=".5_CliDescriptor~BBIpoYn"/>
+        <argument key="html" type="service" id=".6_HtmlDescriptor~BBIpoYn"/>
       </argument>
       <call method="setName">
         <argument>server:dump</argument>
@@ -4761,8 +4963,8 @@
       <argument type="service" id="filesystem"/>
       <argument type="service" id="maker.autoloader_util"/>
       <argument type="service" id="maker.file_link_formatter"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/templates</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/templates</argument>
     </service>
     <service id="maker.autoloader_finder" class="Symfony\Bundle\MakerBundle\Util\ComposerAutoloaderFinder" public="false">
       <argument>App</argument>
@@ -4835,7 +5037,7 @@
       <tag name="maker.command"/>
       <argument type="service" id="maker.file_manager"/>
       <argument type="service" id="maker.doctrine_helper"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
       <argument type="service" id="maker.generator"/>
       <argument type="service" id="maker.entity_class_generator"/>
     </service>
@@ -4906,39 +5108,151 @@
     </service>
     <service id="maker.maker.make_migration" class="Symfony\Bundle\MakerBundle\Maker\MakeMigration" public="false">
       <tag name="maker.command"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev</argument>
     </service>
     <service id="web_server.command.server_run" class="Symfony\Bundle\WebServerBundle\Command\ServerRunCommand" public="false">
       <tag name="console.command" command="server:run"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/public</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/public</argument>
       <argument>dev</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache</argument>
       <call method="setName">
         <argument>server:run</argument>
       </call>
     </service>
     <service id="web_server.command.server_start" class="Symfony\Bundle\WebServerBundle\Command\ServerStartCommand" public="false">
       <tag name="console.command" command="server:start"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev/public</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/public</argument>
       <argument>dev</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache</argument>
       <call method="setName">
         <argument>server:start</argument>
       </call>
     </service>
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand" public="false">
       <tag name="console.command" command="server:stop"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache</argument>
       <call method="setName">
         <argument>server:stop</argument>
       </call>
     </service>
     <service id="web_server.command.server_status" class="Symfony\Bundle\WebServerBundle\Command\ServerStatusCommand" public="false">
       <tag name="console.command" command="server:status"/>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache</argument>
       <call method="setName">
         <argument>server:status</argument>
       </call>
+    </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator" public="true" lazy="true">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument type="service" id="request_stack"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+          <argument key="pageOutOfRange">ignore</argument>
+          <argument key="defaultLimit">10</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <tag name="container.hot_path"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">@KnpPaginator/Pagination/twitter_bootstrap_v4_pagination.html.twig</argument>
+        <argument key="defaultSortableTemplate">@KnpPaginator/Pagination/sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">@KnpPaginator/Pagination/filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+        <argument key="defaultPageLimit">null</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
+    <service id=".1_ServiceLocator~xys4n8D" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="webpack_encore.entrypoint_lookup_collection" type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+        <argument key="webpack_encore.tag_renderer" type="service" id="webpack_encore.tag_renderer"/>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup_collection" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollection" public="false">
+      <argument type="service" id=".service_locator.0DpzJRH"/>
+      <argument>_default</argument>
+    </service>
+    <service id="webpack_encore.tag_renderer" class="Symfony\WebpackEncoreBundle\Asset\TagRenderer" public="false">
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="service" id="assets.packages"/>
+      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="defer">true</argument>
+      </argument>
+      <argument type="collection"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="webpack_encore.twig_entry_files_extension" class="Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id=".1_ServiceLocator~xys4n8D"/>
+    </service>
+    <service id="webpack_encore.twig_stimulus_extension" class="Symfony\WebpackEncoreBundle\Twig\StimulusTwigExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup.cache_warmer" class="Symfony\WebpackEncoreBundle\CacheWarmer\EntrypointCacheWarmer" public="false">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="collection">
+        <argument key="_default">C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/public/build/entrypoints.json</argument>
+      </argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/webpack_encore.cache.php</argument>
+      <argument type="service" id="cache.webpack_encore"/>
+    </service>
+    <service id="webpack_encore.cache" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/webpack_encore.cache.php</argument>
+      <argument type="service" id="cache.webpack_encore"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="cache.webpack_encore" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="false">
+      <tag name="cache.pool"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="cache.webpack_encore.recorder_inner"/>
+    </service>
+    <service id="webpack_encore.exception_listener" class="Symfony\WebpackEncoreBundle\EventListener\ExceptionListener" public="false">
+      <tag name="kernel.event_listener" event="kernel.exception"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="collection">
+        <argument>_default</argument>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup[_default]" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookup">
+      <tag name="kernel.reset" method="reset"/>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev/public/build/entrypoints.json</argument>
+      <argument>null</argument>
+      <argument>_default</argument>
+      <argument>true</argument>
+    </service>
+    <service id=".service_locator.0DpzJRH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="_default" type="service" id="webpack_encore.entrypoint_lookup[_default]"/>
+      </argument>
     </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
@@ -4949,6 +5263,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ListProduitController" class="App\Controller\ListProduitController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ListProduitController" class="App\Controller\ListProduitController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ListProduitController" class="App\Controller\ListProduitController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PanierController" class="App\Controller\PanierController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ParapharmacieController" class="App\Controller\ParapharmacieController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ParapharmacieController" class="App\Controller\ParapharmacieController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ParapharmacieController" class="App\Controller\ParapharmacieController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -4966,16 +5286,34 @@
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieSoinMPRechercheType" class="App\Form\CategorieSoinMPRechercheType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CategorieSoinMPRechercheType" class="App\Form\CategorieSoinMPRechercheType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegionsType" class="App\Form\RegionsType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegionsType" class="App\Form\RegionsType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPTriFormType" class="App\Form\SoinMPTriFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SoinMPTriFormType" class="App\Form\SoinMPTriFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPType" class="App\Form\SoinMPType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SoinMPType" class="App\Form\SoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserMedType" class="App\Form\UserMedType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserMedType" class="App\Form\UserMedType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserParaType" class="App\Form\UserParaType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserParaType" class="App\Form\UserParaType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserParaphType" class="App\Form\UserParaphType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserParaphType" class="App\Form\UserParaphType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieActualiteRepository" class="App\Repository\CategorieActualiteRepository" autowire="true" abstract="true"/>
@@ -4988,18 +5326,20 @@
     <service id=".abstract.instanceof.App\Repository\CentreMedicalRepository" class="App\Repository\CentreMedicalRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LaboratoireRepository" class="App\Repository\LaboratoireRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LaboratoireRepository" class="App\Repository\LaboratoireRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ListProduitRepository" class="App\Repository\ListProduitRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ListProduitRepository" class="App\Repository\ListProduitRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MedicamentRepository" class="App\Repository\MedicamentRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MedicamentRepository" class="App\Repository\MedicamentRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RegionRepository" class="App\Repository\RegionRepository" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Repository\RegionRepository" class="App\Repository\RegionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RegionsRepository" class="App\Repository\RegionsRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\RegionsRepository" class="App\Repository\RegionsRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\RendezVousRepository" class="App\Repository\RendezVousRepository" autowire="true" abstract="true"/>
@@ -5305,9 +5645,95 @@
         <argument key="repository" type="service" id="App\Repository\ParapharmacieRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.ibnls7U" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="repo" type="service" id="App\Repository\ParapharmacieRepository"/>
+        <argument key="repoprod" type="service" id="App\Repository\ProduitRepository"/>
+        <argument key="repository" type="service" id="App\Repository\CategorieProduitRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ylHiYeD" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service" id="App\Repository\PanierRepository"/>
+        <argument key="repository" type="service" id="App\Repository\ListProduitRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.sZ1bPcd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="panierController" type="service" id="App\Controller\PanierController"/>
+        <argument key="panierRepository" type="service" id="App\Repository\PanierRepository"/>
+        <argument key="repository" type="service" id="App\Repository\ListProduitRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.6MfZeq8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="panierController" type="service" id="App\Controller\PanierController"/>
+        <argument key="panierRepository" type="service" id="App\Repository\PanierRepository"/>
+        <argument key="produitController" type="service" id="App\Controller\ProduitController"/>
+        <argument key="produitRepository" type="service" id="App\Repository\ProduitRepository"/>
+        <argument key="repository" type="service" id="App\Repository\ListProduitRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.dn0aTZb" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="parapharmacieRepository" type="service" id="App\Repository\ParapharmacieRepository"/>
+        <argument key="repo" type="service" id="App\Repository\PanierRepository"/>
+        <argument key="repository" type="service" id="App\Repository\ListProduitRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.nssOOZi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\PanierRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.HMaIfkA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="parapharmacieRepository" type="service" id="App\Repository\ParapharmacieRepository"/>
+        <argument key="repository" type="service" id="App\Repository\PanierRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.LZVVsEZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categorieProduitRepository" type="service" id="App\Repository\CategorieProduitRepository"/>
+        <argument key="repository" type="service" id="App\Repository\ProduitRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.nRVF04A" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\ProduitRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.vnDN6MB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repo" type="service" id="App\Repository\CategorieProduitRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.9UvpKlt" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="panierController" type="service" id="App\Controller\PanierController"/>
+        <argument key="panierRepository" type="service" id="App\Repository\PanierRepository"/>
+        <argument key="repo" type="service" id="App\Repository\ParapharmacieRepository"/>
+        <argument key="repoprod" type="service" id="App\Repository\ProduitRepository"/>
+        <argument key="repository" type="service" id="App\Repository\CategorieProduitRepository"/>
+        <argument key="userRepository" type="service" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.cgXEpia" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
         <argument key="repository" type="service" id="App\Repository\ProduitRepository"/>
       </argument>
     </service>
@@ -5317,33 +5743,73 @@
         <argument key="repository" type="service" id="App\Repository\RegionsRepository"/>
       </argument>
     </service>
-    <service id=".service_locator.tjOwAW6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.wgX78kv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\UserRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.6QQAQJG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="App\Controller\CategorieProduitController::add" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\CategorieProduitController::affiche" type="service" id=".service_locator.TxxUH6B"/>
+        <argument key="App\Controller\CategorieProduitController::afficheClient" type="service" id=".service_locator.ibnls7U"/>
+        <argument key="App\Controller\CategorieProduitController::choixCategorie" type="service" id=".service_locator.TxxUH6B"/>
         <argument key="App\Controller\CategorieProduitController::delete" type="service" id=".service_locator.TxxUH6B"/>
+        <argument key="App\Controller\CategorieProduitController::modifierPara" type="service" id=".service_locator.TxxUH6B"/>
+        <argument key="App\Controller\ListProduitController::afficheClient" type="service" id=".service_locator.ylHiYeD"/>
+        <argument key="App\Controller\ListProduitController::afficheParapharmacien" type="service" id=".service_locator.dn0aTZb"/>
+        <argument key="App\Controller\ListProduitController::delete" type="service" id=".service_locator.sZ1bPcd"/>
+        <argument key="App\Controller\ListProduitController::listp" type="service" id=".service_locator.dn0aTZb"/>
+        <argument key="App\Controller\ListProduitController::modifierPara" type="service" id=".service_locator.6MfZeq8"/>
+        <argument key="App\Controller\PanierController::afficheClient" type="service" id=".service_locator.nssOOZi"/>
+        <argument key="App\Controller\PanierController::afficheParapharmacienCommande" type="service" id=".service_locator.HMaIfkA"/>
         <argument key="App\Controller\ParapharmacieController::affiche" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\ParapharmacieController::afficheFront" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\ParapharmacieController::afficheFrontClient" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\ParapharmacieController::delete" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\ParapharmacieController::modifierPara" type="service" id=".service_locator.8TzbCJs"/>
-        <argument key="App\Controller\ProduitController::affiche" type="service" id=".service_locator.nRVF04A"/>
+        <argument key="App\Controller\ProduitController::add" type="service" id=".service_locator.vnDN6MB"/>
+        <argument key="App\Controller\ProduitController::affiche" type="service" id=".service_locator.LZVVsEZ"/>
+        <argument key="App\Controller\ProduitController::afficheBackProduit" type="service" id=".service_locator.cgXEpia"/>
+        <argument key="App\Controller\ProduitController::afficheClient" type="service" id=".service_locator.ibnls7U"/>
+        <argument key="App\Controller\ProduitController::afficheProduit" type="service" id=".service_locator.9UvpKlt"/>
         <argument key="App\Controller\ProduitController::delete" type="service" id=".service_locator.nRVF04A"/>
+        <argument key="App\Controller\ProduitController::modifierPara" type="service" id=".service_locator.nRVF04A"/>
         <argument key="App\Controller\RegionsController::affiche" type="service" id=".service_locator.sCBfBBI"/>
         <argument key="App\Controller\RegionsController::delete" type="service" id=".service_locator.sCBfBBI"/>
         <argument key="App\Controller\RegionsController::modifierPara" type="service" id=".service_locator.sCBfBBI"/>
+        <argument key="App\Controller\UserController::accueilParapharmacien" type="service" id=".service_locator.wgX78kv"/>
+        <argument key="App\Controller\CategorieProduitController:add" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\CategorieProduitController:affiche" type="service" id=".service_locator.TxxUH6B"/>
+        <argument key="App\Controller\CategorieProduitController:afficheClient" type="service" id=".service_locator.ibnls7U"/>
+        <argument key="App\Controller\CategorieProduitController:choixCategorie" type="service" id=".service_locator.TxxUH6B"/>
         <argument key="App\Controller\CategorieProduitController:delete" type="service" id=".service_locator.TxxUH6B"/>
+        <argument key="App\Controller\CategorieProduitController:modifierPara" type="service" id=".service_locator.TxxUH6B"/>
+        <argument key="App\Controller\ListProduitController:afficheClient" type="service" id=".service_locator.ylHiYeD"/>
+        <argument key="App\Controller\ListProduitController:afficheParapharmacien" type="service" id=".service_locator.dn0aTZb"/>
+        <argument key="App\Controller\ListProduitController:delete" type="service" id=".service_locator.sZ1bPcd"/>
+        <argument key="App\Controller\ListProduitController:listp" type="service" id=".service_locator.dn0aTZb"/>
+        <argument key="App\Controller\ListProduitController:modifierPara" type="service" id=".service_locator.6MfZeq8"/>
+        <argument key="App\Controller\PanierController:afficheClient" type="service" id=".service_locator.nssOOZi"/>
+        <argument key="App\Controller\PanierController:afficheParapharmacienCommande" type="service" id=".service_locator.HMaIfkA"/>
         <argument key="App\Controller\ParapharmacieController:affiche" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\ParapharmacieController:afficheFront" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\ParapharmacieController:afficheFrontClient" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\ParapharmacieController:delete" type="service" id=".service_locator.8TzbCJs"/>
         <argument key="App\Controller\ParapharmacieController:modifierPara" type="service" id=".service_locator.8TzbCJs"/>
-        <argument key="App\Controller\ProduitController:affiche" type="service" id=".service_locator.nRVF04A"/>
+        <argument key="App\Controller\ProduitController:add" type="service" id=".service_locator.vnDN6MB"/>
+        <argument key="App\Controller\ProduitController:affiche" type="service" id=".service_locator.LZVVsEZ"/>
+        <argument key="App\Controller\ProduitController:afficheBackProduit" type="service" id=".service_locator.cgXEpia"/>
+        <argument key="App\Controller\ProduitController:afficheClient" type="service" id=".service_locator.ibnls7U"/>
+        <argument key="App\Controller\ProduitController:afficheProduit" type="service" id=".service_locator.9UvpKlt"/>
         <argument key="App\Controller\ProduitController:delete" type="service" id=".service_locator.nRVF04A"/>
+        <argument key="App\Controller\ProduitController:modifierPara" type="service" id=".service_locator.nRVF04A"/>
         <argument key="App\Controller\RegionsController:affiche" type="service" id=".service_locator.sCBfBBI"/>
         <argument key="App\Controller\RegionsController:delete" type="service" id=".service_locator.sCBfBBI"/>
         <argument key="App\Controller\RegionsController:modifierPara" type="service" id=".service_locator.sCBfBBI"/>
+        <argument key="App\Controller\UserController:accueilParapharmacien" type="service" id=".service_locator.wgX78kv"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5405,15 +5871,24 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.5e_c0H6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.7o5geKl" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CategorieProduitType" type="service" id="App\Form\CategorieProduitType"/>
+        <argument key="App\Form\CategorieSoinMPRechercheType" type="service" id="App\Form\CategorieSoinMPRechercheType"/>
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
+        <argument key="App\Form\ConnexionType" type="service" id="App\Form\ConnexionType"/>
+        <argument key="App\Form\ListProduitType" type="service" id="App\Form\ListProduitType"/>
         <argument key="App\Form\ParapharmacieType" type="service" id="App\Form\ParapharmacieType"/>
         <argument key="App\Form\ProduitType" type="service" id="App\Form\ProduitType"/>
         <argument key="App\Form\RegionsType" type="service" id="App\Form\RegionsType"/>
+        <argument key="App\Form\SoinMPRechercheType" type="service" id="App\Form\SoinMPRechercheType"/>
+        <argument key="App\Form\SoinMPTriFormType" type="service" id="App\Form\SoinMPTriFormType"/>
         <argument key="App\Form\SoinMPType" type="service" id="App\Form\SoinMPType"/>
+        <argument key="App\Form\UserMedType" type="service" id="App\Form\UserMedType"/>
+        <argument key="App\Form\UserParaType" type="service" id="App\Form\UserParaType"/>
+        <argument key="App\Form\UserParaphType" type="service" id="App\Form\UserParaphType"/>
+        <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -5431,7 +5906,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.UQpknUc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.loLPUJA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ActualiteRepository" type="service" id="App\Repository\ActualiteRepository"/>
@@ -5440,12 +5915,13 @@
         <argument key="App\Repository\CategorieSoinMPRepository" type="service" id="App\Repository\CategorieSoinMPRepository"/>
         <argument key="App\Repository\CentreMedicalRepository" type="service" id="App\Repository\CentreMedicalRepository"/>
         <argument key="App\Repository\LaboratoireRepository" type="service" id="App\Repository\LaboratoireRepository"/>
+        <argument key="App\Repository\ListProduitRepository" type="service" id="App\Repository\ListProduitRepository"/>
         <argument key="App\Repository\MediaRepository" type="service" id="App\Repository\MediaRepository"/>
         <argument key="App\Repository\MedicamentRepository" type="service" id="App\Repository\MedicamentRepository"/>
+        <argument key="App\Repository\PanierRepository" type="service" id="App\Repository\PanierRepository"/>
         <argument key="App\Repository\ParapharmacieRepository" type="service" id="App\Repository\ParapharmacieRepository"/>
         <argument key="App\Repository\ProduitRepository" type="service" id="App\Repository\ProduitRepository"/>
         <argument key="App\Repository\ReclamationRepository" type="service" id="App\Repository\ReclamationRepository"/>
-        <argument key="App\Repository\RegionRepository" type="service" id="App\Repository\RegionRepository"/>
         <argument key="App\Repository\RegionsRepository" type="service" id="App\Repository\RegionsRepository"/>
         <argument key="App\Repository\RendezVousRepository" type="service" id="App\Repository\RendezVousRepository"/>
         <argument key="App\Repository\ReservationRepository" type="service" id="App\Repository\ReservationRepository"/>
@@ -5668,6 +6144,18 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\ListProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ListProduitController"/>
+      <argument>App\Controller\ListProduitController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\PanierController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\PanierController"/>
+      <argument>App\Controller\PanierController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\ParapharmacieController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ParapharmacieController"/>
       <argument>App\Controller\ParapharmacieController</argument>
@@ -5841,12 +6329,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.tjOwAW6"/>
+      <argument type="service" id=".service_locator.6QQAQJG"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.tjOwAW6"/>
+      <argument type="service" id=".service_locator.6QQAQJG"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6049,51 +6537,51 @@
       </argument>
     </service>
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false">
-      <argument>IdpUYaDx8m</argument>
+      <argument>9vPcIUaCkr</argument>
       <argument>0</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       </call>
     </service>
     <service id="cache.system.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>t-VIzFaPYG</argument>
+      <argument>GvxN6E63O7</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.validator.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>zaMJSnuP7W</argument>
+      <argument>kZMLBoaxhF</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.serializer.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>r7yFAOJ-vz</argument>
+      <argument>I2qOk7vips</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.annotations.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>BWF0eZoYBt</argument>
+      <argument>U9At-OiCxx</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
     <service id="cache.property_info.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>ex4W3uuPfg</argument>
+      <argument>B0lQffi-36</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -6101,10 +6589,18 @@
     <service id="cache.doctrine.orm.default.result.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter" public="false"/>
     <service id="cache.doctrine.orm.default.query.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter" public="false"/>
     <service id="cache.security_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
-      <argument>dqvHpcMbp-</argument>
+      <argument>5rt4IZAM+P</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:\Users\oussa\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
+      <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
+    <service id="cache.webpack_encore.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+      <argument>IgUrKczodX</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\Users\oussa\Desktop\Pi-dev-debutGestionUtil\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -6245,9 +6741,12 @@
     <service id="Twig\Environment" alias="twig" public="false"/>
     <service id="logger" alias="monolog.logger"/>
     <service id="Psr\Log\LoggerInterface" alias="monolog.logger" public="false"/>
+    <service id="Knp\Component\Pager\PaginatorInterface" alias="knp_paginator"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection" public="false"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.tjOwAW6"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.6QQAQJG"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -6261,6 +6760,7 @@
     <service id="Psr\Log\LoggerInterface $doctrineLogger" alias="monolog.logger.doctrine"/>
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
+    <service id=".service_locator.ISjGRTp" alias=".1_ServiceLocator~xys4n8D" public="false"/>
     <service id=".service_locator.tHpW6v3" alias=".service_locator.Y7gDuDN" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>

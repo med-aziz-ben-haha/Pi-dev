@@ -57,7 +57,7 @@ class __TwigTemplate_09017db9056953e30d5f46d7418f0c97e8e270aaa154c548d483a5faa58
             // line 10
             echo "                <div class=\"col-12 col-md-6 col-lg-4\">
                     <div class=\"service-box text-center\">
-                        <div class=\"service-box-icon\"><img style=\" padding-right: 2px; padding-left: 2px;  width:80px ; hight: 80px ;\" src=\"";
+                        <div class=\"service-box-icon\"><img style=\"  ;  width:100% ; hight: 100% ;\" src=\"";
             // line 12
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, $context["p"], "getLienImageP", [], "any", false, false, false, 12))), "html", null, true);
             echo "\"></div>
@@ -65,14 +65,22 @@ class __TwigTemplate_09017db9056953e30d5f46d7418f0c97e8e270aaa154c548d483a5faa58
             // line 13
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "nomPara", [], "any", false, false, false, 13), "html", null, true);
             echo "</h3>
-                        <h3 class=\"service-box-title\">";
+                        <h5 class=\"service-box-title\">Region: ";
             // line 14
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "adressePara", [], "any", false, false, false, 14), "html", null, true);
-            echo "</h3>
-                        <h3 class=\"service-box-title\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "region", [], "any", false, false, false, 14), "region", [], "any", false, false, false, 14), "html", null, true);
+            echo "</h5>
+                        <h5 class=\"service-box-title\">Adresse: ";
             // line 15
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "telPara", [], "any", false, false, false, 15), "html", null, true);
-            echo "</h3>
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "adressePara", [], "any", false, false, false, 15), "html", null, true);
+            echo "</h5>
+                        <h5 class=\"service-box-title\">Tel°: ";
+            // line 16
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "telPara", [], "any", false, false, false, 16), "html", null, true);
+            echo "</h5>
+                        <a href=\"";
+            // line 17
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheClienCategorieProd", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "getId", [], "method", false, false, false, 17)]), "html", null, true);
+            echo "\" class=\"btn btn-main-outline mt-2\">Visiter<i class=\"fas fa-chevron-right\"></i></a>
 
 
                     </div>
@@ -82,13 +90,14 @@ class __TwigTemplate_09017db9056953e30d5f46d7418f0c97e8e270aaa154c548d483a5faa58
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 21
-        echo "        </div>
+        // line 23
+        echo "
+        </div>
 </section>
 
 ";
-        // line 24
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "parapharmacie/FrontClientPara.html.twig", 24)->display($context);
+        // line 27
+        $this->loadTemplate("tempFront2SoinMP.html.twig", "parapharmacie/FrontClientPara.html.twig", 27)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -109,7 +118,7 @@ class __TwigTemplate_09017db9056953e30d5f46d7418f0c97e8e270aaa154c548d483a5faa58
 
     public function getDebugInfo()
     {
-        return array (  91 => 24,  86 => 21,  74 => 15,  70 => 14,  66 => 13,  62 => 12,  58 => 10,  54 => 9,  45 => 2,  43 => 1,);
+        return array (  100 => 27,  94 => 23,  82 => 17,  78 => 16,  74 => 15,  70 => 14,  66 => 13,  62 => 12,  58 => 10,  54 => 9,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -125,18 +134,21 @@ class __TwigTemplate_09017db9056953e30d5f46d7418f0c97e8e270aaa154c548d483a5faa58
             {% for p in parapharmacie %}
                 <div class=\"col-12 col-md-6 col-lg-4\">
                     <div class=\"service-box text-center\">
-                        <div class=\"service-box-icon\"><img style=\" padding-right: 2px; padding-left: 2px;  width:80px ; hight: 80px ;\" src=\"{{ asset('uploads/' ~ p.getLienImageP)}}\"></div>
+                        <div class=\"service-box-icon\"><img style=\"  ;  width:100% ; hight: 100% ;\" src=\"{{ asset('uploads/' ~ p.getLienImageP)}}\"></div>
                         <h3 class=\"service-box-title\">{{ p.nomPara }}</h3>
-                        <h3 class=\"service-box-title\">{{ p.adressePara }}</h3>
-                        <h3 class=\"service-box-title\">{{ p.telPara }}</h3>
+                        <h5 class=\"service-box-title\">Region: {{ p.region.region }}</h5>
+                        <h5 class=\"service-box-title\">Adresse: {{ p.adressePara }}</h5>
+                        <h5 class=\"service-box-title\">Tel°: {{ p.telPara }}</h5>
+                        <a href=\"{{ path(\"afficheClienCategorieProd\",{'id':p.getId() } ) }}\" class=\"btn btn-main-outline mt-2\">Visiter<i class=\"fas fa-chevron-right\"></i></a>
 
 
                     </div>
                 </div>
             {% endfor %}
+
         </div>
 </section>
 
-{% include 'tempFront2SoinMP.html.twig' %}", "parapharmacie/FrontClientPara.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\parapharmacie\\FrontClientPara.html.twig");
+{% include 'tempFront2SoinMP.html.twig' %}", "parapharmacie/FrontClientPara.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\parapharmacie\\FrontClientPara.html.twig");
     }
 }

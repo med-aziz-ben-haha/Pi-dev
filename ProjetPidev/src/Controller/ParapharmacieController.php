@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Parapharmacie;
 use App\Form\ParapharmacieType;
 use App\Repository\ParapharmacieRepository;
+use App\Repository\UserRepository;
 use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -44,6 +45,7 @@ class ParapharmacieController extends AbstractController
         $em=$this->getDoctrine()->getManager();
         $em->remove($parapharmacie);
         $em->flush();
+        $this->addFlash('success','Parapharmacie  Supprimée avec succée');
         return $this->redirectToRoute('affichePara');
     }
 
@@ -79,6 +81,7 @@ class ParapharmacieController extends AbstractController
 
             $em->persist($parapharmacie);
             $em->flush();
+            $this->addFlash('success','Parapharmacie  Ajoutée avec succée');
             return $this->redirectToRoute('affichePara');
         }
         return $this->render('parapharmacie/AjoutParapharmacie.html.twig',[
@@ -114,6 +117,7 @@ class ParapharmacieController extends AbstractController
 
             $em=$this->getDoctrine()->getManager();
             $em->flush();
+            $this->addFlash('success','Parapharmacie  Modifiée avec succée');
             return $this->redirectToRoute('affichePara');
         }
         return $this->render('parapharmacie/ModifierParapharmacie.html.twig',[
@@ -139,13 +143,13 @@ class ParapharmacieController extends AbstractController
     /**
      * @param ParapharmacieRepository $repository
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route ("/afficheFrontClientPara", name="afficheFrontClientPara")
+     * @Route ("/afficheFrontClientPara/{iduser}", name="afficheFrontClientPara")
      */
-    public function afficheFrontClient(ParapharmacieRepository $repository){
+    public function afficheFrontClient(ParapharmacieRepository $repository ,$iduser){
         //$repo=$this->getDoctrine()->getRepository(ParapharmacieRepository::class);
         $parapharmacie=$repository->findAll();
         return $this->render('parapharmacie/FrontClientPara.html.twig',
-            ['parapharmacie'=>$parapharmacie]);
+            ['parapharmacie'=>$parapharmacie , 'iduser'=>$iduser]);
     }
 
 }

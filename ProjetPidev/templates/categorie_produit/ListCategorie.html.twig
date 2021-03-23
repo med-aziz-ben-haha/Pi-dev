@@ -1,17 +1,34 @@
-{% include 'tempFront1SoinMP.html.twig' %}
+{% include 'tempParapharmacien.html.twig' %}
 
 <section class="services-section hk-section section-bg" >
     <div class="box">
         <div class="box-header">
             <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des Categories </h1>
-            <div class="col-sm-8"></div>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
 
-            <div class="col-sm-4"><a href="/afficheCategorieProd/categorie_produit/AjoutCategorie/{id}" class="btn btn-block btn-primary" role="button">Ajouter Produit</a></div>
 
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="hero-btns" style="margin-top: 10%;">
+                        <a href="{{ path('AjoutCategorie',{'id':idpara , 'iduser':iduser} ) }}" class="btn btn-main" role="button">Ajouter Categorie</a>
+                    </div>
+                </div>
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <div class="hero-btns" style="margin-top: 10%;">
+                        <a href="{{ path('accueilOnlineParapharmacien',{'iduser':iduser}  ) }}" class="btn btn-main" role="button">Retour a mon Parapharmacie</a>
+                    </div>
+                </div>
 
+            </div>
 
 
         </div>
+
         <!-- /.box-header -->
         <div class="box-body">
             <table id="example1" class="table table-bordered table-striped">
@@ -33,8 +50,8 @@
                     <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ c.getLienImgCat)}}"></td>
                     <td>{{ c.id }}</td>
                     <td>{{ c.categorie }}</td>
-                    <td><a href="{{ path('deleteCategorie',{'id':c.id}) }}" class="btn btn-block btn-warning" role="button">Modifier</a></td>
-                    <td><a href="{{ path('deleteCategorie',{'id':c.id}) }}" class="btn btn-block btn-danger" role="button">Supprimer</a></td>
+                    <td><a href="{{ path('modifierCategorie',{'id':c.id , 'iduser':iduser}) }}" class="btn btn-block btn-warning" role="button">Modifier</a></td>
+                    <td><a href="{{ path('deleteCategorie',{'id':c.id , 'iduser':iduser}) }}" class="btn btn-block btn-danger" role="button">Supprimer</a></td>
 
 
 
@@ -52,6 +69,7 @@
 
             </table>
         </div>
+
         <!-- /.box-body -->
     </div>
 </section>

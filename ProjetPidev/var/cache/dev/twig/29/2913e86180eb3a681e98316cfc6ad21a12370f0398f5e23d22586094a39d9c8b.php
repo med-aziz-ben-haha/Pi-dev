@@ -75,6 +75,24 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
         // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/style.css"), "html", null, true);
         echo "\" rel=\"stylesheet\">
+    <style> .btn-primary {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
 <header class=\"hk-header\">
@@ -82,7 +100,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
             <a class=\"navbar-brand\" href=\"#\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
-        // line 36
+        // line 54
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" ></a>
             <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
@@ -96,27 +114,23 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
+
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#idMP\">Médecine Parallèle</a>
+                        <a class=\"nav-link\" href=\"";
+        // line 68
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/afficherCategorieSoinMPs"), "html", null, true);
+        echo "\">Médecine Parallèle</a>
+
                     </li>
+
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/afficheFrontListPara\">Parapharmacies</a>
+                        <a class=\"nav-link\" href=\"";
+        // line 73
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/afficheFrontClientPara"), "html", null, true);
+        echo "\">Parapharmacie</a>
+
                     </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/afficheFrontClientPara\">Parapharmacies Client</a>
-                    </li>
-                    <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
-                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-                            <a class=\"dropdown-item\" href=\"#\">Digital Marketing</a>
-                            <a class=\"dropdown-item\" href=\"#\">UI Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Graphics Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Branding</a>
-                            <a class=\"dropdown-item\" href=\"#\">WordPress Websites</a>
-                            <a class=\"dropdown-item\" href=\"#\">Custom Web Apps</a>
-                            <a class=\"dropdown-item\" href=\"#\">App Development</a>
-                        </div>
-                    </li>
+
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">Contact</a>
                     </li>
@@ -127,7 +141,10 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"#\">Profile</a>
                             <a class=\"dropdown-item\" href=\"#\">Edit Account</a>
-                            <a class=\"dropdown-item\" href=\"#\">Logout</a>
+                            <a class=\"dropdown-item\" href=\"";
+        // line 87
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
+        echo "\">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -156,7 +173,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 107
+        // line 115
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -185,7 +202,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
 
     public function getDebugInfo()
     {
-        return array (  160 => 107,  86 => 36,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  177 => 115,  146 => 87,  129 => 73,  121 => 68,  104 => 54,  76 => 29,  72 => 28,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -219,6 +236,24 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
     <link href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css\" rel=\"stylesheet\">
     <link href=\"{{ asset('assets/css/bootstrap.min.css') }}\" rel=\"stylesheet\">
     <link href=\"{{ asset('assets/css/style.css') }}\" rel=\"stylesheet\">
+    <style> .btn-primary {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+
+        }
+        .btn-primary:hover {
+            opacity: 0.8;
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+        .btn-primary:active {
+            background-color: #d11414 !important;
+            border-color: #d11414 !important;
+            border-radius: 6px;
+        }
+    </style>
 </head>
 <body>
 <header class=\"hk-header\">
@@ -237,27 +272,17 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
+
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#idMP\">Médecine Parallèle</a>
+                        <a class=\"nav-link\" href=\"{{ asset('/afficherCategorieSoinMPs') }}\">Médecine Parallèle</a>
+
                     </li>
+
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/afficheFrontListPara\">Parapharmacies</a>
+                        <a class=\"nav-link\" href=\"{{ asset('/afficheFrontClientPara') }}\">Parapharmacie</a>
+
                     </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"/afficheFrontClientPara\">Parapharmacies Client</a>
-                    </li>
-                    <li class=\"nav-item dropdown\">
-                        <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
-                        <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-                            <a class=\"dropdown-item\" href=\"#\">Digital Marketing</a>
-                            <a class=\"dropdown-item\" href=\"#\">UI Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Graphics Design</a>
-                            <a class=\"dropdown-item\" href=\"#\">Branding</a>
-                            <a class=\"dropdown-item\" href=\"#\">WordPress Websites</a>
-                            <a class=\"dropdown-item\" href=\"#\">Custom Web Apps</a>
-                            <a class=\"dropdown-item\" href=\"#\">App Development</a>
-                        </div>
-                    </li>
+
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">Contact</a>
                     </li>
@@ -268,7 +293,7 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"#\">Profile</a>
                             <a class=\"dropdown-item\" href=\"#\">Edit Account</a>
-                            <a class=\"dropdown-item\" href=\"#\">Logout</a>
+                            <a class=\"dropdown-item\" href=\"{{ asset ('/connexion') }}\">Logout</a>
                         </div>
                     </li>
                 </ul>
@@ -302,6 +327,6 @@ class __TwigTemplate_dec50dbec6b1c73f6626e7c971d04f342c920016a975765b422a909e371
         </div>
     </div>
 </section>
-", "tempFront1SoinMP.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\tempFront1SoinMP.html.twig");
+", "tempFront1SoinMP.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\tempFront1SoinMP.html.twig");
     }
 }

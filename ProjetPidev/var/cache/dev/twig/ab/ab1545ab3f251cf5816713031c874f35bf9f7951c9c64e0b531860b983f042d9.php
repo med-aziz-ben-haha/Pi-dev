@@ -47,9 +47,27 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
     <div class=\"box\">
         <div class=\"box-header\">
             <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion Des Produits </h1>
-            <div class=\"col-sm-8\"></div>
 
-            <div class=\"col-sm-4\"><a href=\"\" class=\"btn btn-block btn-primary\" role=\"button\">Ajouter Produit</a></div>
+            <div class=\"row\">
+                <div class=\"col-sm-4\">
+                    <div class=\"hero-btns\" style=\"margin-top: 10%;\">
+                        <a href=\"";
+        // line 11
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("AjoutProduit", ["id" => (isset($context["idC"]) || array_key_exists("idC", $context) ? $context["idC"] : (function () { throw new RuntimeError('Variable "idC" does not exist.', 11, $this->source); })()), "iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 11, $this->source); })())]), "html", null, true);
+        echo "\" class=\"btn btn-main\" role=\"button\">Ajouter Produit</a>
+                    </div>
+                </div>
+                <div class=\"col-sm-4\"></div>
+                <div class=\"col-sm-4\">
+                    <div class=\"hero-btns\" style=\"margin-top: 10%;\">
+                        <a href=\"";
+        // line 17
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("accueilOnlineParapharmacien", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 17, $this->source); })())]), "html", null, true);
+        echo "\" class=\"btn btn-main\" role=\"button\">Retour a mon Parapharmacie</a>
+                    </div>
+                </div>
+
+            </div>
 
 
 
@@ -60,10 +78,10 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
             <table id=\"example1\" class=\"table table-bordered table-striped\">
                 <thead>
                 <tr>
-                    <th>Image Parapharmacie</th>
+                    <th>Image Produit</th>
                     <th>id</th>
                     <th>Nom Produit</th>
-                    <th>Categorie</th>
+                    <th>Description</th>
                     <th>Quantite</th>
                     <th>Prix</th>
                     <th>Modifier Produit</th>
@@ -74,36 +92,44 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
                 </thead>
                 <tbody>
                 <tr ";
-        // line 33
+        // line 45
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 33, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["produit"]) || array_key_exists("produit", $context) ? $context["produit"] : (function () { throw new RuntimeError('Variable "produit" does not exist.', 45, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
             echo ">
 
-
+                    <td><img style=\" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;\" src=\"";
+            // line 47
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, $context["p"], "getLienImgP", [], "any", false, false, false, 47))), "html", null, true);
+            echo "\"></td>
                     <td>";
-            // line 36
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 36), "html", null, true);
+            // line 48
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 48), "html", null, true);
             echo "</td>
                     <td>";
-            // line 37
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "nomProduit", [], "any", false, false, false, 37), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "nomProduit", [], "any", false, false, false, 49), "html", null, true);
             echo "</td>
                     <td>";
-            // line 38
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "nomProduit", [], "any", false, false, false, 38), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "description", [], "any", false, false, false, 50), "html", null, true);
             echo "</td>
                     <td>";
-            // line 39
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "quantiteProduit", [], "any", false, false, false, 39), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "quantiteProduit", [], "any", false, false, false, 51), "html", null, true);
             echo "</td>
                     <td>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "prixProduit", [], "any", false, false, false, 40), "html", null, true);
+            // line 52
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "prixProduit", [], "any", false, false, false, 52), "html", null, true);
             echo "</td>
                     <td><a href=\"";
-            // line 41
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteProduit", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 41)]), "html", null, true);
+            // line 53
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("modifierProduit", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 53), "iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 53, $this->source); })())]), "html", null, true);
+            echo "\" class=\"btn btn-block btn-warning\" role=\"button\">Modifier</a></td>
+
+                    <td><a href=\"";
+            // line 55
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("deleteProduit", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 55), "iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 55, $this->source); })())]), "html", null, true);
             echo "\" class=\"btn btn-block btn-danger\" role=\"button\">Supprimer</a></td>
 
 
@@ -117,7 +143,7 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 49
+        // line 63
         echo ">
 
 
@@ -132,8 +158,8 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
 </section>
 
 ";
-        // line 62
-        $this->loadTemplate("tempFront2SoinMP.html.twig", "produit/ListProd.html.twig", 62)->display($context);
+        // line 76
+        $this->loadTemplate("tempFront2SoinMP.html.twig", "produit/ListProd.html.twig", 76)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -154,7 +180,7 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
 
     public function getDebugInfo()
     {
-        return array (  136 => 62,  121 => 49,  106 => 41,  102 => 40,  98 => 39,  94 => 38,  90 => 37,  86 => 36,  78 => 33,  45 => 2,  43 => 1,);
+        return array (  162 => 76,  147 => 63,  132 => 55,  127 => 53,  123 => 52,  119 => 51,  115 => 50,  111 => 49,  107 => 48,  103 => 47,  96 => 45,  65 => 17,  56 => 11,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -165,9 +191,21 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
     <div class=\"box\">
         <div class=\"box-header\">
             <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion Des Produits </h1>
-            <div class=\"col-sm-8\"></div>
 
-            <div class=\"col-sm-4\"><a href=\"\" class=\"btn btn-block btn-primary\" role=\"button\">Ajouter Produit</a></div>
+            <div class=\"row\">
+                <div class=\"col-sm-4\">
+                    <div class=\"hero-btns\" style=\"margin-top: 10%;\">
+                        <a href=\"{{ path('AjoutProduit',{'id':idC , 'iduser':iduser} ) }}\" class=\"btn btn-main\" role=\"button\">Ajouter Produit</a>
+                    </div>
+                </div>
+                <div class=\"col-sm-4\"></div>
+                <div class=\"col-sm-4\">
+                    <div class=\"hero-btns\" style=\"margin-top: 10%;\">
+                        <a href=\"{{ path('accueilOnlineParapharmacien',{'iduser':iduser}  ) }}\" class=\"btn btn-main\" role=\"button\">Retour a mon Parapharmacie</a>
+                    </div>
+                </div>
+
+            </div>
 
 
 
@@ -178,10 +216,10 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
             <table id=\"example1\" class=\"table table-bordered table-striped\">
                 <thead>
                 <tr>
-                    <th>Image Parapharmacie</th>
+                    <th>Image Produit</th>
                     <th>id</th>
                     <th>Nom Produit</th>
-                    <th>Categorie</th>
+                    <th>Description</th>
                     <th>Quantite</th>
                     <th>Prix</th>
                     <th>Modifier Produit</th>
@@ -193,13 +231,15 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
                 <tbody>
                 <tr {% for p in produit %}>
 
-
+                    <td><img style=\" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;\" src=\"{{ asset('uploads/' ~ p.getLienImgP)}}\"></td>
                     <td>{{ p.id }}</td>
                     <td>{{ p.nomProduit }}</td>
-                    <td>{{ p.nomProduit }}</td>
+                    <td>{{ p.description }}</td>
                     <td>{{ p.quantiteProduit }}</td>
                     <td>{{ p.prixProduit }}</td>
-                    <td><a href=\"{{ path('deleteProduit',{'id':p.id}) }}\" class=\"btn btn-block btn-danger\" role=\"button\">Supprimer</a></td>
+                    <td><a href=\"{{ path('modifierProduit',{'id':p.id , 'iduser':iduser}) }}\" class=\"btn btn-block btn-warning\" role=\"button\">Modifier</a></td>
+
+                    <td><a href=\"{{ path('deleteProduit',{'id':p.id ,'iduser':iduser}) }}\" class=\"btn btn-block btn-danger\" role=\"button\">Supprimer</a></td>
 
 
 
@@ -220,6 +260,6 @@ class __TwigTemplate_d20f0df5a725a84ef26c496ea696d8a4f72ccc31b51836d510900cbaf64
     </div>
 </section>
 
-{% include 'tempFront2SoinMP.html.twig' %}", "produit/ListProd.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\produit\\ListProd.html.twig");
+{% include 'tempFront2SoinMP.html.twig' %}", "produit/ListProd.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\produit\\ListProd.html.twig");
     }
 }

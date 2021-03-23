@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\CategorieSoinMP;
 use App\Form\CategorieSoinMPType;
+use App\Form\CategorieSoinMPRechercheType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,24 +23,41 @@ class CategorieSoinMPController extends AbstractController
             'controller_name' => 'CategorieSoinMPController',
         ]);
     }
+
     /**
      * @return Response
      * @Route("/afficherCategorieSoinMP", name="afficherCategorieSoinMP")
      */
-    public function listCategoriesSoinMP(): Response
+    public function listCategoriesSoinMP(Request $request): Response
     {
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
-        return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categoriesSoinMP,]);
+        $form=$this->createForm(CategorieSoinMPRechercheType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {   $data=$form->getData();
+            $titre=$data['recherche'];
+            $categorieSoinMPfind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
+            return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categorieSoinMPfind,'formSearch'=>$form->createView(),]);
+        }
+        return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categoriesSoinMP,'formSearch'=>$form->createView(),]);
     }
 
     /**
      * @return Response
      * @Route("/afficherCategorieSoinMPs", name="afficherCategorieSoinMPs")
      */
-    public function listCategoriesSoinMPs(): Response
+    public function listCategoriesSoinMPs(Request $request): Response
     {
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
-        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,]);
+        $form=$this->createForm(CategorieSoinMPRechercheType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {   $data=$form->getData();
+            $titre=$data['recherche'];
+            $categorieSoinMPfind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
+            return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categorieSoinMPfind,'formSearch'=>$form->createView(),]);
+        }
+        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(),]);
     }
 
     /**

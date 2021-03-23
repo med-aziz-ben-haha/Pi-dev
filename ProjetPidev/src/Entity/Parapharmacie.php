@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ParapharmacieRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,16 +22,19 @@ class Parapharmacie
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champs nom parapharmacie est obligatoire * ")
      */
     private $nomPara;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champs adresse parapharmacie est obligatoire * ")
      */
     private $adressePara;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(min=8,minMessage="Le numero de telephne du parapharmacie doit contenir au minimum 8 caractères.",max=12,maxMessage="Le numero de telephne du parapharmacie ne doit depasser 12 caractères."))
      */
     private $telPara;
 
@@ -66,12 +70,32 @@ class Parapharmacie
      */
     private $produits;
 
+    /**
+     * @ORM\OneToMany(targetEntity=User::class, mappedBy="parapharmacie", orphanRemoval=true)
+     */
+    private $parapharmacien;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Panier::class, mappedBy="parapharmacie")
+     */
+    private $paniers;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ListProduit::class, mappedBy="parapharmacie")
+     */
+    private $listProduit;
+
+
+
 
 
     public function __construct()
     {
         $this->produits = new ArrayCollection();
         $this->categorieProduit = new ArrayCollection();
+        $this->paniers = new ArrayCollection();
+        $this->listProduit = new ArrayCollection();
+
     }
 
     /**
@@ -218,6 +242,104 @@ class Parapharmacie
 
         return $this;
     }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getParapharmacien(): Collection
+    {
+        return $this->parapharmacien;
+    }
+
+    public function addParapharmacien(User $parapharmacien): self
+    {
+        if (!$this->parapharmacien->contains($parapharmacien)) {
+            $this->parapharmacien[] = $parapharmacien;
+            $parapharmacien->setParapharmacie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeParapharmacien(User $parapharmacien): self
+    {
+        if ($this->parapharmacien->removeElement($parapharmacien)) {
+            // set the owning side to null (unless already changed)
+            if ($parapharmacien->getParapharmacie() === $this) {
+                $parapharmacien->setParapharmacie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString()
+
+    {
+        return(string) $this->getNomPara();
+    }
+
+    /**
+     * @return Collection|Panier[]
+     */
+    public function getPaniers(): Collection
+    {
+        return $this->paniers;
+    }
+
+    public function addPanier(Panier $panier): self
+    {
+        if (!$this->paniers->contains($panier)) {
+            $this->paniers[] = $panier;
+            $panier->setParapharmacie($this);
+        }
+
+        return $this;
+    }
+
+    public function removePanier(Panier $panier): self
+    {
+        if ($this->paniers->removeElement($panier)) {
+            // set the owning side to null (unless already changed)
+            if ($panier->getParapharmacie() === $this) {
+                $panier->setParapharmacie(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ListProduit[]
+     */
+    public function getListProduit(): Collection
+    {
+        return $this->listProduit;
+    }
+
+    public function addListProduit(ListProduit $listProduit): self
+    {
+        if (!$this->listProduit->contains($listProduit)) {
+            $this->listProduit[] = $listProduit;
+            $listProduit->setParapharmacie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeListProduit(ListProduit $listProduit): self
+    {
+        if ($this->listProduit->removeElement($listProduit)) {
+            // set the owning side to null (unless already changed)
+            if ($listProduit->getParapharmacie() === $this) {
+                $listProduit->setParapharmacie(null);
+            }
+        }
+
+        return $this;
+    }
+
+
 
 
 

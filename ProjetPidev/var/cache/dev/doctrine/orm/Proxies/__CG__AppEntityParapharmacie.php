@@ -66,10 +66,10 @@ class Parapharmacie extends \App\Entity\Parapharmacie implements \Doctrine\ORM\P
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'nomPara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'adressePara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'telPara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'img_Para', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'lienImageP', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'region', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'categorieProduit', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'produits'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'nomPara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'adressePara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'telPara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'img_Para', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'lienImageP', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'region', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'categorieProduit', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'produits', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'parapharmacien', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'paniers', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'listProduit'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'nomPara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'adressePara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'telPara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'img_Para', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'lienImageP', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'region', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'categorieProduit', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'produits'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'nomPara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'adressePara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'telPara', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'img_Para', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'lienImageP', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'region', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'categorieProduit', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'produits', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'parapharmacien', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'paniers', '' . "\0" . 'App\\Entity\\Parapharmacie' . "\0" . 'listProduit'];
     }
 
     /**
@@ -387,6 +387,116 @@ class Parapharmacie extends \App\Entity\Parapharmacie implements \Doctrine\ORM\P
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setRegion', [$regions]);
 
         return parent::setRegion($regions);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getParapharmacien(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getParapharmacien', []);
+
+        return parent::getParapharmacien();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addParapharmacien(\App\Entity\User $parapharmacien): \App\Entity\Parapharmacie
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addParapharmacien', [$parapharmacien]);
+
+        return parent::addParapharmacien($parapharmacien);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeParapharmacien(\App\Entity\User $parapharmacien): \App\Entity\Parapharmacie
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeParapharmacien', [$parapharmacien]);
+
+        return parent::removeParapharmacien($parapharmacien);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function __toString()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
+
+        return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getPaniers(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getPaniers', []);
+
+        return parent::getPaniers();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addPanier(\App\Entity\Panier $panier): \App\Entity\Parapharmacie
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addPanier', [$panier]);
+
+        return parent::addPanier($panier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removePanier(\App\Entity\Panier $panier): \App\Entity\Parapharmacie
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removePanier', [$panier]);
+
+        return parent::removePanier($panier);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getListProduit(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getListProduit', []);
+
+        return parent::getListProduit();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addListProduit(\App\Entity\ListProduit $listProduit): \App\Entity\Parapharmacie
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addListProduit', [$listProduit]);
+
+        return parent::addListProduit($listProduit);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeListProduit(\App\Entity\ListProduit $listProduit): \App\Entity\Parapharmacie
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeListProduit', [$listProduit]);
+
+        return parent::removeListProduit($listProduit);
     }
 
 }

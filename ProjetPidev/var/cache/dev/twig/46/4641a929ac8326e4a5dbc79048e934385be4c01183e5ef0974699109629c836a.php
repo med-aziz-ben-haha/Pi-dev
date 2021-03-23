@@ -51,7 +51,7 @@ class __TwigTemplate_0cd8ef6fe5a88e81cd28247357c60cfc87f6cf184d94177b7229a88bdde
         <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion Des Regions </h1>
         <div class=\"col-sm-8\"></div>
 
-        <div class=\"col-sm-4\"><a href=\"regions/AjoutRegion\" class=\"btn btn-block btn-primary\" role=\"button\">Ajouter Parapharmacie</a></div>
+        <div class=\"col-sm-4\"><a href=\"regions/AjoutRegion\" class=\"btn btn-block btn-primary\" role=\"button\">Ajouter Region</a></div>
 
 
 
@@ -155,7 +155,7 @@ class __TwigTemplate_0cd8ef6fe5a88e81cd28247357c60cfc87f6cf184d94177b7229a88bdde
         <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion Des Regions </h1>
         <div class=\"col-sm-8\"></div>
 
-        <div class=\"col-sm-4\"><a href=\"regions/AjoutRegion\" class=\"btn btn-block btn-primary\" role=\"button\">Ajouter Parapharmacie</a></div>
+        <div class=\"col-sm-4\"><a href=\"regions/AjoutRegion\" class=\"btn btn-block btn-primary\" role=\"button\">Ajouter Region</a></div>
 
 
 
@@ -198,6 +198,6 @@ class __TwigTemplate_0cd8ef6fe5a88e81cd28247357c60cfc87f6cf184d94177b7229a88bdde
     <!-- /.box-body -->
 </div>
 
-{% include 'temp2.html.twig' %}", "regions/ListRegions.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev\\ProjetPidev\\templates\\regions\\ListRegions.html.twig");
+{% include 'temp2.html.twig' %}", "regions/ListRegions.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\regions\\ListRegions.html.twig");
     }
 }

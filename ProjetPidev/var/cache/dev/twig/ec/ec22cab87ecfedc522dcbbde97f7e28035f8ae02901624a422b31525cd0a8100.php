@@ -40,20 +40,43 @@ class __TwigTemplate_74d604d297ccc09e0ab37de93e1df9f2edb35542d6794db6d690be32070
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/ListMedecins.html.twig"));
 
         // line 1
-        $this->loadTemplate("temp1.html.twig", "user/ListMedecins.html.twig", 1)->display($context);
-        // line 2
         echo "
+";
+        // line 2
+        $this->loadTemplate("temp1.html.twig", "user/ListMedecins.html.twig", 2)->display($context);
+        // line 3
+        echo "<style>
+    button {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:hover {
+        color: #FFFFFF;
+        opacity: 0.8;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:active {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+
+</style>
 <div class=\"box\">
     <div class=\"box-header\">
-        <h3 class=\"box-title\">Gestion des médecins</h3>
+        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion des médecins</h1>
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">
         <table id=\"example1\" class=\"table table-bordered table-striped\">
             <thead>
             <tr>
-                <th>Image</th>
-                <th>Id_User</th>
+                <th>Id</th>
                 <th>Login</th>
                 <th>Nom</th>
                 <th>Prénom</th>
@@ -62,115 +85,81 @@ class __TwigTemplate_74d604d297ccc09e0ab37de93e1df9f2edb35542d6794db6d690be32070
                 <th>Telephone</th>
                 <th>Sexe</th>
                 <th>Matricule fiscale</th>
+                <th>Spécialité</th>
+                <th>Supprimer</th>
 
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><img style=\"padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\" src= \"";
-        // line 27
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
-        echo "\" ></td>
-                <td>1</td>
-                <td>emna</td>
-                <td>besbes</td>
-                <td>emna</td>
-                <td>emna@gmail.com</td>
-                <td>esprit</td>
-                <td>+55556268443</td>
-                <td>F</td>
-                <td>00007214369</td>
+            ";
+        // line 49
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["listMedecins"]) || array_key_exists("listMedecins", $context) ? $context["listMedecins"] : (function () { throw new RuntimeError('Variable "listMedecins" does not exist.', 49, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["P"]) {
+            // line 50
+            echo "
+                <tr>
+                    <td>";
+            // line 52
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "id", [], "any", false, false, false, 52), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 53
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "login", [], "any", false, false, false, 53), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 54
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "nom", [], "any", false, false, false, 54), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 55
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "prenom", [], "any", false, false, false, 55), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 56
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "email", [], "any", false, false, false, 56), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 57
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "adresseUser", [], "any", false, false, false, 57), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 58
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "telephone", [], "any", false, false, false, 58), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 59
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "sexe", [], "any", false, false, false, 59), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 60
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "matriculeFiscale", [], "any", false, false, false, 60), "html", null, true);
+            echo "</td>
+                    <td>";
+            // line 61
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["P"], "specialite", [], "any", false, false, false, 61), "html", null, true);
+            echo "</td>
+                    <td><form action=\" ";
+            // line 62
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("supprimerMedecin", ["id" => twig_get_attribute($this->env, $this->source, $context["P"], "id", [], "any", false, false, false, 62)]), "html", null, true);
+            echo " \"><button>Supprimer</button></form></td>
+                </tr>
 
-            </tr>
-
-
-
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\" src= \"";
-        // line 43
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/avatar04.png"), "html", null, true);
-        echo "\" ></td>
-                <td>Mozilla 1.5</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\" src= \"";
-        // line 55
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/avatar04.png"), "html", null, true);
-        echo "\" ></td>
-                <td>Mozilla 1.6</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\" src= \"";
-        // line 67
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/avatar3.png"), "html", null, true);
-        echo "\" ></td>
-                <td>Mozilla 1.7</td>
-                <td>Win 98+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px  ;\" src= \"";
-        // line 80
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/avatar2.png"), "html", null, true);
-        echo "\" ></td>
-                <td>Safari 2.0</td>
-                <td>OSX.4+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\"src= \"";
-        // line 92
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/avatar.png"), "html", null, true);
-        echo "\" ></td>
-                <td>Safari 3.0</td>
-                <td>OSX.4+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-
-            </tbody>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['P'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 66
+        echo "            </tbody>
 
         </table>
     </div>
     <!-- /.box-body -->
 </div>
 ";
-        // line 110
-        $this->loadTemplate("temp2.html.twig", "user/ListMedecins.html.twig", 110)->display($context);
+        // line 72
+        $this->loadTemplate("temp2.html.twig", "user/ListMedecins.html.twig", 72)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -191,24 +180,45 @@ class __TwigTemplate_74d604d297ccc09e0ab37de93e1df9f2edb35542d6794db6d690be32070
 
     public function getDebugInfo()
     {
-        return array (  173 => 110,  152 => 92,  137 => 80,  121 => 67,  106 => 55,  91 => 43,  72 => 27,  45 => 2,  43 => 1,);
+        return array (  162 => 72,  154 => 66,  144 => 62,  140 => 61,  136 => 60,  132 => 59,  128 => 58,  124 => 57,  120 => 56,  116 => 55,  112 => 54,  108 => 53,  104 => 52,  100 => 50,  96 => 49,  48 => 3,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("{% include 'temp1.html.twig' %}
+        return new Source("
+{% include 'temp1.html.twig' %}
+<style>
+    button {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:hover {
+        color: #FFFFFF;
+        opacity: 0.8;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:active {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
 
+</style>
 <div class=\"box\">
     <div class=\"box-header\">
-        <h3 class=\"box-title\">Gestion des médecins</h3>
+        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion des médecins</h1>
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">
         <table id=\"example1\" class=\"table table-bordered table-striped\">
             <thead>
             <tr>
-                <th>Image</th>
-                <th>Id_User</th>
+                <th>Id</th>
                 <th>Login</th>
                 <th>Nom</th>
                 <th>Prénom</th>
@@ -217,88 +227,29 @@ class __TwigTemplate_74d604d297ccc09e0ab37de93e1df9f2edb35542d6794db6d690be32070
                 <th>Telephone</th>
                 <th>Sexe</th>
                 <th>Matricule fiscale</th>
+                <th>Spécialité</th>
+                <th>Supprimer</th>
 
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td><img style=\"padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\" src= \"{{ asset('bundles/dist/img/user2-160x160.jpg')}}\" ></td>
-                <td>1</td>
-                <td>emna</td>
-                <td>besbes</td>
-                <td>emna</td>
-                <td>emna@gmail.com</td>
-                <td>esprit</td>
-                <td>+55556268443</td>
-                <td>F</td>
-                <td>00007214369</td>
+            {% for P in listMedecins %}
 
-            </tr>
+                <tr>
+                    <td>{{P.id}}</td>
+                    <td>{{P.login}}</td>
+                    <td>{{P.nom}}</td>
+                    <td>{{P.prenom}}</td>
+                    <td>{{P.email}}</td>
+                    <td>{{P.adresseUser}}</td>
+                    <td>{{P.telephone}}</td>
+                    <td>{{P.sexe}}</td>
+                    <td>{{P.matriculeFiscale}}</td>
+                    <td>{{P.specialite}}</td>
+                    <td><form action=\" {{path('supprimerMedecin',{id:P.id})}} \"><button>Supprimer</button></form></td>
+                </tr>
 
-
-
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\" src= \"{{ asset('bundles/dist/img/avatar04.png')}}\" ></td>
-                <td>Mozilla 1.5</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\" src= \"{{ asset('bundles/dist/img/avatar04.png')}}\" ></td>
-                <td>Mozilla 1.6</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\" src= \"{{ asset('bundles/dist/img/avatar3.png')}}\" ></td>
-                <td>Mozilla 1.7</td>
-                <td>Win 98+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px  ;\" src= \"{{ asset('bundles/dist/img/avatar2.png')}}\" ></td>
-                <td>Safari 2.0</td>
-                <td>OSX.4+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td><img style=\" padding-right: 0px; padding-left: 0px;  width:30px ; hight: 30px ;\"src= \"{{ asset('bundles/dist/img/avatar.png')}}\" ></td>
-                <td>Safari 3.0</td>
-                <td>OSX.4+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-
+            {% endfor %}
             </tbody>
 
         </table>
@@ -306,6 +257,6 @@ class __TwigTemplate_74d604d297ccc09e0ab37de93e1df9f2edb35542d6794db6d690be32070
     <!-- /.box-body -->
 </div>
 {% include 'temp2.html.twig' %}
-", "user/ListMedecins.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\ListMedecins.html.twig");
+", "user/ListMedecins.html.twig", "C:\\Users\\oussa\\Desktop\\Pi-dev-debutGestionUtil\\ProjetPidev\\templates\\user\\ListMedecins.html.twig");
     }
 }

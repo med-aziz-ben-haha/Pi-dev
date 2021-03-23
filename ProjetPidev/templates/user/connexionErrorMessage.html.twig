@@ -1,0 +1,20 @@
+{% include 'tempFrontAccueil1.html.twig' %}
+<div style ="margin-left: 28%; margin-right: 28%;  border: solid 1px #EA3D48; padding:2%; border-radius: 30px; margin-bottom: 25px ">
+
+
+    {{ form_start(formConnexion,{'attr': {'novalidate': 'novalidate'}} ) }}
+    <h1 style ="margin-bottom: 2%; text-align: center; color: #EA3D48 ;  " > Se Connecter  </h1>
+
+    <h6 style ="margin-top: 2%;  color: #EA3D48 ;  " >  * Verifier votre login et/ou votre mot de passe </h6>
+    {# { form_errors(formConnexion.login) }#}
+    {{ form_label(formConnexion.login,"Login") }}
+    {{ form_widget(formConnexion.login) }}
+
+    {# { form_errors(formConnexion.mdp)}#}
+    {{ form_label(formConnexion.mdp,"Mot de passe") }}
+    {{ form_widget(formConnexion.mdp)}}
+
+    {{ form_end(formConnexion) }}
+
+</div>
+{% include 'tempFrontAccueil2.html.twig' %}

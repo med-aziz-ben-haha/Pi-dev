@@ -6,6 +6,11 @@
     <div class="box">
         <div class="box-header">
             <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des Parapharmacies </h1>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
             <div class="col-sm-8"></div>
 
             <div class="col-sm-4"><a href="parapharmacie/AjoutParapharmacie" class="btn btn-block btn-primary" role="button">Ajouter Parapharmacie</a></div>

@@ -1,0 +1,46 @@
+<?php //%255BApp%255CEntity%255CProduit%2524tva%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'type' => [
+                'integer',
+            ],
+            'message' => [
+                1 => 'Le champs tva produit est obligatoire * ',
+            ],
+            'groups' => [
+                1 => [
+                    'Default',
+                ],
+                [
+                    'Default',
+                ],
+            ],
+            'maxMessage' => [
+                2 => 'TVA ne doit depasser 2 caractères.',
+            ],
+            'minMessage' => [
+                2 => 'TVA doit contenir au minimum 1 caractères.',
+            ],
+            'max' => [
+                2 => 2,
+            ],
+            'min' => [
+                2 => 1,
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+    ],
+    []
+); }];
