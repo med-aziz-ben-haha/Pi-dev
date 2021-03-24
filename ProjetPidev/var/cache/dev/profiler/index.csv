@@ -500,3 +500,8 @@ c8793e,127.0.0.1,GET,http://127.0.0.1:8000/connexion,1616619753,,200
 95c760,127.0.0.1,POST,http://127.0.0.1:8000/connexion,1616619764,,302
 b694e6,127.0.0.1,GET,http://127.0.0.1:8000/accueilOnline/1,1616619766,,200
 f9cab1,127.0.0.1,GET,http://127.0.0.1:8000/afficherreclamations,1616619771,,200
+179db6,127.0.0.1,GET,http://127.0.0.1:8000/afficherreclamations,1616621522,,200
+764c2f,127.0.0.1,GET,http://127.0.0.1:8000/afficherreclamations,1616621522,,200
+b83598,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1616621524,0e6ffa,404
+0e6ffa,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1616621524,,404
+5dd335,127.0.0.1,GET,http://127.0.0.1:8000/afficherreclamations,1616621525,,200
