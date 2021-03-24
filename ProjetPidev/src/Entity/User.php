@@ -131,6 +131,11 @@ class User
      */
     private $ordonnances;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Parapharmacie::class, inversedBy="parapharmacien")
+     */
+    private $parapharmacie;
+
     public function __construct()
     {
         $this->reclamations = new ArrayCollection();
@@ -480,6 +485,18 @@ class User
 
     {
         return(string) $this->getLogin();
+    }
+
+    public function getParapharmacie(): ?Parapharmacie
+    {
+        return $this->parapharmacie;
+    }
+
+    public function setParapharmacie(?Parapharmacie $parapharmacie): self
+    {
+        $this->parapharmacie = $parapharmacie;
+
+        return $this;
     }
 
 }

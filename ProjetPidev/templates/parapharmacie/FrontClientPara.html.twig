@@ -1,0 +1,27 @@
+{% include 'tempClient.html.twig' with{'iduser':iduser} %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" >Parapharmacie</h2>
+            </div>
+            {% for p in parapharmacie %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-box text-center">
+                        <div class="service-box-icon"><img style="  ;  width:100% ; hight: 100% ;" src="{{ asset('uploads/' ~ p.getLienImageP)}}"></div>
+                        <h3 class="service-box-title">{{ p.nomPara }}</h3>
+                        <h5 class="service-box-title">Region: {{ p.region.region }}</h5>
+                        <h5 class="service-box-title">Adresse: {{ p.adressePara }}</h5>
+                        <h5 class="service-box-title">Tel°: {{ p.telPara }}</h5>
+                        <a href="{{ path("afficheClienCategorieProd",{'idpara':p.getId() , 'iduser':iduser } ) }}" class="btn btn-main-outline mt-2">Visiter<i class="fas fa-chevron-right"></i></a>
+
+
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}

@@ -260,9 +260,11 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
                     </ul>
                 </li>
 
-                <li><a href=\"/listmedicament\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
                 <li><a href=\"/listordonnance\"><i class=\"fa fa-book\"></i> <span>Gestion Ordonnance</span></a></li>
-                <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
+
+                <li><a href=\"/afficheRegions\"><i class=\"fa fa-book\"></i> <span>Gestion des Regions</span></a></li>
+                <li><a href=\"/affichePara\"><i class=\"fa fa-book\"></i> <span>Gestion des Parapharmacies</span></a></li>
+                <li><a href=\"/afficheBackProduit\"><i class=\"fa fa-book\"></i> <span>Liste des Produits</span></a></li>
 
             </ul>
         </section>
@@ -473,9 +475,11 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
                     </ul>
                 </li>
 
-                <li><a href=\"/listmedicament\"><i class=\"fa fa-book\"></i> <span>Gestion des médicaments</span></a></li>
                 <li><a href=\"/listordonnance\"><i class=\"fa fa-book\"></i> <span>Gestion Ordonnance</span></a></li>
-                <li><a href=\"\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
+
+                <li><a href=\"/afficheRegions\"><i class=\"fa fa-book\"></i> <span>Gestion des Regions</span></a></li>
+                <li><a href=\"/affichePara\"><i class=\"fa fa-book\"></i> <span>Gestion des Parapharmacies</span></a></li>
+                <li><a href=\"/afficheBackProduit\"><i class=\"fa fa-book\"></i> <span>Liste des Produits</span></a></li>
 
             </ul>
         </section>

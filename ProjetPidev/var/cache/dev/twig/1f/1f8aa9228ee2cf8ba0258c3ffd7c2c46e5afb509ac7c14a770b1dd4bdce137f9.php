@@ -118,8 +118,6 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
-
-
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">Contact</a>
                     </li>
@@ -129,23 +127,23 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"";
-        // line 77
+        // line 75
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
         echo "\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 78
+        // line 76
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscription"), "html", null, true);
         echo "\">S'inscrire</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 79
+        // line 77
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionMed"), "html", null, true);
         echo "\">S'inscrire en tant que médecin</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 80
+        // line 78
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionPharmacien"), "html", null, true);
         echo "\">S'inscrire en tant que pharmacien</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 81
+        // line 79
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionParapharmacien"), "html", null, true);
         echo "\">S'inscrire en tant que parapharmacien</a>
                             <a class=\"dropdown-item hollow button primary\" href=\"/inscription/google/\"><img  width=\"15px\" style=\"margin-bottom:3px; font-size: 250px; margin-right:5px\" alt=\"Google login\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png\" />
@@ -153,12 +151,6 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
                         </div>
                     </li>
                 </ul>
-                <span class=\"navbar-text hk-header-social\">
-                  <a href=\"#\"><i class=\"fab fa-facebook-f\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-twitter\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-youtube\"></i></a>
-                  </span>
             </div>
         </div>
     </nav>
@@ -178,7 +170,7 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 111
+        // line 103
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -209,7 +201,7 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
 
     public function getDebugInfo()
     {
-        return array (  182 => 111,  149 => 81,  145 => 80,  141 => 79,  137 => 78,  133 => 77,  115 => 62,  105 => 55,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  174 => 103,  147 => 79,  143 => 78,  139 => 77,  135 => 76,  131 => 75,  115 => 62,  105 => 55,  76 => 29,  72 => 28,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -280,8 +272,6 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">About</a>
                     </li>
-
-
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#\">Contact</a>
                     </li>
@@ -300,12 +290,6 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
                         </div>
                     </li>
                 </ul>
-                <span class=\"navbar-text hk-header-social\">
-                  <a href=\"#\"><i class=\"fab fa-facebook-f\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-twitter\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-youtube\"></i></a>
-                  </span>
             </div>
         </div>
     </nav>

@@ -51,20 +51,12 @@ class __TwigTemplate_0177090e562c0157e2494173b45e265d594ad9eccc7e51fc8652324a7cc
             </div>
             <div class=\"col-md-3 col-lg-2\">
                 <div class=\"footer-col\">
-                    <h3 class=\"footer-title\">Products</h3>
-                    <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">CRM</a></li>
-                        <li><a href=\"#\">eCommerce</a></li>
-                    </ul>
+
                 </div>
             </div>
             <div class=\"col-md-3 col-lg-2\">
                 <div class=\"footer-col\">
-                    <h3 class=\"footer-title\">Support</h3>
-                    <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">Forum</a></li>
-                        <li><a href=\"#\">FAQs</a></li>
-                    </ul>
+
                 </div>
             </div>
             <div class=\"col-md-6 col-lg-4\">
@@ -83,11 +75,11 @@ class __TwigTemplate_0177090e562c0157e2494173b45e265d594ad9eccc7e51fc8652324a7cc
     </div>
 </footer>
 <script src=\"";
-        // line 43
+        // line 35
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 44
+        // line 36
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/bootstrap.min.js"), "html", null, true);
         echo "\"></script>
 <script>
@@ -121,7 +113,7 @@ class __TwigTemplate_0177090e562c0157e2494173b45e265d594ad9eccc7e51fc8652324a7cc
 
     public function getDebugInfo()
     {
-        return array (  91 => 44,  87 => 43,  43 => 1,);
+        return array (  83 => 36,  79 => 35,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -137,20 +129,12 @@ class __TwigTemplate_0177090e562c0157e2494173b45e265d594ad9eccc7e51fc8652324a7cc
             </div>
             <div class=\"col-md-3 col-lg-2\">
                 <div class=\"footer-col\">
-                    <h3 class=\"footer-title\">Products</h3>
-                    <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">CRM</a></li>
-                        <li><a href=\"#\">eCommerce</a></li>
-                    </ul>
+
                 </div>
             </div>
             <div class=\"col-md-3 col-lg-2\">
                 <div class=\"footer-col\">
-                    <h3 class=\"footer-title\">Support</h3>
-                    <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">Forum</a></li>
-                        <li><a href=\"#\">FAQs</a></li>
-                    </ul>
+
                 </div>
             </div>
             <div class=\"col-md-6 col-lg-4\">
