@@ -32,7 +32,7 @@ class User
     private $login;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=80)
      * @Assert\Length(min=4,minMessage="Votre mot de passe doit contenir au minimum 4 caractères *")
      * @Assert\NotBlank(message="Le champs mot de passe est obligatoire * ")
      */

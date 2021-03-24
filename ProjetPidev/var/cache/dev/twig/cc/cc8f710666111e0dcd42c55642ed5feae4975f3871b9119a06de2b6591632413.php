@@ -51,7 +51,10 @@ class __TwigTemplate_69036c62f6a988e8f5ba95871864e04952245c08c119611732a22c409a5
         echo "
     <h1 style =\"margin-bottom: 2%; text-align: center; color: #EA3D48 ;  \" > Se Connecter  </h1>
 
-    <h6 style =\"margin-top: 2%;  color: #EA3D48 ;  \" >  * Verifier votre login et/ou votre mot de passe </h6>
+    <h6 style =\"margin-top: 2%;  color: #EA3D48 ;  \" >   ";
+        // line 8
+        echo twig_escape_filter($this->env, (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new RuntimeError('Variable "message" does not exist.', 8, $this->source); })()), "html", null, true);
+        echo "</h6>
     ";
         // line 10
         echo "    ";
@@ -101,7 +104,7 @@ class __TwigTemplate_69036c62f6a988e8f5ba95871864e04952245c08c119611732a22c409a5
 
     public function getDebugInfo()
     {
-        return array (  83 => 20,  77 => 17,  72 => 15,  67 => 14,  62 => 11,  57 => 10,  50 => 5,  45 => 2,  43 => 1,);
+        return array (  86 => 20,  80 => 17,  75 => 15,  70 => 14,  65 => 11,  60 => 10,  56 => 8,  50 => 5,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -113,7 +116,7 @@ class __TwigTemplate_69036c62f6a988e8f5ba95871864e04952245c08c119611732a22c409a5
     {{ form_start(formConnexion,{'attr': {'novalidate': 'novalidate'}} ) }}
     <h1 style =\"margin-bottom: 2%; text-align: center; color: #EA3D48 ;  \" > Se Connecter  </h1>
 
-    <h6 style =\"margin-top: 2%;  color: #EA3D48 ;  \" >  * Verifier votre login et/ou votre mot de passe </h6>
+    <h6 style =\"margin-top: 2%;  color: #EA3D48 ;  \" >   {{ message }}</h6>
     {# { form_errors(formConnexion.login) }#}
     {{ form_label(formConnexion.login,\"Login\") }}
     {{ form_widget(formConnexion.login) }}

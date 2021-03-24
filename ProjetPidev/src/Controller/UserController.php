@@ -197,38 +197,60 @@ class UserController extends AbstractController
         $form->add('Connexion', SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted()) {
-            $verifuser = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('login' => $useronline->getLogin(), 'mdp' => $useronline->getMdp()));
-            if (is_null($verifuser)) {
+            $verifuser = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('login' => $useronline->getLogin()));
+
+            if (is_null($verifuser)){
+                $msg="verifer votre login *";
                 return $this->render('user/connexionErrorMessage.html.twig', [
-                    'controller_name' => 'UserController','formConnexion'=>$form->createview(),
+                    'controller_name' => 'UserController','formConnexion'=>$form->createview(),'message'=>$msg
                 ]);
             } else {
                 $role=$verifuser->getRole();
-                $session->set('user',$verifuser);
                 $iduser=$verifuser->getId();
                 $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
-                    if ($role==1)
+                    if (($role==1)&&(password_verify($useronline->getMdp(),$verifuser->getMdp())==true))
                     {
+                        $session->set('user',$verifuser);
+
                         return $this->redirectToRoute('accueilOnline',array('iduser'=>$verifuser->getId(),'user'=>$userfind,));
                     }
-                    else if ($role==2)
+                    else if (($role==2)&&(password_verify($useronline->getMdp(),$verifuser->getMdp())==true))
                     {
+                        $session->set('user',$verifuser);
+
                         return $this->redirectToRoute('accueilOnlineMed',array('iduser'=>$verifuser->getId()));
                     }
-                    if ($role==3)
+                    else if (($role==3)&&(password_verify($useronline->getMdp(),$verifuser->getMdp())==true))
                     {
+                        $session->set('user',$verifuser);
+
                         return $this->redirectToRoute('accueilOnlinePharmacien',array('iduser'=>$verifuser->getId()));
                     }
-                    if ($role==4)
+                    else if (($role==4)&&(password_verify($useronline->getMdp(),$verifuser->getMdp())==true))
                     {
+                        $session->set('user',$verifuser);
+
                         return $this->redirectToRoute('accueilOnlineParapharmacien',array('iduser'=>$verifuser->getId()));
                     }
-                else
+                    else if ($role==0)
                     {
+                        $session->set('user',$verifuser);
+
                       return $this->redirectToRoute('connexionAdmin',array('iduser'=>$verifuser->getId()));
                     }
+                    else
+                    {
+                        $msg="verifer votre mot de passe *";
+                        return $this->render('user/connexionErrorMessage.html.twig', [
+                            'controller_name' => 'UserController','formConnexion'=>$form->createview(),'message'=>$msg,]);
+
+
                     }
+                    }
+
+
         }
+
         return $this->render('user/connexion.html.twig', [
             'controller_name' => 'UserController','formConnexion'=>$form->createview(),
         ]);
@@ -329,6 +351,7 @@ class UserController extends AbstractController
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -380,6 +403,7 @@ class UserController extends AbstractController
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -431,6 +455,7 @@ class UserController extends AbstractController
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -482,6 +507,7 @@ class UserController extends AbstractController
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -532,6 +558,7 @@ class UserController extends AbstractController
         $form->add('modifier', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -554,7 +581,7 @@ class UserController extends AbstractController
             }
             if (($UserFind->getRole()==3)or($UserFind->getRole()==4))
             {
-                return $this->redirectToRoute('afficherPara', ['iduser' => $iduser, 'userFind' => $UserFind,'user'=>$userfind,]);
+                return $this->redirectToRoute('afficherUser', ['iduser' => $iduser, 'userFind' => $UserFind,'user'=>$userfind,]);
             }
         }
         return $this->render('user/templateModifierProfil.html.twig', ['formModifierUser' => $form->createView(), 'iduser'=>$iduser, 'userFind'=>$UserFind, 'user'=>$userfind,]);
@@ -581,6 +608,7 @@ class UserController extends AbstractController
         $form->add('modifier', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -620,6 +648,7 @@ class UserController extends AbstractController
         $form->add('modifier', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)

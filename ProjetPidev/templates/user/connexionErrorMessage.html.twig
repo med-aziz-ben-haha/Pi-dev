@@ -5,7 +5,7 @@
     {{ form_start(formConnexion,{'attr': {'novalidate': 'novalidate'}} ) }}
     <h1 style ="margin-bottom: 2%; text-align: center; color: #EA3D48 ;  " > Se Connecter  </h1>
 
-    <h6 style ="margin-top: 2%;  color: #EA3D48 ;  " >  * Verifier votre login et/ou votre mot de passe </h6>
+    <h6 style ="margin-top: 2%;  color: #EA3D48 ;  " >   {{ message }}</h6>
     {# { form_errors(formConnexion.login) }#}
     {{ form_label(formConnexion.login,"Login") }}
     {{ form_widget(formConnexion.login) }}

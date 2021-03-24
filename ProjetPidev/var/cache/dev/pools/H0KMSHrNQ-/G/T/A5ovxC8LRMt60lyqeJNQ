@@ -10,7 +10,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'stdClass' => [
             'length' => [
-                30,
+                80,
             ],
             'minMessage' => [
                 1 => 'Votre mot de passe doit contenir au minimum 4 caractères *',
