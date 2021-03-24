@@ -2,14 +2,22 @@
 
 namespace App\Controller;
 
+use App\Form\SoinMPRechercheType;
+use App\Form\SoinMPTriFormType;
+use App\Form\SoinMPTriDESCType;
 use App\Form\SoinMPType;
 use App\Entity\SoinMP;
+use App\Form\CaptchaType;
+use App\Entity\Captcha;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use App\Entity\NoteSoinMP;
 
 class SoinMPController extends AbstractController
 {
@@ -26,20 +34,149 @@ class SoinMPController extends AbstractController
      * @return Response
      * @Route("/afficherSoinMP", name="afficherSoinMP")
      */
-    public function listSoinMP(): Response
+    public function listSoinMP(SessionInterface $session,Request $request): Response
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $SoinMP = $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
-        return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMP,]);
+        $SoinMPtri = $this->getDoctrine()->getRepository(SoinMP::class)->findAlltri();
+        $SoinMPtriDesc = $this->getDoctrine()->getRepository(SoinMP::class)->findAlltriDESC();
+
+        $formtri=$this->createForm(SoinMPTriFormType::class);
+        $formtri->handleRequest($request);
+
+        $formtriDesc=$this->createForm(SoinMPTriDESCType::class);
+        $formtriDesc->handleRequest($request);
+
+        $form=$this->createForm(SoinMPRechercheType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $searchSoinMPfind=$this->getDoctrine()->getRepository(SoinMP::class)->search($titre);
+            return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $searchSoinMPfind,'formSearch'=>$form->createView(),
+                'formtri' => $formtri->createView(),'formtriDESC' => $formtriDesc->createView(),]);
+
+        }
+        else if ($formtri->isSubmitted()) {
+
+            return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMPtri,'formSearch'=>$form->createView(),
+                'formtri' => $formtri->createView(),'formtriDESC' => $formtriDesc->createView(),]);
+        }
+        else if ($formtriDesc->isSubmitted()) {
+
+            return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMPtriDesc,'formSearch'=>$form->createView(),
+                'formtriDESC' => $formtriDesc->createView(),'formtri' => $formtri->createView(),]);
+        }
+        return $this->render('soin_mp/listSoinsMP.html.twig', ['listSoinsMP' => $SoinMP,'formSearch'=>$form->createView(),
+            'formtri' => $formtri->createView(), 'formtriDESC' => $formtriDesc->createView(),]);
+    }
+
+
+    /**
+     * @param $id
+     * @param Request $request
+     * @param $iduser
+     * @return Response
+     * @Route("/afficherSoinMPs/{id}/{iduser}", name="afficherSoinMPs")
+     */
+    public function listSoinMPs(SessionInterface $session, $id,Request $request, $iduser): Response
+    {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
+        $categorieid=$SoinMPfind[0]->getCategorieSoinMP();
+        $form=$this->createForm(SoinMPRechercheType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {
+            $data=$form->getData();
+            $titre=$data['recherche'];
+            $searchSoinMPfind=$this->getDoctrine()->getRepository(SoinMP::class)->searchs($titre,$categorieid);
+            return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $searchSoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,]);
+
+        }
+        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,]);
+    }
+
+
+    /**
+     * @param $iduser
+     * @param $id
+     * @param Request $request
+     * @return Response
+     * @Route ("/afficherDetailSoinMPs/{id}/{iduser}",name="afficherDetailSoinMPs")
+     */
+    public function detailSoinMPs(SessionInterface $session, $iduser,$id,Request $request): Response
+    {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        $formCaptcha->handleRequest($request);
+
+        if ($formCaptcha->isSubmitted()) {
+            $data=$formCaptcha->getData();
+            $findCaptcha=$this->getDoctrine()->getRepository(Captcha::class)->find($data['id']);
+            $verif=$data['Captcha'];
+            if($findCaptcha->getValue()==$verif)
+            {
+                return $this->redirectToRoute('AfficherdetailSoinMPnote', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'id'=>$id, ]);}
+        }
+        $x=random_int(1,21);
+        $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
+        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
+        return $this->render('soin_mp/DetailSoinMPS.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),]);
     }
 
     /**
+     * @param $iduser
+     * @param $id
+     * @param Request $request
      * @return Response
-     * @Route("/afficherSoinMPs/{id}", name="afficherSoinMPs")
+     * @Route ("/AfficherdetailSoinMPnote/{id}/{iduser}",name="AfficherdetailSoinMPnote")
      */
-    public function listSoinMPs($id): Response
+    public function detailSoinMPsnote(SessionInterface $session, $iduser,$id,Request $request): Response
     {
-        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
-        return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,]);
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $note=0;
+        $Moyenne=0;
+        $aviss="";
+        $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
+        $Notes=$this->getDoctrine()->getRepository(NoteSoinMP::class)->findBy(array('soinMP'=>$id));
+        $x = $this->getDoctrine()->getRepository(NoteSoinMP::class)->findOneBy(array('soinMP'=>$SoinMPsfind,'user'=>$iduser));
+        if (!(empty($Notes))){
+        $total=0;
+        for ($i =0; $i <= (count($Notes)-1); $i++)
+        {
+            $total=$total+($Notes[$i]->getValeur());
+        }
+        $Moyenne=$total/(count($Notes));}
+        if(!(empty($x))) {
+            $note = $x->getValeur();
+            $aviss = $x->getAvis();
+        }
+        return $this->render('soin_mp/DetailSoinMPSnote.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,]);
+
     }
 
     /**
@@ -47,14 +184,18 @@ class SoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/ajouterSoinMP" , name="ajouterSoinMP")
      */
-    public function ajouterSoinMP(Request $request)
+    public function ajouterSoinMP(SessionInterface $session, Request $request)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $SoinMP = new SoinMP();
         $form = $this->createForm(SoinMPType::class, $SoinMP);
         $form->add('ajouter', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -72,7 +213,6 @@ class SoinMPController extends AbstractController
             $em->persist($SoinMP);
             $em->flush();
             return $this->redirectToRoute('afficherSoinMP');
-
         }
         return $this->render('soin_mp/ajouterSoinMP.html.twig', ['formAjouterSoinMP' => $form->createView()]);
     }
@@ -81,8 +221,13 @@ class SoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/supprimerSoinMP/{id}" , name="supprimerSoinMP")
      */
-    public function SupprimerSoinMP($id)
+    public function SupprimerSoinMP(SessionInterface $session, $id)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($SoinMPfind);
@@ -95,8 +240,13 @@ class SoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/modifierSoinMP/{id}" , name="modifierSoinMP")
      */
-    public function modifierSoinMP($id, Request $request)
+    public function modifierSoinMP(SessionInterface $session, $id, Request $request)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(SoinMPType::class, $SoinMPfind);
         $form->add('modifier', SubmitType::class);
@@ -119,7 +269,7 @@ class SoinMPController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('afficherSoinMP');
         }
-        return $this->render('soin_mp/modifierSoinMP.html.twig', ['formModifierSoinMP' => $form->createView()]);
+        return $this->render('soin_mp/modifierSoinMP.html.twig', ['formModifierSoinMP' => $form->createView(),]);
 
     }
     /**

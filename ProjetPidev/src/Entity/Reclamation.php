@@ -22,7 +22,7 @@ class Reclamation
 
     /**
      * @ORM\Column(type="string", length=255)
-     *  * @Assert\NotBlank(message="Le champs reclamation est obligatoire * ")
+     * @Assert\NotBlank(message="Le champs reclamation est obligatoire * ")
      */
     private $descriptionReclamation;
 
@@ -37,6 +37,13 @@ class Reclamation
      * @ORM\JoinColumn(nullable=false)
      */
     private $typeReclamation;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $reponse;
+
+    protected $captchaCode;
 
     public function getId(): ?int
     {
@@ -78,7 +85,26 @@ class Reclamation
 
         return $this;
     }
-    public function __toString(){
-    return $this->user;
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(?string $reponse): self
+    {
+        $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    public function getCaptchaCode()
+    {
+        return $this->captchaCode;
+    }
+
+    public function setCaptchaCode($captchaCode)
+    {
+        $this->captchaCode = $captchaCode;
     }
 }

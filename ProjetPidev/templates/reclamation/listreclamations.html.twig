@@ -7,30 +7,22 @@
                 <h2 class="section-title" id="id">Reclamation</h2>
             </div>
             <table id="example1" class="table table-bordered table-striped" >
-                <thead>
-                <tr>
-
-
-                    <th>Description</th>
-
-                </thead>
-                <tbody>
 
                 {% for S in listreclamations %}
                     <tr>
 
-
+                        <th>Description</th>
                         <td>{{ S.descriptionReclamation }}</td>
+                    </tr>
+                    <tr>
 
-                        <td>                       </td>
-
-
+                        <th>Reponse</th>
+                        <td>{{ S.reponse }}</td>
                     </tr>
                 {% endfor %}
 
 
 
-                </tbody>
 
             </table>
         </div>

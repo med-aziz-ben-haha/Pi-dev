@@ -1,0 +1,38 @@
+{% include 'temp1.html.twig' %}
+<style>
+    button {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:hover {
+        color: #FFFFFF;
+        opacity: 0.8;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:active {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+
+</style>
+<div class="box">
+    <div class="box-header">
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > repondre a une reclamation </h1>
+
+        <form  method="post"  action="{{ path('user_mailing') }}">
+            <label for="mail"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="mail"  value="" required>
+
+            <button type="submit">envoyer</button>
+        </form>
+
+    </div>
+    <!-- /.box-body -->
+</div>
+{% include 'temp2.html.twig' %}

@@ -1,0 +1,67 @@
+{% include 'tempFront1MO.html.twig' %}
+<style> .btn-primary {
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+
+    }
+    .btn-primary:hover {
+        opacity: 0.8;
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+    }
+    .btn-primary:active {
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+    }
+</style>
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" id="id">Médicaments</h2>
+            </div>
+            <table style="margin-top: 5% ; margin-left: 16%">
+                <tr>
+                    <td>
+                        <form  method="post" action="{{ path ('recherchemed2') }}">
+                            <label>Rechercher</label>
+                            <input type="text" name="search"><input class="btn-primary"  type="submit" value="Recherche">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <table id="example1" class="table table-bordered table-striped" >
+                <tr>
+                    <td> Nom du médicament </td>
+                    <td> Description du médicament </td>
+                    <td> Disponibilité </td>
+                    <td> Image du medicament </td>
+                    <td> Date de modification </td>
+                </tr>
+                {% for i in frontlistmedicament %}
+                    <tr>
+                        <td>{{ i.nomMedicament }}</td>
+                        <td>{{ i.Descmedicament }}</td>
+
+                        {% if i.dispo == 1 %}
+                            <td><img src="{{ asset ('bundles/dist/img/available.png') }}" alt="Disponible"></td>
+                        {% endif %}
+
+                        {% if i.dispo == 0 %}
+                            <td><img src="{{ asset ('bundles/dist/img/nn available.png') }}" alt="Non disponible"></td>
+                        {% endif %}
+
+                        <td><img style=" padding-right: 2px; padding-left: 2px;  width:75px ; height: 75px ; " src="{{ asset ('uploads/brochures/'~ i.getImgMedicament() ) }}" alt="Image"></td>
+                        <td>{{ i.dateModif|date("d/m/Y") }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div style="margin-left: 37.2%; margin-top: 5%;">{{ knp_pagination_render(frontlistmedicament) }}</div>
+</section>
+
+{% include 'tempFront2MO.html.twig' %}

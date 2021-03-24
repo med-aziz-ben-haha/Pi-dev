@@ -4,9 +4,11 @@ namespace App\Controller;
 
 use App\Entity\CategorieSoinMP;
 use App\Form\CategorieSoinMPType;
+use App\Form\CategorieSoinMPRechercheType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -22,24 +24,53 @@ class CategorieSoinMPController extends AbstractController
             'controller_name' => 'CategorieSoinMPController',
         ]);
     }
+
     /**
      * @return Response
      * @Route("/afficherCategorieSoinMP", name="afficherCategorieSoinMP")
      */
-    public function listCategoriesSoinMP(): Response
+    public function listCategoriesSoinMP(SessionInterface $session,Request $request): Response
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
-        return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categoriesSoinMP,]);
+        $form=$this->createForm(CategorieSoinMPRechercheType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {   $data=$form->getData();
+            $titre=$data['recherche'];
+            $categorieSoinMPfind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
+            return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categorieSoinMPfind,'formSearch'=>$form->createView(),]);
+        }
+        return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categoriesSoinMP,'formSearch'=>$form->createView(),]);
     }
 
     /**
+     * @param Request $request
+     * @param $iduser
      * @return Response
-     * @Route("/afficherCategorieSoinMPs", name="afficherCategorieSoinMPs")
+     * @Route("/afficherCategorieSoinMPs/{iduser}", name="afficherCategorieSoinMPs")
      */
-    public function listCategoriesSoinMPs(): Response
+    public function listCategoriesSoinMPs(SessionInterface $session, Request $request, $iduser): Response
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $categoriesSoinMP = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
-        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,]);
+        $form=$this->createForm(CategorieSoinMPRechercheType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted())
+        {   $data=$form->getData();
+            $titre=$data['recherche'];
+            $categorieSoinMPfind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
+            return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categorieSoinMPfind,'formSearch'=>$form->createView(), 'iduser'=>$iduser,]);
+        }
+        return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(), 'iduser'=>$iduser,]);
     }
 
     /**
@@ -47,8 +78,13 @@ class CategorieSoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/ajouterCategorieSoinMP" , name="ajouterCategorieSoinMP")
      */
-    public function ajouterCategorieSoinMP(Request $request)
+    public function ajouterCategorieSoinMP(SessionInterface $session, Request $request)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $CategorieSoinMP= new CategorieSoinMP();
         $form= $this->createForm(CategorieSoinMPType::class,$CategorieSoinMP);
         $form->add('ajouter',SubmitType::class);
@@ -81,8 +117,13 @@ class CategorieSoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/supprimerCategorieSoinMP/{id}" , name="supprimerCategorieSoinMP")
      */
-    public function SupprimerCategorieSoinMP($id)
+    public function SupprimerCategorieSoinMP(SessionInterface $session, $id)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $CategorieSoinMPfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($CategorieSoinMPfind);
@@ -96,8 +137,13 @@ class CategorieSoinMPController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/modifierCategorieSoinMP/{id}" , name="modifierCategorieSoinMP")
      */
-    public function modifierCategorieSoinMP($id, Request $request)
+    public function modifierCategorieSoinMP(SessionInterface $session, $id, Request $request)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
         $CategorieSoinMPfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(CategorieSoinMPType::class, $CategorieSoinMPfind);
         $form->add('modifier', SubmitType::class);

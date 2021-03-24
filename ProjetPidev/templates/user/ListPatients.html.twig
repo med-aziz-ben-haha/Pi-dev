@@ -1,16 +1,38 @@
 
 {% include 'temp1.html.twig' %}
+<style>
+    button {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:hover {
+        color: #FFFFFF;
+        opacity: 0.8;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:active {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
 
+</style>
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Gestion des patients</h3>
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion des patients</h1>
     </div>
     <!-- /.box-header -->
     <div class="box-body">
         <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
-                <th>Id_User</th>
+                <th>Photo de profil</th>
+                <th>Id</th>
                 <th>Login</th>
                 <th>Nom</th>
                 <th>Prénom</th>
@@ -18,81 +40,27 @@
                 <th>Adresse</th>
                 <th>Telephone</th>
                 <th>Sexe</th>
+                <th>Supprimer</th>
 
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-
-
+            {% for P in listPatients %}
 
             <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.5</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.6</td>
-                <td>Win 95+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td>Gecko</td>
-                <td>Mozilla 1.7</td>
-                <td>Win 98+ / OSX.1+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-
+                <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ P.getLienImageUser())}}"></td>
+                <td>{{P.id}}</td>
+                <td>{{P.login}}</td>
+                <td>{{P.nom}}</td>
+                <td>{{P.prenom}}</td>
+                <td>{{P.email}}</td>
+                <td>{{P.adresseUser}}</td>
+                <td>{{P.telephone}}</td>
+                <td>{{P.sexe}}</td>
+                <td><form action=" {{path('supprimerPatient',{id:P.id})}} "><button>Supprimer</button></form></td>
             </tr>
 
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 2.0</td>
-                <td>OSX.4+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-            <tr>
-                <td>Webkit</td>
-                <td>Safari 3.0</td>
-                <td>OSX.4+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-                <td>Win 95+</td>
-                <td>Trident</td>
-                <td>Internet Explorer 4.0</td>
-
-            </tr>
-
+            {% endfor %}
             </tbody>
 
         </table>

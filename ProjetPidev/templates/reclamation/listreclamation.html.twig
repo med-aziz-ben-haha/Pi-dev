@@ -43,15 +43,16 @@
             </thead>
             <tbody>
             <input type="text" id="search" class="form-control" placeholder="Search">
-
+            <a href="{{path('afficherpdf') }}"> Imprimer </a>
             {% for S in listreclamation %}
                 <tr>
 
                     <td>{{ S.id }}</td>
                     <td>{{ S.descriptionReclamation }}</td>
-                    <td>{{ S.user.id }}</td>
-                    <td>{{ S.typeReclamation.id }}</td>
-                    <td>                       </td>
+                    <td>{{ S.user.getNom() }}</td>
+                    <td>{{ S.typeReclamation.getTypeReclamation }}</td>
+
+                   <td><form action=" {{path('repondre',{id:S.id})}} "><button>repondre</button></form></td>
                     <td><form action=" {{path('supprimerreclamation',{id:S.id})}} "><button>Supprimer</button></form></td>
 
                 </tr>

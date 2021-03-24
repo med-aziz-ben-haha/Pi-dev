@@ -5,10 +5,14 @@ namespace App\Form;
 use App\Entity\Reclamation;
 use App\Entity\User;
 use App\Entity\TypeReclamation;
+use App\Repository\TypeReclamationRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType;
+use Captcha\Bundle\CaptchaBundle\Validator\Constraints\ValidCaptcha;
+
 class ReclamationsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -16,12 +20,22 @@ class ReclamationsType extends AbstractType
         $builder
 
 
-            ->add('user',EntityType::class,
-                ['class'=>User::class,'choice_label'=>'id'])
+
 
             ->add('typeReclamation',EntityType::class,
                 ['class'=>TypeReclamation::class,'choice_label'=>'typeReclamation'])
             ->add('descriptionReclamation')
+            ->add('captchaCode', CaptchaType::class, array(
+                'captchaConfig' => 'ExampleCaptchaUserRegistration',
+                'constraints' => [
+                    new ValidCaptcha([
+                        'message' => 'Invalid captcha, please try again',
+                    ]),
+                ],
+            ))
+
+            // ... ///
+        ;
 
         ;
     }

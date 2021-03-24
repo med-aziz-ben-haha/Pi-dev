@@ -47,4 +47,13 @@ class CategorieSoinMPRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function search($titre){
+
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.libelleCategorieSoinMP LIKE :titre ')
+            ->setParameter('titre', '%'.$titre.'%')
+            ->getQuery()
+            ->execute();
+    }
+
 }

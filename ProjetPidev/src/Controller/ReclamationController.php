@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Entity\Reclamation;
 use App\Entity\User;
+use App\Form\AjoutreclamationType;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -11,7 +12,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\ReclamationsType;
 use App\Form\ReclamationType;
-
+// Include Dompdf required namespaces
+use Dompdf\Dompdf;
+use Dompdf\Options;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 
 class ReclamationController extends AbstractController
@@ -31,55 +35,128 @@ class ReclamationController extends AbstractController
          * @return Response
          * @Route("/afficherreclamation", name="afficherreclamation")
          */
-        public function listreclamation(): Response
+        public function listreclamation(SessionInterface $session): Response
         {
+            $user=$session->get('user');
+            if(is_null($user))
+            {
+                return $this->redirectToRoute('connexion');
+            }
+            $iduser=$user->getId();
             $reclamation = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
-            return $this->render('reclamation/listreclamation.html.twig', ['listreclamation' => $reclamation,]);
+            return $this->render('reclamation/listreclamation.html.twig', ['listreclamation' => $reclamation, 'iduser'=>$iduser,]);
         }
-/**
+
+          /**
+                 * @return Response
+                 * @Route("/afficherpdf", name="afficherpdf")
+                 */
+                public function afficherpdf(SessionInterface $session): Response
+                {
+                    $user=$session->get('user');
+                    if(is_null($user))
+                    {
+                        return $this->redirectToRoute('connexion');
+                    }
+                    $iduser=$user->getId();
+                   // Configure Dompdf according to your needs
+                           $pdfOptions = new Options();
+                           $pdfOptions->set('defaultFont', 'Arial');
+
+                           // Instantiate Dompdf with our options
+                           $dompdf = new Dompdf($pdfOptions);
+                        $reclamation = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
+
+
+                           // Retrieve the HTML generated in our twig file
+                           $html = $this->renderView('reclamation/list.html.twig', ['listreclamation' => $reclamation,'iduser'=>$iduser,]);
+
+                           // Load HTML to Dompdf
+                           $dompdf->loadHtml($html);
+
+                           // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+                           $dompdf->setPaper('A4', 'portrait');
+
+                           // Render the HTML as PDF
+                           $dompdf->render();
+
+                           // Output the generated PDF to Browser (force download)
+                           $dompdf->stream("mypdf.pdf", [
+                               "Attachment" => false
+                           ]);
+                }
+
+    /**
      * @return Response
      * @Route("/afficherreclamations", name="afficherreclamations")
      */
-    public function listreclamations(): Response
+    public function listreclamations(SessionInterface $session): Response
     {
-        $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
-        return $this->render('reclamation/listreclamations.html.twig', ['listreclamations' => $reclamationfind,]);
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $iduser=$user->getId();
+
+        $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->findby(array('user'=>$iduser));
+        return $this->render('reclamation/listreclamations.html.twig', ['listreclamations' => $reclamationfind, 'iduser'=>$iduser,]);
     }
+
     /**
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/supprimerreclamation/{id}" , name="supprimerreclamation")
      */
-    public function Supprimerreclamation($id)
+    public function Supprimerreclamation(SessionInterface $session,$id)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $iduser=$user->getId();
         $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($reclamationfind);
         $em->flush();
-        return $this->redirectToRoute('afficherreclamation');
-
+        return $this->redirectToRoute('afficherreclamation',['iduser'=>$iduser,]);
     }
- /**
+
+    /**
      * @param $id
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      * @Route ("/supprimerreclamations/{id}" , name="supprimerreclamations")
      */
-    public function Supprimerreclamations($id)
+    public function Supprimerreclamations(SessionInterface $session,$id)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $iduser=$user->getId();
         $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->find($id);
         $em = $this->getDoctrine()->getManager();
         $em->remove($reclamationfind);
         $em->flush();
-        return $this->redirectToRoute('afficherreclamations');
+        return $this->redirectToRoute('afficherreclamations',['iduser'=>$iduser,]);
 
     }
-/**
+
+    /**
      * @param $id
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/modifierreclamations/{id}" , name="modifierreclamations")
      */
-    public function modifierreclamation($id, Request $request)
+    public function modifierreclamation(SessionInterface $session,$id, Request $request)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $iduser=$user->getId();
         $reclamationfind = $this->getDoctrine()->getRepository(reclamation::class)->findBy(['id' => $id])[0];
         $form = $this->createForm(ReclamationType::class, $reclamationfind);
         $form->add('modifier', SubmitType::class);
@@ -89,40 +166,88 @@ class ReclamationController extends AbstractController
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
-            return $this->redirectToRoute('afficherreclamations');}
+            return $this->redirectToRoute('afficherreclamations',[ 'iduser'=>$iduser,]);}
 
-        return $this->render('reclamation/modifierreclamations.html.twig', ['f' => $form->createView()]);
+        return $this->render('reclamation/modifierreclamations.html.twig', ['f' => $form->createView(), 'iduser'=>$iduser,]);
 
     }
- /**
+
+    /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("/ajouterreclamation" , name="ajouterreclamation")
      */
-    public function ajouterreclamation(Request $request)
+    public function ajouterreclamation(SessionInterface $session,Request $request)
     {
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $iduser=$user->getId();
+        $reponse="Reclamation en cours";
         $reclamation = new reclamation();
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
+
         $form = $this->createForm(ReclamationsType::class, $reclamation);
         $form->add('ajouter', SubmitType::class);
         $form->handleRequest($request);
         if($form->isSubmitted()&& $form->isValid()){
+            $reclamation->setReponse($reponse);
+            $reclamation->setUser($userfind);
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
-            return $this->redirectToRoute('reclamationencours'); }
+            return $this->redirectToRoute('afficherreclamations',[ 'iduser'=>$iduser,]); }
 
-        return $this->render('reclamation/ajouterreclamation.html.twig', ['f' => $form->createView()]);
+        return $this->render('reclamation/ajouterreclamation.html.twig', ['f' => $form->createView(), 'iduser'=>$iduser,]);
     }
-/**
-     * @return Response
-     * @Route("/reclamationencours", name="reclamationencours")
+
+    /**
+     * @param SessionInterface $session
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("/repondre/{id}", name="repondre")
      */
-    public function reclamationencours(): Response
+    public function repondrereclamation(SessionInterface $session,Request $request,$id)
     {
-        $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
-        return $this->render('reclamation/reclamationencours.html.twig', ['reclamationencours' => $reclamationfind,]);
+        $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $iduser=$user->getId();
+
+        return $this->render('reclamation/repondre.html.twig', [ 'iduser'=>$iduser,'id'=>$id,]);
     }
 
+    /**
+     * @param SessionInterface $session
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("/envreponse/{id}", name="envreponse", methods="GET")
+     */
+    public function envoyerreponse(SessionInterface $session,Request $request,$id)
+    {   $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $reclamation= $this->getDoctrine()->getRepository(Reclamation::class)->findOneBy(array('id'=>$id));
+
+        $reponse=$request->get('reponse');
+         $reclamation->setReponse($reponse);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($reclamation);
+            $em->flush();
+
+        $iduser=$user->getId();
+
+
+        return $this->redirectToRoute('afficherreclamation',[ 'iduser'=>$iduser,'id'=>$id,]);
+    }
 
 
 }
+
+

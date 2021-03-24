@@ -47,4 +47,33 @@ class SoinMPRepository extends ServiceEntityRepository
         ;
     }
     */
+    public function search($titre){
+
+        return $this->createQueryBuilder('s')
+            ->where('s.titreSoinMP LIKE :titre Or s.descriptionSoinMP LIKE :description Or s.adresseSoinMP LIKE :adresse  ')
+            ->setParameters(array('titre'=>'%'.$titre.'%','description'=>'%'.$titre.'%','adresse'=>'%'.$titre.'%'))
+            ->getQuery()
+            ->execute();
+    }
+
+    public function searchs($titre,$idCategorie){
+
+        return $this->createQueryBuilder('s')
+            ->where('s.titreSoinMP LIKE :titre Or s.descriptionSoinMP LIKE :description Or s.adresseSoinMP LIKE :adresse  ')
+            ->andWhere('s.CategorieSoinMP = :categorieid')
+            ->setParameters(array('titre'=>'%'.$titre.'%','description'=>'%'.$titre.'%','adresse'=>'%'.$titre.'%','categorieid'=>$idCategorie))
+            ->getQuery()
+            ->execute();
+    }
+
+    public function findAlltri()
+    {
+        return $this->findBy(array(), array('titreSoinMP' => 'ASC'));
+    }
+
+    public function findAlltriDESC()
+    {
+        return $this->findBy(array(), array('titreSoinMP' => 'DESC'));
+    }
+
 }

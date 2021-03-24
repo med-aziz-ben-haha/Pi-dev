@@ -10,7 +10,6 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
 
-
 /**
  * @ORM\Entity(repositoryClass=TypeReclamationRepository::class)
  */
@@ -25,12 +24,12 @@ class TypeReclamation
 
     /**
      * @ORM\Column(type="string", length=255)
-      * @Assert\NotBlank(message="Le champs type reclamation est obligatoire * ")
+     * @Assert\NotBlank(message="Le champs type reclamation est obligatoire * ")
      */
     private $typeReclamation;
 
     /**
-     * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="typeReclamation")
+     * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="typeReclamation", orphanRemoval=true)
      */
     private $reclamations;
 
