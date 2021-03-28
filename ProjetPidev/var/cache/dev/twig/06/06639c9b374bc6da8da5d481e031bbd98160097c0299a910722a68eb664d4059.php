@@ -43,7 +43,10 @@ class __TwigTemplate_3c844029a41a7711d25bd6e653c6cad67946c8e8ab87578a6b564acd570
         $this->loadTemplate("templateAccueil.html.twig", "user/accueilOnlineMed.html.twig", 1)->display($context);
         // line 2
         echo "
-<a href=\"/listordonnance\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Gestion des Ordonnances<i class=\"fas fa-chevron-right\"></i></a>
+<a href=\"";
+        // line 3
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/listordonnance"), "html", null, true);
+        echo "\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Gestion des Ordonnances<i class=\"fas fa-chevron-right\"></i></a>
 ";
         // line 4
         $this->loadTemplate("templateAccueilFooter.html.twig", "user/accueilOnlineMed.html.twig", 4)->display($context);
@@ -67,14 +70,14 @@ class __TwigTemplate_3c844029a41a7711d25bd6e653c6cad67946c8e8ab87578a6b564acd570
 
     public function getDebugInfo()
     {
-        return array (  49 => 4,  45 => 2,  43 => 1,);
+        return array (  52 => 4,  48 => 3,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% include 'templateAccueil.html.twig'  %}
 
-<a href=\"/listordonnance\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Gestion des Ordonnances<i class=\"fas fa-chevron-right\"></i></a>
+<a href=\"{{ asset('/listordonnance') }}\" class=\"btn btn-main-outline mt-2\" style =\"margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;\">Gestion des Ordonnances<i class=\"fas fa-chevron-right\"></i></a>
 {% include 'templateAccueilFooter.html.twig' %}", "user/accueilOnlineMed.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\accueilOnlineMed.html.twig");
     }
 }

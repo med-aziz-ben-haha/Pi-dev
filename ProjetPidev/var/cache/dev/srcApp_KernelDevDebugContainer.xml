@@ -499,7 +499,7 @@
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
-    <service id="App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true">
+    <service id="App\Form\CaptchaSMPType" class="App\Form\CaptchaSMPType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" autoconfigure="true">
@@ -557,6 +557,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\VerifierInscriptionType" class="App\Form\VerifierInscriptionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" autoconfigure="true">
@@ -1067,7 +1070,7 @@
         <argument></argument>
       </argument>
       <argument type="collection">
-        <argument>App\Form\CaptchaType</argument>
+        <argument>App\Form\CaptchaSMPType</argument>
         <argument>App\Form\CategorieProduitType</argument>
         <argument>App\Form\CategorieSoinMPRechercheType</argument>
         <argument>App\Form\CategorieSoinMPType</argument>
@@ -1087,6 +1090,7 @@
         <argument>App\Form\UserMedType</argument>
         <argument>App\Form\UserParaType</argument>
         <argument>App\Form\UserType</argument>
+        <argument>App\Form\VerifierInscriptionType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1423,7 +1427,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.jgfLs39"/>
+      <argument type="service" id=".service_locator.BoS0rNF"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -5453,8 +5457,8 @@
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaSMPType" class="App\Form\CaptchaSMPType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CaptchaSMPType" class="App\Form\CaptchaSMPType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieSoinMPRechercheType" class="App\Form\CategorieSoinMPRechercheType" autowire="true" abstract="true"/>
@@ -5493,6 +5497,8 @@
     <service id=".abstract.instanceof.App\Form\UserParaType" class="App\Form\UserParaType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\VerifierInscriptionType" class="App\Form\VerifierInscriptionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\VerifierInscriptionType" class="App\Form\VerifierInscriptionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" abstract="true"/>
@@ -5998,14 +6004,24 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.d1Mhi6l" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.JF7P1XJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="clee" type="service" id="session"/>
         <argument key="mailer" type="service" id="mailer.mailer"/>
         <argument key="sesssion" type="service" id="session"/>
+        <argument key="util" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.SjO50J." class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.bQmDnwY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="clee" type="service" id="session"/>
+        <argument key="mailer" type="service" id="mailer.mailer"/>
+        <argument key="util" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.6GMsvfO" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
@@ -6081,6 +6097,7 @@
         <argument key="App\Controller\SoinMPController::ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::detailSoinMPsnote" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SoinMPController::impression" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::listSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::listSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::modifierSoinMP" type="service" id=".service_locator.o3htLhs"/>
@@ -6102,16 +6119,18 @@
         <argument key="App\Controller\UserController::accueilMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::accueilParapharmacien" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::accueilPharmacien" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\UserController::afficherStatUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::afficherUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::connexion" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\UserController::inscription" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController::inscriptionMed" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController::inscriptionPara" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController::inscriptionPharmacien" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController::inscription" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController::inscriptionMed" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController::inscriptionPara" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController::inscriptionPharmacien" type="service" id=".service_locator.JF7P1XJ"/>
         <argument key="App\Controller\UserController::logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierPhar" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierUser" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\UserController::verifinscirption" type="service" id=".service_locator.bQmDnwY"/>
         <argument key="App\Controller\AdminController:accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AdminController:index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieProduitController:add" type="service" id=".service_locator.DJXPM0N"/>
@@ -6185,6 +6204,7 @@
         <argument key="App\Controller\SoinMPController:ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:detailSoinMPsnote" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SoinMPController:impression" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:listSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:listSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:modifierSoinMP" type="service" id=".service_locator.o3htLhs"/>
@@ -6206,16 +6226,18 @@
         <argument key="App\Controller\UserController:accueilMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:accueilParapharmacien" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:accueilPharmacien" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\UserController:afficherStatUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:afficherUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:connexion" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\UserController:inscription" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController:inscriptionMed" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController:inscriptionPara" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController:inscriptionPharmacien" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController:inscription" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController:inscriptionMed" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController:inscriptionPara" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController:inscriptionPharmacien" type="service" id=".service_locator.JF7P1XJ"/>
         <argument key="App\Controller\UserController:logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierPhar" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierUser" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\UserController:verifinscirption" type="service" id=".service_locator.bQmDnwY"/>
       </argument>
     </service>
     <service id=".service_locator.u8z4W6F" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -6281,10 +6303,10 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.jgfLs39" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.BoS0rNF" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
+        <argument key="App\Form\CaptchaSMPType" type="service" id="App\Form\CaptchaSMPType"/>
         <argument key="App\Form\CategorieProduitType" type="service" id="App\Form\CategorieProduitType"/>
         <argument key="App\Form\CategorieSoinMPRechercheType" type="service" id="App\Form\CategorieSoinMPRechercheType"/>
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
@@ -6304,6 +6326,7 @@
         <argument key="App\Form\UserMedType" type="service" id="App\Form\UserMedType"/>
         <argument key="App\Form\UserParaType" type="service" id="App\Form\UserParaType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
+        <argument key="App\Form\VerifierInscriptionType" type="service" id="App\Form\VerifierInscriptionType"/>
         <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType" type="service" id="captcha.form.type"/>
         <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType" type="service" id="simple_captcha.form.type"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
@@ -6785,12 +6808,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.SjO50J."/>
+      <argument type="service" id=".service_locator.6GMsvfO"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.SjO50J."/>
+      <argument type="service" id=".service_locator.6GMsvfO"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7199,7 +7222,7 @@
     <service id="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" alias="knpu.oauth2.client.google_connect" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.SjO50J."/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.6GMsvfO"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -7214,7 +7237,7 @@
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
     <service id=".service_locator.xkmSecI" alias=".service_locator.u8z4W6F" public="false"/>
-    <service id=".service_locator.UgKUVeF" alias=".service_locator.jgfLs39" public="false"/>
+    <service id=".service_locator.KBWu0UF" alias=".service_locator.BoS0rNF" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

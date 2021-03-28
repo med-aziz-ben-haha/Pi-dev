@@ -43,7 +43,7 @@ class ParapharmacieController extends AbstractController
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $parapharmacie=$repository->findAll();
         return $this->render('parapharmacie/ListParapharmacie.html.twig',
-            ['parapharmacie'=>$parapharmacie,'user'=>$userfind,]);
+            ['parapharmacie'=>$parapharmacie,'user'=>$userfind,'iduser'=>$iduser,]);
     }
 
     /**
@@ -62,7 +62,7 @@ class ParapharmacieController extends AbstractController
         $em->remove($parapharmacie);
         $em->flush();
         $this->addFlash('success','Parapharmacie  Supprimée avec succée');
-        return $this->redirectToRoute('affichePara',['user'=>$userfind,]);
+        return $this->redirectToRoute('affichePara',['user'=>$userfind,'iduser'=>$iduser,]);
     }
 
     /**
@@ -104,10 +104,10 @@ class ParapharmacieController extends AbstractController
             $em->persist($parapharmacie);
             $em->flush();
             $this->addFlash('success','Parapharmacie  Ajoutée avec succée');
-            return $this->redirectToRoute('affichePara',['user'=>$userfind,]);
+            return $this->redirectToRoute('affichePara',['user'=>$userfind,'iduser'=>$iduser,]);
         }
         return $this->render('parapharmacie/AjoutParapharmacie.html.twig',[
-            'form'=>$form->createView(),'user'=>$userfind,
+            'form'=>$form->createView(),'user'=>$userfind,'iduser'=>$iduser,
         ]);
     }
 
@@ -147,10 +147,10 @@ class ParapharmacieController extends AbstractController
             $em=$this->getDoctrine()->getManager();
             $em->flush();
             $this->addFlash('success','Parapharmacie  Modifiée avec succée');
-            return $this->redirectToRoute('affichePara',['user'=>$userfind,]);
+            return $this->redirectToRoute('affichePara',['user'=>$userfind,'iduser'=>$iduser,]);
         }
         return $this->render('parapharmacie/ModifierParapharmacie.html.twig',[
-            'form'=>$form->createView(),'user'=>$userfind,
+            'form'=>$form->createView(),'user'=>$userfind,'iduser'=>$iduser,
         ]);
 
     }
@@ -173,7 +173,7 @@ class ParapharmacieController extends AbstractController
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $parapharmacie=$repository->findAll();
         return $this->render('parapharmacie/FrontListPara.html.twig',
-            ['parapharmacie'=>$parapharmacie,'user'=>$userfind,]);
+            ['parapharmacie'=>$parapharmacie,'user'=>$userfind,'iduser'=>$iduser,]);
     }
 
     /**
@@ -187,6 +187,8 @@ class ParapharmacieController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficheFrontClientPara', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);

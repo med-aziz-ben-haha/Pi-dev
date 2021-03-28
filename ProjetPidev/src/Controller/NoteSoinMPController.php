@@ -35,6 +35,8 @@ class NoteSoinMPController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('ajouternoteSMP', ['iduser' => $user->getId(),]);
         }
         $avis=$request->get('avis');
         $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);

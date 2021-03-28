@@ -48,44 +48,43 @@ class ReclamationController extends AbstractController
             $reclamation = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
             return $this->render('reclamation/listreclamation.html.twig', ['listreclamation' => $reclamation, 'iduser'=>$iduser, 'user'=>$userfind,]);
         }
+        /**
+         * @return Response
+         * @Route("/afficherpdf", name="afficherpdf")
+         */
+        public function afficherpdf(SessionInterface $session): Response
+        {
+            $user=$session->get('user');
+            if(is_null($user))
+            {
+                return $this->redirectToRoute('connexion');
+            }
+            $iduser=$user->getId();
+            $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
+            // Configure Dompdf according to your needs
+            $pdfOptions = new Options();
+            $pdfOptions->set('defaultFont', 'Arial');
 
-          /**
-                 * @return Response
-                 * @Route("/afficherpdf", name="afficherpdf")
-                 */
-                public function afficherpdf(SessionInterface $session): Response
-                {
-                    $user=$session->get('user');
-                    if(is_null($user))
-                    {
-                        return $this->redirectToRoute('connexion');
-                    }
-                    $iduser=$user->getId();
-                    $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
-                   // Configure Dompdf according to your needs
-                           $pdfOptions = new Options();
-                           $pdfOptions->set('defaultFont', 'Arial');
-
-                           // Instantiate Dompdf with our options
-                           $dompdf = new Dompdf($pdfOptions);
-                        $reclamation = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
+            // Instantiate Dompdf with our options
+            $dompdf = new Dompdf($pdfOptions);
+            $reclamation = $this->getDoctrine()->getRepository(Reclamation::class)->findAll();
 
 
-                           // Retrieve the HTML generated in our twig file
-                           $html = $this->renderView('reclamation/list.html.twig', ['listreclamation' => $reclamation,'iduser'=>$iduser,'user'=>$userfind,]);
+            // Retrieve the HTML generated in our twig file
+            $html = $this->renderView('reclamation/list.html.twig', ['listreclamation' => $reclamation,'iduser'=>$iduser,'user'=>$userfind,]);
 
-                           // Load HTML to Dompdf
-                           $dompdf->loadHtml($html);
+            // Load HTML to Dompdf
+            $dompdf->loadHtml($html);
 
-                           // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
-                           $dompdf->setPaper('A4', 'portrait');
+            // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+            $dompdf->setPaper('A4', 'portrait');
 
-                           // Render the HTML as PDF
-                           $dompdf->render();
+            // Render the HTML as PDF
+            $dompdf->render();
 
-                           // Output the generated PDF to Browser (force download)
-                           $dompdf->stream("mypdf.pdf", [
-                               "Attachment" => false
+            // Output the generated PDF to Browser (force download)
+            $dompdf->stream("mypdf.pdf", [
+                "Attachment" => false
                            ]);
                 }
 
@@ -100,6 +99,7 @@ class ReclamationController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->findby(array('user'=>$iduser));

@@ -40,7 +40,7 @@ class __TwigTemplate_41a13786db9906840c900b708f9775fd50fe9017022a03b7588fe839a9d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "user/templateModifierProfilMed.html.twig"));
 
         // line 1
-        $this->loadTemplate("templateAccueilProfil.html.twig", "user/templateModifierProfilMed.html.twig", 1)->display(twig_array_merge($context, ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 1, $this->source); })())]));
+        $this->loadTemplate("templateAccueilProfil.html.twig", "user/templateModifierProfilMed.html.twig", 1)->display($context);
         // line 2
         echo "
 <style>
@@ -379,7 +379,7 @@ class __TwigTemplate_41a13786db9906840c900b708f9775fd50fe9017022a03b7588fe839a9d
 
     public function getSourceContext()
     {
-        return new Source("{% include 'templateAccueilProfil.html.twig'  with {'iduser' :iduser} %}
+        return new Source("{% include 'templateAccueilProfil.html.twig'   %}
 
 <style>
     .btn-primary {

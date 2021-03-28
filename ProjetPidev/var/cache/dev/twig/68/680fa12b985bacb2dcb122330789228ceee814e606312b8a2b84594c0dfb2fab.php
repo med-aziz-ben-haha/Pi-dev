@@ -40,9 +40,9 @@ class __TwigTemplate_d98015767d73d8d60f75143c937f211749e2eefae9091568b32566425ea
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "medicament/Medicamentmodifier.html.twig"));
 
         // line 1
-        $this->loadTemplate("tempFront1MO.html.twig", "medicament/Medicamentmodifier.html.twig", 1)->display($context);
+        $this->loadTemplate("templateAccueilPhar.html.twig", "medicament/Medicamentmodifier.html.twig", 1)->display($context);
         // line 2
-        echo "<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Pharmacien  </h1>
+        echo "
 <div class=\"container\">
 
     <div class=\"form-group\">
@@ -147,8 +147,8 @@ class __TwigTemplate_d98015767d73d8d60f75143c937f211749e2eefae9091568b32566425ea
 
     public function getSourceContext()
     {
-        return new Source("{% include 'tempFront1MO.html.twig' %}
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Pharmacien  </h1>
+        return new Source("{% include 'templateAccueilPhar.html.twig'  %}
+
 <div class=\"container\">
 
     <div class=\"form-group\">

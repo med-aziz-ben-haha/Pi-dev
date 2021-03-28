@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Entity\User;
 use App\Form\ConnexionType;
+use App\Form\VerifierInscriptionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use App\Form\UserType;
 use App\Form\UserMedType;
@@ -274,6 +275,9 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('accueilOnline', ['iduser' => $user->getId(),]);
+        }
         $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         return $this->render('user/accueilOnline.html.twig', [
@@ -289,6 +293,9 @@ class UserController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('accueilOnlineMed', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -306,6 +313,9 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('accueilOnlinePharmacien', ['iduser' => $user->getId(),]);
+        }
         $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         return $this->render('user/accueilOnlinePharmacien.html.twig', [
@@ -322,18 +332,27 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('accueilOnlineParapharmacien', ['iduser' => $user->getId(),]);
+        }
+
         $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
+        $parapharmacien=$userfind;
+        $parapharmacie=$parapharmacien->getParapharmacie();
+        $id=$parapharmacie->getId();
         return $this->render('user/accueilOnlineParapharmacien.html.twig', [
-            'iduser' => $iduser,'user'=>$userfind,
+            'iduser' => $iduser,'user'=>$userfind,'parapharmacie' => $parapharmacie ,'idpara'=>$id
         ]);
     }
+
+
 
     /**
      * @param Request $request
      * @Route("/inscription", name="inscription", methods={"GET","POST"})
      */
-    public function inscription(MailerInterface $mailer,Request $request,SessionInterface $sesssion): Response
+    public function inscription(MailerInterface $mailer,Request $request,SessionInterface $sesssion,SessionInterface $util,SessionInterface $clee): Response
     {   if(!(is_null($sesssion->get('googleuser'))))
         {
             $user= new User();
@@ -348,6 +367,7 @@ class UserController extends AbstractController
             }
 
         $form = $this->createForm(UserType::class, $user);
+
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
@@ -366,26 +386,74 @@ class UserController extends AbstractController
                 $user->setLienImageUser($newFilename);
             }
             $user->setRole(1);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+            $cle =(bin2hex(random_bytes(3)));
             $email = (new Email())
                 ->from('sahtitnpidev@gmail.com')
                 ->to("{$user->getEmail()}")
                 ->subject('SahtiTN!')
-                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
-                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, veuillez confirmer votre inscription. $cle")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, veuillez confirmer votre inscription.<br> $cle</h1>");
             $mailer->send($email);
-        return $this->redirectToRoute('connexion');
+            $util->set('user',$user);
+            $clee->set('cle',$cle);
+
+        return $this->redirectToRoute('verifinscription');
     }
         return $this->render('user/inscription.html.twig', ['formInscription' => $form->createView()]);
+    }
+
+    /**
+     * @param SessionInterface $util
+     * @param SessionInterface $clee
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route("/verifinscription", name="verifinscription", methods={"GET","POST"})
+     */
+
+    public function  verifinscirption(MailerInterface $mailer, SessionInterface $util,SessionInterface $clee,Request $request)
+    {
+        $user=$util->get('user');
+        $cle=$clee->get('cle');
+
+        $form=$this->createForm(VerifierInscriptionType::class);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() ) {
+
+            $data=$form->getData();
+            $verif=$data['verif'];
+            if ($verif==$cle){
+                //$this->addFlash('message','code valide');
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                $email = (new Email())
+                    ->from('sahtitnpidev@gmail.com')
+                    ->to("{$user->getEmail()}")
+                    ->subject('SahtiTN!')
+                    ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
+                    ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+                $mailer->send($email);
+                $util->clear();
+                $clee->clear();
+                return $this->redirectToRoute('connexion');
+            }
+            else
+            { $this->addFlash('message','Code invalide');
+
+                $util->set('user',$user);
+                $clee->set('cle',$cle);
+                return    $this->redirectToRoute('verifinscription');
+            }
+        }
+        return $this->render('user/inscriptionVerif.html.twig', ['formverif' => $form->createView(),'user'=>$user,'cle'=>$cle]);
+
     }
 
     /**
      * @param Request $request
      * @Route("/inscriptionMed", name="inscriptionMed", methods={"GET","POST"})
      */
-    public function inscriptionMed(MailerInterface $mailer, Request $request,SessionInterface $sesssion): Response
+    public function inscriptionMed(MailerInterface $mailer, Request $request,SessionInterface $sesssion,SessionInterface $util,SessionInterface $clee): Response
     {
         if(!(is_null($sesssion->get('googleuser'))))
         {
@@ -418,17 +486,18 @@ class UserController extends AbstractController
                 $user->setLienImageUser($newFilename);
             }
             $user->setRole(2);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+            $cle =(bin2hex(random_bytes(3)));
             $email = (new Email())
                 ->from('sahtitnpidev@gmail.com')
                 ->to("{$user->getEmail()}")
                 ->subject('SahtiTN!')
-                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
-                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, veuillez confirmer votre inscription. $cle")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, veuillez confirmer votre inscription.<br> $cle</h1>");
             $mailer->send($email);
-            return $this->redirectToRoute('connexion');
+            $util->set('user',$user);
+            $clee->set('cle',$cle);
+
+            return $this->redirectToRoute('verifinscription');
         }
         return $this->render('user/inscriptionMed.html.twig', ['formInscription' => $form->createView()]);
     }
@@ -437,7 +506,7 @@ class UserController extends AbstractController
      * @param Request $request
      * @Route("/inscriptionPharmacien", name="inscriptionPharmacien", methods={"GET","POST"})
      */
-    public function inscriptionPharmacien(MailerInterface $mailer, Request $request,SessionInterface $sesssion): Response
+    public function inscriptionPharmacien(MailerInterface $mailer, Request $request,SessionInterface $sesssion,SessionInterface $util,SessionInterface $clee): Response
     {
         if(!(is_null($sesssion->get('googleuser'))))
         {
@@ -470,17 +539,18 @@ class UserController extends AbstractController
                 $user->setLienImageUser($newFilename);
             }
             $user->setRole(3);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+            $cle =(bin2hex(random_bytes(3)));
             $email = (new Email())
                 ->from('sahtitnpidev@gmail.com')
                 ->to("{$user->getEmail()}")
                 ->subject('SahtiTN!')
-                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
-                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, veuillez confirmer votre inscription. $cle")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, veuillez confirmer votre inscription.<br> $cle</h1>");
             $mailer->send($email);
-            return $this->redirectToRoute('connexion');
+            $util->set('user',$user);
+            $clee->set('cle',$cle);
+
+            return $this->redirectToRoute('verifinscription');
         }
         return $this->render('user/inscriptionPharmacien.html.twig', ['formInscription' => $form->createView()]);
     }
@@ -489,7 +559,7 @@ class UserController extends AbstractController
      * @param Request $request
      * @Route("/inscriptionParapharmacien", name="inscriptionParapharmacien", methods={"GET","POST"})
      */
-    public function inscriptionPara(MailerInterface $mailer, Request $request,SessionInterface $sesssion): Response
+    public function inscriptionPara(MailerInterface $mailer, Request $request,SessionInterface $sesssion,SessionInterface $util,SessionInterface $clee): Response
     {
         if(!(is_null($sesssion->get('googleuser'))))
         {
@@ -522,17 +592,18 @@ class UserController extends AbstractController
                 $user->setLienImageUser($newFilename);
             }
             $user->setRole(4);
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
+            $cle =(bin2hex(random_bytes(3)));
             $email = (new Email())
                 ->from('sahtitnpidev@gmail.com')
                 ->to("{$user->getEmail()}")
                 ->subject('SahtiTN!')
-                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
-                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, veuillez confirmer votre inscription. $cle")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, veuillez confirmer votre inscription.<br> $cle</h1>");
             $mailer->send($email);
-            return $this->redirectToRoute('connexion');
+            $util->set('user',$user);
+            $clee->set('cle',$cle);
+
+            return $this->redirectToRoute('verifinscription');
         }
         return $this->render('user/inscriptionParapharmacien.html.twig', ['formInscription' => $form->createView()]);
     }
@@ -551,7 +622,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
-
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('modifierUser', ['iduser' => $user->getId(),]);
+        }
+        $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $iduser])[0];
         $form = $this->createForm(UserType::class, $UserFind);
@@ -601,7 +675,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
-
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('modifierMed', ['iduser' => $user->getId(),]);
+        }
+        $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $iduser])[0];
         $form = $this->createForm(UserMedType::class, $UserFind);
@@ -626,7 +703,7 @@ class UserController extends AbstractController
             $em->flush();
             return $this->redirectToRoute('afficherUser', ['iduser' => $iduser, 'userFind' => $UserFind,  'user'=>$userfind,]);
         }
-        return $this->render('user/templateModifierProfilMed.html.twig', ['formModifierUser' => $form->createView(), 'iduser'=>$iduser, 'userFind'=>$UserFind]);
+        return $this->render('user/templateModifierProfilMed.html.twig', ['formModifierUser' => $form->createView(), 'iduser'=>$iduser, 'userFind'=>$UserFind, 'user'=>$userfind,]);
     }
 
     /**
@@ -642,6 +719,10 @@ class UserController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('modifierPhar', ['iduser' => $user->getId(),]);
+        }
+        $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $iduser])[0];
         $form = $this->createForm(UserParaType::class, $UserFind);
@@ -680,23 +761,21 @@ class UserController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if ($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficherUser', ['iduser' => $user->getId(),]);
         }
+        $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $UserFind = $this->getDoctrine()->getRepository(User::class)->findBy(['id' => $iduser])[0];
         if ($UserFind->getRole()==1) {
             return $this->render('user/templateAfficherProfil.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,'user'=>$userfind,]);
         }
-        if ($UserFind->getRole()==2)
-        {
+        if ($UserFind->getRole()==2) {
             return $this->render('user/templateAfficherProfilMed.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,'user'=>$userfind,]);
-
         }
-        if (($UserFind->getRole()==3)or($UserFind->getRole()==4))
-        {
+        if (($UserFind->getRole()==3)or($UserFind->getRole()==4)) {
             return $this->render('user/templateAfficherProfilPara.html.twig', ['iduser'=>$iduser, 'userFind'=>$UserFind,'user'=>$userfind,]);
-
         }
-
     }
 
     /**
@@ -704,8 +783,13 @@ class UserController extends AbstractController
      * @Route ("/afficherStatUser", name="afficherStatUser")
      */
 
-    public function afficherStatUser()
-    {   $Users=$this->getDoctrine()->getRepository(User::class)->findAll();
+    public function afficherStatUser(SessionInterface $session)
+    {    $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        $Users=$this->getDoctrine()->getRepository(User::class)->findAll();
         $useradmin = $this->getDoctrine()->getRepository(User::class)->findByRole(0);
 
         $user = $this->getDoctrine()->getRepository(User::class)->findByRole(1);

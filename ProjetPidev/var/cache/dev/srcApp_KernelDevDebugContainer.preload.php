@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerO4ndOxV/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerYvYXV4q/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -54,7 +54,7 @@ $classes[] = 'App\Controller\RegionsController';
 $classes[] = 'App\Controller\SoinMPController';
 $classes[] = 'App\Controller\TypereclamationController';
 $classes[] = 'App\Controller\UserController';
-$classes[] = 'App\Form\CaptchaType';
+$classes[] = 'App\Form\CaptchaSMPType';
 $classes[] = 'App\Form\CategorieProduitType';
 $classes[] = 'App\Form\CategorieSoinMPRechercheType';
 $classes[] = 'App\Form\CategorieSoinMPType';
@@ -74,6 +74,7 @@ $classes[] = 'App\Form\SoinMPType';
 $classes[] = 'App\Form\UserMedType';
 $classes[] = 'App\Form\UserParaType';
 $classes[] = 'App\Form\UserType';
+$classes[] = 'App\Form\VerifierInscriptionType';
 $classes[] = 'App\Repository\ActualiteRepository';
 $classes[] = 'App\Repository\CaptchaRepository';
 $classes[] = 'App\Repository\CategorieActualiteRepository';

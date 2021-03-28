@@ -126,6 +126,7 @@ return [
     'accueilOnlinePharmacien' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::accueilPharmacien'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/accueilOnlinePharmacien']], [], []],
     'accueilOnlineParapharmacien' => [['iduser'], ['_controller' => 'App\\Controller\\UserController::accueilParapharmacien'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/accueilOnlineParapharmacien']], [], []],
     'inscription' => [[], ['_controller' => 'App\\Controller\\UserController::inscription'], [], [['text', '/inscription']], [], []],
+    'verifinscription' => [[], ['_controller' => 'App\\Controller\\UserController::verifinscirption'], [], [['text', '/verifinscription']], [], []],
     'inscriptionMed' => [[], ['_controller' => 'App\\Controller\\UserController::inscriptionMed'], [], [['text', '/inscriptionMed']], [], []],
     'inscriptionPharmacien' => [[], ['_controller' => 'App\\Controller\\UserController::inscriptionPharmacien'], [], [['text', '/inscriptionPharmacien']], [], []],
     'inscriptionParapharmacien' => [[], ['_controller' => 'App\\Controller\\UserController::inscriptionPara'], [], [['text', '/inscriptionParapharmacien']], [], []],

@@ -38,6 +38,10 @@ class ProduitController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficheProd', ['iduser' => $user->getId(),]);
+        }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $idC=$id;
@@ -68,6 +72,8 @@ class ProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }  else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('deleteProduit', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -90,6 +96,8 @@ class ProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }  else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('AjoutProduit', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -132,7 +140,7 @@ class ProduitController extends AbstractController
             return $this->redirectToRoute('afficheProd',array('id'=>$idp ,'iduser'=>$iduser,'user'=>$userfind,));
         }
         return $this->render('produit/AjoutProduit.html.twig',[
-            'form'=>$form->createView(), 'idpara'=>$idpara,'user'=>$userfind,
+            'form'=>$form->createView(), 'idpara'=>$idpara,'user'=>$userfind,'iduser'=>$iduser,
         ]);
     }
 
@@ -146,6 +154,8 @@ class ProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('modifierProduit', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -177,15 +187,15 @@ class ProduitController extends AbstractController
             return $this->redirectToRoute('afficheProd',array('id'=>$idp,'iduser'=>$iduser,'user'=>$userfind,));
         }
         return $this->render('produit/ModifierProduit.html.twig',[
-            'form'=>$form->createView(),'idpara'=>$idpara,'user'=>$userfind,
+            'form'=>$form->createView(),'idpara'=>$idpara,'user'=>$userfind,'iduser'=>$iduser,
         ]);
 
     }
 
     /**
      * @param CategorieProduitRepository $repository
-     *  @param ParapharmacieRepository $repo
-     *   @param ProduitRepository $repoprod
+     * @param ParapharmacieRepository $repo
+     * @param ProduitRepository $repoprod
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route ("/afficheClienCategorieProduit/{idpara}/{idcat}/{iduser}", name="afficheClienCategorieProduit")
      */
@@ -194,6 +204,8 @@ class ProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficheClienCategorieProduit', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -223,6 +235,8 @@ class ProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficheProduit', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -337,7 +351,7 @@ class ProduitController extends AbstractController
         $produit=$repository->findAll();
         $produit=$paginator->paginate($repository->findAllProduit(),$request->query->getInt('page',1),1)  ;
         return $this->render('produit/BackListProduit.html.twig',
-            ['produit'=>$produit,'user'=>$userfind,]);
+            ['produit'=>$produit,'user'=>$userfind,'iduser'=>$iduser,]);
     }
 
 

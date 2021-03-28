@@ -189,12 +189,9 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
                             </li>
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
-                                <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-primary\">Profil</a>
-                                </div>
                                 <div class=\"pull-right\">
                                     <a href=\"";
-        // line 115
+        // line 112
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/deconnexion"), "html", null, true);
         echo "\" class=\"btn btn-primary\">Se déconnecter</a>
                                 </div>
@@ -215,7 +212,7 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
             <div class=\"user-panel\">
                 <div class=\"pull-left image\">
                     <img src=\"";
-        // line 133
+        // line 130
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/user2-160x160.jpg"), "html", null, true);
         echo "\" class=\"img-circle\" alt=\"User Image\">
                 </div>
@@ -260,8 +257,6 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
                     </ul>
                 </li>
 
-                <li><a href=\"/listordonnance\"><i class=\"fa fa-book\"></i> <span>Gestion Ordonnance</span></a></li>
-
                 <li><a href=\"/afficheRegions\"><i class=\"fa fa-book\"></i> <span>Gestion des Regions</span></a></li>
                 <li><a href=\"/affichePara\"><i class=\"fa fa-book\"></i> <span>Gestion des Parapharmacies</span></a></li>
                 <li><a href=\"/afficheBackProduit\"><i class=\"fa fa-book\"></i> <span>Liste des Produits</span></a></li>
@@ -295,7 +290,7 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
 
     public function getDebugInfo()
     {
-        return array (  219 => 133,  198 => 115,  182 => 102,  173 => 96,  136 => 62,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  216 => 130,  195 => 112,  182 => 102,  173 => 96,  136 => 62,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -410,9 +405,6 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
                             </li>
                             <!-- Menu Footer-->
                             <li class=\"user-footer\">
-                                <div class=\"pull-left\">
-                                    <a href=\"#\" class=\"btn btn-primary\">Profil</a>
-                                </div>
                                 <div class=\"pull-right\">
                                     <a href=\"{{ asset ('/deconnexion') }}\" class=\"btn btn-primary\">Se déconnecter</a>
                                 </div>
@@ -474,8 +466,6 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
                         <li><a href=\"/affichertypereclamation\"><i class=\"fa fa-circle-o\"></i> Gestion des Types Reclamations</a></li>
                     </ul>
                 </li>
-
-                <li><a href=\"/listordonnance\"><i class=\"fa fa-book\"></i> <span>Gestion Ordonnance</span></a></li>
 
                 <li><a href=\"/afficheRegions\"><i class=\"fa fa-book\"></i> <span>Gestion des Regions</span></a></li>
                 <li><a href=\"/affichePara\"><i class=\"fa fa-book\"></i> <span>Gestion des Parapharmacies</span></a></li>

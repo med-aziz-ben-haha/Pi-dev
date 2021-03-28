@@ -33,6 +33,8 @@ class PanierController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficheClienPanier', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -59,6 +61,6 @@ class PanierController extends AbstractController
         $parapharmacie=$parapharmacieRepository->find($idpara);
 
         return $this->render('panier/AfficheParapharmacienCommande.html.twig',
-            ['panier'=>$panier ,'parapharmacie'=>$parapharmacie ,'idpara'=>$idpara,'user'=>$userfind, ]);
+            ['panier'=>$panier ,'parapharmacie'=>$parapharmacie ,'idpara'=>$idpara,'user'=>$userfind, 'iduser'=>$iduser,]);
     }
 }
