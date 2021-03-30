@@ -16,6 +16,6 @@ if (!\class_exists(srcApp_KernelDevDebugContainer::class, false)) {
 
 return new \Container59AvvJS\srcApp_KernelDevDebugContainer([
     'container.build_hash' => '59AvvJS',
-    'container.build_id' => 'acd3d504',
-    'container.build_time' => 1617063223,
+    'container.build_id' => '059a46ae',
+    'container.build_time' => 1617068252,
 ], __DIR__.\DIRECTORY_SEPARATOR.'Container59AvvJS');
