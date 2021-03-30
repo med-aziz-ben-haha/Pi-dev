@@ -233,7 +233,7 @@ class UserController extends AbstractController
 
                         return $this->redirectToRoute('accueilOnlineParapharmacien',array('iduser'=>$verifuser->getId()));
                     }
-                    else if ($role==0)
+                    else if (($role==0)&&(password_verify($useronline->getMdp(),$verifuser->getMdp())==true))
                     {
                         $session->set('user',$verifuser);
 

@@ -48,8 +48,9 @@ class GoogleController extends AbstractController
             $googleuser=new User();
             $googleuser=$this->getDoctrine()->getRepository(User::class)->findOneBy(array('email'=>$user->getEmail()));
             if (is_null($googleuser)){
+                $msg="Ce mail n'est pas inscrit  *";
                 return $this->render('user/connexionErrorMessage.html.twig',
-                    ['formConnexion'=>$form->createview(),]);
+                    ['formConnexion'=>$form->createview(),'message'=>$msg,]);
             }
 
             else {

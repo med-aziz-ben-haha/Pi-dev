@@ -162,7 +162,7 @@ class __TwigTemplate_fe9fc3fd1e5a319e0a5798b06bbf5ff3aa90b3099e0e96b9199f2bb9f15
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
 
-                 
+
 
 
                     <li class=\"nav-item\">
@@ -360,7 +360,7 @@ class __TwigTemplate_fe9fc3fd1e5a319e0a5798b06bbf5ff3aa90b3099e0e96b9199f2bb9f15
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
 
-                 
+
 
 
                     <li class=\"nav-item\">
