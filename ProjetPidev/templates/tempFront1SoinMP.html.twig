@@ -51,38 +51,26 @@
     <nav class="navbar navbar-expand-lg fixed-top navbar-light hk-navbar">
         <div class="container">
             <!--<a class="navbar-brand" href="#"><img src="assets/images/brand.png"></a>-->
-            <a class="navbar-brand" href="#"><img style="margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;" src= "{{ asset('bundles/dist/img/Logo.jpeg')}}" ></a>
+            {% if user.role==3%}
+                <a class="navbar-brand" href="{{asset("/accueilOnlinePharmacien/" ~iduser) }}"><img style="margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;" src= "{{ asset('bundles/dist/img/Logo.jpeg')}}" ></a>
+            {%endif%}
+
+            {% if user.role==2%}
+                <a class="navbar-brand" href="{{asset("/accueilOnlineMed/" ~iduser) }}"><img style="margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;" src= "{{ asset('bundles/dist/img/Logo.jpeg')}}" ></a>
+            {%endif%}
+
+            {% if user.role==4%}
+                <a class="navbar-brand" href="{{asset("/accueilOnlineParapharmacien/" ~iduser) }}"><img style="margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;" src= "{{ asset('bundles/dist/img/Logo.jpeg')}}" ></a>
+            {%endif%}
+
+            {% if user.role==1%}
+                <a class="navbar-brand" href="{{asset("/accueilOnline/" ~iduser) }}"><img style="margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;" src= "{{ asset('bundles/dist/img/Logo.jpeg')}}" ></a>
+            {%endif%}
             <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse hk-offcanvas" id="navbarsExampleDefault">
                 <ul class="navbar-nav mr-auto">
-                    {% if user.role==3%}
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{asset("/accueilOnlinePharmacien/" ~iduser) }}">Home <span class="sr-only">(current)</span></a>
-
-                        </li>
-                    {%endif%}
-                    {% if user.role==2%}
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{asset("/accueilOnlineMed/" ~iduser) }}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                    {%endif%}
-
-                    {% if user.role==4%}
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{asset("/accueilOnlineParapharmacien/" ~iduser) }}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                    {%endif%}
-
-                    {% if user.role==1%}
-
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{asset("/accueilOnline/" ~iduser) }}">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                    {%endif%}
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ asset("/afficherCategorieSoinMPs/"~ iduser) }}">Médecine Parallèle</a>
@@ -103,6 +91,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('afficheFrontClientPara' , {'iduser':iduser})  }}">Parapharmacie</a>
 
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('afficherCategoriePostFront')  }}">Forum</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('afficheClienPanier' , {'iduser':iduser})  }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">

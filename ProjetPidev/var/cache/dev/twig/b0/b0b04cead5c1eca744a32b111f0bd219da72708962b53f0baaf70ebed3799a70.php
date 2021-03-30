@@ -105,116 +105,111 @@ class __TwigTemplate_b9bd4002f390c6e41c734a6c58d862589729cab7e94c5ce54e67508f8cb
     <nav class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
-            <a class=\"navbar-brand\" href=\"#\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
+            ";
         // line 54
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
-        echo "\" ></a>
-            <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 54, $this->source); })()), "role", [], "any", false, false, false, 54), 3))) {
+            // line 55
+            echo "                <a class=\"navbar-brand\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnlinePharmacien/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 55, $this->source); })()))), "html", null, true);
+            echo "\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
+            echo "\" ></a>
+            ";
+        }
+        // line 57
+        echo "
+            ";
+        // line 58
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 58, $this->source); })()), "role", [], "any", false, false, false, 58), 2))) {
+            // line 59
+            echo "                <a class=\"navbar-brand\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnlineMed/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 59, $this->source); })()))), "html", null, true);
+            echo "\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
+            echo "\" ></a>
+            ";
+        }
+        // line 61
+        echo "
+            ";
+        // line 62
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 62, $this->source); })()), "role", [], "any", false, false, false, 62), 4))) {
+            // line 63
+            echo "                <a class=\"navbar-brand\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnlineParapharmacien/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 63, $this->source); })()))), "html", null, true);
+            echo "\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
+            echo "\" ></a>
+            ";
+        }
+        // line 65
+        echo "
+            ";
+        // line 66
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 66, $this->source); })()), "role", [], "any", false, false, false, 66), 1))) {
+            // line 67
+            echo "                <a class=\"navbar-brand\" href=\"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnline/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 67, $this->source); })()))), "html", null, true);
+            echo "\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
+            echo "\" ></a>
+            ";
+        }
+        // line 69
+        echo "            <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
-                    ";
-        // line 60
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 60, $this->source); })()), "role", [], "any", false, false, false, 60), 3))) {
-            // line 61
-            echo "                        <li class=\"nav-item active\">
-                            <a class=\"nav-link\" href=\"";
-            // line 62
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnlinePharmacien/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 62, $this->source); })()))), "html", null, true);
-            echo "\">Home <span class=\"sr-only\">(current)</span></a>
 
-                        </li>
-                    ";
-        }
-        // line 66
-        echo "                    ";
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 66, $this->source); })()), "role", [], "any", false, false, false, 66), 2))) {
-            // line 67
-            echo "
-                        <li class=\"nav-item active\">
-                            <a class=\"nav-link\" href=\"";
-            // line 69
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnlineMed/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 69, $this->source); })()))), "html", null, true);
-            echo "\">Home <span class=\"sr-only\">(current)</span></a>
-                        </li>
-                    ";
-        }
-        // line 72
-        echo "
-                    ";
-        // line 73
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 73, $this->source); })()), "role", [], "any", false, false, false, 73), 4))) {
-            // line 74
-            echo "
-                        <li class=\"nav-item active\">
-                            <a class=\"nav-link\" href=\"";
-            // line 76
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnlineParapharmacien/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 76, $this->source); })()))), "html", null, true);
-            echo "\">Home <span class=\"sr-only\">(current)</span></a>
-                        </li>
-                    ";
-        }
-        // line 79
-        echo "
-                    ";
-        // line 80
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 80, $this->source); })()), "role", [], "any", false, false, false, 80), 1))) {
-            // line 81
-            echo "
-                        <li class=\"nav-item active\">
-                            <a class=\"nav-link\" href=\"";
-            // line 83
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnline/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 83, $this->source); })()))), "html", null, true);
-            echo "\">Home <span class=\"sr-only\">(current)</span></a>
-                        </li>
-                    ";
-        }
-        // line 86
-        echo "
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-        // line 88
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherCategorieSoinMPs/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 88, $this->source); })()))), "html", null, true);
+        // line 76
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherCategorieSoinMPs/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 76, $this->source); })()))), "html", null, true);
         echo "\">Médecine Parallèle</a>
                     </li>
-
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Réclamation</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"nav-link\" href=\"";
-        // line 94
+        // line 81
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/ajouterreclamation"), "html", null, true);
         echo "\"> Réclamer</a>
                             <a class=\"nav-link\" href=\"";
-        // line 95
+        // line 82
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/afficherreclamations"), "html", null, true);
         echo "\"> Consulter mes réclamations</a>
                         </div>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-        // line 99
+        // line 86
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/frontlistmedicament"), "html", null, true);
         echo "\">Medicament</a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-        // line 102
+        // line 89
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/listordonnanceuser"), "html", null, true);
         echo "\">Ordonnances</a>
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-        // line 105
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheFrontClientPara", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 105, $this->source); })())]), "html", null, true);
+        // line 92
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheFrontClientPara", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 92, $this->source); })())]), "html", null, true);
         echo "\">Parapharmacie</a>
 
                     </li>
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"";
-        // line 109
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheClienPanier", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 109, $this->source); })())]), "html", null, true);
+        // line 96
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficherCategoriePostFront");
+        echo "\">Forum</a>
+                    </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+        // line 99
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheClienPanier", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 99, $this->source); })())]), "html", null, true);
         echo "\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-cart3\" viewBox=\"0 0 16 16\">
                                 <path d=\"M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"></path>
                             </svg>Panier</a>
@@ -224,14 +219,12 @@ class __TwigTemplate_b9bd4002f390c6e41c734a6c58d862589729cab7e94c5ce54e67508f8cb
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i> Mon Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-
                             <a class=\"dropdown-item\" href=\"";
-        // line 119
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 119, $this->source); })()))), "html", null, true);
+        // line 108
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 108, $this->source); })()))), "html", null, true);
         echo "\">Profil</a>
-
                             <a class=\"dropdown-item\" href=\"";
-        // line 121
+        // line 109
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/deconnexion"), "html", null, true);
         echo "\">Se déconnecter</a>
                         </div>
@@ -256,7 +249,7 @@ class __TwigTemplate_b9bd4002f390c6e41c734a6c58d862589729cab7e94c5ce54e67508f8cb
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 143
+        // line 131
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -285,7 +278,7 @@ class __TwigTemplate_b9bd4002f390c6e41c734a6c58d862589729cab7e94c5ce54e67508f8cb
 
     public function getDebugInfo()
     {
-        return array (  260 => 143,  235 => 121,  230 => 119,  217 => 109,  210 => 105,  204 => 102,  198 => 99,  191 => 95,  187 => 94,  178 => 88,  174 => 86,  168 => 83,  164 => 81,  162 => 80,  159 => 79,  153 => 76,  149 => 74,  147 => 73,  144 => 72,  138 => 69,  134 => 67,  131 => 66,  124 => 62,  121 => 61,  119 => 60,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
+        return array (  253 => 131,  228 => 109,  224 => 108,  212 => 99,  206 => 96,  199 => 92,  193 => 89,  187 => 86,  180 => 82,  176 => 81,  168 => 76,  159 => 69,  151 => 67,  149 => 66,  146 => 65,  138 => 63,  136 => 62,  133 => 61,  125 => 59,  123 => 58,  120 => 57,  112 => 55,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -343,43 +336,30 @@ class __TwigTemplate_b9bd4002f390c6e41c734a6c58d862589729cab7e94c5ce54e67508f8cb
     <nav class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
-            <a class=\"navbar-brand\" href=\"#\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
+            {% if user.role==3%}
+                <a class=\"navbar-brand\" href=\"{{asset(\"/accueilOnlinePharmacien/\" ~iduser) }}\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
+            {%endif%}
+
+            {% if user.role==2%}
+                <a class=\"navbar-brand\" href=\"{{asset(\"/accueilOnlineMed/\" ~iduser) }}\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
+            {%endif%}
+
+            {% if user.role==4%}
+                <a class=\"navbar-brand\" href=\"{{asset(\"/accueilOnlineParapharmacien/\" ~iduser) }}\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
+            {%endif%}
+
+            {% if user.role==1%}
+                <a class=\"navbar-brand\" href=\"{{asset(\"/accueilOnline/\" ~iduser) }}\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
+            {%endif%}
             <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
-                    {% if user.role==3%}
-                        <li class=\"nav-item active\">
-                            <a class=\"nav-link\" href=\"{{asset(\"/accueilOnlinePharmacien/\" ~iduser) }}\">Home <span class=\"sr-only\">(current)</span></a>
-
-                        </li>
-                    {%endif%}
-                    {% if user.role==2%}
-
-                        <li class=\"nav-item active\">
-                            <a class=\"nav-link\" href=\"{{asset(\"/accueilOnlineMed/\" ~iduser) }}\">Home <span class=\"sr-only\">(current)</span></a>
-                        </li>
-                    {%endif%}
-
-                    {% if user.role==4%}
-
-                        <li class=\"nav-item active\">
-                            <a class=\"nav-link\" href=\"{{asset(\"/accueilOnlineParapharmacien/\" ~iduser) }}\">Home <span class=\"sr-only\">(current)</span></a>
-                        </li>
-                    {%endif%}
-
-                    {% if user.role==1%}
-
-                        <li class=\"nav-item active\">
-                            <a class=\"nav-link\" href=\"{{asset(\"/accueilOnline/\" ~iduser) }}\">Home <span class=\"sr-only\">(current)</span></a>
-                        </li>
-                    {%endif%}
 
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{ asset(\"/afficherCategorieSoinMPs/\"~ iduser) }}\">Médecine Parallèle</a>
                     </li>
-
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Réclamation</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
@@ -398,6 +378,9 @@ class __TwigTemplate_b9bd4002f390c6e41c734a6c58d862589729cab7e94c5ce54e67508f8cb
 
                     </li>
                     <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ path('afficherCategoriePostFront')  }}\">Forum</a>
+                    </li>
+                    <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{ path('afficheClienPanier' , {'iduser':iduser})  }}\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-cart3\" viewBox=\"0 0 16 16\">
                                 <path d=\"M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"></path>
                             </svg>Panier</a>
@@ -407,9 +390,7 @@ class __TwigTemplate_b9bd4002f390c6e41c734a6c58d862589729cab7e94c5ce54e67508f8cb
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i> Mon Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
-
                             <a class=\"dropdown-item\" href=\"{{ asset('/afficherUser/' ~ iduser) }}\">Profil</a>
-
                             <a class=\"dropdown-item\" href=\"{{ asset ('/deconnexion') }}\">Se déconnecter</a>
                         </div>
                     </li>

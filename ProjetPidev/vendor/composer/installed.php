@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => '701869b952b71482409f3dd5e492807e2e18289e',
+    'reference' => 'bc18b349bc56189325e65c89ac6ee5b193ed6818',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '701869b952b71482409f3dd5e492807e2e18289e',
+      'reference' => 'bc18b349bc56189325e65c89ac6ee5b193ed6818',
     ),
     'captcha-com/captcha' => 
     array (
@@ -280,6 +280,24 @@
       array (
       ),
       'reference' => '87ca999b6ac886e3f20a1e3abc07523140509ca4',
+    ),
+    'knplabs/knp-snappy' => 
+    array (
+      'pretty_version' => 'v1.2.1',
+      'version' => '1.2.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7bac60fb729147b7ccd8532c07df3f52a4afa8a4',
+    ),
+    'knplabs/knp-snappy-bundle' => 
+    array (
+      'pretty_version' => 'v1.8.0',
+      'version' => '1.8.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '0f81887b0379a2731b869289bf3d880f34dfd423',
     ),
     'knpuniversity/oauth2-client-bundle' => 
     array (
@@ -651,6 +669,15 @@
       array (
       ),
       'reference' => '430d14c01836b77c28092883d195a43ce413ee32',
+    ),
+    'swiftmailer/swiftmailer' => 
+    array (
+      'pretty_version' => 'v6.2.7',
+      'version' => '6.2.7.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '15f7faf8508e04471f666633addacf54c0ab5933',
     ),
     'symfony/asset' => 
     array (
@@ -1227,6 +1254,15 @@
       array (
       ),
       'reference' => 'c5572f6494fc20668a73b77684d8dc77e534d8cf',
+    ),
+    'symfony/swiftmailer-bundle' => 
+    array (
+      'pretty_version' => 'v3.5.2',
+      'version' => '3.5.2.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '6b72355549f02823a2209180f9c035e46ca3f178',
     ),
     'symfony/translation' => 
     array (

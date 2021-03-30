@@ -79,11 +79,20 @@ class __TwigTemplate_69036c62f6a988e8f5ba95871864e04952245c08c119611732a22c409a5
         // line 17
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["formConnexion"]) || array_key_exists("formConnexion", $context) ? $context["formConnexion"] : (function () { throw new RuntimeError('Variable "formConnexion" does not exist.', 17, $this->source); })()), 'form_end');
         echo "
+    <center>
+        <div>
+            <a class=\"hollow button primary\" href=\"/connect/google/\">
+                <img width=\"35px\" style=\"margin-bottom:3px; font-size: 250px; margin-right:5px\" alt=\"Google login\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png\" />
+                Se Connecter via Google
+            </a>
+        </div>
+    </center>
 
 </div>
+
 ";
-        // line 20
-        $this->loadTemplate("tempFrontAccueil2.html.twig", "user/connexionErrorMessage.html.twig", 20)->display($context);
+        // line 29
+        $this->loadTemplate("tempFrontAccueil2.html.twig", "user/connexionErrorMessage.html.twig", 29)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -104,7 +113,7 @@ class __TwigTemplate_69036c62f6a988e8f5ba95871864e04952245c08c119611732a22c409a5
 
     public function getDebugInfo()
     {
-        return array (  86 => 20,  80 => 17,  75 => 15,  70 => 14,  65 => 11,  60 => 10,  56 => 8,  50 => 5,  45 => 2,  43 => 1,);
+        return array (  95 => 29,  80 => 17,  75 => 15,  70 => 14,  65 => 11,  60 => 10,  56 => 8,  50 => 5,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -126,8 +135,17 @@ class __TwigTemplate_69036c62f6a988e8f5ba95871864e04952245c08c119611732a22c409a5
     {{ form_widget(formConnexion.mdp)}}
 
     {{ form_end(formConnexion) }}
+    <center>
+        <div>
+            <a class=\"hollow button primary\" href=\"/connect/google/\">
+                <img width=\"35px\" style=\"margin-bottom:3px; font-size: 250px; margin-right:5px\" alt=\"Google login\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png\" />
+                Se Connecter via Google
+            </a>
+        </div>
+    </center>
 
 </div>
+
 {% include 'tempFrontAccueil2.html.twig' %}", "user/connexionErrorMessage.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\user\\connexionErrorMessage.html.twig");
     }
 }

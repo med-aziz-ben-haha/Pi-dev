@@ -1,0 +1,32 @@
+<html>
+
+<body>
+<center><h1>Liste des Posts</h1></center>
+<table class="table">
+    <thead>
+    <tr style="border: solid 1px black;">
+        <th style="border: solid 1px black;">Id</th>
+        <th style="border: solid 1px black;" >Titre Post</th>
+        <th style="border: solid 1px black;" >Texte Post</th>
+        <th style="border: solid 1px black;" >Date Post</th>
+    </tr>
+    </thead>
+    <tbody style="border: solid 1px black;" id="body">
+    {% for p in postts %}
+        <tr style="border: solid 1px black;">
+            <td style="border: solid 1px black;">{{ p.id }}</td>
+            <td style="border: solid 1px black;">{{ p.titrePostt }}</td>
+            <td style="border: solid 1px black;">{{ p.textePostt }}</td>
+            <td style="border: solid 1px black;">{{ p.datePostt|date("d/m/Y") }}</td>
+
+        </tr>
+    {% else %}
+        <tr style="border: solid 1px black;">
+            <td style="border: solid 1px black;" colspan="6">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

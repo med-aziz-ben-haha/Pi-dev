@@ -32,6 +32,8 @@ class AdminController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('connexionAdmin', ['iduser' => $user->getId(),]);
         }
         return $this->render('admin/index.html.twig', [
             'iduser' => $iduser,

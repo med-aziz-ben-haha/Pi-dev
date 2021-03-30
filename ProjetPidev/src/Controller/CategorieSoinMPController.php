@@ -64,6 +64,8 @@ class CategorieSoinMPController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficherCategorieSoinMPs', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);

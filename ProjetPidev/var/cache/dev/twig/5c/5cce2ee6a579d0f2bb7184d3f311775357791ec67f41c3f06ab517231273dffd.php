@@ -243,19 +243,16 @@ class __TwigTemplate_4e0ef6891e7ed8491a386ba94cf69df9a39ffdaa9c37820948248b07f71
     a.page-link{
         background-color: transparent!important;
         color:#ee5057!important;
-        border:grey!important;
     }
 
     a.page-link:active{
         background-color: transparent!important;
         color:#ee5057!important;
-        border:grey!important;
     }
 
     a.page-link:hover{
         background-color: transparent!important;
         color:#ee5057!important;
-        border:grey!important;
     }
 </style>";
         
@@ -400,19 +397,16 @@ class __TwigTemplate_4e0ef6891e7ed8491a386ba94cf69df9a39ffdaa9c37820948248b07f71
     a.page-link{
         background-color: transparent!important;
         color:#ee5057!important;
-        border:grey!important;
     }
 
     a.page-link:active{
         background-color: transparent!important;
         color:#ee5057!important;
-        border:grey!important;
     }
 
     a.page-link:hover{
         background-color: transparent!important;
         color:#ee5057!important;
-        border:grey!important;
     }
 </style>", "twitter_bootstrap_v4_pagination.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\twitter_bootstrap_v4_pagination.html.twig");
     }

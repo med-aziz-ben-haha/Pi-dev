@@ -108,9 +108,6 @@
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-primary">Profil</a>
-                                </div>
                                 <div class="pull-right">
                                     <a href="{{ asset ('/deconnexion') }}" class="btn btn-primary">Se déconnecter</a>
                                 </div>
@@ -173,11 +170,31 @@
                     </ul>
                 </li>
 
-                <li><a href="/listordonnance"><i class="fa fa-book"></i> <span>Gestion Ordonnance</span></a></li>
-
                 <li><a href="/afficheRegions"><i class="fa fa-book"></i> <span>Gestion des Regions</span></a></li>
                 <li><a href="/affichePara"><i class="fa fa-book"></i> <span>Gestion des Parapharmacies</span></a></li>
                 <li><a href="/afficheBackProduit"><i class="fa fa-book"></i> <span>Liste des Produits</span></a></li>
+
+		<li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-question" aria-hidden="true"></i> <span>Gestion Forums</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/afficherCategoriePost"><i class="fa fa-circle-o"></i> Gestion des catégories posts</a></li>
+                        <!--<li><a href="/afficherDiscussion"><i class="fa fa-circle-o"></i> Gestion des discussions</a></li>-->
+
+                    </ul>
+                </li>
+		<li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-calendar" aria-hidden="true"></i> <span>Calendar</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="/calendar"><i class="fa fa-calendar"></i> Afficher </a></li>
+                        <li><a href="/calendar/new"><i class="fa fa-calendar"></i> Ajouter </a></li>
+
+                    </ul>
+                </li>
 
             </ul>
         </section>

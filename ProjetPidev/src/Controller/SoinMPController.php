@@ -8,7 +8,7 @@ use App\Form\SoinMPTriFormType;
 use App\Form\SoinMPTriDESCType;
 use App\Form\SoinMPType;
 use App\Entity\SoinMP;
-use App\Form\CaptchaType;
+use App\Form\CaptchaSMPType;
 use App\Entity\Captcha;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -97,7 +97,9 @@ class SoinMPController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
-        }
+        }else if($iduser !=$user->getId()){
+        return $this->redirectToRoute('afficherSoinMPs', ['iduser' => $user->getId(),]);
+    }
         $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
@@ -130,12 +132,15 @@ class SoinMPController extends AbstractController
         {
             return $this->redirectToRoute('connexion');
         }
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficherDetailSoinMPs', ['iduser' => $user->getId(),]);
+        }
         $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
         $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
-        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha= $this->createForm(CaptchaSMPType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
         $formCaptcha->handleRequest($request);
 
@@ -149,7 +154,7 @@ class SoinMPController extends AbstractController
         }
         $x=random_int(1,21);
         $Captcha = $this->getDoctrine()->getRepository(Captcha::class)->find($x);
-        $formCaptcha= $this->createForm(CaptchaType::class);
+        $formCaptcha= $this->createForm(CaptchaSMPType::class);
         $formCaptcha->add('id', HiddenType::class,['data' =>$x]);
         return $this->render('soin_mp/DetailSoinMPS.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'captcha'=>$Captcha,'formCaptcha' =>$formCaptcha->createView(),'user'=>$userfind,]);
     }
@@ -167,6 +172,9 @@ class SoinMPController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('AfficherdetailSoinMPnote', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -347,8 +355,16 @@ class SoinMPController extends AbstractController
     /**
      * @Route ("/impression/{id}/{iduser}",name="impression")
      */
-    public function impression($iduser,$id)
-    {$SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
+    public function impression($iduser,$id,SessionInterface $session)
+    {  $user=$session->get('user');
+        if(is_null($user))
+        {
+            return $this->redirectToRoute('connexion');
+        }
+        else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('impression', ['iduser' => $user->getId(),]);
+        }
+        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
 
         $pdfOptions = new Options();
         $pdfOptions->set('defaultFont', 'Arial');

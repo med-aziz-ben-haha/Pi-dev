@@ -46,6 +46,8 @@ class ListProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficheClienListProduit', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -65,6 +67,8 @@ class ListProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('deleteListProduit', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -97,6 +101,8 @@ class ListProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('modifierListProduit', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -174,7 +180,7 @@ class ListProduitController extends AbstractController
         $parapharmacie=$parapharmacieRepository->find($idpara);
 
         return $this->render('list_produit/AfficheParapharmacienListProduit.html.twig',
-            ['listProduit'=>$listProduit ,'panier'=>$panier,'idpara'=>$idpara ,'parapharmacie'=>$parapharmacie ,'idpanier'=>$idpanier, 'user'=>$userfind,]);
+            ['listProduit'=>$listProduit ,'panier'=>$panier,'idpara'=>$idpara ,'parapharmacie'=>$parapharmacie ,'idpanier'=>$idpanier, 'user'=>$userfind,'iduser'=>$iduser,]);
     }
 
     /**
@@ -207,7 +213,7 @@ class ListProduitController extends AbstractController
 
         // Retrieve the HTML generated in our twig file
         $html = $this->renderView('list_produit/listp.html.twig',
-            ['listProduit'=>$listProduit ,'user'=>$userfind,'panier'=>$panier,'idpara'=>$idpara ,'parapharmacie'=>$parapharmacie ,'idpanier'=>$idpanier
+            ['listProduit'=>$listProduit ,'user'=>$userfind,'panier'=>$panier,'idpara'=>$idpara ,'parapharmacie'=>$parapharmacie ,'idpanier'=>$idpanier,'iduser'=>$iduser,
         ]);
 
         // Load HTML to Dompdf

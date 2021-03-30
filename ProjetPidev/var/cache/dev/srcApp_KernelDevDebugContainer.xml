@@ -26,6 +26,8 @@
       <parameter key="ObHighchartsBundle">Ob\HighchartsBundle\ObHighchartsBundle</parameter>
       <parameter key="KnpUOAuth2ClientBundle">KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle</parameter>
       <parameter key="CaptchaBundle">Captcha\Bundle\CaptchaBundle\CaptchaBundle</parameter>
+      <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
+      <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -95,6 +97,14 @@
       <parameter key="CaptchaBundle" type="collection">
         <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle</parameter>
         <parameter key="namespace">Captcha\Bundle\CaptchaBundle</parameter>
+      </parameter>
+      <parameter key="SwiftmailerBundle" type="collection">
+        <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\swiftmailer-bundle</parameter>
+        <parameter key="namespace">Symfony\Bundle\SwiftmailerBundle</parameter>
+      </parameter>
+      <parameter key="KnpSnappyBundle" type="collection">
+        <parameter key="path">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/vendor/knplabs/knp-snappy-bundle/src</parameter>
+        <parameter key="namespace">Knp\Bundle\SnappyBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -299,6 +309,25 @@
     <parameter key="captcha.config.botdetect_captcha_path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle\Support/../../captcha/botdetect-captcha-lib</parameter>
     <parameter key="captcha.config.captchaConfig">null</parameter>
     <parameter key="captcha.config.captchaStyleName">null</parameter>
+    <parameter key="swiftmailer.mailer.default.transport.name">dynamic</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
+    <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
+    <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
+    <parameter key="swiftmailer.mailer.default.delivery.enabled">true</parameter>
+    <parameter key="swiftmailer.spool.enabled">true</parameter>
+    <parameter key="swiftmailer.delivery.enabled">true</parameter>
+    <parameter key="swiftmailer.single_address">null</parameter>
+    <parameter key="swiftmailer.mailers" type="collection">
+      <parameter key="default">swiftmailer.mailer.default</parameter>
+    </parameter>
+    <parameter key="swiftmailer.default_mailer">default</parameter>
+    <parameter key="knp_snappy.pdf.binary">%env(WKHTMLTOPDF_PATH)%</parameter>
+    <parameter key="knp_snappy.pdf.options" type="collection"/>
+    <parameter key="knp_snappy.pdf.env" type="collection"/>
+    <parameter key="knp_snappy.image.binary">%env(WKHTMLTOIMAGE_PATH)%</parameter>
+    <parameter key="knp_snappy.image.options" type="collection"/>
+    <parameter key="knp_snappy.image.env" type="collection"/>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -364,6 +393,10 @@
         <parameter>db</parameter>
         <parameter>@Doctrine/Collector/db.html.twig</parameter>
       </parameter>
+      <parameter key="swiftmailer.data_collector" type="collection">
+        <parameter>swiftmailer</parameter>
+        <parameter>@Swiftmailer/Collector/swiftmailer.html.twig</parameter>
+      </parameter>
       <parameter key="data_collector.dump" type="collection">
         <parameter>dump</parameter>
         <parameter>@Debug/Profiler/dump.html.twig</parameter>
@@ -391,6 +424,20 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\AdminController"/>
       </call>
     </service>
+    <service id="App\Controller\ApiController" class="App\Controller\ApiController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ApiController"/>
+      </call>
+    </service>
+    <service id="App\Controller\CalendarController" class="App\Controller\CalendarController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CalendarController"/>
+      </call>
+    </service>
     <service id="App\Controller\CategorieProduitController" class="App\Controller\CategorieProduitController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -405,6 +452,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CategorieSoinMPController"/>
       </call>
     </service>
+    <service id="App\Controller\ContactController" class="App\Controller\ContactController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ContactController"/>
+      </call>
+    </service>
     <service id="App\Controller\GoogleController" class="App\Controller\GoogleController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -417,6 +471,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ListProduitController"/>
+      </call>
+    </service>
+    <service id="App\Controller\MainController" class="App\Controller\MainController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\MainController"/>
       </call>
     </service>
     <service id="App\Controller\MedicamentController" class="App\Controller\MedicamentController" public="true" autowire="true" autoconfigure="true">
@@ -452,6 +513,20 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ParapharmacieController"/>
+      </call>
+    </service>
+    <service id="App\Controller\PostCategorieController" class="App\Controller\PostCategorieController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\PostCategorieController"/>
+      </call>
+    </service>
+    <service id="App\Controller\PosttController" class="App\Controller\PosttController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\PosttController"/>
       </call>
     </service>
     <service id="App\Controller\ProduitController" class="App\Controller\ProduitController" public="true" autowire="true" autoconfigure="true">
@@ -499,7 +574,13 @@
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
     </service>
-    <service id="App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true">
+    <service id="App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\CaptchaSMPType" class="App\Form\CaptchaSMPType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\CategoriePostType" class="App\Form\CategoriePostType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" autoconfigure="true">
@@ -514,6 +595,9 @@
     <service id="App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -524,6 +608,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\PosttType" class="App\Form\PosttType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" autoconfigure="true">
@@ -559,7 +646,14 @@
     <service id="App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\VerifierInscriptionType" class="App\Form\VerifierInscriptionType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -568,6 +662,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\CategorieActualiteRepository" class="App\Repository\CategorieActualiteRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\CategoriePostRepository" class="App\Repository\CategoriePostRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -612,6 +710,10 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\PosttRepository" class="App\Repository\PosttRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -767,6 +869,7 @@
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.main" type="service" id="monolog.handler.main" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.console" type="service" id="monolog.handler.console" on-invalid="ignore_uninitialized"/>
+        <argument key="swiftmailer.email_sender.listener" type="service" id="swiftmailer.email_sender.listener" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
         <argument key="cache.app" type="collection">
@@ -822,6 +925,9 @@
           <argument>reset</argument>
         </argument>
         <argument key="monolog.handler.console" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="swiftmailer.email_sender.listener" type="collection">
           <argument>reset</argument>
         </argument>
       </argument>
@@ -1067,15 +1173,19 @@
         <argument></argument>
       </argument>
       <argument type="collection">
-        <argument>App\Form\CaptchaType</argument>
+        <argument>App\Form\CalendarType</argument>
+        <argument>App\Form\CaptchaSMPType</argument>
+        <argument>App\Form\CategoriePostType</argument>
         <argument>App\Form\CategorieProduitType</argument>
         <argument>App\Form\CategorieSoinMPRechercheType</argument>
         <argument>App\Form\CategorieSoinMPType</argument>
         <argument>App\Form\ConnexionType</argument>
+        <argument>App\Form\ContactType</argument>
         <argument>App\Form\ListProduitType</argument>
         <argument>App\Form\MedicamentType</argument>
         <argument>App\Form\OrdonnanceType</argument>
         <argument>App\Form\ParapharmacieType</argument>
+        <argument>App\Form\PosttType</argument>
         <argument>App\Form\ProduitType</argument>
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\ReclamationsType</argument>
@@ -1087,6 +1197,7 @@
         <argument>App\Form\UserMedType</argument>
         <argument>App\Form\UserParaType</argument>
         <argument>App\Form\UserType</argument>
+        <argument>App\Form\VerifierInscriptionType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -1423,7 +1534,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.jgfLs39"/>
+      <argument type="service" id=".service_locator.PDfze6s"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -2061,6 +2172,10 @@
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpUOAuth2ClientBundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/CaptchaBundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\swiftmailer-bundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/SwiftmailerBundle/translations</argument>
+          <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/vendor/knplabs/knp-snappy-bundle/src/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpSnappyBundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -2103,6 +2218,10 @@
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpUOAuth2ClientBundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\captcha-com\symfony-captcha-bundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/CaptchaBundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\swiftmailer-bundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/SwiftmailerBundle/translations</argument>
+            <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/vendor/knplabs/knp-snappy-bundle/src/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpSnappyBundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -2362,6 +2481,9 @@
       </call>
       <call method="add">
         <argument type="service" id="data_collector.doctrine"/>
+      </call>
+      <call method="add">
+        <argument type="service" id="swiftmailer.data_collector"/>
       </call>
       <call method="add">
         <argument type="service" id="data_collector.dump"/>
@@ -2966,6 +3088,38 @@
         <argument type="collection">
           <argument type="service" id="maker.console_error_listener"/>
           <argument>onConsoleTerminate</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service" id="swiftmailer.email_sender.listener"/>
+          <argument>onException</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.terminate</argument>
+        <argument type="collection">
+          <argument type="service" id="swiftmailer.email_sender.listener"/>
+          <argument>onTerminate</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.error</argument>
+        <argument type="collection">
+          <argument type="service" id="swiftmailer.email_sender.listener"/>
+          <argument>onException</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>console.terminate</argument>
+        <argument type="collection">
+          <argument type="service" id="swiftmailer.email_sender.listener"/>
+          <argument>onTerminate</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -3588,7 +3742,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.ZclVXds"/>
+      <argument type="service" id=".service_locator.ICocC47"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4715,6 +4869,14 @@
         <argument>!Captcha</argument>
       </call>
       <call method="addPath">
+        <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
+        <argument>!Swiftmailer</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/templates</argument>
       </call>
       <call method="addPath">
@@ -5403,21 +5565,148 @@
       <tag name="validator.constraint_validator" alias="valid_simple_captcha"/>
       <argument type="service" id="service_container"/>
     </service>
+    <service id=".4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~iTE1.y8" class="Swift_Transport_Esmtp_Auth_NTLMAuthenticator" public="false"/>
+    <service id=".3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~iTE1.y8" class="Swift_Transport_Esmtp_Auth_PlainAuthenticator" public="false"/>
+    <service id=".2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~iTE1.y8" class="Swift_Transport_Esmtp_Auth_LoginAuthenticator" public="false"/>
+    <service id=".1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~iTE1.y8" class="Swift_Transport_Esmtp_Auth_CramMd5Authenticator" public="false"/>
+    <service id="swiftmailer.mailer.abstract" class="Swift_Mailer" public="true" abstract="true">
+      <argument type="service" id="swiftmailer.mailer.default.transport.spool"/>
+    </service>
+    <service id="swiftmailer.transport.smtp.configurator.abstract" class="Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SmtpTransportConfigurator" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.sendmail.abstract" class="Swift_Transport_SendmailTransport" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.null.abstract" class="Swift_Transport_NullTransport" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.failover" class="Swift_Transport_FailoverTransport" public="false"/>
+    <service id="swiftmailer.transport.buffer.abstract" class="Swift_Transport_StreamBuffer" public="false" abstract="true">
+      <argument type="service" id="swiftmailer.transport.replacementfactory"/>
+    </service>
+    <service id="swiftmailer.transport.authhandler.abstract" class="Swift_Transport_Esmtp_AuthHandler" public="false" abstract="true">
+      <argument type="collection">
+        <argument type="service" id=".1_Swift_Transport_Esmtp_Auth_CramMd5Authenticator~iTE1.y8"/>
+        <argument type="service" id=".2_Swift_Transport_Esmtp_Auth_LoginAuthenticator~iTE1.y8"/>
+        <argument type="service" id=".3_Swift_Transport_Esmtp_Auth_PlainAuthenticator~iTE1.y8"/>
+        <argument type="service" id=".4_Swift_Transport_Esmtp_Auth_NTLMAuthenticator~iTE1.y8"/>
+      </argument>
+    </service>
+    <service id="swiftmailer.transport.eventdispatcher.abstract" class="Swift_Events_SimpleEventDispatcher" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.replacementfactory" class="Swift_StreamFilters_StringReplacementFilterFactory" public="false"/>
+    <service id="swiftmailer.plugin.redirecting.abstract" class="Swift_Plugins_RedirectingPlugin" public="false" abstract="true"/>
+    <service id="swiftmailer.plugin.antiflood.abstract" class="Swift_Plugins_AntiFloodPlugin" public="false" abstract="true"/>
+    <service id="swiftmailer.plugin.impersonate.abstract" class="Swift_Plugins_ImpersonatePlugin" public="false" abstract="true"/>
+    <service id="swiftmailer.plugin.messagelogger.abstract" class="Swift_Plugins_MessageLogger" abstract="true"/>
+    <service id="swiftmailer.transport.smtp.abstract" class="Swift_Transport_EsmtpTransport" public="false" abstract="true"/>
+    <service id="swiftmailer.transport.spool.abstract" class="Swift_Transport_SpoolTransport" public="false" abstract="true"/>
+    <service id="swiftmailer.spool.file.abstract" class="Swift_FileSpool" public="false" abstract="true">
+      <argument></argument>
+    </service>
+    <service id="swiftmailer.spool.memory.abstract" class="Swift_MemorySpool" public="false" abstract="true"/>
+    <service id="swiftmailer.email_sender.listener" class="Symfony\Bundle\SwiftmailerBundle\EventListener\EmailSenderListener">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="service_container"/>
+      <argument type="service" id="monolog.logger" on-invalid="null"/>
+    </service>
+    <service id="swiftmailer.data_collector" class="Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector" public="false">
+      <tag name="data_collector" template="@Swiftmailer/Collector/swiftmailer.html.twig" id="swiftmailer" priority="245"/>
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="swiftmailer.command.debug" class="Symfony\Bundle\SwiftmailerBundle\Command\DebugCommand">
+      <tag name="console.command" command="debug:swiftmailer"/>
+      <call method="setName">
+        <argument>debug:swiftmailer</argument>
+      </call>
+    </service>
+    <service id="swiftmailer.command.new_email" class="Symfony\Bundle\SwiftmailerBundle\Command\NewEmailCommand">
+      <tag name="console.command" command="swiftmailer:email:send"/>
+      <call method="setName">
+        <argument>swiftmailer:email:send</argument>
+      </call>
+    </service>
+    <service id="swiftmailer.command.send_email" class="Symfony\Bundle\SwiftmailerBundle\Command\SendEmailCommand">
+      <tag name="console.command" command="swiftmailer:spool:send"/>
+      <call method="setName">
+        <argument>swiftmailer:spool:send</argument>
+      </call>
+    </service>
+    <service id="swiftmailer.mailer.default.transport.eventdispatcher" class="Swift_Events_SimpleEventDispatcher" public="false"/>
+    <service id="swiftmailer.mailer.default.transport.dynamic" class="Swift_Transport">
+      <argument type="collection">
+        <argument key="transport">smtp</argument>
+        <argument key="url">%env(MAILER_URL)%</argument>
+        <argument key="username">null</argument>
+        <argument key="password">null</argument>
+        <argument key="host">localhost</argument>
+        <argument key="port">null</argument>
+        <argument key="timeout">30</argument>
+        <argument key="source_ip">null</argument>
+        <argument key="local_domain">null</argument>
+        <argument key="encryption">null</argument>
+        <argument key="auth_mode">null</argument>
+        <argument key="command">/usr/sbin/sendmail -bs</argument>
+        <argument key="stream_options" type="collection"/>
+      </argument>
+      <argument type="service" id="router.request_context" on-invalid="null"/>
+      <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
+      <factory class="Symfony\Bundle\SwiftmailerBundle\DependencyInjection\SwiftmailerTransportFactory" method="createTransport"/>
+    </service>
+    <service id="swiftmailer.mailer.default" class="Swift_Mailer" public="true">
+      <argument type="service" id="swiftmailer.mailer.default.transport.spool"/>
+    </service>
+    <service id="swiftmailer.mailer.default.spool.memory" class="Swift_MemorySpool" public="false"/>
+    <service id="swiftmailer.mailer.default.transport.spool" class="Swift_Transport_SpoolTransport" public="false">
+      <argument type="service" id="swiftmailer.mailer.default.transport.eventdispatcher"/>
+      <argument type="service" id="swiftmailer.mailer.default.spool.memory"/>
+      <call method="registerPlugin">
+        <argument type="service" id="swiftmailer.mailer.default.plugin.messagelogger"/>
+      </call>
+    </service>
+    <service id="swiftmailer.mailer.default.plugin.messagelogger" class="Swift_Plugins_MessageLogger" public="true">
+      <tag name="swiftmailer.default.plugin"/>
+    </service>
+    <service id="knp_snappy.pdf" class="Knp\Snappy\Pdf" public="true">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>%env(WKHTMLTOPDF_PATH)%</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="knp_snappy.image" class="Knp\Snappy\Image" public="true">
+      <tag name="monolog.logger" channel="snappy"/>
+      <argument>%env(WKHTMLTOIMAGE_PATH)%</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
+      </call>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategorieProduitController" class="App\Controller\CategorieProduitController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategorieProduitController" class="App\Controller\CategorieProduitController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategorieProduitController" class="App\Controller\CategorieProduitController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ListProduitController" class="App\Controller\ListProduitController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ListProduitController" class="App\Controller\ListProduitController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ListProduitController" class="App\Controller\ListProduitController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MedicamentController" class="App\Controller\MedicamentController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MedicamentController" class="App\Controller\MedicamentController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MedicamentController" class="App\Controller\MedicamentController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5433,6 +5722,12 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ParapharmacieController" class="App\Controller\ParapharmacieController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ParapharmacieController" class="App\Controller\ParapharmacieController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ParapharmacieController" class="App\Controller\ParapharmacieController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PostCategorieController" class="App\Controller\PostCategorieController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PostCategorieController" class="App\Controller\PostCategorieController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PostCategorieController" class="App\Controller\PostCategorieController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\PosttController" class="App\Controller\PosttController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\PosttController" class="App\Controller\PosttController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\PosttController" class="App\Controller\PosttController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ProduitController" class="App\Controller\ProduitController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ProduitController" class="App\Controller\ProduitController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ProduitController" class="App\Controller\ProduitController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5453,8 +5748,12 @@
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Form\CaptchaType" class="App\Form\CaptchaType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CaptchaSMPType" class="App\Form\CaptchaSMPType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CaptchaSMPType" class="App\Form\CaptchaSMPType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategoriePostType" class="App\Form\CategoriePostType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CategoriePostType" class="App\Form\CategoriePostType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieProduitType" class="App\Form\CategorieProduitType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieSoinMPRechercheType" class="App\Form\CategorieSoinMPRechercheType" autowire="true" abstract="true"/>
@@ -5463,6 +5762,8 @@
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContactType" class="App\Form\ContactType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MedicamentType" class="App\Form\MedicamentType" autowire="true" abstract="true"/>
@@ -5471,6 +5772,8 @@
     <service id=".abstract.instanceof.App\Form\OrdonnanceType" class="App\Form\OrdonnanceType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PosttType" class="App\Form\PosttType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PosttType" class="App\Form\PosttType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReclamationType" class="App\Form\ReclamationType" autowire="true" abstract="true"/>
@@ -5493,12 +5796,18 @@
     <service id=".abstract.instanceof.App\Form\UserParaType" class="App\Form\UserParaType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserType" class="App\Form\UserType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserType" class="App\Form\UserType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\VerifierInscriptionType" class="App\Form\VerifierInscriptionType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\VerifierInscriptionType" class="App\Form\VerifierInscriptionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ActualiteRepository" class="App\Repository\ActualiteRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CalendarRepository" class="App\Repository\CalendarRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CaptchaRepository" class="App\Repository\CaptchaRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieActualiteRepository" class="App\Repository\CategorieActualiteRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategorieActualiteRepository" class="App\Repository\CategorieActualiteRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoriePostRepository" class="App\Repository\CategoriePostRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CategoriePostRepository" class="App\Repository\CategoriePostRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieProduitRepository" class="App\Repository\CategorieProduitRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategorieProduitRepository" class="App\Repository\CategorieProduitRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieSoinMPRepository" class="App\Repository\CategorieSoinMPRepository" autowire="true" abstract="true"/>
@@ -5521,6 +5830,8 @@
     <service id=".abstract.instanceof.App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PosttRepository" class="App\Repository\PosttRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PosttRepository" class="App\Repository\PosttRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReclamationRepository" class="App\Repository\ReclamationRepository" autowire="true" abstract="true"/>
@@ -5824,6 +6135,26 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.kyU3SI2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Z.xxrTE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="calendarRepository" type="service" id="App\Repository\CalendarRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.vRKvaXO" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="calendar" type="service" id=".errored..service_locator.vRKvaXO.App\Entity\Calendar"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.0pPaL9K" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5852,6 +6183,13 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.jDnLdoY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mailer" type="service" id="swiftmailer.mailer.default"/>
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
@@ -5912,6 +6250,13 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.B57wv8z" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="calendar" type="service" id="App\Repository\CalendarRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.KFbFhB7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -5939,6 +6284,43 @@
       <argument type="collection">
         <argument key="parapharmacieRepository" type="service" id="App\Repository\ParapharmacieRepository"/>
         <argument key="repository" type="service" id="App\Repository\PanierRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Jhdbo9o" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\CategoriePostRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.tLPfv13" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\CategoriePostRepository"/>
+        <argument key="repositoryy" type="service" id="App\Repository\PosttRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.oL8Br3K" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="posttRepository" type="service" id="App\Repository\PosttRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.5HlRGVi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="postt" type="service" id=".errored..service_locator.5HlRGVi.App\Entity\Postt"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.7qIP4oZ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="knpSnappyPdf" type="service" id="knp_snappy.pdf"/>
+        <argument key="posttRepository" type="service" id="App\Repository\PosttRepository"/>
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
@@ -5998,18 +6380,34 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.d1Mhi6l" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.JF7P1XJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="clee" type="service" id="session"/>
         <argument key="mailer" type="service" id="mailer.mailer"/>
         <argument key="sesssion" type="service" id="session"/>
+        <argument key="util" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.SjO50J." class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.bQmDnwY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="clee" type="service" id="session"/>
+        <argument key="mailer" type="service" id="mailer.mailer"/>
+        <argument key="util" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.5yYUVb2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AdminController::index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ApiController::majEvent" type="service" id=".service_locator.kyU3SI2"/>
+        <argument key="App\Controller\CalendarController::delete" type="service" id=".service_locator.vRKvaXO"/>
+        <argument key="App\Controller\CalendarController::edit" type="service" id=".service_locator.vRKvaXO"/>
+        <argument key="App\Controller\CalendarController::index" type="service" id=".service_locator.Z.xxrTE"/>
+        <argument key="App\Controller\CalendarController::new" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CalendarController::show" type="service" id=".service_locator.vRKvaXO"/>
         <argument key="App\Controller\CategorieProduitController::add" type="service" id=".service_locator.DJXPM0N"/>
         <argument key="App\Controller\CategorieProduitController::affiche" type="service" id=".service_locator.0pPaL9K"/>
         <argument key="App\Controller\CategorieProduitController::afficheClient" type="service" id=".service_locator.k4jgNr2"/>
@@ -6021,6 +6419,7 @@
         <argument key="App\Controller\CategorieSoinMPController::listCategoriesSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieSoinMPController::listCategoriesSoinMPs" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieSoinMPController::modifierCategorieSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ContactController::index" type="service" id=".service_locator.jDnLdoY"/>
         <argument key="App\Controller\GoogleController::connectAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController::connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
         <argument key="App\Controller\GoogleController::inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
@@ -6030,6 +6429,7 @@
         <argument key="App\Controller\ListProduitController::delete" type="service" id=".service_locator.b0oozFY"/>
         <argument key="App\Controller\ListProduitController::listp" type="service" id=".service_locator.Tc2rjJL"/>
         <argument key="App\Controller\ListProduitController::modifierPara" type="service" id=".service_locator.B.qePOm"/>
+        <argument key="App\Controller\MainController::index" type="service" id=".service_locator.B57wv8z"/>
         <argument key="App\Controller\MedicamentController::Medicamentajout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\MedicamentController::export" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\MedicamentController::frontlistmedicament" type="service" id=".service_locator.wf.M68N"/>
@@ -6056,6 +6456,18 @@
         <argument key="App\Controller\ParapharmacieController::afficheFrontClient" type="service" id=".service_locator.DJXPM0N"/>
         <argument key="App\Controller\ParapharmacieController::delete" type="service" id=".service_locator.DJXPM0N"/>
         <argument key="App\Controller\ParapharmacieController::modifierPara" type="service" id=".service_locator.DJXPM0N"/>
+        <argument key="App\Controller\PostCategorieController::Supp" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PostCategorieController::add" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PostCategorieController::afficherCategoriePost" type="service" id=".service_locator.Jhdbo9o"/>
+        <argument key="App\Controller\PostCategorieController::afficherCategoriePostFront" type="service" id=".service_locator.tLPfv13"/>
+        <argument key="App\Controller\PostCategorieController::index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PostCategorieController::updateCategorie" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PosttController::delete" type="service" id=".service_locator.5HlRGVi"/>
+        <argument key="App\Controller\PosttController::edit" type="service" id=".service_locator.5HlRGVi"/>
+        <argument key="App\Controller\PosttController::index" type="service" id=".service_locator.oL8Br3K"/>
+        <argument key="App\Controller\PosttController::new" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PosttController::pdfAction" type="service" id=".service_locator.7qIP4oZ"/>
+        <argument key="App\Controller\PosttController::show" type="service" id=".service_locator.5HlRGVi"/>
         <argument key="App\Controller\ProduitController::add" type="service" id=".service_locator.1r5hOQ_"/>
         <argument key="App\Controller\ProduitController::affiche" type="service" id=".service_locator.08fc0z6"/>
         <argument key="App\Controller\ProduitController::afficheBackProduit" type="service" id=".service_locator.6IouUG9"/>
@@ -6081,6 +6493,7 @@
         <argument key="App\Controller\SoinMPController::ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::detailSoinMPsnote" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SoinMPController::impression" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::listSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::listSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::modifierSoinMP" type="service" id=".service_locator.o3htLhs"/>
@@ -6102,18 +6515,26 @@
         <argument key="App\Controller\UserController::accueilMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::accueilParapharmacien" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::accueilPharmacien" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\UserController::afficherStatUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::afficherUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::connexion" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\UserController::inscription" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController::inscriptionMed" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController::inscriptionPara" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController::inscriptionPharmacien" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController::inscription" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController::inscriptionMed" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController::inscriptionPara" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController::inscriptionPharmacien" type="service" id=".service_locator.JF7P1XJ"/>
         <argument key="App\Controller\UserController::logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierPhar" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierUser" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\UserController::verifinscirption" type="service" id=".service_locator.bQmDnwY"/>
         <argument key="App\Controller\AdminController:accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AdminController:index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ApiController:majEvent" type="service" id=".service_locator.kyU3SI2"/>
+        <argument key="App\Controller\CalendarController:delete" type="service" id=".service_locator.vRKvaXO"/>
+        <argument key="App\Controller\CalendarController:edit" type="service" id=".service_locator.vRKvaXO"/>
+        <argument key="App\Controller\CalendarController:index" type="service" id=".service_locator.Z.xxrTE"/>
+        <argument key="App\Controller\CalendarController:new" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CalendarController:show" type="service" id=".service_locator.vRKvaXO"/>
         <argument key="App\Controller\CategorieProduitController:add" type="service" id=".service_locator.DJXPM0N"/>
         <argument key="App\Controller\CategorieProduitController:affiche" type="service" id=".service_locator.0pPaL9K"/>
         <argument key="App\Controller\CategorieProduitController:afficheClient" type="service" id=".service_locator.k4jgNr2"/>
@@ -6125,6 +6546,7 @@
         <argument key="App\Controller\CategorieSoinMPController:listCategoriesSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieSoinMPController:listCategoriesSoinMPs" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieSoinMPController:modifierCategorieSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ContactController:index" type="service" id=".service_locator.jDnLdoY"/>
         <argument key="App\Controller\GoogleController:connectAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController:connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
         <argument key="App\Controller\GoogleController:inscriptionAction" type="service" id=".service_locator.M1_Y_xF"/>
@@ -6134,6 +6556,7 @@
         <argument key="App\Controller\ListProduitController:delete" type="service" id=".service_locator.b0oozFY"/>
         <argument key="App\Controller\ListProduitController:listp" type="service" id=".service_locator.Tc2rjJL"/>
         <argument key="App\Controller\ListProduitController:modifierPara" type="service" id=".service_locator.B.qePOm"/>
+        <argument key="App\Controller\MainController:index" type="service" id=".service_locator.B57wv8z"/>
         <argument key="App\Controller\MedicamentController:Medicamentajout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\MedicamentController:export" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\MedicamentController:frontlistmedicament" type="service" id=".service_locator.wf.M68N"/>
@@ -6160,6 +6583,18 @@
         <argument key="App\Controller\ParapharmacieController:afficheFrontClient" type="service" id=".service_locator.DJXPM0N"/>
         <argument key="App\Controller\ParapharmacieController:delete" type="service" id=".service_locator.DJXPM0N"/>
         <argument key="App\Controller\ParapharmacieController:modifierPara" type="service" id=".service_locator.DJXPM0N"/>
+        <argument key="App\Controller\PostCategorieController:Supp" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PostCategorieController:add" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PostCategorieController:afficherCategoriePost" type="service" id=".service_locator.Jhdbo9o"/>
+        <argument key="App\Controller\PostCategorieController:afficherCategoriePostFront" type="service" id=".service_locator.tLPfv13"/>
+        <argument key="App\Controller\PostCategorieController:index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PostCategorieController:updateCategorie" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PosttController:delete" type="service" id=".service_locator.5HlRGVi"/>
+        <argument key="App\Controller\PosttController:edit" type="service" id=".service_locator.5HlRGVi"/>
+        <argument key="App\Controller\PosttController:index" type="service" id=".service_locator.oL8Br3K"/>
+        <argument key="App\Controller\PosttController:new" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PosttController:pdfAction" type="service" id=".service_locator.7qIP4oZ"/>
+        <argument key="App\Controller\PosttController:show" type="service" id=".service_locator.5HlRGVi"/>
         <argument key="App\Controller\ProduitController:add" type="service" id=".service_locator.1r5hOQ_"/>
         <argument key="App\Controller\ProduitController:affiche" type="service" id=".service_locator.08fc0z6"/>
         <argument key="App\Controller\ProduitController:afficheBackProduit" type="service" id=".service_locator.6IouUG9"/>
@@ -6185,6 +6620,7 @@
         <argument key="App\Controller\SoinMPController:ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:detailSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:detailSoinMPsnote" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\SoinMPController:impression" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:listSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:listSoinMPs" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:modifierSoinMP" type="service" id=".service_locator.o3htLhs"/>
@@ -6206,16 +6642,18 @@
         <argument key="App\Controller\UserController:accueilMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:accueilParapharmacien" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:accueilPharmacien" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\UserController:afficherStatUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:afficherUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:connexion" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\UserController:inscription" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController:inscriptionMed" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController:inscriptionPara" type="service" id=".service_locator.d1Mhi6l"/>
-        <argument key="App\Controller\UserController:inscriptionPharmacien" type="service" id=".service_locator.d1Mhi6l"/>
+        <argument key="App\Controller\UserController:inscription" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController:inscriptionMed" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController:inscriptionPara" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController:inscriptionPharmacien" type="service" id=".service_locator.JF7P1XJ"/>
         <argument key="App\Controller\UserController:logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierPhar" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierUser" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\UserController:verifinscirption" type="service" id=".service_locator.bQmDnwY"/>
       </argument>
     </service>
     <service id=".service_locator.u8z4W6F" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -6281,18 +6719,22 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.jgfLs39" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.PDfze6s" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Form\CaptchaType" type="service" id="App\Form\CaptchaType"/>
+        <argument key="App\Form\CalendarType" type="service" id="App\Form\CalendarType"/>
+        <argument key="App\Form\CaptchaSMPType" type="service" id="App\Form\CaptchaSMPType"/>
+        <argument key="App\Form\CategoriePostType" type="service" id="App\Form\CategoriePostType"/>
         <argument key="App\Form\CategorieProduitType" type="service" id="App\Form\CategorieProduitType"/>
         <argument key="App\Form\CategorieSoinMPRechercheType" type="service" id="App\Form\CategorieSoinMPRechercheType"/>
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
         <argument key="App\Form\ConnexionType" type="service" id="App\Form\ConnexionType"/>
+        <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
         <argument key="App\Form\ListProduitType" type="service" id="App\Form\ListProduitType"/>
         <argument key="App\Form\MedicamentType" type="service" id="App\Form\MedicamentType"/>
         <argument key="App\Form\OrdonnanceType" type="service" id="App\Form\OrdonnanceType"/>
         <argument key="App\Form\ParapharmacieType" type="service" id="App\Form\ParapharmacieType"/>
+        <argument key="App\Form\PosttType" type="service" id="App\Form\PosttType"/>
         <argument key="App\Form\ProduitType" type="service" id="App\Form\ProduitType"/>
         <argument key="App\Form\ReclamationType" type="service" id="App\Form\ReclamationType"/>
         <argument key="App\Form\ReclamationsType" type="service" id="App\Form\ReclamationsType"/>
@@ -6304,6 +6746,7 @@
         <argument key="App\Form\UserMedType" type="service" id="App\Form\UserMedType"/>
         <argument key="App\Form\UserParaType" type="service" id="App\Form\UserParaType"/>
         <argument key="App\Form\UserType" type="service" id="App\Form\UserType"/>
+        <argument key="App\Form\VerifierInscriptionType" type="service" id="App\Form\VerifierInscriptionType"/>
         <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType" type="service" id="captcha.form.type"/>
         <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType" type="service" id="simple_captcha.form.type"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
@@ -6323,12 +6766,14 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.ZclVXds" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.ICocC47" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ActualiteRepository" type="service" id="App\Repository\ActualiteRepository"/>
+        <argument key="App\Repository\CalendarRepository" type="service" id="App\Repository\CalendarRepository"/>
         <argument key="App\Repository\CaptchaRepository" type="service" id="App\Repository\CaptchaRepository"/>
         <argument key="App\Repository\CategorieActualiteRepository" type="service" id="App\Repository\CategorieActualiteRepository"/>
+        <argument key="App\Repository\CategoriePostRepository" type="service" id="App\Repository\CategoriePostRepository"/>
         <argument key="App\Repository\CategorieProduitRepository" type="service" id="App\Repository\CategorieProduitRepository"/>
         <argument key="App\Repository\CategorieSoinMPRepository" type="service" id="App\Repository\CategorieSoinMPRepository"/>
         <argument key="App\Repository\CentreMedicalRepository" type="service" id="App\Repository\CentreMedicalRepository"/>
@@ -6340,6 +6785,7 @@
         <argument key="App\Repository\OrdonnanceRepository" type="service" id="App\Repository\OrdonnanceRepository"/>
         <argument key="App\Repository\PanierRepository" type="service" id="App\Repository\PanierRepository"/>
         <argument key="App\Repository\ParapharmacieRepository" type="service" id="App\Repository\ParapharmacieRepository"/>
+        <argument key="App\Repository\PosttRepository" type="service" id="App\Repository\PosttRepository"/>
         <argument key="App\Repository\ProduitRepository" type="service" id="App\Repository\ProduitRepository"/>
         <argument key="App\Repository\ReclamationRepository" type="service" id="App\Repository\ReclamationRepository"/>
         <argument key="App\Repository\RegionsRepository" type="service" id="App\Repository\RegionsRepository"/>
@@ -6512,6 +6958,19 @@
       </call>
       <configurator class="Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddDebugLogProcessorPass" method="configureLogger"/>
     </service>
+    <service id="monolog.logger.snappy" class="Symfony\Bridge\Monolog\Logger">
+      <argument>snappy</argument>
+      <call method="pushProcessor">
+        <argument type="service" id="debug.log_processor"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+      <configurator class="Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddDebugLogProcessorPass" method="configureLogger"/>
+    </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
     <service id=".service_locator.V.o0zE7" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -6552,6 +7011,18 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\ApiController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ApiController"/>
+      <argument>App\Controller\ApiController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\CalendarController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\CalendarController"/>
+      <argument>App\Controller\CalendarController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\CategorieProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\CategorieProduitController"/>
       <argument>App\Controller\CategorieProduitController</argument>
@@ -6564,6 +7035,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\ContactController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ContactController"/>
+      <argument>App\Controller\ContactController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\GoogleController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\GoogleController"/>
       <argument>App\Controller\GoogleController</argument>
@@ -6573,6 +7050,12 @@
     <service id=".service_locator.vdmMuyE.App\Controller\ListProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ListProduitController"/>
       <argument>App\Controller\ListProduitController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\MainController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\MainController"/>
+      <argument>App\Controller\MainController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6603,6 +7086,18 @@
     <service id=".service_locator.vdmMuyE.App\Controller\ParapharmacieController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ParapharmacieController"/>
       <argument>App\Controller\ParapharmacieController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\PostCategorieController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\PostCategorieController"/>
+      <argument>App\Controller\PostCategorieController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\PosttController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\PosttController"/>
+      <argument>App\Controller\PosttController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -6785,12 +7280,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.SjO50J."/>
+      <argument type="service" id=".service_locator.5yYUVb2"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.SjO50J."/>
+      <argument type="service" id=".service_locator.5yYUVb2"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -6800,8 +7295,10 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.vRKvaXO.App\Entity\Calendar" class="App\Entity\Calendar"/>
+    <service id=".errored..service_locator.5HlRGVi.App\Entity\Postt" class="App\Entity\Postt"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.npLK9dQ"/>
+      <argument type="service" id=".service_locator.7ZbdT7F"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -6873,6 +7370,9 @@
         <argument key="server:stop">web_server.command.server_stop</argument>
         <argument key="server:status">web_server.command.server_status</argument>
         <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
+        <argument key="debug:swiftmailer">swiftmailer.command.debug</argument>
+        <argument key="swiftmailer:email:send">swiftmailer.command.new_email</argument>
+        <argument key="swiftmailer:spool:send">swiftmailer.command.send_email</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -6898,7 +7398,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.npLK9dQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.7ZbdT7F" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand" type="service" id="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand"/>
@@ -6985,6 +7485,9 @@
         <argument key="maker.auto_command.make_voter" type="service" id="maker.auto_command.make_voter"/>
         <argument key="monolog.command.server_log" type="service" id="monolog.command.server_log"/>
         <argument key="security.command.user_password_encoder" type="service" id="security.command.user_password_encoder"/>
+        <argument key="swiftmailer.command.debug" type="service" id="swiftmailer.command.debug"/>
+        <argument key="swiftmailer.command.new_email" type="service" id="swiftmailer.command.new_email"/>
+        <argument key="swiftmailer.command.send_email" type="service" id="swiftmailer.command.send_email"/>
         <argument key="twig.command.debug" type="service" id="twig.command.debug"/>
         <argument key="twig.command.lint" type="service" id="twig.command.lint"/>
         <argument key="var_dumper.command.server_dump" type="service" id="var_dumper.command.server_dump"/>
@@ -7114,7 +7617,7 @@
     <service id="Symfony\Component\Asset\Packages" alias="assets.packages" public="false"/>
     <service id="Symfony\Contracts\HttpClient\HttpClientInterface" alias=".debug.http_client"/>
     <service id="Psr\Http\Client\ClientInterface" alias="psr18.http_client"/>
-    <service id="mailer" alias="mailer.mailer"/>
+    <service id="mailer" alias="swiftmailer.mailer.default" public="true"/>
     <service id="Symfony\Component\Mailer\MailerInterface" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\Transport\TransportInterface" alias="mailer.default_transport"/>
     <service id="Symfony\Component\Validator\Validator\ValidatorInterface" alias="debug.validator" public="false"/>
@@ -7197,9 +7700,22 @@
     <service id="KnpU\OAuth2ClientBundle\Client\ClientRegistry" alias="knpu.oauth2.registry" public="false"/>
     <service id="oauth2.registry" alias="knpu.oauth2.registry" public="true"/>
     <service id="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" alias="knpu.oauth2.client.google_connect" public="false"/>
+    <service id="swiftmailer.mailer.default.transport" alias="swiftmailer.mailer.default.transport.spool"/>
+    <service id="swiftmailer.mailer.default.spool" alias="swiftmailer.mailer.default.spool.memory"/>
+    <service id="swiftmailer.mailer.default.transport.real" alias="swiftmailer.mailer.default.transport.dynamic" public="true"/>
+    <service id="swiftmailer.spool" alias="swiftmailer.mailer.default.spool.memory"/>
+    <service id="swiftmailer.transport.real" alias="swiftmailer.mailer.default.transport.dynamic"/>
+    <service id="Swift_Spool" alias="swiftmailer.mailer.default.spool.memory" public="false"/>
+    <service id="swiftmailer.plugin.messagelogger" alias="swiftmailer.mailer.default.plugin.messagelogger"/>
+    <service id="swiftmailer.mailer" alias="swiftmailer.mailer.default"/>
+    <service id="swiftmailer.transport" alias="swiftmailer.mailer.default.transport.spool" public="true"/>
+    <service id="Swift_Mailer" alias="swiftmailer.mailer.default" public="false"/>
+    <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool" public="false"/>
+    <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf"/>
+    <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.SjO50J."/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.5yYUVb2"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -7213,8 +7729,9 @@
     <service id="Psr\Log\LoggerInterface $doctrineLogger" alias="monolog.logger.doctrine"/>
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
+    <service id="Psr\Log\LoggerInterface $snappyLogger" alias="monolog.logger.snappy"/>
     <service id=".service_locator.xkmSecI" alias=".service_locator.u8z4W6F" public="false"/>
-    <service id=".service_locator.UgKUVeF" alias=".service_locator.jgfLs39" public="false"/>
+    <service id=".service_locator.4ZTD2DJ" alias=".service_locator.PDfze6s" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

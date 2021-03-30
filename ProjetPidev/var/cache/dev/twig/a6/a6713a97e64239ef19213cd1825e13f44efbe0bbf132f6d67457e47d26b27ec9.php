@@ -51,11 +51,7 @@ class __TwigTemplate_0809e17a4263a11f03aff6ea55dde973792bfb296bd51f20e39736587a8
             </div>
             <div class=\"col-md-3 col-lg-2\">
                 <div class=\"footer-col\">
-                    <h3 class=\"footer-title\">Products</h3>
-                    <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">CRM</a></li>
-                        <li><a href=\"#\">eCommerce</a></li>
-                    </ul>
+
                 </div>
             </div>
             <div class=\"col-md-3 col-lg-2\">
@@ -63,9 +59,11 @@ class __TwigTemplate_0809e17a4263a11f03aff6ea55dde973792bfb296bd51f20e39736587a8
 
                 </div>
             </div>
-            <div class=\"col-md-3 col-lg-2\">
+            <div class=\"col-md-6 col-lg-4\">
                 <div class=\"footer-col\">
-
+                    <h3 class=\"footer-title\">Contact</h3>
+                    <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +216 00000000</a> </p>
+                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i>sahtitnpidev@gmail.com</a> </p>
                 </div>
             </div>
         </div>
@@ -77,23 +75,23 @@ class __TwigTemplate_0809e17a4263a11f03aff6ea55dde973792bfb296bd51f20e39736587a8
     </div>
 </footer>
 <script src=\"";
-        // line 37
+        // line 35
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 38
+        // line 36
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://code.jquery.com/jquery-3.2.1.slim.min.js"), "html", null, true);
         echo "\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
 <script src=\"";
-        // line 39
+        // line 37
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"), "html", null, true);
         echo "\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
 <script src=\"";
-        // line 40
+        // line 38
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"), "html", null, true);
         echo "\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
 <script src=\"";
-        // line 41
+        // line 39
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://kit.fontawesome.com/9b697a719a.js"), "html", null, true);
         echo "\" crossorigin=\"anonymous\"></script>
 <script>
@@ -128,7 +126,7 @@ class __TwigTemplate_0809e17a4263a11f03aff6ea55dde973792bfb296bd51f20e39736587a8
 
     public function getDebugInfo()
     {
-        return array (  97 => 41,  93 => 40,  89 => 39,  85 => 38,  81 => 37,  43 => 1,);
+        return array (  95 => 39,  91 => 38,  87 => 37,  83 => 36,  79 => 35,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -144,11 +142,7 @@ class __TwigTemplate_0809e17a4263a11f03aff6ea55dde973792bfb296bd51f20e39736587a8
             </div>
             <div class=\"col-md-3 col-lg-2\">
                 <div class=\"footer-col\">
-                    <h3 class=\"footer-title\">Products</h3>
-                    <ul class=\"list-unstyled footer-list mb-0\">
-                        <li><a href=\"#\">CRM</a></li>
-                        <li><a href=\"#\">eCommerce</a></li>
-                    </ul>
+
                 </div>
             </div>
             <div class=\"col-md-3 col-lg-2\">
@@ -156,9 +150,11 @@ class __TwigTemplate_0809e17a4263a11f03aff6ea55dde973792bfb296bd51f20e39736587a8
 
                 </div>
             </div>
-            <div class=\"col-md-3 col-lg-2\">
+            <div class=\"col-md-6 col-lg-4\">
                 <div class=\"footer-col\">
-
+                    <h3 class=\"footer-title\">Contact</h3>
+                    <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +216 00000000</a> </p>
+                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i>sahtitnpidev@gmail.com</a> </p>
                 </div>
             </div>
         </div>

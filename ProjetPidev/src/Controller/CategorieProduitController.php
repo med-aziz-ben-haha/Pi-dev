@@ -39,6 +39,8 @@ class CategorieProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficheCategorieProd', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -56,6 +58,8 @@ class CategorieProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('deleteCategorie', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -79,6 +83,8 @@ class CategorieProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('AjoutCategorie', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -117,7 +123,7 @@ class CategorieProduitController extends AbstractController
             return $this->redirectToRoute('afficheCategorieProd',array('id'=>$idp , 'iduser'=>$iduser,'user'=>$userfind,));
         }
         return $this->render('categorie_produit/AjoutCategorie.html.twig',[
-            'form'=>$form->createView() , 'idpara'=>$idp,'user'=>$userfind,
+            'form'=>$form->createView() , 'idpara'=>$idp,'user'=>$userfind,'iduser'=> $iduser,
         ]);
     }
 
@@ -131,6 +137,8 @@ class CategorieProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('modifierCategorie', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -162,7 +170,7 @@ class CategorieProduitController extends AbstractController
             return $this->redirectToRoute('afficheCategorieProd',array('id'=>$idp, 'iduser'=> $iduser,'user'=>$userfind,));
         }
         return $this->render('categorie_produit/ModifierCategorie.html.twig',[
-            'form'=>$form->createView() , 'idpara'=>$idp,'user'=>$userfind,
+            'form'=>$form->createView() , 'idpara'=>$idp,'user'=>$userfind, 'iduser'=> $iduser,
         ]);
 
     }
@@ -177,6 +185,8 @@ class CategorieProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('choixCategorie', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
@@ -198,6 +208,8 @@ class CategorieProduitController extends AbstractController
         if(is_null($user))
         {
             return $this->redirectToRoute('connexion');
+        }else if($iduser !=$user->getId()){
+            return $this->redirectToRoute('afficheClienCategorieProd', ['iduser' => $user->getId(),]);
         }
         $iduser=$user->getId();
         $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
