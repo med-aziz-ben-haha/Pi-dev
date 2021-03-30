@@ -1,0 +1,42 @@
+{% include 'tempFront1MO.html.twig' %}
+
+<table style="margin-top: 5% ; margin-left: 16%">
+    <tr>
+        <td>
+            <form method="post" action="{{ path ('recherchemed2') }}">
+                <label>Rechercher</label>
+                <input type="text" name="search"><input type="submit" value="Recherche">
+            </form>
+        </td>
+    </tr>
+</table>
+
+<table border="3" style="width: 70%;text-align: center;border-style: solid;border-color:#a50e0e;font-size: 20px; margin-top: 2%; margin-left: 16%">
+    <tr>
+        <td> Nom du médicament </td>
+        <td> Description du médicament </td>
+        <td> Disponibilité </td>
+        <td> Image du medicament </td>
+        <td> Date de modification </td>
+    </tr>
+    {% for i in frontlistmedicament %}
+        <tr>
+            <td>{{ i.nomMedicament }}</td>
+            <td>{{ i.Descmedicament }}</td>
+
+            {% if i.dispo == 1 %}
+                <td><img src="{{ asset ('bundles/dist/img/available.png') }}" alt="Disponible"></td>
+            {% endif %}
+
+            {% if i.dispo == 0 %}
+                <td><img src="{{ asset ('bundles/dist/img/nn available.png') }}" alt="Non disponible"></td>
+            {% endif %}
+
+            <td><img style=" padding-right: 2px; padding-left: 2px;  width:75px ; height: 75px ; " src="{{ asset ('uploads/brochures/'~ i.getImgMedicament() ) }}" alt="Image"></td>
+            <td>{{ i.dateModif|date("d/m/Y") }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+    {{ knp_pagination_render(frontlistmedicament) }}
+<br>

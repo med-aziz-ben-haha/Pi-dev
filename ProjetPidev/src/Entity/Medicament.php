@@ -3,7 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\MedicamentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 /**
  * @ORM\Entity(repositoryClass=MedicamentRepository::class)
@@ -18,29 +23,48 @@ class Medicament
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=30)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank (message=" Nom du medicament obligatoire * ")
      */
     private $nomMedicament;
 
     /**
-     * @ORM\Column(type="string", length=10)
+     * @ORM\Column(type="date", nullable=true)
+     * @Assert\NotBlank (message=" Date de modification obligatoire * ")
      */
-    private $validite;
-
-    /**
-     * @ORM\Column(type="string", length=10)
-     */
-    private $disponibilite;
+    private $dateModif;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotNull (message="Dispobinilité obligatoire *")
+     * @Assert\Range(
+     *      min = 0,
+     *      max = 1,
+     *      notInRangeMessage = " Entrez {{ min }} si le médicament est indisponible et {{ max }} s'il est disponible")
      */
-    private $quantite;
+    private $dispo;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $img_medicament;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Ordonnance::class, inversedBy="medicaments")
+     */
+    private $Ordonnance;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank (message=" Description du medicament obligatoire * ")
      */
-    private $lienImageMedicament;
+    private $descmedicament;
+    protected $captchaCode;
+
+    public function __construct()
+    {
+        $this->Ordonnance = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -59,50 +83,84 @@ class Medicament
         return $this;
     }
 
-    public function getValidite(): ?string
+    public function getDateModif(): ?\DateTimeInterface
     {
-        return $this->validite;
+        return $this->dateModif;
     }
 
-    public function setValidite(string $validite): self
+    public function setDateModif(?\DateTimeInterface $dateModif): self
     {
-        $this->validite = $validite;
+        $this->dateModif = $dateModif;
 
         return $this;
     }
 
-    public function getDisponibilite(): ?string
+    public function getDispo(): ?int
     {
-        return $this->disponibilite;
+        return $this->dispo;
     }
 
-    public function setDisponibilite(string $disponibilite): self
+    public function setDispo(int $dispo): self
     {
-        $this->disponibilite = $disponibilite;
+        $this->dispo = $dispo;
 
         return $this;
     }
 
-    public function getQuantite(): ?int
+    public function getImgMedicament(): ?string
     {
-        return $this->quantite;
+        return $this->img_medicament;
     }
 
-    public function setQuantite(int $quantite): self
+    public function setImgMedicament(?string $img_medicament): self
     {
-        $this->quantite = $quantite;
+        $this->img_medicament = $img_medicament;
 
         return $this;
     }
 
-    public function getLienImageMedicament(): ?string
+    public function getCaptchaCode()
     {
-        return $this->lienImageMedicament;
+        return $this->captchaCode;
     }
 
-    public function setLienImageMedicament(string $lienImageMedicament): self
+    public function setCaptchaCode($captchaCode)
     {
-        $this->lienImageMedicament = $lienImageMedicament;
+        $this->captchaCode = $captchaCode;
+    }
+
+    /**
+     * @return Collection|Ordonnance[]
+     */
+    public function getOrdonnance(): Collection
+    {
+        return $this->Ordonnance;
+    }
+
+    public function addOrdonnance(Ordonnance $ordonnance): self
+    {
+        if (!$this->Ordonnance->contains($ordonnance)) {
+            $this->Ordonnance[] = $ordonnance;
+        }
+
+        return $this;
+    }
+
+    public function removeOrdonnance(Ordonnance $ordonnance): self
+    {
+        $this->Ordonnance->removeElement($ordonnance);
+
+        return $this;
+    }
+
+    public function getDescmedicament(): ?string
+    {
+        return $this->descmedicament;
+    }
+
+    public function setDescmedicament(string $descmedicament): self
+    {
+        $this->descmedicament = $descmedicament;
 
         return $this;
     }

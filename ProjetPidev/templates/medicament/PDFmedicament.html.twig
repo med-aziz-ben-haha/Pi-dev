@@ -1,0 +1,19 @@
+<h1>LISTE DES MEDICAMENT</h1>
+<table border="1">
+    <tr>
+        <td> ID </td>
+        <td> Nom du médicament </td>
+        <td> Description du médicament </td>
+        <td> Disponibilité </td>
+        <td> Date de modification </td>
+    </tr>
+    {% for i in PDFmedicament %}
+        <tr>
+            <td> {{ i.id }} </td>
+            <td> {{ i.nomMedicament }} </td>
+            <td> {{ i.Descmedicament }} </td>
+            <td> {{ i.dispo }} </td>
+            <td> {{ i.dateModif|date("d/m/Y") }} </td>
+        </tr>
+    {% endfor %}
+</table>
