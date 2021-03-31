@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CentreMedical index{% endblock %}
+
+{% block body %}
+    <h1>CentreMedical index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_centre_medical</th>
+                <th>Adresse</th>
+                <th>Type</th>
+                <th>Mail</th>
+                <th>NumTel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for centre_medical in centre_medicals %}
+            <tr>
+                <td>{{ centre_medical.id }}</td>
+                <td>{{ centre_medical.nomCentreMedical }}</td>
+                <td>{{ centre_medical.adresse }}</td>
+                <td>{{ centre_medical.type }}</td>
+                <td>{{ centre_medical.mail }}</td>
+                <td>{{ centre_medical.numTel }}</td>
+                <td>
+                    <a href="{{ path('centre_medical_show', {'id': centre_medical.id}) }}">show</a>
+                    <a href="{{ path('centre_medical_edit', {'id': centre_medical.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('centre_medical_new') }}">Create new</a>
+{% endblock %}
