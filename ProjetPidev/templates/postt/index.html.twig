@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Postt index{% endblock %}
+
+{% block body %}
+    <h1>Postt index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TitrePostt</th>
+                <th>TextePostt</th>
+                <th>DatePostt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for postt in postts %}
+            <tr>
+                <td>{{ postt.id }}</td>
+                <td>{{ postt.titrePostt }}</td>
+                <td>{{ postt.textePostt }}</td>
+                <td>{{ postt.datePostt ? postt.datePostt|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('postt_show', {'id': postt.id}) }}">show</a>
+                    <a href="{{ path('postt_edit', {'id': postt.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('postt_new') }}">Create new</a>
+{% endblock %}

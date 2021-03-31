@@ -51,10 +51,12 @@ class __TwigTemplate_04d85b1040b5df97dc6fae203ff2b84780350be53e98e8e3ef33e1b32a7
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
 
+
+
     ";
-        // line 6
-        $this->loadTemplate("temp2.html.twig", "admin/index.html.twig", 6)->display($context);
-        // line 7
+        // line 8
+        $this->loadTemplate("temp2.html.twig", "admin/index.html.twig", 8)->display($context);
+        // line 9
         echo "
 ";
         
@@ -77,7 +79,7 @@ class __TwigTemplate_04d85b1040b5df97dc6fae203ff2b84780350be53e98e8e3ef33e1b32a7
 
     public function getDebugInfo()
     {
-        return array (  58 => 7,  56 => 6,  51 => 4,  48 => 3,  46 => 2,  43 => 1,);
+        return array (  60 => 9,  58 => 8,  51 => 4,  48 => 3,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -87,8 +89,10 @@ class __TwigTemplate_04d85b1040b5df97dc6fae203ff2b84780350be53e98e8e3ef33e1b32a7
 
         <img style=\"margin-left: 30%; margin-top: 5%; width: 40%; height: 40% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" >
 
+
+
     {% include 'temp2.html.twig' %}
 
-", "admin/index.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\admin\\index.html.twig");
+", "admin/index.html.twig", "C:\\Users\\USER\\Pi-dev\\ProjetPidev\\templates\\admin\\index.html.twig");
     }
 }

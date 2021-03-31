@@ -35,15 +35,21 @@ class Parapharmacie
     private $telPara;
 
     /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $img_Para;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $lienImageP;
+
+    /**
      * @ORM\OneToMany(targetEntity=Produit::class, mappedBy="parapharmacie", orphanRemoval=true)
      */
     private $produits;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="parapharmacies")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
+
 
     public function __construct()
     {
@@ -79,6 +85,22 @@ class Parapharmacie
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getLienImageP()
+    {
+        return $this->lienImageP;
+    }
+
+    /**
+     * @param mixed $lienImageP
+     */
+    public function setLienImageP($lienImageP): void
+    {
+        $this->lienImageP = $lienImageP;
+    }
+
     public function getTelPara(): ?string
     {
         return $this->telPara;
@@ -89,6 +111,22 @@ class Parapharmacie
         $this->telPara = $telPara;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImgPara()
+    {
+        return $this->img_Para;
+    }
+
+    /**
+     * @param mixed $img_Para
+     */
+    public function setImgPara($img_Para): void
+    {
+        $this->img_Para = $img_Para;
     }
 
     /**
@@ -121,15 +159,5 @@ class Parapharmacie
         return $this;
     }
 
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
 
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
-    }
 }

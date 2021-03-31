@@ -96,6 +96,14 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/afficherCategorieSoinMPs"), "html", null, true);
         echo "\">Médecine Parallèle</a>
                     </li>
+
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+        // line 53
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/afficherCategoriePostFront"), "html", null, true);
+        echo "\">Forums</a>
+                    </li>
+
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
@@ -147,7 +155,7 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 101
+        // line 106
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -488,7 +496,7 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
 
     public function getDebugInfo()
     {
-        return array (  151 => 101,  96 => 49,  80 => 36,  43 => 1,);
+        return array (  159 => 106,  103 => 53,  96 => 49,  80 => 36,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -543,6 +551,11 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{ asset('/afficherCategorieSoinMPs') }}\">Médecine Parallèle</a>
                     </li>
+
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ asset('/afficherCategoriePostFront') }}\">Forums</a>
+                    </li>
+
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">Services</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
@@ -911,6 +924,6 @@ class __TwigTemplate_c3f30c61aca662a8d9aec46ef7fe0776c6b96e99d73c3d7311839f9799e
 </script>
 </body>
 </html>
-", "templateSahtiTN.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\templateSahtiTN.html.twig");
+", "templateSahtiTN.html.twig", "C:\\Users\\USER\\Pi-dev\\ProjetPidev\\templates\\templateSahtiTN.html.twig");
     }
 }

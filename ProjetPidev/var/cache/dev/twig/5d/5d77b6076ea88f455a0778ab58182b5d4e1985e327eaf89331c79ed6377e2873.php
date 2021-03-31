@@ -68,7 +68,7 @@ class __TwigTemplate_cea3b8c8aa303389fc6b3863775c2c98e47f4dc68e45e6712de14083dfe
     <div class=\"box-header\">
         <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion Des Soins Médecine Parallèle </h1>
 
-        <form action=\"  ";
+        <form href=\"  ";
         // line 28
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("ajouterSoinMP");
         echo "  \"><button>Ajouter</button></form>
@@ -201,7 +201,7 @@ class __TwigTemplate_cea3b8c8aa303389fc6b3863775c2c98e47f4dc68e45e6712de14083dfe
     <div class=\"box-header\">
         <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion Des Soins Médecine Parallèle </h1>
 
-        <form action=\"  {{path('ajouterSoinMP')}}  \"><button>Ajouter</button></form>
+        <form href=\"  {{path('ajouterSoinMP')}}  \"><button>Ajouter</button></form>
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">
@@ -242,6 +242,6 @@ class __TwigTemplate_cea3b8c8aa303389fc6b3863775c2c98e47f4dc68e45e6712de14083dfe
     </div>
     <!-- /.box-body -->
 </div>
-{% include 'temp2.html.twig' %}", "soin_mp/listSoinsMP.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\soin_mp\\listSoinsMP.html.twig");
+{% include 'temp2.html.twig' %}", "soin_mp/listSoinsMP.html.twig", "C:\\Users\\USER\\Pi-dev\\ProjetPidev\\templates\\soin_mp\\listSoinsMP.html.twig");
     }
 }

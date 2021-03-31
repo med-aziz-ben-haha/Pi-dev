@@ -54,22 +54,34 @@ class __TwigTemplate_efa1e1fc4c3fda3e03f7fecef268552090909377d8dbe325b4fd75cab0c
         echo "</title>
         ";
         // line 8
-        echo "        ";
-        $this->displayBlock('stylesheets', $context, $blocks);
-        // line 11
-        echo "
+        echo "        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css\" integrity=\"sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=\" crossorigin=\"anonymous\">
         ";
+        // line 9
+        $this->displayBlock('stylesheets', $context, $blocks);
         // line 12
+        echo "        <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js\" integrity=\"sha256-rPPF6R+AH/Gilj2aC00ZAuB2EKmnEjXlEWx5MkAp7bw=\" crossorigin=\"anonymous\"></script>
+        ";
+        // line 13
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 15
+        // line 16
         echo "    </head>
     <body>
+
+
+    <div id=\"fb-root\"></div>
+    <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0&appId=563838461259954\" nonce=\"vi5xaw5M\"></script>
+
+
+
+
         ";
-        // line 17
+        // line 26
         $this->displayBlock('body', $context, $blocks);
-        // line 18
+        // line 27
         echo "    </body>
 </html>
+
+
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -98,7 +110,7 @@ class __TwigTemplate_efa1e1fc4c3fda3e03f7fecef268552090909377d8dbe325b4fd75cab0c
 
     }
 
-    // line 8
+    // line 9
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -108,9 +120,9 @@ class __TwigTemplate_efa1e1fc4c3fda3e03f7fecef268552090909377d8dbe325b4fd75cab0c
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 9
-        echo "            ";
         // line 10
+        echo "            ";
+        // line 11
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -120,7 +132,7 @@ class __TwigTemplate_efa1e1fc4c3fda3e03f7fecef268552090909377d8dbe325b4fd75cab0c
 
     }
 
-    // line 12
+    // line 13
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -130,9 +142,9 @@ class __TwigTemplate_efa1e1fc4c3fda3e03f7fecef268552090909377d8dbe325b4fd75cab0c
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 13
-        echo "            ";
         // line 14
+        echo "            ";
+        // line 15
         echo "        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -142,7 +154,7 @@ class __TwigTemplate_efa1e1fc4c3fda3e03f7fecef268552090909377d8dbe325b4fd75cab0c
 
     }
 
-    // line 17
+    // line 26
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -167,7 +179,7 @@ class __TwigTemplate_efa1e1fc4c3fda3e03f7fecef268552090909377d8dbe325b4fd75cab0c
 
     public function getDebugInfo()
     {
-        return array (  146 => 17,  136 => 14,  134 => 13,  124 => 12,  114 => 10,  112 => 9,  102 => 8,  83 => 5,  71 => 18,  69 => 17,  65 => 15,  63 => 12,  60 => 11,  57 => 8,  53 => 5,  47 => 1,);
+        return array (  158 => 26,  148 => 15,  146 => 14,  136 => 13,  126 => 11,  124 => 10,  114 => 9,  95 => 5,  81 => 27,  79 => 26,  67 => 16,  65 => 13,  62 => 12,  60 => 9,  57 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -179,18 +191,29 @@ class __TwigTemplate_efa1e1fc4c3fda3e03f7fecef268552090909377d8dbe325b4fd75cab0c
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
+        <link rel=\"stylesheet\" href=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.css\" integrity=\"sha256-uq9PNlMzB+1h01Ij9cx7zeE2OR2pLAfRw3uUUOOPKdA=\" crossorigin=\"anonymous\">
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
-
+        <script src=\"https://cdn.jsdelivr.net/npm/fullcalendar@5.5.1/main.min.js\" integrity=\"sha256-rPPF6R+AH/Gilj2aC00ZAuB2EKmnEjXlEWx5MkAp7bw=\" crossorigin=\"anonymous\"></script>
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
     <body>
+
+
+    <div id=\"fb-root\"></div>
+    <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0&appId=563838461259954\" nonce=\"vi5xaw5M\"></script>
+
+
+
+
         {% block body %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\Users\\Emna\\Desktop\\Pi-dev\\ProjetPidev\\templates\\base.html.twig");
+
+
+", "base.html.twig", "C:\\Users\\USER\\Pi-dev\\ProjetPidev\\templates\\base.html.twig");
     }
 }

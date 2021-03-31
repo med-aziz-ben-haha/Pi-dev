@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Postt{% endblock %}
+
+{% block body %}
+    <h1>Create new Postt</h1>
+
+    {{ include('postt/_form.html.twig') }}
+
+    <a href="{{ path('afficherCategoriePostFront') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% include 'tempFront1SoinMP.html.twig' %}
+
+<form method="post" action="{{ path('postt_delete', {'id': postt.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ postt.id) }}">
+    <button class="btn">Delete</button>
+</form>
+
+{% include 'tempFront2SoinMP.html.twig' %}

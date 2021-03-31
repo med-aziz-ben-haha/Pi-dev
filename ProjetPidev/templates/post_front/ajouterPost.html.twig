@@ -1,0 +1,17 @@
+{% include 'temp1.html.twig' %}
+<div style ="margin-left: 1%; padding-top: 5%">
+
+
+    {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+    <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Ajouter Post </h1>
+    {# { form_errors(form.nomPost) }#}
+    {{ form_label(form.titrePost,"Titre Post") }}
+    {{ form_label(form.textePost,"Texte Post") }}
+    {{ form_label(form.datePost,"Date Post") }}
+    {{ form_label(form.idUtilisateurP,"Id Utilisateur Post") }}
+
+    {{ form_widget(form.titrePost) }}
+
+    {{ form_end(form)  }}
+</div>
+{% include 'temp2.html.twig' %}

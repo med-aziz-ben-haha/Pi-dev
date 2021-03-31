@@ -64,7 +64,7 @@
 
         <!-- Logo -->
 
-        <a href="/admin" class="logo" style="background-color: #e40f00;">
+        <a href="/admin" class="logo" style="background-color: grey;">
 
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
@@ -75,7 +75,7 @@
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" style="background-color: #e40f00;" >
+        <nav class="navbar navbar-static-top" style="background-color: grey;" >
             <!-- Sidebar toggle button-->
             <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                 <span class="sr-only">Toggle navigation</span>
@@ -91,7 +91,7 @@
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <img src="{{ asset('bundles/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Emna Besbes</span>
+                            <span class="hidden-xs">Oussema</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
@@ -99,7 +99,7 @@
                                 <img src="{{ asset('bundles/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Emna Besbes - admin/Web Developer
+                                    Oussema - admin/Web Developer
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>
@@ -121,7 +121,7 @@
         </nav>
     </header>
     <!-- Left side column. contains the logo and sidebar -->
-    <aside class="main-sidebar" style="background-color: #e40f00; color:white">
+    <aside class="main-sidebar" style="background-color: grey; color:white">
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
             <!-- Sidebar user panel -->
@@ -130,7 +130,7 @@
                     <img src="{{ asset('bundles/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
-                    <p>Emna Besbes</p>
+                    <p>Oussema</p>
                     <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                 </div>
             </div>
@@ -160,6 +160,34 @@
                 <li><a href=""><i class="fa fa-book"></i> <span>Gestion des laboratoires</span></a></li>
                 <li><a href=""><i class="fa fa-book"></i> <span>Gestion des médicaments</span></a></li>
                 <li><a href=""><i class="fa fa-book"></i> <span>Gestion des centres médicaux</span></a></li>
+
+               <!--------------------------Gestion FAQ--------------------------------- -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-question" aria-hidden="true"></i> <span>Gestion Forums</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/afficherCategoriePost"><i class="fa fa-circle-o"></i> Gestion des catégories posts</a></li>
+                        <li><a href="/afficherDiscussion"><i class="fa fa-circle-o"></i> Gestion des discussions</a></li>
+
+                    </ul>
+                </li>
+                <!----------------------------------------------------------- -->
+
+                <!--------------------------Calendrier--------------------------------- -->
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-calendar" aria-hidden="true"></i> <span>Calendar</span>
+                        <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+                    <ul class="treeview-menu">
+
+                        <li><a href="/calendar"><i class="fa fa-calendar"></i> Afficher </a></li>
+                        <li><a href="/calendar/new"><i class="fa fa-calendar"></i> Ajouter </a></li>
+
+                    </ul>
+                </li>
+                <!----------------------------------------------------------- -->
+
 
             </ul>
         </section>

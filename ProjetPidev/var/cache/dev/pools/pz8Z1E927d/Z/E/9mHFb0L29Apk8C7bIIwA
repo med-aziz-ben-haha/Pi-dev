@@ -1,0 +1,40 @@
+<?php //%255BApp%255CEntity%255CPostt%2524textePostt%255D%255B1%255D
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
+        clone ($p['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'message' => [
+                'Ce champs est obligatoire',
+            ],
+            'groups' => [
+                [
+                    'Default',
+                ],
+                2 => [
+                    'Default',
+                ],
+            ],
+            'length' => [
+                1 => 1000,
+            ],
+            'minMessage' => [
+                2 => 'taille min du champs Texte est 10 caractères',
+            ],
+            'min' => [
+                2 => '10',
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+    ],
+    []
+); }];

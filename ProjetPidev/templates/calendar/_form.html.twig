@@ -1,0 +1,10 @@
+{% include 'temp1.html.twig' %}
+
+<h1>Create new Calendar</h1>
+
+
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+{% include 'temp2.html.twig' %}
