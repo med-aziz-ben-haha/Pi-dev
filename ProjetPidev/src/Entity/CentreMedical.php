@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use App\Repository\CentreMedicalRepository;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -20,39 +19,62 @@ class CentreMedical
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=255)
      */
-    private $nomCentreMedical;
+    private $nom_centre_medical;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $adresseCentreMedical;
+    private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $typeCentreMedical;
+    private $type;
 
     /**
-     * @ORM\Column(type="string", length=20)
+     * @ORM\Column(type="string", length=255)
      */
-    private $numTelCentreMedical;
+    private $mail;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $mailCentreMedical;
+    private $numTel;
+
+    public function __toString()
+    {
+        return $this->getNomCentreMedical();
+    }
 
     /**
-     * @ORM\OneToMany(targetEntity=Reservation::class, mappedBy="centreMedical", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Service", mappedBy="centreMedical",cascade="all")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
-    private $reservations;
+    private $services;
 
     public function __construct()
     {
-        $this->reservations = new ArrayCollection();
+        $this->services = new ArrayCollection();
     }
+
+    /**
+     * @return mixed
+     */
+    public function getServices()
+    {
+        return $this->services;
+    }
+
+    /**
+     * @param mixed $services
+     */
+    public function setServices($services): void
+    {
+        $this->services = $services;
+    }
+
 
     public function getId(): ?int
     {
@@ -61,90 +83,60 @@ class CentreMedical
 
     public function getNomCentreMedical(): ?string
     {
-        return $this->nomCentreMedical;
+        return $this->nom_centre_medical;
     }
 
-    public function setNomCentreMedical(string $nomCentreMedical): self
+    public function setNomCentreMedical(string $nom_centre_medical): self
     {
-        $this->nomCentreMedical = $nomCentreMedical;
+        $this->nom_centre_medical = $nom_centre_medical;
 
         return $this;
     }
 
-    public function getAdresseCentreMedical(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->adresseCentreMedical;
+        return $this->adresse;
     }
 
-    public function setAdresseCentreMedical(string $adresseCentreMedical): self
+    public function setAdresse(string $adresse): self
     {
-        $this->adresseCentreMedical = $adresseCentreMedical;
+        $this->adresse = $adresse;
 
         return $this;
     }
 
-    public function getTypeCentreMedical(): ?string
+    public function getType(): ?string
     {
-        return $this->typeCentreMedical;
+        return $this->type;
     }
 
-    public function setTypeCentreMedical(string $typeCentreMedical): self
+    public function setType(string $type): self
     {
-        $this->typeCentreMedical = $typeCentreMedical;
+        $this->type = $type;
 
         return $this;
     }
 
-    public function getNumTelCentreMedical(): ?string
+    public function getMail(): ?string
     {
-        return $this->numTelCentreMedical;
+        return $this->mail;
     }
 
-    public function setNumTelCentreMedical(string $numTelCentreMedical): self
+    public function setMail(string $mail): self
     {
-        $this->numTelCentreMedical = $numTelCentreMedical;
+        $this->mail = $mail;
 
         return $this;
     }
 
-    public function getMailCentreMedical(): ?string
+    public function getNumTel(): ?int
     {
-        return $this->mailCentreMedical;
+        return $this->numTel;
     }
 
-    public function setMailCentreMedical(?string $mailCentreMedical): self
+    public function setNumTel(?int $numTel): self
     {
-        $this->mailCentreMedical = $mailCentreMedical;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Reservation[]
-     */
-    public function getReservations(): Collection
-    {
-        return $this->reservations;
-    }
-
-    public function addReservation(Reservation $reservation): self
-    {
-        if (!$this->reservations->contains($reservation)) {
-            $this->reservations[] = $reservation;
-            $reservation->setCentreMedical($this);
-        }
-
-        return $this;
-    }
-
-    public function removeReservation(Reservation $reservation): self
-    {
-        if ($this->reservations->removeElement($reservation)) {
-            // set the owning side to null (unless already changed)
-            if ($reservation->getCentreMedical() === $this) {
-                $reservation->setCentreMedical(null);
-            }
-        }
+        $this->numTel = $numTel;
 
         return $this;
     }

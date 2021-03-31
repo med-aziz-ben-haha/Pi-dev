@@ -74,11 +74,11 @@ class __TwigTemplate_babeb13367f2acec0c276621c354e1cc6a2ea7398a47492d72338fafd34
         <div class=\"form-group\">
             ";
         // line 17
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["editordonnance"]) || array_key_exists("editordonnance", $context) ? $context["editordonnance"] : (function () { throw new RuntimeError('Variable "editordonnance" does not exist.', 17, $this->source); })()), "medicaments", [], "any", false, false, false, 17), 'label', ["label" => "Liste des médicament"]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["editordonnance"]) || array_key_exists("editordonnance", $context) ? $context["editordonnance"] : (function () { throw new RuntimeError('Variable "editordonnance" does not exist.', 17, $this->source); })()), "medicament", [], "any", false, false, false, 17), 'label', ["label" => "Liste des médicament"]);
         echo "
             ";
         // line 18
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["editordonnance"]) || array_key_exists("editordonnance", $context) ? $context["editordonnance"] : (function () { throw new RuntimeError('Variable "editordonnance" does not exist.', 18, $this->source); })()), "medicaments", [], "any", false, false, false, 18), 'widget');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["editordonnance"]) || array_key_exists("editordonnance", $context) ? $context["editordonnance"] : (function () { throw new RuntimeError('Variable "editordonnance" does not exist.', 18, $this->source); })()), "medicament", [], "any", false, false, false, 18), 'widget');
         echo "
         </div>
         ";
@@ -131,8 +131,8 @@ class __TwigTemplate_babeb13367f2acec0c276621c354e1cc6a2ea7398a47492d72338fafd34
             {{ form_widget(editordonnance.date_ord) }}
         </div>
         <div class=\"form-group\">
-            {{ form_label( editordonnance.medicaments, \"Liste des médicament\" )}}
-            {{ form_widget( editordonnance.medicaments ) }}
+            {{ form_label( editordonnance.medicament, \"Liste des médicament\" )}}
+            {{ form_widget( editordonnance.medicament ) }}
         </div>
         {{ form_end(editordonnance) }}
     </div>

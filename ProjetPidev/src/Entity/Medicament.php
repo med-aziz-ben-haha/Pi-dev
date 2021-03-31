@@ -49,10 +49,6 @@ class Medicament
      */
     private $img_medicament;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Ordonnance::class, inversedBy="medicaments")
-     */
-    private $Ordonnance;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -61,9 +57,14 @@ class Medicament
     private $descmedicament;
     protected $captchaCode;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Ordonnance::class, mappedBy="Medicament")
+     */
+    private $ordonnances;
+
     public function __construct()
     {
-        $this->Ordonnance = new ArrayCollection();
+        $this->ordonnances = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,29 +130,6 @@ class Medicament
         $this->captchaCode = $captchaCode;
     }
 
-    /**
-     * @return Collection|Ordonnance[]
-     */
-    public function getOrdonnance(): Collection
-    {
-        return $this->Ordonnance;
-    }
-
-    public function addOrdonnance(Ordonnance $ordonnance): self
-    {
-        if (!$this->Ordonnance->contains($ordonnance)) {
-            $this->Ordonnance[] = $ordonnance;
-        }
-
-        return $this;
-    }
-
-    public function removeOrdonnance(Ordonnance $ordonnance): self
-    {
-        $this->Ordonnance->removeElement($ordonnance);
-
-        return $this;
-    }
 
     public function getDescmedicament(): ?string
     {
@@ -161,6 +139,33 @@ class Medicament
     public function setDescmedicament(string $descmedicament): self
     {
         $this->descmedicament = $descmedicament;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ordonnance[]
+     */
+    public function getOrdonnances(): Collection
+    {
+        return $this->ordonnances;
+    }
+
+    public function addOrdonnance(Ordonnance $ordonnance): self
+    {
+        if (!$this->ordonnances->contains($ordonnance)) {
+            $this->ordonnances[] = $ordonnance;
+            $ordonnance->addMedicament($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrdonnance(Ordonnance $ordonnance): self
+    {
+        if ($this->ordonnances->removeElement($ordonnance)) {
+            $ordonnance->removeMedicament($this);
+        }
 
         return $this;
     }

@@ -100,8 +100,10 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
     <nav class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
-            <a class=\"navbar-brand\" href=\"#\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
+            <a class=\"navbar-brand\" href=\"";
         // line 55
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/accueil"), "html", null, true);
+        echo "\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" ></a>
             <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
@@ -109,41 +111,30 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
             </button>
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"";
-        // line 62
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/accueil"), "html", null, true);
-        echo "\">Home <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">About</a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">Contact</a>
-                    </li>
+                    
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"";
-        // line 75
+        // line 67
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
         echo "\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 76
+        // line 68
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscription"), "html", null, true);
         echo "\">S'inscrire</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 77
+        // line 69
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionMed"), "html", null, true);
         echo "\">S'inscrire en tant que médecin</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 78
+        // line 70
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionPharmacien"), "html", null, true);
         echo "\">S'inscrire en tant que pharmacien</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 79
+        // line 71
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionParapharmacien"), "html", null, true);
         echo "\">S'inscrire en tant que parapharmacien</a>
                             <a class=\"dropdown-item hollow button primary\" href=\"/inscription/google/\"><img  width=\"15px\" style=\"margin-bottom:3px; font-size: 250px; margin-right:5px\" alt=\"Google login\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png\" />
@@ -170,7 +161,7 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 103
+        // line 95
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -201,7 +192,7 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
 
     public function getDebugInfo()
     {
-        return array (  174 => 103,  147 => 79,  143 => 78,  139 => 77,  135 => 76,  131 => 75,  115 => 62,  105 => 55,  76 => 29,  72 => 28,  43 => 1,);
+        return array (  165 => 95,  138 => 71,  134 => 70,  130 => 69,  126 => 68,  122 => 67,  105 => 55,  76 => 29,  72 => 28,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -260,21 +251,13 @@ class __TwigTemplate_854c3f3282c969ecabaafefaa49dc699b75f98ce83866115c689658d019
     <nav class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
-            <a class=\"navbar-brand\" href=\"#\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
+            <a class=\"navbar-brand\" href=\"{{ asset('/accueil') }}\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
             <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"{{ asset('/accueil') }}\">Home <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">About</a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">Contact</a>
-                    </li>
+                    
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">

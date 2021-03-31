@@ -1,0 +1,38 @@
+{% include 'temp1.html.twig' %}
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ centre_medical.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom_centre_medical</th>
+                <td>{{ centre_medical.nomCentreMedical }}</td>
+            </tr>
+            <tr>
+                <th>Adresse</th>
+                <td>{{ centre_medical.adresse }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ centre_medical.type }}</td>
+            </tr>
+            <tr>
+                <th>Mail</th>
+                <td>{{ centre_medical.mail }}</td>
+            </tr>
+            <tr>
+                <th>NumTel</th>
+                <td>{{ centre_medical.numTel }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('centre_medical_index') }}">back to list</a>
+
+    <a href="{{ path('centre_medical_edit', {'id': centre_medical.id}) }}">edit</a>
+
+    {{ include('centre_medical/_delete_form.html.twig') }}
+
+{% include 'temp2.html.twig' %}

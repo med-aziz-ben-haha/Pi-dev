@@ -6,7 +6,7 @@
     <parameter key="kernel.environment">dev</parameter>
     <parameter key="kernel.debug">true</parameter>
     <parameter key="kernel.name">src</parameter>
-    <parameter key="kernel.cache_dir">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev</parameter>
+    <parameter key="kernel.cache_dir">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev</parameter>
     <parameter key="kernel.logs_dir">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\log</parameter>
     <parameter key="kernel.bundles" type="collection">
       <parameter key="FrameworkBundle">Symfony\Bundle\FrameworkBundle\FrameworkBundle</parameter>
@@ -160,21 +160,21 @@
       <parameter key="cookie_samesite">lax</parameter>
       <parameter key="gc_probability">1</parameter>
     </parameter>
-    <parameter key="session.save_path">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/sessions</parameter>
+    <parameter key="session.save_path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/sessions</parameter>
     <parameter key="session.metadata.update_threshold">0</parameter>
     <parameter key="form.type_extension.csrf.enabled">true</parameter>
     <parameter key="form.type_extension.csrf.field_name">_token</parameter>
     <parameter key="asset.request_context.base_path"></parameter>
     <parameter key="asset.request_context.secure">false</parameter>
-    <parameter key="validator.mapping.cache.file">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/validation.php</parameter>
+    <parameter key="validator.mapping.cache.file">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/validation.php</parameter>
     <parameter key="validator.translation_domain">validators</parameter>
     <parameter key="translator.logging">false</parameter>
     <parameter key="translator.default_path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/translations</parameter>
     <parameter key="profiler_listener.only_exceptions">false</parameter>
     <parameter key="profiler_listener.only_master_requests">false</parameter>
-    <parameter key="profiler.storage.dsn">file:C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/profiler</parameter>
+    <parameter key="profiler.storage.dsn">file:C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/profiler</parameter>
     <parameter key="debug.error_handler.throw_at">-1</parameter>
-    <parameter key="debug.container.dump">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/srcApp_KernelDevDebugContainer.xml</parameter>
+    <parameter key="debug.container.dump">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainer.xml</parameter>
     <parameter key="router.request_context.host">localhost</parameter>
     <parameter key="router.request_context.scheme">http</parameter>
     <parameter key="router.request_context.base_url"></parameter>
@@ -182,7 +182,7 @@
     <parameter key="router.cache_class_prefix">srcApp_KernelDevDebugContainer</parameter>
     <parameter key="request_listener.http_port">80</parameter>
     <parameter key="request_listener.https_port">443</parameter>
-    <parameter key="serializer.mapping.cache.file">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/serialization.php</parameter>
+    <parameter key="serializer.mapping.cache.file">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/serialization.php</parameter>
     <parameter key="doctrine.dbal.logger.chain.class">Doctrine\DBAL\Logging\LoggerChain</parameter>
     <parameter key="doctrine.dbal.logger.profiling.class">Doctrine\DBAL\Logging\DebugStack</parameter>
     <parameter key="doctrine.dbal.logger.class">Symfony\Bridge\Doctrine\Logger\DbalLogger</parameter>
@@ -248,7 +248,7 @@
     <parameter key="doctrine.orm.second_level_cache.cache_configuration.class">Doctrine\ORM\Cache\CacheConfiguration</parameter>
     <parameter key="doctrine.orm.second_level_cache.regions_configuration.class">Doctrine\ORM\Cache\RegionsConfiguration</parameter>
     <parameter key="doctrine.orm.auto_generate_proxy_classes">true</parameter>
-    <parameter key="doctrine.orm.proxy_dir">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/doctrine/orm/Proxies</parameter>
+    <parameter key="doctrine.orm.proxy_dir">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/doctrine/orm/Proxies</parameter>
     <parameter key="doctrine.orm.proxy_namespace">Proxies</parameter>
     <parameter key="doctrine.migrations.preferred_em">null</parameter>
     <parameter key="doctrine.migrations.preferred_connection">null</parameter>
@@ -310,7 +310,7 @@
     <parameter key="captcha.config.captchaConfig">null</parameter>
     <parameter key="captcha.config.captchaStyleName">null</parameter>
     <parameter key="swiftmailer.mailer.default.transport.name">dynamic</parameter>
-    <parameter key="swiftmailer.spool.default.memory.path">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/swiftmailer/spool/default</parameter>
+    <parameter key="swiftmailer.spool.default.memory.path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/swiftmailer/spool/default</parameter>
     <parameter key="swiftmailer.mailer.default.spool.enabled">true</parameter>
     <parameter key="swiftmailer.mailer.default.plugin.impersonate">null</parameter>
     <parameter key="swiftmailer.mailer.default.single_address">null</parameter>
@@ -452,6 +452,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CategorieSoinMPController"/>
       </call>
     </service>
+    <service id="App\Controller\CentreMedicalController" class="App\Controller\CentreMedicalController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CentreMedicalController"/>
+      </call>
+    </service>
     <service id="App\Controller\ContactController" class="App\Controller\ContactController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -550,6 +557,13 @@
         <argument type="service" id=".service_locator.vdmMuyE.App\Controller\RegionsController"/>
       </call>
     </service>
+    <service id="App\Controller\ServiceController" class="App\Controller\ServiceController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ServiceController"/>
+      </call>
+    </service>
     <service id="App\Controller\SoinMPController" class="App\Controller\SoinMPController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
@@ -592,6 +606,9 @@
     <service id="App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\CentreMedicalType" class="App\Form\CentreMedicalType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -623,6 +640,9 @@
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegionsType" class="App\Form\RegionsType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true">
@@ -737,6 +757,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\SoinMPRepository" class="App\Repository\SoinMPRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -822,7 +846,7 @@
     <service id="cache_warmer" class="Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate" public="true">
       <argument type="tagged_iterator" tag="kernel.cache_warmer"/>
       <argument>true</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/srcApp_KernelDevDebugContainerDeprecations.log</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainerDeprecations.log</argument>
     </service>
     <service id="cache_clearer" class="Symfony\Component\HttpKernel\CacheClearer\ChainCacheClearer" public="true">
       <argument type="tagged_iterator" tag="kernel.cache_clearer"/>
@@ -1179,6 +1203,7 @@
         <argument>App\Form\CategorieProduitType</argument>
         <argument>App\Form\CategorieSoinMPRechercheType</argument>
         <argument>App\Form\CategorieSoinMPType</argument>
+        <argument>App\Form\CentreMedicalType</argument>
         <argument>App\Form\ConnexionType</argument>
         <argument>App\Form\ContactType</argument>
         <argument>App\Form\ListProduitType</argument>
@@ -1190,6 +1215,7 @@
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\ReclamationsType</argument>
         <argument>App\Form\RegionsType</argument>
+        <argument>App\Form\ServiceType</argument>
         <argument>App\Form\SoinMPRechercheType</argument>
         <argument>App\Form\SoinMPTriDESCType</argument>
         <argument>App\Form\SoinMPTriFormType</argument>
@@ -1315,7 +1341,7 @@
       <argument></argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -1344,7 +1370,7 @@
       <tag name="monolog.logger" channel="cache"/>
       <argument></argument>
       <argument>0</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -1457,7 +1483,7 @@
       <argument>false</argument>
     </service>
     <service id=".1_NativeFileSessionHandler~8TnGjdr" class="Symfony\Component\HttpFoundation\Session\Storage\Handler\NativeFileSessionHandler" public="false">
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/sessions</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/sessions</argument>
     </service>
     <service id="session" class="Symfony\Component\HttpFoundation\Session\Session" public="true">
       <argument type="service" id="session.storage.native"/>
@@ -1483,7 +1509,7 @@
       <factory service="session" method="getBag"/>
     </service>
     <service id="session.storage.mock_file" class="Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage" public="false">
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/sessions</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/sessions</argument>
       <argument>MOCKSESSID</argument>
       <argument type="service" id="session.storage.metadata_bag"/>
     </service>
@@ -1534,7 +1560,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.PDfze6s"/>
+      <argument type="service" id=".service_locator.b7rZTTN"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1760,14 +1786,14 @@
     <service id="validator.mapping.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\ValidatorCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="validator.builder"/>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/validation.php</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/validation.php</argument>
     </service>
     <service id="validator.mapping.cache.symfony" class="Symfony\Component\Validator\Mapping\Cache\Psr6Cache" public="false">
       <argument type="service" id="validator.mapping.cache.adapter"/>
       <deprecated>The "%service_id%" service is deprecated since Symfony 4.4. Use validator.mapping.cache.adapter instead.</deprecated>
     </service>
     <service id="validator.mapping.cache.adapter" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/validation.php</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/validation.php</argument>
       <argument type="service" id="cache.validator"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -1838,7 +1864,7 @@
         </argument>
       </argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/translations</argument>
+        <argument key="cache_dir">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
           <argument key="ar" type="collection">
@@ -2496,7 +2522,7 @@
       </call>
     </service>
     <service id="profiler.storage" class="Symfony\Component\HttpKernel\Profiler\FileProfilerStorage" public="false">
-      <argument>file:C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/profiler</argument>
+      <argument>file:C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/profiler</argument>
     </service>
     <service id="profiler_listener" class="Symfony\Component\HttpKernel\EventListener\ProfilerListener" public="false">
       <tag name="kernel.event_subscriber"/>
@@ -2534,7 +2560,7 @@
       <tag name="data_collector" template="@WebProfiler/Collector/logger.html.twig" id="logger" priority="300"/>
       <tag name="monolog.logger" channel="profiler"/>
       <argument type="service" id="monolog.logger.profiler" on-invalid="ignore"/>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/srcApp_KernelDevDebugContainer</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/srcApp_KernelDevDebugContainer</argument>
       <argument type="service" id="request_stack" on-invalid="ignore"/>
     </service>
     <service id="data_collector.time" class="Symfony\Component\HttpKernel\DataCollector\TimeDataCollector" public="false">
@@ -3253,7 +3279,7 @@
       <argument type="service" id=".service_locator.n0p5GNi.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
-        <argument key="cache_dir">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev</argument>
+        <argument key="cache_dir">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev</argument>
         <argument key="debug">true</argument>
         <argument key="generator_class">Symfony\Component\Routing\Generator\CompiledUrlGenerator</argument>
         <argument key="generator_dumper_class">Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper</argument>
@@ -3319,7 +3345,7 @@
       <argument type="service" id="routing.loader.annotation"/>
     </service>
     <service id=".2_PhpArrayAdapter~qPmVoUW" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/annotations.php</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/annotations.php</argument>
       <argument type="service" id="cache.annotations"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3348,7 +3374,7 @@
     <service id="annotations.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\AnnotationsCacheWarmer" public="false">
       <tag name="kernel.cache_warmer"/>
       <argument type="service" id="annotations.reader"/>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/annotations.php</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/annotations.php</argument>
       <argument>#^Symfony\\(?:Component\\HttpKernel\\|Bundle\\FrameworkBundle\\Controller\\(?!.*Controller$))#</argument>
       <argument>true</argument>
     </service>
@@ -3459,10 +3485,10 @@
           </service>
         </argument>
       </argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/serialization.php</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/serialization.php</argument>
     </service>
     <service id="serializer.mapping.cache.symfony" class="Psr\Cache\CacheItemPoolInterface" public="false">
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/serialization.php</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/serialization.php</argument>
       <argument type="service" id="cache.serializer"/>
       <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
     </service>
@@ -3742,7 +3768,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.ICocC47"/>
+      <argument type="service" id=".service_locator.EahblP0"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -3879,7 +3905,7 @@
         <argument type="service" id="doctrine.orm.default_metadata_driver"/>
       </call>
       <call method="setProxyDir">
-        <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/doctrine/orm/Proxies</argument>
+        <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/doctrine/orm/Proxies</argument>
       </call>
       <call method="setProxyNamespace">
         <argument>Proxies</argument>
@@ -4681,7 +4707,7 @@
         <argument key="debug">true</argument>
         <argument key="strict_variables">true</argument>
         <argument key="autoescape">name</argument>
-        <argument key="cache">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/twig</argument>
+        <argument key="cache">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/twig</argument>
         <argument key="charset">UTF-8</argument>
       </argument>
       <call method="addExtension">
@@ -5396,7 +5422,7 @@
       <tag name="console.command" command="server:run"/>
       <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public</argument>
       <argument>dev</argument>
-      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache</argument>
       <call method="setName">
         <argument>server:run</argument>
       </call>
@@ -5405,21 +5431,21 @@
       <tag name="console.command" command="server:start"/>
       <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public</argument>
       <argument>dev</argument>
-      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache</argument>
       <call method="setName">
         <argument>server:start</argument>
       </call>
     </service>
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand" public="false">
       <tag name="console.command" command="server:stop"/>
-      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache</argument>
       <call method="setName">
         <argument>server:stop</argument>
       </call>
     </service>
     <service id="web_server.command.server_status" class="Symfony\Bundle\WebServerBundle\Command\ServerStatusCommand" public="false">
       <tag name="console.command" command="server:status"/>
-      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache</argument>
       <call method="setName">
         <argument>server:status</argument>
       </call>
@@ -5695,6 +5721,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CentreMedicalController" class="App\Controller\CentreMedicalController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CentreMedicalController" class="App\Controller\CentreMedicalController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\CentreMedicalController" class="App\Controller\CentreMedicalController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ContactController" class="App\Controller\ContactController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5737,6 +5766,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\RegionsController" class="App\Controller\RegionsController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\RegionsController" class="App\Controller\RegionsController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\RegionsController" class="App\Controller\RegionsController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ServiceController" class="App\Controller\ServiceController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ServiceController" class="App\Controller\ServiceController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ServiceController" class="App\Controller\ServiceController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SoinMPController" class="App\Controller\SoinMPController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SoinMPController" class="App\Controller\SoinMPController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SoinMPController" class="App\Controller\SoinMPController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5760,6 +5792,8 @@
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPRechercheType" class="App\Form\CategorieSoinMPRechercheType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CentreMedicalType" class="App\Form\CentreMedicalType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CentreMedicalType" class="App\Form\CentreMedicalType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContactType" class="App\Form\ContactType" autowire="true" abstract="true"/>
@@ -5782,6 +5816,8 @@
     <service id=".abstract.instanceof.App\Form\ReclamationsType" class="App\Form\ReclamationsType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\RegionsType" class="App\Form\RegionsType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\RegionsType" class="App\Form\RegionsType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPTriDESCType" class="App\Form\SoinMPTriDESCType" autowire="true" abstract="true"/>
@@ -5842,6 +5878,8 @@
     <service id=".abstract.instanceof.App\Repository\RendezVousRepository" class="App\Repository\RendezVousRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ReservationRepository" class="App\Repository\ReservationRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ReservationRepository" class="App\Repository\ReservationRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SoinMPRepository" class="App\Repository\SoinMPRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\SoinMPRepository" class="App\Repository\SoinMPRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeReclamationRepository" class="App\Repository\TypeReclamationRepository" autowire="true" abstract="true"/>
@@ -6186,6 +6224,28 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.MPIx7Dx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="centreMedicalRepository" type="service" id="App\Repository\CentreMedicalRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator..oThYsK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="centreMedical" type="service" id=".errored..service_locator..oThYsK.App\Entity\CentreMedical"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.BFQktne" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="centreMedical" type="service" id=".errored..service_locator.BFQktne.App\Entity\CentreMedical"/>
+        <argument key="mailer" type="service" id="swiftmailer.mailer.default"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.jDnLdoY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6373,6 +6433,36 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.Ga5cZoo" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="serviceRepository" type="service" id="App\Repository\ServiceRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.2Iiu8FP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="center" type="service" id=".errored..service_locator.2Iiu8FP.App\Entity\CentreMedical"/>
+        <argument key="serviceRepository" type="service" id="App\Repository\ServiceRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.B4owygH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="service" type="service" id=".errored..service_locator.B4owygH.App\Entity\Service"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Kwmmh8n" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="knpSnappyPdf" type="service" id="knp_snappy.pdf"/>
+        <argument key="serviceRepository" type="service" id="App\Repository\ServiceRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.tG8ZREQ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6397,7 +6487,7 @@
         <argument key="util" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.5yYUVb2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.nZOzcIh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
@@ -6419,6 +6509,13 @@
         <argument key="App\Controller\CategorieSoinMPController::listCategoriesSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieSoinMPController::listCategoriesSoinMPs" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieSoinMPController::modifierCategorieSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CentreMedicalController::delete" type="service" id=".service_locator.BFQktne"/>
+        <argument key="App\Controller\CentreMedicalController::edit" type="service" id=".service_locator..oThYsK"/>
+        <argument key="App\Controller\CentreMedicalController::index" type="service" id=".service_locator.MPIx7Dx"/>
+        <argument key="App\Controller\CentreMedicalController::index_front" type="service" id=".service_locator.MPIx7Dx"/>
+        <argument key="App\Controller\CentreMedicalController::new" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CentreMedicalController::search" type="service" id=".service_locator.MPIx7Dx"/>
+        <argument key="App\Controller\CentreMedicalController::show" type="service" id=".service_locator..oThYsK"/>
         <argument key="App\Controller\ContactController::index" type="service" id=".service_locator.jDnLdoY"/>
         <argument key="App\Controller\GoogleController::connectAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController::connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
@@ -6488,6 +6585,15 @@
         <argument key="App\Controller\RegionsController::affiche" type="service" id=".service_locator.fk3O8CR"/>
         <argument key="App\Controller\RegionsController::delete" type="service" id=".service_locator.fk3O8CR"/>
         <argument key="App\Controller\RegionsController::modifierPara" type="service" id=".service_locator.fk3O8CR"/>
+        <argument key="App\Controller\ServiceController::delete" type="service" id=".service_locator.B4owygH"/>
+        <argument key="App\Controller\ServiceController::edit" type="service" id=".service_locator.B4owygH"/>
+        <argument key="App\Controller\ServiceController::index" type="service" id=".service_locator.Ga5cZoo"/>
+        <argument key="App\Controller\ServiceController::new" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ServiceController::pdfAction" type="service" id=".service_locator.Kwmmh8n"/>
+        <argument key="App\Controller\ServiceController::search" type="service" id=".service_locator.Ga5cZoo"/>
+        <argument key="App\Controller\ServiceController::show" type="service" id=".service_locator.B4owygH"/>
+        <argument key="App\Controller\ServiceController::showByCenter" type="service" id=".service_locator.2Iiu8FP"/>
+        <argument key="App\Controller\ServiceController::showByCenterFront" type="service" id=".service_locator.2Iiu8FP"/>
         <argument key="App\Controller\SoinMPController::SupprimerSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::afficherStatSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController::ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
@@ -6546,6 +6652,13 @@
         <argument key="App\Controller\CategorieSoinMPController:listCategoriesSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\CategorieSoinMPController:listCategoriesSoinMPs" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\CategorieSoinMPController:modifierCategorieSoinMP" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CentreMedicalController:delete" type="service" id=".service_locator.BFQktne"/>
+        <argument key="App\Controller\CentreMedicalController:edit" type="service" id=".service_locator..oThYsK"/>
+        <argument key="App\Controller\CentreMedicalController:index" type="service" id=".service_locator.MPIx7Dx"/>
+        <argument key="App\Controller\CentreMedicalController:index_front" type="service" id=".service_locator.MPIx7Dx"/>
+        <argument key="App\Controller\CentreMedicalController:new" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\CentreMedicalController:search" type="service" id=".service_locator.MPIx7Dx"/>
+        <argument key="App\Controller\CentreMedicalController:show" type="service" id=".service_locator..oThYsK"/>
         <argument key="App\Controller\ContactController:index" type="service" id=".service_locator.jDnLdoY"/>
         <argument key="App\Controller\GoogleController:connectAction" type="service" id=".service_locator.M1_Y_xF"/>
         <argument key="App\Controller\GoogleController:connectCheckAction" type="service" id=".service_locator.cSxFMnv"/>
@@ -6615,6 +6728,15 @@
         <argument key="App\Controller\RegionsController:affiche" type="service" id=".service_locator.fk3O8CR"/>
         <argument key="App\Controller\RegionsController:delete" type="service" id=".service_locator.fk3O8CR"/>
         <argument key="App\Controller\RegionsController:modifierPara" type="service" id=".service_locator.fk3O8CR"/>
+        <argument key="App\Controller\ServiceController:delete" type="service" id=".service_locator.B4owygH"/>
+        <argument key="App\Controller\ServiceController:edit" type="service" id=".service_locator.B4owygH"/>
+        <argument key="App\Controller\ServiceController:index" type="service" id=".service_locator.Ga5cZoo"/>
+        <argument key="App\Controller\ServiceController:new" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\ServiceController:pdfAction" type="service" id=".service_locator.Kwmmh8n"/>
+        <argument key="App\Controller\ServiceController:search" type="service" id=".service_locator.Ga5cZoo"/>
+        <argument key="App\Controller\ServiceController:show" type="service" id=".service_locator.B4owygH"/>
+        <argument key="App\Controller\ServiceController:showByCenter" type="service" id=".service_locator.2Iiu8FP"/>
+        <argument key="App\Controller\ServiceController:showByCenterFront" type="service" id=".service_locator.2Iiu8FP"/>
         <argument key="App\Controller\SoinMPController:SupprimerSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:afficherStatSoinMP" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\SoinMPController:ajouterSoinMP" type="service" id=".service_locator.o3htLhs"/>
@@ -6719,7 +6841,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.PDfze6s" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.b7rZTTN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CalendarType" type="service" id="App\Form\CalendarType"/>
@@ -6728,6 +6850,7 @@
         <argument key="App\Form\CategorieProduitType" type="service" id="App\Form\CategorieProduitType"/>
         <argument key="App\Form\CategorieSoinMPRechercheType" type="service" id="App\Form\CategorieSoinMPRechercheType"/>
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
+        <argument key="App\Form\CentreMedicalType" type="service" id="App\Form\CentreMedicalType"/>
         <argument key="App\Form\ConnexionType" type="service" id="App\Form\ConnexionType"/>
         <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
         <argument key="App\Form\ListProduitType" type="service" id="App\Form\ListProduitType"/>
@@ -6739,6 +6862,7 @@
         <argument key="App\Form\ReclamationType" type="service" id="App\Form\ReclamationType"/>
         <argument key="App\Form\ReclamationsType" type="service" id="App\Form\ReclamationsType"/>
         <argument key="App\Form\RegionsType" type="service" id="App\Form\RegionsType"/>
+        <argument key="App\Form\ServiceType" type="service" id="App\Form\ServiceType"/>
         <argument key="App\Form\SoinMPRechercheType" type="service" id="App\Form\SoinMPRechercheType"/>
         <argument key="App\Form\SoinMPTriDESCType" type="service" id="App\Form\SoinMPTriDESCType"/>
         <argument key="App\Form\SoinMPTriFormType" type="service" id="App\Form\SoinMPTriFormType"/>
@@ -6766,7 +6890,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.ICocC47" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.EahblP0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ActualiteRepository" type="service" id="App\Repository\ActualiteRepository"/>
@@ -6791,6 +6915,7 @@
         <argument key="App\Repository\RegionsRepository" type="service" id="App\Repository\RegionsRepository"/>
         <argument key="App\Repository\RendezVousRepository" type="service" id="App\Repository\RendezVousRepository"/>
         <argument key="App\Repository\ReservationRepository" type="service" id="App\Repository\ReservationRepository"/>
+        <argument key="App\Repository\ServiceRepository" type="service" id="App\Repository\ServiceRepository"/>
         <argument key="App\Repository\SoinMPRepository" type="service" id="App\Repository\SoinMPRepository"/>
         <argument key="App\Repository\TypeReclamationRepository" type="service" id="App\Repository\TypeReclamationRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
@@ -7035,6 +7160,12 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\CentreMedicalController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\CentreMedicalController"/>
+      <argument>App\Controller\CentreMedicalController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
     <service id=".service_locator.vdmMuyE.App\Controller\ContactController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ContactController"/>
       <argument>App\Controller\ContactController</argument>
@@ -7116,6 +7247,12 @@
     <service id=".service_locator.vdmMuyE.App\Controller\RegionsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\RegionsController"/>
       <argument>App\Controller\RegionsController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+    </service>
+    <service id=".service_locator.vdmMuyE.App\Controller\ServiceController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ServiceController"/>
+      <argument>App\Controller\ServiceController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.vdmMuyE" method="withContext"/>
     </service>
@@ -7280,12 +7417,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.5yYUVb2"/>
+      <argument type="service" id=".service_locator.nZOzcIh"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.5yYUVb2"/>
+      <argument type="service" id=".service_locator.nZOzcIh"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7296,7 +7433,11 @@
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
     <service id=".errored..service_locator.vRKvaXO.App\Entity\Calendar" class="App\Entity\Calendar"/>
+    <service id=".errored..service_locator..oThYsK.App\Entity\CentreMedical" class="App\Entity\CentreMedical"/>
+    <service id=".errored..service_locator.BFQktne.App\Entity\CentreMedical" class="App\Entity\CentreMedical"/>
     <service id=".errored..service_locator.5HlRGVi.App\Entity\Postt" class="App\Entity\Postt"/>
+    <service id=".errored..service_locator.2Iiu8FP.App\Entity\CentreMedical" class="App\Entity\CentreMedical"/>
+    <service id=".errored..service_locator.B4owygH.App\Entity\Service" class="App\Entity\Service"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <argument type="service" id=".service_locator.7ZbdT7F"/>
       <argument type="collection">
@@ -7500,7 +7641,7 @@
     <service id="cache.app.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter" public="false">
       <argument>bV+TfheKBv</argument>
       <argument>0</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
       <call method="setLogger">
         <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
@@ -7510,7 +7651,7 @@
       <argument>k1-RlvS3OU</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7518,7 +7659,7 @@
       <argument>R0pbP4K9o-</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7526,7 +7667,7 @@
       <argument>aUoUW0HBbk</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7534,7 +7675,7 @@
       <argument>H0KMSHrNQ-</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7542,7 +7683,7 @@
       <argument>+aQaCsqisI</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7553,7 +7694,7 @@
       <argument>ePmOD5ykra</argument>
       <argument>0</argument>
       <argument>%container.build_id%</argument>
-      <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/var/cache/dev/pools</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
@@ -7715,7 +7856,7 @@
     <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.5yYUVb2"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.nZOzcIh"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -7731,7 +7872,7 @@
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
     <service id="Psr\Log\LoggerInterface $snappyLogger" alias="monolog.logger.snappy"/>
     <service id=".service_locator.xkmSecI" alias=".service_locator.u8z4W6F" public="false"/>
-    <service id=".service_locator.4ZTD2DJ" alias=".service_locator.PDfze6s" public="false"/>
+    <service id=".service_locator.gAMxI5V" alias=".service_locator.b7rZTTN" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

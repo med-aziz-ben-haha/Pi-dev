@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/Container8NbL4oO/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerSggXHbc/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -45,6 +45,7 @@ $classes[] = 'App\Controller\ApiController';
 $classes[] = 'App\Controller\CalendarController';
 $classes[] = 'App\Controller\CategorieProduitController';
 $classes[] = 'App\Controller\CategorieSoinMPController';
+$classes[] = 'App\Controller\CentreMedicalController';
 $classes[] = 'App\Controller\ContactController';
 $classes[] = 'App\Controller\GoogleController';
 $classes[] = 'App\Controller\ListProduitController';
@@ -59,6 +60,7 @@ $classes[] = 'App\Controller\PosttController';
 $classes[] = 'App\Controller\ProduitController';
 $classes[] = 'App\Controller\ReclamationController';
 $classes[] = 'App\Controller\RegionsController';
+$classes[] = 'App\Controller\ServiceController';
 $classes[] = 'App\Controller\SoinMPController';
 $classes[] = 'App\Controller\TypereclamationController';
 $classes[] = 'App\Controller\UserController';
@@ -68,6 +70,7 @@ $classes[] = 'App\Form\CategoriePostType';
 $classes[] = 'App\Form\CategorieProduitType';
 $classes[] = 'App\Form\CategorieSoinMPRechercheType';
 $classes[] = 'App\Form\CategorieSoinMPType';
+$classes[] = 'App\Form\CentreMedicalType';
 $classes[] = 'App\Form\ConnexionType';
 $classes[] = 'App\Form\ContactType';
 $classes[] = 'App\Form\ListProduitType';
@@ -79,6 +82,7 @@ $classes[] = 'App\Form\ProduitType';
 $classes[] = 'App\Form\ReclamationType';
 $classes[] = 'App\Form\ReclamationsType';
 $classes[] = 'App\Form\RegionsType';
+$classes[] = 'App\Form\ServiceType';
 $classes[] = 'App\Form\SoinMPRechercheType';
 $classes[] = 'App\Form\SoinMPTriDESCType';
 $classes[] = 'App\Form\SoinMPTriFormType';
@@ -109,6 +113,7 @@ $classes[] = 'App\Repository\ReclamationRepository';
 $classes[] = 'App\Repository\RegionsRepository';
 $classes[] = 'App\Repository\RendezVousRepository';
 $classes[] = 'App\Repository\ReservationRepository';
+$classes[] = 'App\Repository\ServiceRepository';
 $classes[] = 'App\Repository\SoinMPRepository';
 $classes[] = 'App\Repository\TypeReclamationRepository';
 $classes[] = 'App\Repository\UserRepository';

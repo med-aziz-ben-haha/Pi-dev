@@ -79,7 +79,7 @@ class __TwigTemplate_43ad28eb6ac070989386a6b93b6632582e7484d20f7fd4c91705386c54e
                             ";
             // line 22
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "medicaments", [], "any", false, false, false, 22)));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["i"], "medicament", [], "any", false, false, false, 22));
             foreach ($context['_seq'] as $context["_key"] => $context["medicament"]) {
                 // line 23
                 echo "                                ";
@@ -157,7 +157,7 @@ class __TwigTemplate_43ad28eb6ac070989386a6b93b6632582e7484d20f7fd4c91705386c54e
                         <td>{{ i.ContenuOrd }}</td>
                         <td>{{ i.DateOrd|date(\"d/m/Y\") }}</td>
                         <td>
-                            {% for medicament in i.medicaments|length %}
+                            {% for medicament in i.medicament %}
                                 {{ medicament.nomMedicament }}
                             {% endfor %}
                         </td>

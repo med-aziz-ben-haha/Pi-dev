@@ -34,19 +34,20 @@ class Ordonnance
      */
     private $date_ord;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Medicament::class, mappedBy="Ordonnance")
-     */
-    private $medicaments;
 
     /**
      * @ORM\ManyToOne(targetEntity=User::class, inversedBy="ordonnances")
      */
     private $User;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Medicament::class, inversedBy="ordonnances")
+     */
+    private $Medicament;
+
     public function __construct()
     {
-        $this->medicaments = new ArrayCollection();
+        $this->Medicament = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -78,33 +79,6 @@ class Ordonnance
         return $this;
     }
 
-    /**
-     * @return Collection|Medicament[]
-     */
-    public function getMedicaments(): Collection
-    {
-        return $this->medicaments;
-    }
-
-    public function addMedicament(Medicament $medicament): self
-    {
-        if (!$this->medicaments->contains($medicament)) {
-            $this->medicaments[] = $medicament;
-            $medicament->addOrdonnance($this);
-        }
-
-        return $this;
-    }
-
-    public function removeMedicament(Medicament $medicament): self
-    {
-        if ($this->medicaments->removeElement($medicament)) {
-            $medicament->removeOrdonnance($this);
-        }
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->User;
@@ -113,6 +87,30 @@ class Ordonnance
     public function setUser(?User $User): self
     {
         $this->User = $User;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Medicament[]
+     */
+    public function getMedicament(): Collection
+    {
+        return $this->Medicament;
+    }
+
+    public function addMedicament(Medicament $medicament): self
+    {
+        if (!$this->Medicament->contains($medicament)) {
+            $this->Medicament[] = $medicament;
+        }
+
+        return $this;
+    }
+
+    public function removeMedicament(Medicament $medicament): self
+    {
+        $this->Medicament->removeElement($medicament);
 
         return $this;
     }

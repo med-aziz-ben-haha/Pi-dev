@@ -64,11 +64,11 @@ class __TwigTemplate_b116c74629fc3616f40a74c22d4835c2629488e7e5404fb7cc821dd85e8
         <div class=\"form-group\">
             ";
         // line 13
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["Ordonnanceajout"]) || array_key_exists("Ordonnanceajout", $context) ? $context["Ordonnanceajout"] : (function () { throw new RuntimeError('Variable "Ordonnanceajout" does not exist.', 13, $this->source); })()), "medicaments", [], "any", false, false, false, 13), 'label', ["label" => "Liste des médicament"]);
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["Ordonnanceajout"]) || array_key_exists("Ordonnanceajout", $context) ? $context["Ordonnanceajout"] : (function () { throw new RuntimeError('Variable "Ordonnanceajout" does not exist.', 13, $this->source); })()), "medicament", [], "any", false, false, false, 13), 'label', ["label" => "Liste des médicament"]);
         echo "
             ";
         // line 14
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["Ordonnanceajout"]) || array_key_exists("Ordonnanceajout", $context) ? $context["Ordonnanceajout"] : (function () { throw new RuntimeError('Variable "Ordonnanceajout" does not exist.', 14, $this->source); })()), "medicaments", [], "any", false, false, false, 14), 'widget');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["Ordonnanceajout"]) || array_key_exists("Ordonnanceajout", $context) ? $context["Ordonnanceajout"] : (function () { throw new RuntimeError('Variable "Ordonnanceajout" does not exist.', 14, $this->source); })()), "medicament", [], "any", false, false, false, 14), 'widget');
         echo "
         </div>
         <div class=\"form-group\">
@@ -127,8 +127,8 @@ class __TwigTemplate_b116c74629fc3616f40a74c22d4835c2629488e7e5404fb7cc821dd85e8
             {{ form_widget(Ordonnanceajout.contenu_ord) }}
         </div>
         <div class=\"form-group\">
-            {{ form_label( Ordonnanceajout.medicaments, \"Liste des médicament\" )}}
-            {{ form_widget( Ordonnanceajout.medicaments ) }}
+            {{ form_label( Ordonnanceajout.medicament, \"Liste des médicament\" )}}
+            {{ form_widget( Ordonnanceajout.medicament ) }}
         </div>
         <div class=\"form-group\">
             {{ form_label(Ordonnanceajout.date_ord,\"Date de saisie\") }}

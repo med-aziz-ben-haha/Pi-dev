@@ -42,7 +42,7 @@
                         <td>{{ i.DateOrd|date("d/m/Y") }}</td>
                         <td>{{ i.user}}</td>
                         <td>
-                            {% for medicament in i.medicaments|length %}
+                            {% for medicament in i.medicament %}
                                 {{ medicament.nomMedicament }}
                             {% endfor %}
                         </td>

@@ -1,0 +1,34 @@
+<html>
+
+<body>
+<center><h1>Liste des produits</h1></center>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Nom_centre_medical</th>
+        <th>Nom_patient</th>
+        <th>Service</th>
+        <th>Matricule</th>
+    </tr>
+    </thead>
+    <tbody id="body">
+    {% for service in services %}
+        <tr>
+            <td>{{ service.id }}</td>
+            <td>{{ service.nomCentreMedical }}</td>
+            <td>{{ service.nomPatient }}</td>
+            <td>{{ service.service }}</td>
+            <td>{{ service.matricule }}</td>
+
+        </tr>
+    {% else %}
+        <tr>
+            <td colspan="6">no records found</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

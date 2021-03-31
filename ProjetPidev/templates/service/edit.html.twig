@@ -1,0 +1,11 @@
+
+{% include 'temp1.html.twig' %}
+    <h1>Edit Service</h1>
+
+    {{ include('service/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('service_index') }}">back to list</a>
+
+    {{ include('service/_delete_form.html.twig') }}
+
+{% include 'temp2.html.twig' %}

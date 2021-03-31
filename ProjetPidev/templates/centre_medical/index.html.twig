@@ -1,0 +1,88 @@
+{% include 'temp1.html.twig' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    button {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:hover {
+        color: #FFFFFF;
+        opacity: 0.8;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:active {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+</style>
+<div class="box">
+    <div class="box-header">
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des Centres médicaux </h1>
+
+
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+    <input id="searchAjax">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_centre_medical</th>
+                <th>Adresse</th>
+                <th>Type</th>
+                <th>Mail</th>
+                <th>NumTel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="body">
+        {% for centre_medical in centre_medicals %}
+            <tr>
+                <td>{{ centre_medical.id }}</td>
+                <td>{{ centre_medical.nomCentreMedical }}</td>
+                <td>{{ centre_medical.adresse }}</td>
+                <td>{{ centre_medical.type }}</td>
+                <td>{{ centre_medical.mail }}</td>
+                <td>{{ centre_medical.numTel }}</td>
+                <td>
+                    <a href="{{ path('centre_medical_show', {'id': centre_medical.id}) }}">show</a>
+                    <a href="{{ path('centre_medical_edit', {'id': centre_medical.id}) }}">edit</a>
+                    <a href="{{ path('service_showByCenter', {'center': centre_medical.id}) }}">services</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('centre_medical_new') }}">Create new</a>
+    </div>
+    <!-- /.box-body -->
+</div>
+    <script>
+        $(document).ready(function(){
+            $("#searchAjax").change(function(){
+                $.ajax({
+                    type: "GET",
+                    url: "/centreMedical/search/" + $("#searchAjax").val(),
+                    dataType: "text",
+                    success: function (data) {
+                        $("#body").html(data);
+                    }
+                });
+            });
+        });
+    </script>
+
+{% include 'temp2.html.twig' %}
+

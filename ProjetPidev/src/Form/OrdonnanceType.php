@@ -24,7 +24,7 @@ class OrdonnanceType extends AbstractType
                 'years'=>range (2021,2030),
                 'data' => new \DateTime()
             ])
-            ->add('medicaments' , EntityType::class , [
+            ->add('medicament' , EntityType::class , [
                 'class'=>Medicament::class,
                 'choice_label'=>'nomMedicament',
                 'multiple'=>true
