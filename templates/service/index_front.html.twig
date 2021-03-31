@@ -1,0 +1,122 @@
+{% include 'tempFront1SoinMP.html.twig' %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" id="idMP">Centres médicaux</h2>
+            </div>
+            {#{% for CSMP in listCategorieSoinMPs %}#}
+            {% for centre_medical in centre_medicals %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="service-box text-center">
+                    <div class="service-box-icon">
+                        <img style=" padding-right: 2px; padding-left: 2px;  width:80px ; hight: 80px ;" src="https://cdn.icon-icons.com/icons2/1465/PNG/512/588hospital_100778.png"></div>
+                    <h3 class="service-box-title">{{ centre_medical.nomCentreMedical }}</h3>
+                    <a href="{{ path('service_showByCenter_front', {'center': centre_medical.id}) }}" class="btn btn-main-outline mt-2">Services<i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}
+
+
+
+
+
+
+
+
+
+{#
+{% include 'temp1.html.twig' %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<style>
+    button {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:hover {
+        color: #FFFFFF;
+        opacity: 0.8;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+    button:active {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+    }
+</style>
+<div class="box">
+    <div class="box-header">
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des Centres médicaux </h1>
+
+
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+    <input id="searchAjax">
+    <table id="example1" class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_centre_medical</th>
+                <th>Adresse</th>
+                <th>Type</th>
+                <th>Mail</th>
+                <th>NumTel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody id="body">
+        {% for centre_medical in centre_medicals %}nomCentreMedical
+            <tr>
+                <td>{{ centre_medical.id }}</td>
+                <td>{{ centre_medical.nomCentreMedical }}</td>
+                <td>{{ centre_medical.adresse }}</td>
+                <td>{{ centre_medical.type }}</td>
+                <td>{{ centre_medical.mail }}</td>
+                <td>{{ centre_medical.numTel }}</td>
+                <td>
+                    <a href="{{ path('centre_medical_show', {'id': centre_medical.id}) }}">show</a>
+                    <a href="{{ path('centre_medical_edit', {'id': centre_medical.id}) }}">edit</a>
+                    <a href="{{ path('service_showByCenter', {'center': centre_medical.id}) }}">services</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('centre_medical_new') }}">Create new</a>
+    </div>
+    <!-- /.box-body -->
+</div>
+    <script>
+        $(document).ready(function(){
+            $("#searchAjax").change(function(){
+                $.ajax({
+                    type: "GET",
+                    url: "/centreMedical/search/" + $("#searchAjax").val(),
+                    dataType: "text",
+                    success: function (data) {
+                        $("#body").html(data);
+                    }
+                });
+            });
+        });
+    </script>
+
+{% include 'temp2.html.twig' %}
+
+#}
