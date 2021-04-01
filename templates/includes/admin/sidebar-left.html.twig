@@ -12,6 +12,7 @@
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
+    {#
     <!-- search form -->
     <form action="#" method="get" class="sidebar-form">
       <div class="input-group">
@@ -23,6 +24,7 @@
       </div>
     </form>
     <!-- /.search form -->
+    #}
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">{{ 'admin.sidebar.main_navigation'|trans }}</li>
@@ -82,12 +84,11 @@
           <li><a href="{{ path('admin_user_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
         </ul>
       </li>
-
-     {#
-     <li>
+{#
+      <li>
         <a href="{{ path('admin_setting_index') }}"><i class="fa fa-sliders"></i> <span>{{ 'admin.settings'|trans }}</span></a>
       </li>
-     #}
+#}
     </ul>
   </section>
   <!-- /.sidebar -->

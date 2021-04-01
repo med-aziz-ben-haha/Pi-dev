@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Template;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Template|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,15 +14,15 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class TemplateRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Template::class);
     }
 
-    // /**
-    //  * @return Template[] Returns an array of Template objects
-    //  */
-    /*
+    /**
+      * @return Template[] Returns an array of Template objects
+      */
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('t')
@@ -34,9 +34,9 @@ class TemplateRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
+
+
     public function findOneBySomeField($value): ?Template
     {
         return $this->createQueryBuilder('t')
@@ -46,5 +46,5 @@ class TemplateRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

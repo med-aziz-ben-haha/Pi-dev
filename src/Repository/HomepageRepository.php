@@ -19,10 +19,10 @@ class HomepageRepository extends ServiceEntityRepository
         parent::__construct($registry, Homepage::class);
     }
 
-    // /**
-    //  * @return Homepage[] Returns an array of Homepage objects
-    //  */
-    /*
+     /**
+      * @return Homepage[] Returns an array of Homepage objects
+      */
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('h')
@@ -34,9 +34,9 @@ class HomepageRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
+
+
     public function findOneBySomeField($value): ?Homepage
     {
         return $this->createQueryBuilder('h')
@@ -46,5 +46,5 @@ class HomepageRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

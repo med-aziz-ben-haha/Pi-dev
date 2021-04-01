@@ -7,7 +7,7 @@ use App\Entity\Media;
 use App\Entity\MediaPostRel;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\Query\Expr\Join;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -19,15 +19,15 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class MediaPostRelRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, MediaPostRel::class);
     }
 
-    // /**
-    //  * @return MediaPostRel[] Returns an array of MediaPostRel objects
-    //  */
-    /*
+    /**
+      * @return MediaPostRel[] Returns an array of MediaPostRel objects
+      */
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('m')
@@ -39,9 +39,9 @@ class MediaPostRelRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
+
+
     public function findOneBySomeField($value): ?MediaPostRel
     {
         return $this->createQueryBuilder('m')
@@ -51,7 +51,7 @@ class MediaPostRelRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
 
     /**
      * @param Integer $postId

@@ -211,7 +211,7 @@
       </trans-unit>
       <trans-unit id="ppkniaG" resname="admin.index.welcome_text">
         <source>admin.index.welcome_text</source>
-        <target>Hi %user%, welcome to %project%.</target>
+        <target>Hi %user%, welcome to %project%</target>
       </trans-unit>
       <trans-unit id="US_1wmr" resname="admin.index.homepage">
         <source>admin.index.homepage</source>
@@ -255,7 +255,7 @@
       </trans-unit>
       <trans-unit id="Qa8cX1U" resname="admin.posts.form.post_saved">
         <source>admin.posts.form.post_saved</source>
-        <target>Post created!</target>
+        <target>Post saved!</target>
       </trans-unit>
       <trans-unit id="O64V4fO" resname="admin.posts.form_error.regex.slug">
         <source>admin.posts.form_error.regex.slug</source>
@@ -279,7 +279,7 @@
       </trans-unit>
       <trans-unit id="6JdGmCA" resname="admin.categories.form.category_saved">
         <source>admin.categories.form.category_saved</source>
-        <target>Category created!</target>
+        <target>Category saved!</target>
       </trans-unit>
       <trans-unit id="op2MXte" resname="admin.medias">
         <source>admin.medias</source>

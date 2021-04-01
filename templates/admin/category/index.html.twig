@@ -14,7 +14,7 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+                <div class="box box-danger">
                     <div class="box-header">
                         <h3 class="box-title">{{ 'app.general.list'|trans }}</h3>
 
@@ -45,9 +45,10 @@
                                     <tr>
                                         <td>{{ category.id }}</td>
                                         <td>
-                                            <a href="{{ path('admin_category_edit', {
-                                                id: category.id
-                                            }) }}">
+                                            <a style="color: lightcoral" href= "#"
+                                           {#  "{{ path('admin_category_edit', { id: category.id}) }}" #}
+
+                                            >
                                                 {{ category.name }}
                                             </a>
                                         </td>

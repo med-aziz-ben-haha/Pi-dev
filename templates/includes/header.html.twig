@@ -12,20 +12,21 @@
 <header class="masthead{{ mainClass }}">
     <div class="masthead-image-wrapper">
         <img id="{{ register_component('parallax') }}"
-             data-src="{{ asset(image|default('images/bg-index.jpg')|imagine_filter('1440x800')) }}"
+             data-src="{{ asset(image|default('images/bg.jpg')|imagine_filter('1440x800')) }}"
              alt=""
              class="lazy"/>
     </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="{{ headingClass }}">
-          <h1>{{ title|default('Blog Personal') }}</h1>
-          <!--Uma descricao basica da pagina
-          <span class="subheading">Uma descricao basica da pagina</span-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="{{ headingClass }}">
+                    {#  <h1>{{ title|default('Blog Personal') }}</h1>#}
+                    <br><br><br><br>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+
+
 </header>

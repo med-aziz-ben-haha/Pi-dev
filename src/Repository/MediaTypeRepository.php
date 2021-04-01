@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\MediaType;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method MediaType|null find($id, $lockMode = null, $lockVersion = null)
@@ -22,7 +22,7 @@ class MediaTypeRepository extends ServiceEntityRepository
         'application/pdf' => 'pdf',
         ];
 
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, MediaType::class);
     }
@@ -37,10 +37,10 @@ class MediaTypeRepository extends ServiceEntityRepository
             ;
     }
 
-    // /**
-    //  * @return MediaType[] Returns an array of MediaType objects
-    //  */
-    /*
+    /**
+      * @return MediaType[] Returns an array of MediaType objects
+      */
+
     public function findByExampleField($value)
     {
         return $this->createQueryBuilder('m')
@@ -52,9 +52,7 @@ class MediaTypeRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
 
-    /*
     public function findOneBySomeField($value): ?MediaType
     {
         return $this->createQueryBuilder('m')
@@ -64,5 +62,5 @@ class MediaTypeRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

@@ -1,73 +1,231 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {{ name_site }} - Blog
+    {{ name_site }} - News
 {% endblock %}
 
 {% block body %}
     {% include 'includes/header.html.twig' %}
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-10 col-md-12 mx-auto">
-                {% if 0 < posts|length %}
-                    {% for post in posts %}
-                        <article class="post-preview">
-                            <div class="row">
-                                <div class="col-md-5">
-                                    <a href="{{ path('post_detail', {slug: post.slug}) }}">
-                                        {% if post.urlPhoto is not empty %}
-                                            <img src="{{ asset(post.urlPhoto)|imagine_filter('600x375') }}"
-                                                 class="post-image rounded img-fluid mr-3"
-                                                 alt="{{ post.title }}">
-                                        {% endif %}
-                                    </a>
-                                </div>
-
-                                <div class="col-md-7">
-                                    <div class="mb-4">
-                                        <a href="{{ path('post_detail', {slug: post.slug}) }}">
-                                            <h2 class="post-title">{{ post.title }}</h2>
-                                            <h3 class="post-subtitle text-limited">{{ post.description }}</h3>
-                                        </a>
-
-                                        {% if 0 < post.categories|length %}
-                                            <div class="post-categories">
-                                                {% for category in post.categories %}
-                                                    <a class="badge badge-primary"
-                                                       href="{{ path('post_index_category', {category: category.slug}) }}">
-                                                        {{ category.name }}
-                                                    </a>
-                                                {% endfor %}
-                                            </div>
-                                        {% endif %}
-                                    </div>
-
-                                    <div class="media post-user">
-                                        {% if post.user.urlAvatar is not empty %}
-                                            <img src="{{ asset(post.user.urlAvatar)|imagine_filter('50x50') }}"
-                                                 class="rounded-circle mr-2"
-                                                 alt="{{ post.user.fullname }}">
-                                        {% endif %}
-                                        <div class="media-body">
-                                            <h6 class="post-user-name mt-1 mb-1">{{ post.user.fullname }}</h6>
-
-                                            {% include 'includes/published.html.twig' with {published: post.published} only %}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-                    {% endfor %}
-                {% else %}
-                    Não foi encontrado nenhum artigo
-                {% endif %}
-
-                <!-- Pager -->
-                <div class="clearfix">
-                    {{ knp_pagination_render(posts) }}
-                </div>
+    <div id="main-wrapper">
+        <!-- Page Preloader -->
+        <div id="preloader">
+            <div id="status">
+                <div class="status-mes"></div>
             </div>
         </div>
+        <!-- preloader -->
+
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+
+
+
+
+
+
+
+                <section id="category_section" class="category_section">
+                    <div class="container">
+                        <div class="row">
+
+
+
+                            <div class="col-md-8">
+                                <div class="category_section camera">
+
+                                    <!-- article_title -->
+
+                                    <div class="category_article_wrapper">
+                                        {% if 0 < posts|length %}
+                                        {% for post in posts %}
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <div class="top_article_img">
+                                                    <a href="{{ path('post_detail', {slug: post.slug}) }}">
+                                                        {% if post.urlPhoto is not empty %}
+                                                            <img src="{{ asset(post.urlPhoto)|imagine_filter('600x375') }}"
+                                                                 class="post-image rounded img-fluid mr-3"
+                                                                 alt="{{ post.title }}">
+                                                        {% endif %}
+                                                    </a>
+                                                </div>
+                                                <!-- top_article_img -->
+
+                                            </div>
+                                            <div class="col-md-7">
+                                                {% if 0 < post.categories|length %}
+
+                                {% for category in post.categories %}
+                                    <span class="tag red">
+                                    <a
+                                       href="{{ path('post_index_category', {category: category.slug}) }}">
+                                                        {{ category.name }}
+                                                    </a>
+                                    </span>
+                                {% endfor %}
+
+                                                {% endif %}
+                                                <!-- categories -->
+
+
+                                                <div class="category_article_title">
+                                                    <h2> <a href="{{ path('post_detail', {slug: post.slug}) }}">
+                                                            {{ post.title }}
+                                                        </a> </h2>
+                                                </div>
+                                                <!-- article_title -->
+
+                                                <div class="media article_date">
+                                                    {% if post.user.urlAvatar is not empty %}
+                                                        <img src="{{ asset(post.user.urlAvatar)|imagine_filter('50x50') }}"
+                                                             class="rounded-circle mr-2"
+                                                             alt="{{ post.user.fullname }}">
+                                                    {% endif %}
+                                                    <!----show avatar------>
+                                                    <div class="media-body">
+                                                        <h6 class="post-user-name mt-1 mb-1"> <i class="fa fa-pencil-square-o" aria-hidden="true">{{ post.user.fullname }}</i></h6>
+
+                                                        {% include 'includes/published.html.twig' with {published: post.published} only %}
+                                                    </div>
+                                                </div>
+                                                <!----article_date------>
+                                                <!-- category_article_wrapper -->
+
+                                                <div class="category_article_content">
+
+                                                    {{ post.description }}
+                                                </div>
+                                                <!-- article_description -->
+
+
+                                            </div>
+                                            <!-- col-md-7 -->
+
+                                        </div>
+                                        <!-- row -->
+                                        {% endfor %}
+                                        {% else %}
+                                            No articles found.
+                                        {% endif %}
+                                    </div>
+                                    <!-- category_article_wrapper -->
+
+                                </div>
+                                <!-- Camera News Section -->
+                            </div>
+                            <!-- Left Section -->
+
+
+
+
+                            <div class="col-md-4">
+
+                                <div class="widget reviews m30">
+                                    <div class="widget_title widget_red">
+                                        <h2>Categories</h2>
+                                    </div>
+                                    <div class="media">
+
+                                        <div class="media-body">
+                                            {% set newArray = [] %}
+                                            {% if 0 < posts|length %}
+                                            {% for post in posts %}
+                                            {% if 0 < post.categories|length %}
+
+                                                {% for category in post.categories %}
+                                                    {% if category not in newArray %}
+
+                                                        {% set newArray = newArray|merge([category]) %}
+                                                    {% endif %}
+                                                {% endfor %}
+
+                                            {% endif %}
+
+                                            {% endfor %}
+                                            {% endif %}
+
+                                            {% for category in newArray %}
+                                            <h3 class="media-heading">
+                                                <a
+                                                        href="{{ path('post_index_category', {category: category.slug}) }}">
+                                                    {{ category.name }}
+                                                </a>
+                                            </h3>
+                                            {% endfor %}
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- category list -->
+
+                                <div class="widget hidden-xs m30" >
+                                    <div style="display: flex;">
+                                        <img class="img-responsive" src="{{ asset ("images/right_add1.jpg") }}" alt="add_one">
+                                        <img class="img-responsive" src="{{ asset ("images/right_add2.jpg") }}" alt="add_one">
+                                    </div>
+                                    <div style="display: flex;">
+                                        <img class="img-responsive " src="{{ asset ("images/right_add3.jpg") }}" alt="add_one">
+                                        <img class="img-responsive " src="{{ asset ("images/right_add4.jpg") }}" alt="add_one">
+                                    </div>
+                                </div>
+
+                                <!-- Advertisement -->
+
+
+                                <div class="widget m30">
+                                    <div class="widget_title widget_red">
+                                        <h2>Some info</h2>
+                                    </div>
+                                    <div class="widget_body"><img class="img-responsive left" src="{{ asset ("images/right_add2.jpg") }}"
+                                                                  alt="Generic placeholder image">
+                                        <h5>
+                                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
+                                                users after installed base benefits. Dramatically visualize customer directed convergence without</p>
+
+                                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
+                                                users after installed base benefits. Dramatically visualize customer directed convergence without
+                                                revolutionary ROI.</p>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <!-- some info -->
+
+
+
+
+
+                                <div class="widget hidden-xs m30">
+                                    <img class="img-responsive widget_img" src="{{ asset ("images/podcast.jpg") }}" alt="add_one">
+                                </div>
+                                <!--Advertisement-->
+                            </div>
+                            <!-- Right Section -->
+
+                        </div>
+                        <!-- Row -->
+
+                    </div>
+                    <!-- Container -->
+
+                </section>
+                <!-- Category News Section -->
+
+
+
+            </div>
+            <!-- #content-wrapper -->
+
+        </div>
+        <!-- .offcanvas-pusher -->
+
+        <a href="#" class="crunchify-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+
+        <!-- .uc-mobile-menu -->
+
     </div>
+
+
 {% endblock %}

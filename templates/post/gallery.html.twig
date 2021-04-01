@@ -7,168 +7,328 @@
         type: 'gallery',
     } only %}
 
-{# {% set showFBComments = setting().showCommentsFacebook %} #}
+    {% set showFBComments = setting().showCommentsFacebook %}
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-md-12 mx-auto">
-                <article class="gallery-detail">
-                    <header>
-                        <div class="media author mb-4">
-                            {% if post.user.urlAvatar is not empty %}
-                                <img src="{{ asset(post.user.urlAvatar)|imagine_filter('100x100') }}"
-                                     class="mr-3 author-photo rounded-circle"
-                                     alt="{{ post.user.fullname }}">
-                            {% endif %}
+    <div id="main-wrapper">
 
-                            <div class="media-body">
-                                <h5 class="mt-2 mb-1 author-fullname">{{ post.user.fullname }}</h5>
 
-                                {% include 'includes/published.html.twig' with {
-                                    published: post.published
-                                } only %}
-                            </div>
-                        </div>
-                    </header>
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
 
-                    <div class="text">
-                        {% if post.text is not empty %}
-                            {{ post.text|raw }}
-                        {% endif %}
-                    </div>
-                </article>
-            </div>
-        </div>
-    </div>
 
-    {% if 0 < post.mediaPostRel.count %}
-        {# Gallery preview photos list. #}
-        <div class="container-fluid">
-            <div  class="gallery-photos col-lg-10 mx-auto">
-                <div class="js-gallery-photos-inner row">
-                    {% for mediaPost in post.mediaPostRel|reverse %}
-                        {% set size = gallerySize(loop.index) %}
-                        {% set imageData = mediaData[mediaPost.media.id]|default() %}
-
-                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 gallery-item js-gallery-photo-item">
-                            <div class="gallery-photos-img-wrapper">
-                                <a href="#"
-                                   data-toggle="modal"
-                                   data-target=".gallery-modal"
-                                   data-position="{{ loop.index }}"
-                                   data-id="{{ mediaPost.media.id }}"
-                                   data-url="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_full') }}"
-                                   data-title="{{ imageData.title|default(post.title) }}"
-                                   data-description="{{ imageData.description|default() }}"
-                                   data-published="{{ mediaPost.media.created|date('Y-m-d H:i:s') }}"
-                                   data-author-name="{{ mediaPost.media.user.fullname }}"
-                                   data-author-avatar="{{ asset(mediaPost.media.user.urlAvatar|default('images/avatar.png'))|imagine_filter('100x100') }}"
-                                   class="js-gallery-photo-data">
-
-                                    <img src="{{ asset(mediaPost.media.file)|imagine_filter(size) }}"
-                                         alt="{{ imageData.title|default(post.title) }}"
-                                         class="img-fluid gallery-photos-img">
-                                </a>
-
-                                <div class="gallery-photos-img-data">
-                                    {% if imageData and imageData.title is not empty %}
-                                        <h3 class="gallery-photos-img-data-title js-gallery-photos-img-data-title">
-                                            {{ imageData.title }}
-                                        </h3>
-                                    {% endif %}
-
-                                    {% include 'includes/published.html.twig' with {
-                                        published: mediaPost.media.created,
-                                        options: {
-                                            showIconDate: true,
-                                            showTime: false,
-                                            addClass: 'gallery-photos-img-data-published'
-                                        }
-                                    } only %}
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-
-                {# Gallery modal. #}
-                <div class="modal fade gallery-modal js-gallery-modal"
-                     tabindex="-1"
-                     role="dialog"
-                     aria-labelledby="exampleModalLongTitle"
-                     aria-hidden="true">
-
-                    <button type="button" class="close gallery-modal-close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-body">
-                                <div class="gallery-modal-main-arrow-toggler js-gallery-modal-main-arrow-toggler">
-                                    <i class="fa" aria-hidden="true"></i>
-                                </div>
-
-                                <div class="modal-main js-gallery-modal-main">
-                                    <img src="" class="gallery-modal-img js-gallery-modal-img" alt="">
-
-                                    <div class="gallery-modal-nav-prev js-gallery-modal-nav-prev">
-                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="gallery-modal-nav-next js-gallery-modal-nav-next">
-                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-
-                                <div class="modal-right js-gallery-modal-right">
-                                    <div class="modal-right-inner js-gallery-modal-right-inner">
-                                        <div class="media mb-3">
-                                            <img class="mr-3 rounded-circle gallery-modal-author-avatar js-gallery-modal-author-avatar"
-                                                 src=""
-                                                 alt="">
-                                            <div class="media-body">
-                                                <h5 class="mt-1 mb-1 gallery-modal-author-name js-gallery-modal-author-name">
-                                                    {# Initialized via JS. #}
-                                                </h5>
-
-                                                <div class="gallery-modal-published js-gallery-modal-published">
-                                                    {# Initialized via JS. #}
-                                                </div>
+                <section id="entity_section" class="entity_section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="entity_wrapper">
+                                    <header>
+                                        {% if post.title is not empty %}
+                                            <div class="entity_title">
+                                                <h1>{{ post.title }}</h1>
                                             </div>
-                                        </div>
+                                        {% endif %}
+                                        <!-- entity_title -->
 
-                                        <h4 class="gallery-modal-title js-gallery-modal-title">
-                                            {# Initialized via JS. #}
-                                        </h4>
 
-                                        <div class="gallery-modal-description js-gallery-modal-description">
-                                            {# Initialized via JS. #}
+                                        <div class="entity_meta" style="margin:10px 0;">
+                                            <h4>  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  {{ post.user.fullname }}  </i></h4>
+                                            {% include 'includes/published.html.twig' with {published: post.published} only %}
                                         </div>
+                                        <!-- entity_meta -->
 
-                                        <div class="gallery-modal-fb-comments js-gallery-modal-fb-comments">
-                                            {# Initialized via JS. #}
+
+
+
+                                        <div class="entity_thumb">
+                                            {% if post.urlPhoto is not empty %}
+                                                <img class="img-responsive" src="{{ asset(post.urlPhoto)|imagine_filter('600x375') }}"alt="feature-top">
+
+                                            {% endif %}
                                         </div>
+                                        <!-- entity_thumb -->
+                                    </header>
+                                    <div class="entity_content ckeditor">
+
+
+                                        <blockquote class="pull-left" >
+                                            {% if post.description is not empty %}
+                                                {{ post.description }}
+                                            {% endif %}
+                                        </blockquote>
+                                        {% if post.text is not empty %}
+                                            {{ post.text|raw }}
+                                        {% endif %}
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <!-- entity_content -->
 
-                        <div class="gallery-modal-paging js-gallery-modal-paging">
+
+                                    {% if 0 < post.mediaPostRel.count %}
+                                        {# Gallery preview photos list. #}
+
+                                        <div class="container-fluid">
+                                            <div id="{{ register_component('gallery', {showFBComments: showFBComments }) }}" class="gallery-photos col-lg-10 mx-auto">
+                                                <div class="js-gallery-photos-inner row">
+                                                    {% for mediaPost in post.mediaPostRel|reverse %}
+                                                        {% set size = gallerySize(loop.index) %}
+                                                        {% set imageData = mediaData[mediaPost.media.id]|default() %}
+
+                                                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-5 gallery-item js-gallery-photo-item">
+                                                            <div class="gallery-photos-img-wrapper">
+                                                                <a href="#"
+                                                                   data-toggle="modal"
+                                                                   data-target=".gallery-modal"
+                                                                   data-position="{{ loop.index }}"
+                                                                   data-id="{{ mediaPost.media.id }}"
+                                                                   data-url="{{ asset(mediaPost.media.file)|imagine_filter('gallery_post_full') }}"
+                                                                   data-title="{{ imageData.title|default(post.title) }}"
+                                                                   data-description="{{ imageData.description|default() }}"
+                                                                   data-published="{{ mediaPost.media.created|date('Y-m-d H:i:s') }}"
+                                                                   data-author-name="{{ mediaPost.media.user.fullname }}"
+                                                                   data-author-avatar="{{ asset(mediaPost.media.user.urlAvatar|default('images/avatar.png'))|imagine_filter('100x100') }}"
+                                                                   class="js-gallery-photo-data">
+
+                                                                    <img src="{{ asset(mediaPost.media.file)|imagine_filter(size) }}"
+                                                                         alt="{{ imageData.title|default(post.title) }}"
+                                                                         class="img-fluid gallery-photos-img">
+                                                                </a>
+
+                                                                <div class="gallery-photos-img-data">
+                                                                    {% if imageData and imageData.title is not empty %}
+                                                                        <h3 class="gallery-photos-img-data-title js-gallery-photos-img-data-title">
+                                                                            {{ imageData.title }}
+                                                                        </h3>
+                                                                    {% endif %}
+
+                                                                    {% include 'includes/published.html.twig' with {
+                                                                        published: mediaPost.media.created,
+                                                                        options: {
+                                                                            showIconDate: true,
+                                                                            showTime: false,
+                                                                            addClass: 'gallery-photos-img-data-published'
+                                                                        }
+                                                                    } only %}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    {% endfor %}
+                                                </div>
+
+                                                {# Gallery modal. #}
+                                                <div class="modal fade gallery-modal js-gallery-modal"
+                                                     tabindex="-1"
+                                                     role="dialog"
+                                                     aria-labelledby="exampleModalLongTitle"
+                                                     aria-hidden="true">
+
+                                                    <button type="button" class="close gallery-modal-close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+
+                                                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-body">
+                                                                <div class="gallery-modal-main-arrow-toggler js-gallery-modal-main-arrow-toggler">
+                                                                    <i class="fa" aria-hidden="true"></i>
+                                                                </div>
+
+                                                                <div class="modal-main js-gallery-modal-main">
+                                                                    <img src="" class="gallery-modal-img js-gallery-modal-img" alt="">
+
+                                                                    <div class="gallery-modal-nav-prev js-gallery-modal-nav-prev">
+                                                                        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+                                                                    </div>
+
+                                                                    <div class="gallery-modal-nav-next js-gallery-modal-nav-next">
+                                                                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="modal-right js-gallery-modal-right">
+                                                                    <div class="modal-right-inner js-gallery-modal-right-inner">
+                                                                        <div class="media mb-3">
+                                                                            <img class="mr-3 rounded-circle gallery-modal-author-avatar js-gallery-modal-author-avatar"
+                                                                                 src=""
+                                                                                 alt="">
+                                                                            <div class="media-body">
+                                                                                <h5 class="mt-1 mb-1 gallery-modal-author-name js-gallery-modal-author-name">
+                                                                                    {# Initialized via JS. #}
+                                                                                </h5>
+
+                                                                                <div class="gallery-modal-published js-gallery-modal-published">
+                                                                                    {# Initialized via JS. #}
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <h4 class="gallery-modal-title js-gallery-modal-title">
+                                                                            {# Initialized via JS. #}
+                                                                        </h4>
+
+                                                                        <div class="gallery-modal-description js-gallery-modal-description">
+                                                                            {# Initialized via JS. #}
+                                                                        </div>
+
+                                                                        <div class="gallery-modal-fb-comments js-gallery-modal-fb-comments">
+                                                                            {# Initialized via JS. #}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="gallery-modal-paging js-gallery-modal-paging">
                         <span class="pr-1 js-gallery-modal-paging-current">
                             {# Initialized via JS. #}
                         </span>
-                            {{ 'app.general.of'|trans }}
-                            <span class="px-1 js-gallery-modal-paging-total">
+                                                            {{ 'app.general.of'|trans }}
+                                                            <span class="px-1 js-gallery-modal-paging-total">
                             {# Initialized via JS. #}
                         </span>
-                            {{ 'app.general.pictures'|trans }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endif %}
+                                                            {{ 'app.general.pictures'|trans }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
 
-    {% include 'includes/see-more-posts.html.twig' with {posts: posts} only %}
+
+
+                                    <div class="entity_footer">
+                                        {% if 0 < post.categories|length %}
+
+                                            {% for category in post.categories %}
+
+                                                <div class="entity_tag">
+                                            <span class="blank"><a   href="{{ path('post_index_category', {category: category.slug}) }}">
+                                                        {{ category.name }}</a></span>
+                                                </div>
+                                                <!-- entity_tag -->
+                                            {% endfor %}
+
+                                        {% endif %}
+
+                                    </div>
+                                    <!-- entity_footer -->
+
+
+                                </div>
+
+                                {% include 'includes/see-more-posts.html.twig' with {posts: posts} only %}
+
+
+
+
+
+                                <div class="readers_comment">
+                                    <div class="entity_inner__title header_red">
+                                        <h2>Readers Comments</h2>
+                                    </div>
+                                    <!-- entity_title -->
+                                    {% include 'includes/comments-facebook.html.twig' %}
+                                </div>
+                                <!--Readers Comment-->
+
+
+                            </div>
+                            <!--Left Section-->
+
+                            <div class="col-md-4">
+
+                                <div class="widget reviews m30">
+                                    <div class="widget_title widget_red">
+                                        <h2>Categories</h2>
+                                    </div>
+                                    <div class="media">
+
+                                        <div class="media-body">
+
+                                            {% if 0 < post.categories|length %}
+
+                                                {% for category in post.categories %}
+                                                    <h3 class="media-heading">
+                                                        <a
+                                                                href="{{ path('post_index_category', {category: category.slug}) }}">
+                                                            {{ category.name }}
+                                                        </a>
+                                                    </h3>
+                                                {% endfor %}
+
+                                            {% endif %}
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- category list -->
+
+                                <div class="widget hidden-xs m30" >
+                                  <div style="display: flex;">
+                                    <img class="img-responsive" src="{{ asset ("images/right_add1.jpg") }}" alt="add_one">
+                                    <img class="img-responsive" src="{{ asset ("images/right_add2.jpg") }}" alt="add_one">
+                                </div>
+                                    <div style="display: flex;">
+                                    <img class="img-responsive " src="{{ asset ("images/right_add3.jpg") }}" alt="add_one">
+                                    <img class="img-responsive " src="{{ asset ("images/right_add4.jpg") }}" alt="add_one">
+                                </div>
+                                </div>
+
+                                <!-- Advertisement -->
+
+
+
+
+
+
+                                <div class="widget m30">
+                                    <div class="widget_title widget_red">
+                                        <h2>Some info</h2>
+                                    </div>
+                                    <div class="widget_body"><img class="img-responsive left" src="{{ asset ("images/right_add2.jpg") }}"
+                                                                  alt="Generic placeholder image">
+                                        <h5>
+                                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
+                                                users after installed base benefits. Dramatically visualize customer directed convergence without</p>
+
+                                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
+                                                users after installed base benefits. Dramatically visualize customer directed convergence without
+                                                revolutionary ROI.</p>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <!-- some info -->
+
+
+
+                                <div class="widget hidden-xs m30">
+                                    <img class="img-responsive widget_img" src="{{ asset ("images/podcast.jpg") }}" alt="add_one">
+                                </div>
+                                <!--Advertisement-->
+                            </div>
+                            <!-- Right Section -->
+
+                        </div>
+                        <!-- row -->
+
+                    </div>
+                    <!-- container -->
+
+                </section>
+                <!-- Entity Section Wrapper -->
+
+
+            </div>
+            <!-- #content-wrapper -->
+
+        </div>
+        <!-- .offcanvas-pusher -->
+
+        <a href="#" class="crunchify-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+
+
+    </div>
+    <!-- #main-wrapper -->
 {% endblock %}
+

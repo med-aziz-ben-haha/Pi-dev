@@ -37,4 +37,4 @@ security:
         # - { path: ^/profile, roles: ROLE_USER }
 
         # Only verify if user is logged used: IS_AUTHENTICATED_FULLY
-        - { path: ^/admin, roles: IS_AUTHENTICATED_FULLY }
+        - { path: /login, roles: IS_AUTHENTICATED_FULLY }

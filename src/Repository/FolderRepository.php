@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Folder;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @method Folder|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class FolderRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
+    public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Folder::class);
     }
@@ -68,7 +68,7 @@ class FolderRepository extends ServiceEntityRepository
         return array_reverse($folders);
     }
 
-    /*
+
     public function findOneBySomeField($value): ?Folder
     {
         return $this->createQueryBuilder('f')
@@ -78,5 +78,5 @@ class FolderRepository extends ServiceEntityRepository
             ->getOneOrNullResult()
         ;
     }
-    */
+
 }

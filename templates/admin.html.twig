@@ -6,6 +6,18 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{% block title %} {{ name_admin }} {% endblock %}</title>
+
+        <!-- Bootstrap -->
+        <link src={{ asset("assets/css/bootstrap.min.css") }} rel="stylesheet">
+
+        <!-- font-awesome -->
+        <link src={{ asset("assets/fonts/font-awesome/font-awesome.min.css") }} rel="stylesheet">
+
+
+
+        <!-- Theme Style -->
+        <link src={{ asset("assets/css/style.css") }} rel="stylesheet">
+
         {% block stylesheets %}
             {# 'app' must match the first argument to addEntry() in webpack.config.js #}
             {{ encore_entry_link_tags('admin') }}
@@ -14,15 +26,14 @@
                  <link rel="stylesheet" href="/build/app.css"> -->
         {% endblock %}
     </head>
-    <body class="hold-transition skin-blue sidebar-mini fixed">
-        <div class="wrapper">
+    <body class="hold-transition skin-red sidebar-mini fixed" >
+        <div class="wrapper" >
             {# Detect if was added more navbar header links from the body block. #}
             {% set _headerNavbar = block('headerNavbar') is defined ? block('headerNavbar'):'' %}
 
             {% include 'includes/admin/header.html.twig' with {headerNavbar: _headerNavbar} %}
 
             {% include 'includes/admin/sidebar-left.html.twig' %}
-
 
             <div class="content-wrapper">
                 {% for message in app.flashes('success') %}
@@ -31,22 +42,27 @@
                     </div>
                 {% endfor %}
 
-
                 {% block body %}{% endblock %}
             </div>
 
+            {% include 'includes/admin/footer.html.twig' %}
+
+           {#  {% include 'includes/admin/sidebar-right.html.twig' %} #}
         </div>
         <!-- ./wrapper -->
 
         {% block javascripts %}
             {{ encore_entry_script_tags('admin') }}
-
+            <!--Renders website.js & a webpack runtime.js file
+                <script src="/build/runtime.js"></script>
+                <script src="/build/website.js"></script> -->
             <script>
                 web.startComponents({{ get_components() }});
             </script>
         {% endblock %}
 
-
-
+        {% block scripts %}
+            <!-- Add more javascript. -->
+        {% endblock %}
     </body>
 </html>

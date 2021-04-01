@@ -23,14 +23,14 @@
     <section id="{{ mediaComponent }}" class="content content-media-index">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
+                <div class="box box-danger">
                     <div class="box-header">
                         {% if 0 < parentFolders|length %}
                             <h3 class="box-title">
                                 <ol class="breadcrumb breadcrumb--without-bg">
                                     <li>
                                         <a href="{{ path('admin_media_index') }}">
-                                            <i class="fa fa-home" aria-hidden="true"></i>
+                                            <i class="fa fa-home" aria-hidden="true"  style="color: tomato"></i>
                                         </a>
                                     </li>
                                     {% for folder in parentFolders %}
@@ -64,7 +64,7 @@
 
                     <div class="box-body">
                         <div class="media-index-content">
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-upload">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-upload">
                                 {{ 'admin.medias.form.button.upload_files'|trans }} <i class="fa fa-plus-circle" aria-hidden="true"></i>
                             </button>
 

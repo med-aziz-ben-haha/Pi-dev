@@ -188,6 +188,7 @@ class Post
     public function setDeleted(?\DateTimeInterface $deleted): self
     {
         $this->deleted = $deleted;
+        $this->highlight = 0;
 
         return $this;
     }

@@ -1,5 +1,5 @@
 {%- spaceless %}
-    {% set metaPublisher = 'sa7ti.tn' %}
+    {% set metaPublisher = 'Sa7ti.tn' %}
     {% set metaSiteName = name_site %}
     {% set metaLocaleParts = app.request.locale|split('_') %}
     {% set metaLanguage = metaLocaleParts[0] %}
@@ -16,8 +16,8 @@
         {% set metaDescription = metaDescription|length > 320 ? metaDescription|slice(0, 316) ~ ' ...' : metaDescription %}
     {% endif %}
 
-    {# Get meta image.#}
-    {% set metaImage = asset(metaImage|default('/images/'))|imagine_filter('640x420') %}
+    {# Get meta image. #}
+    {% set metaImage = asset(metaImage|default('/images/Logo.jpg'))|imagine_filter('640x420') %}
 
     {% set metaBotTags = {
         'revisit-after': '2 days',

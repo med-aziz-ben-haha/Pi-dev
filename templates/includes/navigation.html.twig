@@ -1,7 +1,8 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light fixed-top navigation">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ path('pages_homepage') }}">{{ name_site }}</a>
+    <img style="margin-left: 1%; margin-top: 0%; width: 4%; height: 4% ;" src= "{{ asset('images/Logo.jpeg')}}" >
+    <a class="navbar-brand" href="{{ path('pages_homepage') }}">Sa7ti.tn</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       Menu
       <i class="fa fa-bars"></i>
@@ -9,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="{{ path('post_index') }}">Blog</a>
+          <a class="nav-link" href="{{ path('post_index') }}">News</a>
         </li>
 
         {% if 1 < locales|split(',')|length %}

@@ -17,6 +17,8 @@ use App\Entity\Post;
 use App\Service\UploaderHelper;
 use Cocur\Slugify\Slugify;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Knp\Snappy;
+use Knp\Bundle\SnappyBundle\Snappy\Response\PdfResponse;
 
 class PostController extends AbstractController
 {
@@ -229,6 +231,23 @@ class PostController extends AbstractController
 
         // Redirect to list.
         return $this->redirectToRoute('admin_post_index');
+    }
+
+    /**
+     * @Route("/pdf/pdf", name="post_show_pdf", methods={"GET"})
+     */
+    public function pdfAction(Snappy\Pdf $knpSnappyPdf, PostRepository $PostRepository): Response
+    {
+        $post =  $PostRepository->findAll();
+
+        $html = $this->renderView('admin/post/pdf.html.twig', array(
+            'posts'  => $post
+        ));
+
+        return new PdfResponse(
+            $knpSnappyPdf->getOutputFromHtml($html),
+            'Posts.pdf'
+        );
     }
 
 }
