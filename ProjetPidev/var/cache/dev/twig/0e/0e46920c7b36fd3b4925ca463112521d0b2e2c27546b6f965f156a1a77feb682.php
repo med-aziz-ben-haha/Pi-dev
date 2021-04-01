@@ -86,13 +86,16 @@ class __TwigTemplate_b85654ca5c042291fa2b7413102ebc834de07aac1c90742cd2a1aca9508
 
         // line 6
         echo "    ";
+        $this->loadTemplate("temp1.html.twig", "contact/index.html.twig", 6)->display($context);
+        // line 7
+        echo "    ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 6, $this->source); })()), "flashes", [0 => "message"], "method", false, false, false, 6));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 7, $this->source); })()), "flashes", [0 => "message"], "method", false, false, false, 7));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 7
+            // line 8
             echo "        <div class=\"alert alert-success\" role=\"alert\">
             ";
-            // line 8
+            // line 9
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
         </div>
@@ -101,14 +104,16 @@ class __TwigTemplate_b85654ca5c042291fa2b7413102ebc834de07aac1c90742cd2a1aca9508
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 11
+        // line 12
         echo "
     <h1>Nous Contacter</h1>
     ";
-        // line 13
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 13, $this->source); })()), 'form');
+        // line 14
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 14, $this->source); })()), 'form');
         echo "
-";
+    ";
+        // line 15
+        $this->loadTemplate("temp2.html.twig", "contact/index.html.twig", 15)->display($context);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -129,7 +134,7 @@ class __TwigTemplate_b85654ca5c042291fa2b7413102ebc834de07aac1c90742cd2a1aca9508
 
     public function getDebugInfo()
     {
-        return array (  109 => 13,  105 => 11,  96 => 8,  93 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  116 => 15,  112 => 14,  108 => 12,  99 => 9,  96 => 8,  91 => 7,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -139,6 +144,7 @@ class __TwigTemplate_b85654ca5c042291fa2b7413102ebc834de07aac1c90742cd2a1aca9508
 {% block title %}Contact{% endblock %}
 
 {% block body %}
+    {% include 'temp1.html.twig' %}
     {%  for message in app.flashes('message') %}
         <div class=\"alert alert-success\" role=\"alert\">
             {{ message }}
@@ -147,6 +153,7 @@ class __TwigTemplate_b85654ca5c042291fa2b7413102ebc834de07aac1c90742cd2a1aca9508
 
     <h1>Nous Contacter</h1>
     {{ form(contactForm) }}
+    {% include 'temp2.html.twig' %}
 {% endblock %}
 ", "contact/index.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\contact\\index.html.twig");
     }

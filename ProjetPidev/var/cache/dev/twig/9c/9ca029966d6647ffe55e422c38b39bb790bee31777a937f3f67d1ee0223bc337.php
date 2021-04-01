@@ -282,6 +282,8 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
 
                     </ul>
                 </li>
+
+                <li><a href=\"/contact/\"><i class=\"fa fa-book\"></i> <span>Contact</span></a></li>
 \t\t<li><a href=\"/centreMedical/\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
 
 
@@ -516,6 +518,8 @@ class __TwigTemplate_370e092787d5b8983c62a793c1e1ad90a05a546f0f527e2fb2808ee6db7
 
                     </ul>
                 </li>
+
+                <li><a href=\"/contact/\"><i class=\"fa fa-book\"></i> <span>Contact</span></a></li>
 \t\t<li><a href=\"/centreMedical/\"><i class=\"fa fa-book\"></i> <span>Gestion des centres médicaux</span></a></li>
 
 
