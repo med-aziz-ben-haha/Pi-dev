@@ -24,7 +24,9 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="section-title" id="id">Ordonnances</h2>
+
             </div>
+            <form action=" {{ path('triordonnance') }} "><button style="font-size: 20px; margin-bottom: 3%;"; class="btn-primary">Trier ordonnance</button></form>
             <table id="example1" class="table table-bordered table-striped" >
                 <tr>
                     <td>id</td>
@@ -52,8 +54,10 @@
                 {% endfor %}
             </table>
             <a style="font-size: 20px"; href="{{ path('Ordonnanceajout') }}"><button class="btn-primary">Ajouter ordonnance</button></a>
+
         </div>
     </div>
+    <div style="margin-left:1%; margin-top: 5%;">{{ knp_pagination_render(listordonnance) }}</div>
 </section>
 
 {% include 'tempFront2MO.html.twig' %}

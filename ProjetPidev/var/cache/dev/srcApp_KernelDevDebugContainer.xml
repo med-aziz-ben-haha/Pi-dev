@@ -6332,6 +6332,14 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.R4eaE2j" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="repository" type="service" id="App\Repository\OrdonnanceRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
     <service id=".service_locator.FXwFxJ8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6487,7 +6495,7 @@
         <argument key="util" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.nZOzcIh" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.GdKE0fe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
@@ -6541,9 +6549,10 @@
         <argument key="App\Controller\NoteSoinMPController::ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
         <argument key="App\Controller\OrdonnanceController::Ordonnanceajout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\OrdonnanceController::index" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\OrdonnanceController::listordonnance" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\OrdonnanceController::listordonnanceuser" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController::listordonnance" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\OrdonnanceController::listordonnanceuser" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\OrdonnanceController::modifier" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController::orderbynameqb" type="service" id=".service_locator.R4eaE2j"/>
         <argument key="App\Controller\OrdonnanceController::remove" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PanierController::afficheClient" type="service" id=".service_locator.FXwFxJ8"/>
         <argument key="App\Controller\PanierController::afficheParapharmacienCommande" type="service" id=".service_locator.Zm2_dt7"/>
@@ -6684,9 +6693,10 @@
         <argument key="App\Controller\NoteSoinMPController:ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
         <argument key="App\Controller\OrdonnanceController:Ordonnanceajout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\OrdonnanceController:index" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\OrdonnanceController:listordonnance" type="service" id=".service_locator.o3htLhs"/>
-        <argument key="App\Controller\OrdonnanceController:listordonnanceuser" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController:listordonnance" type="service" id=".service_locator.wf.M68N"/>
+        <argument key="App\Controller\OrdonnanceController:listordonnanceuser" type="service" id=".service_locator.wf.M68N"/>
         <argument key="App\Controller\OrdonnanceController:modifier" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\OrdonnanceController:orderbynameqb" type="service" id=".service_locator.R4eaE2j"/>
         <argument key="App\Controller\OrdonnanceController:remove" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PanierController:afficheClient" type="service" id=".service_locator.FXwFxJ8"/>
         <argument key="App\Controller\PanierController:afficheParapharmacienCommande" type="service" id=".service_locator.Zm2_dt7"/>
@@ -7417,12 +7427,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.nZOzcIh"/>
+      <argument type="service" id=".service_locator.GdKE0fe"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.nZOzcIh"/>
+      <argument type="service" id=".service_locator.GdKE0fe"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7856,7 +7866,7 @@
     <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.nZOzcIh"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.GdKE0fe"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

@@ -75,6 +75,7 @@ return [
     'Ordonnanceajout' => [[], ['_controller' => 'App\\Controller\\OrdonnanceController::Ordonnanceajout'], [], [['text', '/Ordonnanceajout']], [], []],
     'Ordonnanceremove' => [['id'], ['_controller' => 'App\\Controller\\OrdonnanceController::remove'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/Ordonnanceremove']], [], []],
     'Ordonnancemodifier' => [['id'], ['_controller' => 'App\\Controller\\OrdonnanceController::modifier'], [], [['variable', '/', '[^/]++', 'id'], ['text', '/Ordonnancemodifier']], [], []],
+    'triordonnance' => [[], ['_controller' => 'App\\Controller\\OrdonnanceController::orderbynameqb'], [], [['text', '/triordonnance']], [], []],
     'panier' => [[], ['_controller' => 'App\\Controller\\PanierController::index'], [], [['text', '/panier']], [], []],
     'afficheClienPanier' => [['iduser'], ['_controller' => 'App\\Controller\\PanierController::afficheClient'], [], [['variable', '/', '[^/]++', 'iduser'], ['text', '/afficheClienPanier']], [], []],
     'afficheParapharmacienCommande' => [['idpara'], ['_controller' => 'App\\Controller\\PanierController::afficheParapharmacienCommande'], [], [['variable', '/', '[^/]++', 'idpara'], ['text', '/afficheParapharmacienCommande']], [], []],

@@ -9,13 +9,16 @@
             <table id="example1" class="table table-bordered table-striped" >
                 <tr>
                     <td>id</td>
+                    <td> Medecin </td>
                     <td> Contenu de l'ordonnance </td>
                     <td> Date du saisi </td>
                     <td> Medicament list </td>
+
                 </tr>
                 {% for i in listordonnance%}
                     <tr>
                         <td>{{ i.id }}</td>
+                        <td> {{ i.Medecin.getNom() }}</td>
                         <td>{{ i.ContenuOrd }}</td>
                         <td>{{ i.DateOrd|date("d/m/Y") }}</td>
                         <td>
@@ -24,11 +27,14 @@
                             {% endfor %}
                         </td>
 
+
                     </tr>
                 {% endfor %}
+
             </table>
         </div>
     </div>
+    <div style="margin-left:1%; margin-top: 5%;">{{ knp_pagination_render(listordonnance) }}</div>
 </section>
 {% include 'tempFront2MO.html.twig' %}
 

@@ -136,6 +136,11 @@ class User
      */
     private $parapharmacie;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Ordonnance::class, mappedBy="Medecin")
+     */
+    private $medordonnances;
+
     public function __construct()
     {
         $this->reclamations = new ArrayCollection();
@@ -145,6 +150,7 @@ class User
         $this->listRendezvous = new ArrayCollection();
         $this->noteSoinMPs = new ArrayCollection();
         $this->ordonnances = new ArrayCollection();
+        $this->medordonnances = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -495,6 +501,36 @@ class User
     public function setParapharmacie(?Parapharmacie $parapharmacie): self
     {
         $this->parapharmacie = $parapharmacie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ordonnance[]
+     */
+    public function getMedordonnances(): Collection
+    {
+        return $this->medordonnances;
+    }
+
+    public function addMedordonnance(Ordonnance $medordonnance): self
+    {
+        if (!$this->medordonnances->contains($medordonnance)) {
+            $this->medordonnances[] = $medordonnance;
+            $medordonnance->setMedecin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMedordonnance(Ordonnance $medordonnance): self
+    {
+        if ($this->medordonnances->removeElement($medordonnance)) {
+            // set the owning side to null (unless already changed)
+            if ($medordonnance->getMedecin() === $this) {
+                $medordonnance->setMedecin(null);
+            }
+        }
 
         return $this;
     }

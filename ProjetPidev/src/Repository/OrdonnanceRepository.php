@@ -47,4 +47,12 @@ class OrdonnanceRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function OrderByDateQB()
+    {
+        return $this->createQueryBuilder('o')
+            ->orderBy('o.date_ord','ASC')
+            ->getQuery()->getResult()
+            ;
+    }
 }

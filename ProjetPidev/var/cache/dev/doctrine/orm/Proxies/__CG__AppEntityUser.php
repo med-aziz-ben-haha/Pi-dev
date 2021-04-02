@@ -66,10 +66,10 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'login', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mdp', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'matriculeFiscale', '' . "\0" . 'App\\Entity\\User' . "\0" . 'adresseUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\User' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienImageUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienIconeUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reclamations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actualites', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'listRendezvous', '' . "\0" . 'App\\Entity\\User' . "\0" . 'noteSoinMPs', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ordonnances', '' . "\0" . 'App\\Entity\\User' . "\0" . 'parapharmacie'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'login', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mdp', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'matriculeFiscale', '' . "\0" . 'App\\Entity\\User' . "\0" . 'adresseUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\User' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienImageUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienIconeUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reclamations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actualites', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'listRendezvous', '' . "\0" . 'App\\Entity\\User' . "\0" . 'noteSoinMPs', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ordonnances', '' . "\0" . 'App\\Entity\\User' . "\0" . 'parapharmacie', '' . "\0" . 'App\\Entity\\User' . "\0" . 'medordonnances'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'login', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mdp', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'matriculeFiscale', '' . "\0" . 'App\\Entity\\User' . "\0" . 'adresseUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\User' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienImageUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienIconeUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reclamations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actualites', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'listRendezvous', '' . "\0" . 'App\\Entity\\User' . "\0" . 'noteSoinMPs', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ordonnances', '' . "\0" . 'App\\Entity\\User' . "\0" . 'parapharmacie'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\User' . "\0" . 'id', '' . "\0" . 'App\\Entity\\User' . "\0" . 'login', '' . "\0" . 'App\\Entity\\User' . "\0" . 'mdp', '' . "\0" . 'App\\Entity\\User' . "\0" . 'email', '' . "\0" . 'App\\Entity\\User' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\User' . "\0" . 'matriculeFiscale', '' . "\0" . 'App\\Entity\\User' . "\0" . 'adresseUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'telephone', '' . "\0" . 'App\\Entity\\User' . "\0" . 'specialite', '' . "\0" . 'App\\Entity\\User' . "\0" . 'sexe', '' . "\0" . 'App\\Entity\\User' . "\0" . 'role', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienImageUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'lienIconeUser', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reclamations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'actualites', '' . "\0" . 'App\\Entity\\User' . "\0" . 'reservations', '' . "\0" . 'App\\Entity\\User' . "\0" . 'listRendezvous', '' . "\0" . 'App\\Entity\\User' . "\0" . 'noteSoinMPs', '' . "\0" . 'App\\Entity\\User' . "\0" . 'ordonnances', '' . "\0" . 'App\\Entity\\User' . "\0" . 'parapharmacie', '' . "\0" . 'App\\Entity\\User' . "\0" . 'medordonnances'];
     }
 
     /**
@@ -706,6 +706,39 @@ class User extends \App\Entity\User implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setParapharmacie', [$parapharmacie]);
 
         return parent::setParapharmacie($parapharmacie);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getMedordonnances(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getMedordonnances', []);
+
+        return parent::getMedordonnances();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function addMedordonnance(\App\Entity\Ordonnance $medordonnance): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addMedordonnance', [$medordonnance]);
+
+        return parent::addMedordonnance($medordonnance);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function removeMedordonnance(\App\Entity\Ordonnance $medordonnance): \App\Entity\User
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeMedordonnance', [$medordonnance]);
+
+        return parent::removeMedordonnance($medordonnance);
     }
 
 }

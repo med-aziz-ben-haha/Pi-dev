@@ -45,6 +45,16 @@ class Ordonnance
      */
     private $Medicament;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="medordonnances")
+     */
+    private $Medecin;
+
+
+
+
+
+
     public function __construct()
     {
         $this->Medicament = new ArrayCollection();
@@ -114,4 +124,20 @@ class Ordonnance
 
         return $this;
     }
+
+    public function getMedecin(): ?User
+    {
+        return $this->Medecin;
+    }
+
+    public function setMedecin(?User $Medecin): self
+    {
+        $this->Medecin = $Medecin;
+
+        return $this;
+    }
+
+
+
+
 }

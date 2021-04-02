@@ -143,7 +143,7 @@ class __TwigTemplate_a06052b90ed40714a1b097058ef043126e00812fd6dbf1b5e6dd50faa5e
         echo "            </table>
         </div>
     </div>
-    <div style=\"margin-left: 37.2%; margin-top: 5%;\">";
+    <div style=\"margin-left:1%; margin-top: 5%;\">";
         // line 64
         echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["frontlistmedicament"]) || array_key_exists("frontlistmedicament", $context) ? $context["frontlistmedicament"] : (function () { throw new RuntimeError('Variable "frontlistmedicament" does not exist.', 64, $this->source); })()));
         echo "</div>
@@ -240,7 +240,7 @@ class __TwigTemplate_a06052b90ed40714a1b097058ef043126e00812fd6dbf1b5e6dd50faa5e
             </table>
         </div>
     </div>
-    <div style=\"margin-left: 37.2%; margin-top: 5%;\">{{ knp_pagination_render(frontlistmedicament) }}</div>
+    <div style=\"margin-left:1%; margin-top: 5%;\">{{ knp_pagination_render(frontlistmedicament) }}</div>
 </section>
 
 {% include 'tempFront2MO.html.twig' %}", "medicament/Front_listmedicament.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\medicament\\Front_listmedicament.html.twig");

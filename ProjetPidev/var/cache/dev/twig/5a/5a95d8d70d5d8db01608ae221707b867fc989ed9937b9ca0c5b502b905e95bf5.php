@@ -67,7 +67,12 @@ class __TwigTemplate_ae0613310e23b1bcdc5c822b430f1dfa8ea913e7851a9198b6fd90a507e
         <div class=\"row\">
             <div class=\"col-12 text-center\">
                 <h2 class=\"section-title\" id=\"id\">Ordonnances</h2>
+
             </div>
+            <form action=\" ";
+        // line 29
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("triordonnance");
+        echo " \"><button style=\"font-size: 20px; margin-bottom: 3%;\"; class=\"btn-primary\">Trier ordonnance</button></form>
             <table id=\"example1\" class=\"table table-bordered table-striped\" >
                 <tr>
                     <td>id</td>
@@ -79,52 +84,52 @@ class __TwigTemplate_ae0613310e23b1bcdc5c822b430f1dfa8ea913e7851a9198b6fd90a507e
                     <td> Edit </td>
                 </tr>
                 ";
-        // line 38
+        // line 40
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["listordonnance"]) || array_key_exists("listordonnance", $context) ? $context["listordonnance"] : (function () { throw new RuntimeError('Variable "listordonnance" does not exist.', 38, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["listordonnance"]) || array_key_exists("listordonnance", $context) ? $context["listordonnance"] : (function () { throw new RuntimeError('Variable "listordonnance" does not exist.', 40, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-            // line 39
+            // line 41
             echo "                    <tr>
                         <td>";
-            // line 40
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "id", [], "any", false, false, false, 40), "html", null, true);
-            echo "</td>
-                        <td>";
-            // line 41
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "ContenuOrd", [], "any", false, false, false, 41), "html", null, true);
-            echo "</td>
-                        <td>";
             // line 42
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "DateOrd", [], "any", false, false, false, 42), "d/m/Y"), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "id", [], "any", false, false, false, 42), "html", null, true);
             echo "</td>
                         <td>";
             // line 43
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "user", [], "any", false, false, false, 43), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "ContenuOrd", [], "any", false, false, false, 43), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 44
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "DateOrd", [], "any", false, false, false, 44), "d/m/Y"), "html", null, true);
+            echo "</td>
+                        <td>";
+            // line 45
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["i"], "user", [], "any", false, false, false, 45), "html", null, true);
             echo "</td>
                         <td>
                             ";
-            // line 45
+            // line 47
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["i"], "medicament", [], "any", false, false, false, 45));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, $context["i"], "medicament", [], "any", false, false, false, 47));
             foreach ($context['_seq'] as $context["_key"] => $context["medicament"]) {
-                // line 46
+                // line 48
                 echo "                                ";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["medicament"], "nomMedicament", [], "any", false, false, false, 46), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["medicament"], "nomMedicament", [], "any", false, false, false, 48), "html", null, true);
                 echo "
                             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['medicament'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 48
+            // line 50
             echo "                        </td>
                         <td><a href=\"";
-            // line 49
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Ordonnanceremove", ["id" => twig_get_attribute($this->env, $this->source, $context["i"], "id", [], "any", false, false, false, 49)]), "html", null, true);
+            // line 51
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Ordonnanceremove", ["id" => twig_get_attribute($this->env, $this->source, $context["i"], "id", [], "any", false, false, false, 51)]), "html", null, true);
             echo "\">Supprimer</a></td>
                         <td><a href=\"";
-            // line 50
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Ordonnancemodifier", ["id" => twig_get_attribute($this->env, $this->source, $context["i"], "id", [], "any", false, false, false, 50)]), "html", null, true);
+            // line 52
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Ordonnancemodifier", ["id" => twig_get_attribute($this->env, $this->source, $context["i"], "id", [], "any", false, false, false, 52)]), "html", null, true);
             echo "\">Editer</a></td>
                     </tr>
                 ";
@@ -132,20 +137,25 @@ class __TwigTemplate_ae0613310e23b1bcdc5c822b430f1dfa8ea913e7851a9198b6fd90a507e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 53
+        // line 55
         echo "            </table>
             <a style=\"font-size: 20px\"; href=\"";
-        // line 54
+        // line 56
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Ordonnanceajout");
         echo "\"><button class=\"btn-primary\">Ajouter ordonnance</button></a>
+
         </div>
     </div>
+    <div style=\"margin-left:1%; margin-top: 5%;\">";
+        // line 60
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["listordonnance"]) || array_key_exists("listordonnance", $context) ? $context["listordonnance"] : (function () { throw new RuntimeError('Variable "listordonnance" does not exist.', 60, $this->source); })()));
+        echo "</div>
 </section>
 
 ";
-        // line 59
-        $this->loadTemplate("tempFront2MO.html.twig", "ordonnance/listordonnance.html.twig", 59)->display($context);
-        // line 60
+        // line 63
+        $this->loadTemplate("tempFront2MO.html.twig", "ordonnance/listordonnance.html.twig", 63)->display($context);
+        // line 64
         echo "
 
 ";
@@ -169,7 +179,7 @@ class __TwigTemplate_ae0613310e23b1bcdc5c822b430f1dfa8ea913e7851a9198b6fd90a507e
 
     public function getDebugInfo()
     {
-        return array (  149 => 60,  147 => 59,  139 => 54,  136 => 53,  127 => 50,  123 => 49,  120 => 48,  111 => 46,  107 => 45,  102 => 43,  98 => 42,  94 => 41,  90 => 40,  87 => 39,  83 => 38,  45 => 2,  43 => 1,);
+        return array (  159 => 64,  157 => 63,  151 => 60,  144 => 56,  141 => 55,  132 => 52,  128 => 51,  125 => 50,  116 => 48,  112 => 47,  107 => 45,  103 => 44,  99 => 43,  95 => 42,  92 => 41,  88 => 40,  74 => 29,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -200,7 +210,9 @@ class __TwigTemplate_ae0613310e23b1bcdc5c822b430f1dfa8ea913e7851a9198b6fd90a507e
         <div class=\"row\">
             <div class=\"col-12 text-center\">
                 <h2 class=\"section-title\" id=\"id\">Ordonnances</h2>
+
             </div>
+            <form action=\" {{ path('triordonnance') }} \"><button style=\"font-size: 20px; margin-bottom: 3%;\"; class=\"btn-primary\">Trier ordonnance</button></form>
             <table id=\"example1\" class=\"table table-bordered table-striped\" >
                 <tr>
                     <td>id</td>
@@ -228,8 +240,10 @@ class __TwigTemplate_ae0613310e23b1bcdc5c822b430f1dfa8ea913e7851a9198b6fd90a507e
                 {% endfor %}
             </table>
             <a style=\"font-size: 20px\"; href=\"{{ path('Ordonnanceajout') }}\"><button class=\"btn-primary\">Ajouter ordonnance</button></a>
+
         </div>
     </div>
+    <div style=\"margin-left:1%; margin-top: 5%;\">{{ knp_pagination_render(listordonnance) }}</div>
 </section>
 
 {% include 'tempFront2MO.html.twig' %}
