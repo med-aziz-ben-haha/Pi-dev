@@ -46,7 +46,6 @@ class __TwigTemplate_d194f40098298c7ca89c7fd9f4180a85a53488cfda6afb66b7625278141
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Parapharmacien  </h1>
 
 <section class=\"hero-section hk-section\">
     <div class=\"container\">
@@ -54,28 +53,28 @@ class __TwigTemplate_d194f40098298c7ca89c7fd9f4180a85a53488cfda6afb66b7625278141
             <div class=\"col-md-7 order-lg-1 order-xl-1 order-sm-1 order-2\">
                 <div class=\"hero-content\">
                     <h3 style=\" color: #EA3D48; margin-top: 10%;\">";
-        // line 13
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 13, $this->source); })()), "nomPara", [], "any", false, false, false, 13), "html", null, true);
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 12, $this->source); })()), "nomPara", [], "any", false, false, false, 12), "html", null, true);
         echo "</h3>
                     <h5>Region:";
-        // line 14
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 14, $this->source); })()), "region", [], "any", false, false, false, 14), "region", [], "any", false, false, false, 14), "html", null, true);
+        // line 13
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 13, $this->source); })()), "region", [], "any", false, false, false, 13), "region", [], "any", false, false, false, 13), "html", null, true);
         echo "</h5>
                     <h5>Adresse:";
-        // line 15
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 15, $this->source); })()), "adressePara", [], "any", false, false, false, 15), "html", null, true);
+        // line 14
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 14, $this->source); })()), "adressePara", [], "any", false, false, false, 14), "html", null, true);
         echo "</h5>
                     <h5>Numero Tel:";
-        // line 16
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 16, $this->source); })()), "telPara", [], "any", false, false, false, 16), "html", null, true);
+        // line 15
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 15, $this->source); })()), "telPara", [], "any", false, false, false, 15), "html", null, true);
         echo "</h5>
                 </div>
             </div>
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 21
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 21, $this->source); })()), "getLienImageP", [], "any", false, false, false, 21))), "html", null, true);
+        // line 20
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("uploads/" . twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 20, $this->source); })()), "getLienImageP", [], "any", false, false, false, 20))), "html", null, true);
         echo "\" >
                 </div>
             </div>
@@ -112,34 +111,34 @@ class __TwigTemplate_d194f40098298c7ca89c7fd9f4180a85a53488cfda6afb66b7625278141
             </thead>
             <tbody>
             <tr ";
-        // line 56
+        // line 55
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["panier"]) || array_key_exists("panier", $context) ? $context["panier"] : (function () { throw new RuntimeError('Variable "panier" does not exist.', 56, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["panier"]) || array_key_exists("panier", $context) ? $context["panier"] : (function () { throw new RuntimeError('Variable "panier" does not exist.', 55, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
             echo ">
 
 
                 <td>";
-            // line 59
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "user", [], "any", false, false, false, 59), "getNom", [], "any", false, false, false, 59), "html", null, true);
+            // line 58
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "user", [], "any", false, false, false, 58), "getNom", [], "any", false, false, false, 58), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "user", [], "any", false, false, false, 59), "getPrenom", [], "any", false, false, false, 59), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "user", [], "any", false, false, false, 58), "getPrenom", [], "any", false, false, false, 58), "html", null, true);
             echo "</td>
                 <td>";
+            // line 59
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "prixTot", [], "any", false, false, false, 59), "html", null, true);
+            echo " DT</td>
+                <td>";
             // line 60
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "prixTot", [], "any", false, false, false, 60), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "tvaTot", [], "any", false, false, false, 60), "html", null, true);
             echo " DT</td>
                 <td>";
             // line 61
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "tvaTot", [], "any", false, false, false, 61), "html", null, true);
-            echo " DT</td>
-                <td>";
-            // line 62
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "prixFinale", [], "any", false, false, false, 62), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "prixFinale", [], "any", false, false, false, 61), "html", null, true);
             echo " DT</td>
                 <td><a href=\"";
-            // line 63
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheParapharmacienListProduit", ["idpanier" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 63), "idpara" => twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 63, $this->source); })()), "id", [], "any", false, false, false, 63)]), "html", null, true);
+            // line 62
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheParapharmacienListProduit", ["idpanier" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 62), "idpara" => twig_get_attribute($this->env, $this->source, (isset($context["parapharmacie"]) || array_key_exists("parapharmacie", $context) ? $context["parapharmacie"] : (function () { throw new RuntimeError('Variable "parapharmacie" does not exist.', 62, $this->source); })()), "id", [], "any", false, false, false, 62)]), "html", null, true);
             echo "\" class=\"btn btn-block btn-outline-danger\" role=\"button\">Afficher Commande</a></td>
 
             </tr ";
@@ -147,7 +146,7 @@ class __TwigTemplate_d194f40098298c7ca89c7fd9f4180a85a53488cfda6afb66b7625278141
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 65
+        // line 64
         echo ">
             </tbody>
 
@@ -177,7 +176,7 @@ class __TwigTemplate_d194f40098298c7ca89c7fd9f4180a85a53488cfda6afb66b7625278141
 
     public function getDebugInfo()
     {
-        return array (  151 => 65,  142 => 63,  138 => 62,  134 => 61,  130 => 60,  124 => 59,  116 => 56,  78 => 21,  70 => 16,  66 => 15,  62 => 14,  58 => 13,  45 => 2,  43 => 1,);
+        return array (  150 => 64,  141 => 62,  137 => 61,  133 => 60,  129 => 59,  123 => 58,  115 => 55,  77 => 20,  69 => 15,  65 => 14,  61 => 13,  57 => 12,  45 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -187,7 +186,6 @@ class __TwigTemplate_d194f40098298c7ca89c7fd9f4180a85a53488cfda6afb66b7625278141
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Parapharmacien  </h1>
 
 <section class=\"hero-section hk-section\">
     <div class=\"container\">

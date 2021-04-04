@@ -106,7 +106,7 @@ class __TwigTemplate_63f1f10c0246633b26949c2d3dcadb02eb8722bbb8517dca08b34e722b8
         $context = array_intersect_key($context, $_parent) + $_parent;
         // line 12
         echo "
-    <h1>Nous Contacter</h1>
+    <h1 style=\"margin-top: 0% !important;\">Nous Contacter</h1>
     ";
         // line 14
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["contactForm"]) || array_key_exists("contactForm", $context) ? $context["contactForm"] : (function () { throw new RuntimeError('Variable "contactForm" does not exist.', 14, $this->source); })()), 'form');
@@ -151,7 +151,7 @@ class __TwigTemplate_63f1f10c0246633b26949c2d3dcadb02eb8722bbb8517dca08b34e722b8
         </div>
     {% endfor %}
 
-    <h1>Nous Contacter</h1>
+    <h1 style=\"margin-top: 0% !important;\">Nous Contacter</h1>
     {{ form(contactForm) }}
     {% include 'temp2.html.twig' %}
 {% endblock %}

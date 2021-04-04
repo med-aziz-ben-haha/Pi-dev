@@ -46,7 +46,7 @@ class __TwigTemplate_fa0aa3bbb9f6939621cc2a36da38824ee544cf1604c507a95c470610981
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Parapharmacien  </h1>
+
 
 <section class=\"hero-section hk-section\">
     <div class=\"container\">
@@ -261,7 +261,7 @@ class __TwigTemplate_fa0aa3bbb9f6939621cc2a36da38824ee544cf1604c507a95c470610981
 
 
 
-<h1 style =\"margin-bottom: 2%; text-align:center; color: #EA3D48 ;\" > Espace Parapharmacien  </h1>
+
 
 <section class=\"hero-section hk-section\">
     <div class=\"container\">

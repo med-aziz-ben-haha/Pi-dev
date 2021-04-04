@@ -106,6 +106,7 @@ class SoinMPController extends AbstractController
         $categorieid=$SoinMPfind[0]->getCategorieSoinMP();
         $form=$this->createForm(SoinMPRechercheType::class);
         $form->handleRequest($request);
+        //recherche avancée multicritére  inutilisée
         if ($form->isSubmitted())
         {
             $data=$form->getData();
@@ -184,13 +185,15 @@ class SoinMPController extends AbstractController
         $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
         $Notes=$this->getDoctrine()->getRepository(NoteSoinMP::class)->findBy(array('soinMP'=>$id));
         $x = $this->getDoctrine()->getRepository(NoteSoinMP::class)->findOneBy(array('soinMP'=>$SoinMPsfind,'user'=>$iduser));
-        if (!(empty($Notes))){
-        $total=0;
-        for ($i =0; $i <= (count($Notes)-1); $i++)
+        if (!(empty($Notes)))
         {
-            $total=$total+($Notes[$i]->getValeur());
+            $total=0;
+            for ($i =0; $i <= (count($Notes)-1); $i++)
+        {
+                $total=$total+($Notes[$i]->getValeur());
         }
-        $Moyenne=$total/(count($Notes));}
+            $Moyenne=$total/(count($Notes));
+        }
         if(!(empty($x))) {
             $note = $x->getValeur();
             $aviss = $x->getAvis();

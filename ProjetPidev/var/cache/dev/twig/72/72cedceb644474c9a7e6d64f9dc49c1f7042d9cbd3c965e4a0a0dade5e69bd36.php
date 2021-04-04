@@ -208,6 +208,12 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/centreMedical/front/"), "html", null, true);
         echo "\">CentresMedicaux</a>
                     </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+        // line 101
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/posts"), "html", null, true);
+        echo "\">Actualités</a>
+                    </li>
                 </ul>
 
 
@@ -216,22 +222,22 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
 
 
         <a class=\"nav-link\" href=\"";
-        // line 107
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheClienPanier", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 107, $this->source); })())]), "html", null, true);
+        // line 110
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheClienPanier", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 110, $this->source); })())]), "html", null, true);
         echo "\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-cart3\" viewBox=\"0 0 16 16\">
                 <path d=\"M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"></path>
-            </svg>Panier</a>
+            </svg></a>
 
         <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item dropdown\">
                 <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i> Mon Compte</a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                     <a class=\"dropdown-item\" href=\"";
-        // line 115
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 115, $this->source); })()))), "html", null, true);
+        // line 118
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 118, $this->source); })()))), "html", null, true);
         echo "\">Profil</a>
                     <a class=\"dropdown-item\" href=\"";
-        // line 116
+        // line 119
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/deconnexion"), "html", null, true);
         echo "\">Se déconnecter</a>
                 </div>
@@ -254,7 +260,7 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     <script>document.getElementsByTagName(\"html\")[0].className += \" js\";</script>
     <link rel=\"stylesheet\" href=\"";
-        // line 136
+        // line 139
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/style.css"), "html", null, true);
         echo "\">
     <title>FAQ Template | CodyHouse</title>
@@ -278,15 +284,15 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
     <div class=\"box-header\">
         <div class=\"col-sm-20\">
             ";
-        // line 157
-        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 157, $this->source); })()), "role", [], "any", false, false, false, 157), 1))) {
-            // line 158
+        // line 160
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, (isset($context["user"]) || array_key_exists("user", $context) ? $context["user"] : (function () { throw new RuntimeError('Variable "user" does not exist.', 160, $this->source); })()), "role", [], "any", false, false, false, 160), 1))) {
+            // line 161
             echo "            <a href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("postt_new");
             echo "\" class=\"btn btn-outline-danger\" role=\"button\">Ajouter Nouveau Post</a>
             ";
         }
-        // line 160
+        // line 163
         echo "            <a href=\"";
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("postt_show_pdf");
         echo "\" class=\"btn btn-outline-danger\" role=\"button\">Télécharger en PDF</a>
@@ -307,21 +313,21 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
     <ul class=\"cd-faq__categories\">
         <li><a class=\"cd-faq__category cd-faq__category-selected truncate\" href=\"#basics\">TRENDS</a></li>
         <tr ";
-        // line 177
+        // line 180
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categoriePost"]) || array_key_exists("categoriePost", $context) ? $context["categoriePost"] : (function () { throw new RuntimeError('Variable "categoriePost" does not exist.', 177, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["categoriePost"]) || array_key_exists("categoriePost", $context) ? $context["categoriePost"] : (function () { throw new RuntimeError('Variable "categoriePost" does not exist.', 180, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["c"]) {
             echo ">
             <li><a class=\"cd-faq__category truncate\" href=\"#mobile\">";
-            // line 178
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "nomCategoriePost", [], "any", false, false, false, 178), "html", null, true);
+            // line 181
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["c"], "nomCategoriePost", [], "any", false, false, false, 181), "html", null, true);
             echo "</a></li>
         </tr ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['c'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 179
+        // line 182
         echo ">
 
 
@@ -348,26 +354,26 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
 
 
                 ";
-        // line 204
+        // line 207
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["postt"]) || array_key_exists("postt", $context) ? $context["postt"] : (function () { throw new RuntimeError('Variable "postt" does not exist.', 204, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["postt"]) || array_key_exists("postt", $context) ? $context["postt"] : (function () { throw new RuntimeError('Variable "postt" does not exist.', 207, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
-            // line 205
+            // line 208
             echo "
                     <ul id=\"";
-            // line 206
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "categoriePost", [], "any", false, false, false, 206), "nomCategoriePost", [], "any", false, false, false, 206), "html", null, true);
+            // line 209
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "categoriePost", [], "any", false, false, false, 209), "nomCategoriePost", [], "any", false, false, false, 209), "html", null, true);
             echo "\" class=\"cd-faq__group\"></ul>
 
             <ul class=\"cd-faq__title\"><h2>";
-            // line 208
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "categoriePost", [], "any", false, false, false, 208), "nomCategoriePost", [], "any", false, false, false, 208), "html", null, true);
+            // line 211
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["p"], "categoriePost", [], "any", false, false, false, 211), "nomCategoriePost", [], "any", false, false, false, 211), "html", null, true);
             echo "</h2></ul>
 
 
             <a class=\"cd-faq__trigger\" href=\"#0\" style=\"color:#EA3D48 !important;\"><span>";
-            // line 211
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "titrePostt", [], "any", false, false, false, 211), "html", null, true);
+            // line 214
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "titrePostt", [], "any", false, false, false, 214), "html", null, true);
             echo "</span></a>
 
 
@@ -376,18 +382,18 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
 
                     <div class=\"text-component\">
                         <p>";
-            // line 218
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "textePostt", [], "any", false, false, false, 218), "html", null, true);
+            // line 221
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["p"], "textePostt", [], "any", false, false, false, 221), "html", null, true);
             echo "</p>
                     </div>
 
                 <td><a href=\"";
-            // line 221
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("postt_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 221)]), "html", null, true);
+            // line 224
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("postt_edit", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 224)]), "html", null, true);
             echo "\" class=\"btn btn-block btn-warning\" role=\"button\">Modifier</a></td>
                 <td><a href=\"";
-            // line 222
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("postt_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 222)]), "html", null, true);
+            // line 225
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("postt_delete", ["id" => twig_get_attribute($this->env, $this->source, $context["p"], "id", [], "any", false, false, false, 225)]), "html", null, true);
             echo "\" class=\"btn btn-block btn-danger\" role=\"button\">Supprimer</a></td>
                 </div>
                     <div class=\"fb-comments\"  data-width=\"100%\" data-heigth=\"100%\" data-numposts=\"\"></div>
@@ -396,7 +402,7 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 226
+        // line 229
         echo "            </li>
 
 
@@ -412,8 +418,8 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
 </html>
 
 ";
-        // line 240
-        $this->loadTemplate("templateAccueilFooter.html.twig", "post_front/index.html.twig", 240)->display($context);
+        // line 243
+        $this->loadTemplate("templateAccueilFooter.html.twig", "post_front/index.html.twig", 243)->display($context);
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -434,7 +440,7 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
 
     public function getDebugInfo()
     {
-        return array (  416 => 240,  400 => 226,  390 => 222,  386 => 221,  380 => 218,  370 => 211,  364 => 208,  359 => 206,  356 => 205,  352 => 204,  325 => 179,  317 => 178,  311 => 177,  290 => 160,  284 => 158,  282 => 157,  258 => 136,  235 => 116,  231 => 115,  220 => 107,  208 => 98,  199 => 92,  193 => 89,  187 => 86,  180 => 82,  176 => 81,  168 => 76,  159 => 69,  151 => 67,  149 => 66,  146 => 65,  138 => 63,  136 => 62,  133 => 61,  125 => 59,  123 => 58,  120 => 57,  112 => 55,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
+        return array (  422 => 243,  406 => 229,  396 => 225,  392 => 224,  386 => 221,  376 => 214,  370 => 211,  365 => 209,  362 => 208,  358 => 207,  331 => 182,  323 => 181,  317 => 180,  296 => 163,  290 => 161,  288 => 160,  264 => 139,  241 => 119,  237 => 118,  226 => 110,  214 => 101,  208 => 98,  199 => 92,  193 => 89,  187 => 86,  180 => 82,  176 => 81,  168 => 76,  159 => 69,  151 => 67,  149 => 66,  146 => 65,  138 => 63,  136 => 62,  133 => 61,  125 => 59,  123 => 58,  120 => 57,  112 => 55,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -538,6 +544,9 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"{{ asset ('/centreMedical/front/') }}\">CentresMedicaux</a>
                     </li>
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ asset ('/posts') }}\">Actualités</a>
+                    </li>
                 </ul>
 
 
@@ -547,7 +556,7 @@ class __TwigTemplate_ec58d77abedf35c0d1a5411aff92b9dbc457c90f1f9f842a8ea644bc670
 
         <a class=\"nav-link\" href=\"{{ path('afficheClienPanier' , {'iduser':iduser})  }}\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-cart3\" viewBox=\"0 0 16 16\">
                 <path d=\"M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"></path>
-            </svg>Panier</a>
+            </svg></a>
 
         <ul class=\"navbar-nav ml-auto\">
             <li class=\"nav-item dropdown\">

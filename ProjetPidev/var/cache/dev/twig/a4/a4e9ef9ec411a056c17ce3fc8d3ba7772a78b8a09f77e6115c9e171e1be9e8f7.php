@@ -84,42 +84,29 @@ class __TwigTemplate_65b06830f76bc7a07054c69bb84a2376207f106598dc8b78026b9a88a6d
             </button>
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"";
-        // line 43
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/accueil"), "html", null, true);
-        echo "\">Home <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">About</a>
-                    </li>
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">Contact</a>
-                    </li>
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">
                         <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i>Compte</a>
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                             <a class=\"dropdown-item\" href=\"";
-        // line 57
+        // line 47
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/connexion"), "html", null, true);
         echo "\">Se connecter</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 58
+        // line 48
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscription"), "html", null, true);
         echo "\">S'inscrire</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 59
+        // line 49
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionMed"), "html", null, true);
         echo "\">S'inscrire en tant que médecin</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 60
+        // line 50
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionPharmacien"), "html", null, true);
         echo "\">S'inscrire en tant que pharmacien</a>
                             <a class=\"dropdown-item\" href=\"";
-        // line 61
+        // line 51
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/inscriptionParapharmacien"), "html", null, true);
         echo "\">S'inscrire en tant que parapharmacien</a>
                             <a class=\"dropdown-item hollow button primary\" href=\"/inscription/google/\"><img  width=\"15px\" style=\"margin-bottom:3px; font-size: 250px; margin-right:5px\" alt=\"Google login\" src=\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png\" />
@@ -127,23 +114,99 @@ class __TwigTemplate_65b06830f76bc7a07054c69bb84a2376207f106598dc8b78026b9a88a6d
                         </div>
                     </li>
                 </ul>
-                <span class=\"navbar-text hk-header-social\">
-                  <a href=\"#\"><i class=\"fab fa-facebook-f\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-twitter\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-youtube\"></i></a>
-                  </span>
             </div>
         </div>
     </nav>
 </header>
 <section class=\"hero-section hk-section\">
     <div class=\"container\">
-
+        <div class=\"row\">
+            <div class=\"col-md-7 order-lg-1 order-xl-1 order-sm-1 order-2\">
+                <div class=\"hero-content\">
+                    <h3 style=\" color: #EA3D48; margin-top: 10%;\">Besoin de soin, Besoin de toi</h3>
+                    <p class=\"hero-subtitle\">Un doute, une inquiétude, besoin d’un conseil santé ? Sa7ti.TN c’est la solution</p>
+                    <div class=\"hero-btns\" style=\"margin-top: 10%;\">
+                        <a href=\"#\" class=\"btn btn-main\">Contact Us </a>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
+                <div class=\"hero-image d-flex align-items-center h-100\">
+                    <img src= \"";
+        // line 75
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
+        echo "\" >
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+<footer class=\"footer\">
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-md-6 col-lg-4\">
+                <div class=\"footer-col\">
+                    <h3 class=\"footer-title\">About</h3>
+                    <p class=\"mb-0\">Un doute, une inquiétude, besoin d’un conseil santé ? Sa7ti.TN c’est la solution</p>
+                </div>
+            </div>
+            <div class=\"col-md-3 col-lg-2\">
+                <div class=\"footer-col\">
 
+                </div>
+            </div>
+            <div class=\"col-md-3 col-lg-2\">
+                <div class=\"footer-col\">
+
+                </div>
+            </div>
+            <div class=\"col-md-6 col-lg-4\">
+                <div class=\"footer-col\">
+                    <h3 class=\"footer-title\">Contact</h3>
+                    <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +216 00000000</a> </p>
+                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i>sahtitnpidev@gmail.com</a> </p>
+                </div>
+            </div>
+        </div>
+        <div class=\"row footer-credits\">
+            <div class=\"col-sm-12 col-md-6 justify-content-center align-self-center\">
+                <p class=\"mb-0\">2021 &copy; <a href=\"#\">Sa7ti.TN</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src=\"";
+        // line 116
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/js/jquery.min.js"), "html", null, true);
+        echo "\"></script>
+<script src=\"";
+        // line 117
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://code.jquery.com/jquery-3.2.1.slim.min.js"), "html", null, true);
+        echo "\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+<script src=\"";
+        // line 118
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"), "html", null, true);
+        echo "\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
+<script src=\"";
+        // line 119
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"), "html", null, true);
+        echo "\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
+<script src=\"";
+        // line 120
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("https://kit.fontawesome.com/9b697a719a.js"), "html", null, true);
+        echo "\" crossorigin=\"anonymous\"></script>
+<script>
+    \$(function () {
+        'use strict'
+
+        \$('[data-toggle=\"offcanvas\"]').on('click', function () {
+            \$('.hk-offcanvas').toggleClass('open')
+        })
+    })
+</script>
+</body>
+</html>
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -165,7 +228,7 @@ class __TwigTemplate_65b06830f76bc7a07054c69bb84a2376207f106598dc8b78026b9a88a6d
 
     public function getDebugInfo()
     {
-        return array (  123 => 61,  119 => 60,  115 => 59,  111 => 58,  107 => 57,  90 => 43,  80 => 36,  43 => 1,);
+        return array (  197 => 120,  193 => 119,  189 => 118,  185 => 117,  181 => 116,  137 => 75,  110 => 51,  106 => 50,  102 => 49,  98 => 48,  94 => 47,  80 => 36,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -211,16 +274,6 @@ class __TwigTemplate_65b06830f76bc7a07054c69bb84a2376207f106598dc8b78026b9a88a6d
             </button>
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"{{ asset('/accueil') }}\">Home <span class=\"sr-only\">(current)</span></a>
-                    </li>
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">About</a>
-                    </li>
-
-                    <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"#\">Contact</a>
-                    </li>
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">
@@ -236,23 +289,81 @@ class __TwigTemplate_65b06830f76bc7a07054c69bb84a2376207f106598dc8b78026b9a88a6d
                         </div>
                     </li>
                 </ul>
-                <span class=\"navbar-text hk-header-social\">
-                  <a href=\"#\"><i class=\"fab fa-facebook-f\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-instagram\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-twitter\"></i></a>
-                  <a href=\"#\"><i class=\"fab fa-youtube\"></i></a>
-                  </span>
             </div>
         </div>
     </nav>
 </header>
 <section class=\"hero-section hk-section\">
     <div class=\"container\">
-
+        <div class=\"row\">
+            <div class=\"col-md-7 order-lg-1 order-xl-1 order-sm-1 order-2\">
+                <div class=\"hero-content\">
+                    <h3 style=\" color: #EA3D48; margin-top: 10%;\">Besoin de soin, Besoin de toi</h3>
+                    <p class=\"hero-subtitle\">Un doute, une inquiétude, besoin d’un conseil santé ? Sa7ti.TN c’est la solution</p>
+                    <div class=\"hero-btns\" style=\"margin-top: 10%;\">
+                        <a href=\"#\" class=\"btn btn-main\">Contact Us </a>
+                    </div>
+                </div>
+            </div>
+            <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
+                <div class=\"hero-image d-flex align-items-center h-100\">
+                    <img src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" >
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
+<footer class=\"footer\">
+    <div class=\"container\">
+        <div class=\"row\">
+            <div class=\"col-md-6 col-lg-4\">
+                <div class=\"footer-col\">
+                    <h3 class=\"footer-title\">About</h3>
+                    <p class=\"mb-0\">Un doute, une inquiétude, besoin d’un conseil santé ? Sa7ti.TN c’est la solution</p>
+                </div>
+            </div>
+            <div class=\"col-md-3 col-lg-2\">
+                <div class=\"footer-col\">
 
+                </div>
+            </div>
+            <div class=\"col-md-3 col-lg-2\">
+                <div class=\"footer-col\">
+
+                </div>
+            </div>
+            <div class=\"col-md-6 col-lg-4\">
+                <div class=\"footer-col\">
+                    <h3 class=\"footer-title\">Contact</h3>
+                    <p><a href=\"tel:+14336331111\"><i class=\"fas fa-phone mr-2\"></i> +216 00000000</a> </p>
+                    <p class=\"mb-0\"><a href=\"mailto:contact@angrystudio.com\"><i class=\"far fa-envelope mr-2\"></i>sahtitnpidev@gmail.com</a> </p>
+                </div>
+            </div>
+        </div>
+        <div class=\"row footer-credits\">
+            <div class=\"col-sm-12 col-md-6 justify-content-center align-self-center\">
+                <p class=\"mb-0\">2021 &copy; <a href=\"#\">Sa7ti.TN</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src=\"{{ asset('assets/js/jquery.min.js') }}\"></script>
+<script src=\"{{ asset('https://code.jquery.com/jquery-3.2.1.slim.min.js') }}\" integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\" crossorigin=\"anonymous\"></script>
+<script src=\"{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js') }}\" integrity=\"sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q\" crossorigin=\"anonymous\"></script>
+<script src=\"{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js') }}\" integrity=\"sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl\" crossorigin=\"anonymous\"></script>
+<script src=\"{{ asset('https://kit.fontawesome.com/9b697a719a.js') }}\" crossorigin=\"anonymous\"></script>
+<script>
+    \$(function () {
+        'use strict'
+
+        \$('[data-toggle=\"offcanvas\"]').on('click', function () {
+            \$('.hk-offcanvas').toggleClass('open')
+        })
+    })
+</script>
+</body>
+</html>
 ", "accueil.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\accueil.html.twig");
     }
 }

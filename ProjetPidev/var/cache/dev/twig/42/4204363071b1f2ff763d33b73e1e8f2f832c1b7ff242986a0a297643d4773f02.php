@@ -102,7 +102,7 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
 </head>
 <body>
 <header class=\"hk-header\">
-    <nav class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
+    <nav style=\"color: black !important;\" class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
             ";
@@ -210,21 +210,27 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
         echo "\">CentresMedicaux</a>
                     </li>
 
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"";
+        // line 103
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/posts"), "html", null, true);
+        echo "\">Actualités</a>
+                    </li>
                 </ul>
             </div>
 
         </div>
         <a class=\"nav-link\" href=\"";
-        // line 106
+        // line 109
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficherCategoriePostFront");
         echo "\">Forum</a>
 
         <a class=\"nav-link\" href=\"";
-        // line 108
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheClienPanier", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 108, $this->source); })())]), "html", null, true);
+        // line 111
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("afficheClienPanier", ["iduser" => (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 111, $this->source); })())]), "html", null, true);
         echo "\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-cart3\" viewBox=\"0 0 16 16\">
                 <path d=\"M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"></path>
-            </svg>Panier</a>
+            </svg></a>
 
 
         <ul class=\"navbar-nav ml-auto\">
@@ -232,11 +238,11 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
                 <a class=\"nav-link dropdown-toggle\" href=\"https://example.com\" id=\"dropdown01\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\"><i class=\"far fa-user\"></i> Mon Compte</a>
                 <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
                     <a class=\"dropdown-item\" href=\"";
-        // line 117
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 117, $this->source); })()))), "html", null, true);
+        // line 120
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 120, $this->source); })()))), "html", null, true);
         echo "\">Profil</a>
                     <a class=\"dropdown-item\" href=\"";
-        // line 118
+        // line 121
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/deconnexion"), "html", null, true);
         echo "\">Se déconnecter</a>
                 </div>
@@ -245,6 +251,7 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
         </ul>
     </nav>
 </header>
+
 
 ";
         
@@ -267,7 +274,7 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
 
     public function getDebugInfo()
     {
-        return array (  240 => 118,  236 => 117,  224 => 108,  219 => 106,  209 => 99,  199 => 92,  193 => 89,  187 => 86,  180 => 82,  176 => 81,  168 => 76,  159 => 69,  151 => 67,  149 => 66,  146 => 65,  138 => 63,  136 => 62,  133 => 61,  125 => 59,  123 => 58,  120 => 57,  112 => 55,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
+        return array (  246 => 121,  242 => 120,  230 => 111,  225 => 109,  216 => 103,  209 => 99,  199 => 92,  193 => 89,  187 => 86,  180 => 82,  176 => 81,  168 => 76,  159 => 69,  151 => 67,  149 => 66,  146 => 65,  138 => 63,  136 => 62,  133 => 61,  125 => 59,  123 => 58,  120 => 57,  112 => 55,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -322,7 +329,7 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
 </head>
 <body>
 <header class=\"hk-header\">
-    <nav class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
+    <nav style=\"color: black !important;\" class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
             {% if user.role==3%}
@@ -373,6 +380,9 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
                         <a class=\"nav-link\" href=\"{{ asset ('/centreMedical/front/') }}\">CentresMedicaux</a>
                     </li>
 
+                    <li class=\"nav-item\">
+                        <a class=\"nav-link\" href=\"{{ asset ('/posts') }}\">Actualités</a>
+                    </li>
                 </ul>
             </div>
 
@@ -381,7 +391,7 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
 
         <a class=\"nav-link\" href=\"{{ path('afficheClienPanier' , {'iduser':iduser})  }}\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\" fill=\"currentColor\" class=\"bi bi-cart3\" viewBox=\"0 0 16 16\">
                 <path d=\"M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z\"></path>
-            </svg>Panier</a>
+            </svg></a>
 
 
         <ul class=\"navbar-nav ml-auto\">
@@ -396,6 +406,7 @@ class __TwigTemplate_df55b5778646ccb8f9bca7a7d0e03f809585bf402979b2087587b1c19b1
         </ul>
     </nav>
 </header>
+
 
 ", "templateAccueilProfil.html.twig", "C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\templates\\templateAccueilProfil.html.twig");
     }

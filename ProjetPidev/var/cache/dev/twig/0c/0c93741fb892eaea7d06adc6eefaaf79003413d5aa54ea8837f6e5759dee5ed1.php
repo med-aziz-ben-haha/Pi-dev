@@ -212,7 +212,7 @@ class __TwigTemplate_8f4e6ca4b636395c15c0f1bd74b443104b9aa8b7e2da5d8788b05706307
                         <a class=\"nav-link\" href=\"";
         // line 101
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/posts"), "html", null, true);
-        echo "\">Actualité</a>
+        echo "\">Actualités</a>
                     </li>
                 </ul>
 
@@ -402,7 +402,7 @@ class __TwigTemplate_8f4e6ca4b636395c15c0f1bd74b443104b9aa8b7e2da5d8788b05706307
                         <a class=\"nav-link\" href=\"{{ asset ('/centreMedical/front/') }}\">CentresMedicaux</a>
                     </li>
                     <li class=\"nav-item\">
-                        <a class=\"nav-link\" href=\"{{ asset ('/posts') }}\">Actualité</a>
+                        <a class=\"nav-link\" href=\"{{ asset ('/posts') }}\">Actualités</a>
                     </li>
                 </ul>
 
