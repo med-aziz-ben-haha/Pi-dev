@@ -105,8 +105,10 @@ class __TwigTemplate_db022eb355ef58283cbfe1a46133c908da7f2a6ae2456247b8536a61523
     <nav class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
-            <a class=\"navbar-brand\" href=\"#\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
+            <a class=\"navbar-brand\" href=\"\"";
         // line 54
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnlinePharmacien/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 54, $this->source); })()))), "html", null, true);
+        echo "\"\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" ></a>
             <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
@@ -114,12 +116,7 @@ class __TwigTemplate_db022eb355ef58283cbfe1a46133c908da7f2a6ae2456247b8536a61523
             </button>
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"";
-        // line 61
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/accueilOnlinePharmacien/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 61, $this->source); })()))), "html", null, true);
-        echo "\">Home <span class=\"sr-only\">(current)</span></a>
-                    </li>
+
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">
@@ -127,12 +124,12 @@ class __TwigTemplate_db022eb355ef58283cbfe1a46133c908da7f2a6ae2456247b8536a61523
                         <div class=\"dropdown-menu\" aria-labelledby=\"dropdown01\">
 
                             <a class=\"dropdown-item\" href=\"";
-        // line 69
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 69, $this->source); })()))), "html", null, true);
+        // line 67
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("/afficherUser/" . (isset($context["iduser"]) || array_key_exists("iduser", $context) ? $context["iduser"] : (function () { throw new RuntimeError('Variable "iduser" does not exist.', 67, $this->source); })()))), "html", null, true);
         echo "\">Profil</a>
 
                             <a class=\"dropdown-item\" href=\"";
-        // line 71
+        // line 69
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("/deconnexion"), "html", null, true);
         echo "\">Se déconnecter</a>
                         </div>
@@ -157,7 +154,7 @@ class __TwigTemplate_db022eb355ef58283cbfe1a46133c908da7f2a6ae2456247b8536a61523
             <div class=\"col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1\">
                 <div class=\"hero-image d-flex align-items-center h-100\">
                     <img src= \"";
-        // line 93
+        // line 91
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("bundles/dist/img/Logo.jpeg"), "html", null, true);
         echo "\" >
                 </div>
@@ -186,7 +183,7 @@ class __TwigTemplate_db022eb355ef58283cbfe1a46133c908da7f2a6ae2456247b8536a61523
 
     public function getDebugInfo()
     {
-        return array (  161 => 93,  136 => 71,  131 => 69,  120 => 61,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
+        return array (  158 => 91,  133 => 69,  128 => 67,  110 => 54,  82 => 29,  78 => 28,  74 => 27,  70 => 26,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -244,15 +241,13 @@ class __TwigTemplate_db022eb355ef58283cbfe1a46133c908da7f2a6ae2456247b8536a61523
     <nav class=\"navbar navbar-expand-lg fixed-top navbar-light hk-navbar\">
         <div class=\"container\">
             <!--<a class=\"navbar-brand\" href=\"#\"><img src=\"assets/images/brand.png\"></a>-->
-            <a class=\"navbar-brand\" href=\"#\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
+            <a class=\"navbar-brand\" href=\"\"{{asset(\"/accueilOnlinePharmacien/\" ~iduser) }}\"\"><img style=\"margin-left: 30%; margin-top: 5%; width: 70%; height: 70% ;\" src= \"{{ asset('bundles/dist/img/Logo.jpeg')}}\" ></a>
             <button class=\"navbar-toggler p-0 border-0\" type=\"button\" data-toggle=\"offcanvas\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
             <div class=\"navbar-collapse hk-offcanvas\" id=\"navbarsExampleDefault\">
                 <ul class=\"navbar-nav mr-auto\">
-                    <li class=\"nav-item active\">
-                        <a class=\"nav-link\" href=\"{{asset(\"/accueilOnlinePharmacien/\" ~iduser) }}\">Home <span class=\"sr-only\">(current)</span></a>
-                    </li>
+
                 </ul>
                 <ul class=\"navbar-nav ml-auto\">
                     <li class=\"nav-item dropdown\">

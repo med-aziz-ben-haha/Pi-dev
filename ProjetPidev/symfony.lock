@@ -1,9 +1,15 @@
 {
+    "behat/transliterator": {
+        "version": "v1.3.0"
+    },
     "captcha-com/captcha": {
         "version": "4.2.5"
     },
     "captcha-com/symfony-captcha-bundle": {
         "version": "4.2.12"
+    },
+    "cocur/slugify": {
+        "version": "v4.0.0"
     },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
@@ -111,6 +117,9 @@
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.3"
     },
+    "gedmo/doctrine-extensions": {
+        "version": "v3.0.4"
+    },
     "guzzlehttp/guzzle": {
         "version": "7.2.0"
     },
@@ -119,6 +128,9 @@
     },
     "guzzlehttp/psr7": {
         "version": "1.8.1"
+    },
+    "imagine/imagine": {
+        "version": "1.2.4"
     },
     "knplabs/knp-components": {
         "version": "v2.5.1"
@@ -170,6 +182,19 @@
     },
     "league/oauth2-google": {
         "version": "3.0.4"
+    },
+    "liip/imagine-bundle": {
+        "version": "1.8",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.8",
+            "ref": "5a5bdc2d0e2533ed6935d5ae562f2b318a8fc1ee"
+        },
+        "files": [
+            "./config/packages/liip_imagine.yaml",
+            "./config/routes/liip_imagine.yaml"
+        ]
     },
     "maennchen/zipstream-php": {
         "version": "2.1.0"
@@ -253,6 +278,18 @@
         },
         "files": [
             "./config/packages/sensio_framework_extra.yaml"
+        ]
+    },
+    "stof/doctrine-extensions-bundle": {
+        "version": "1.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "1.2",
+            "ref": "6c1ceb662f8997085f739cd089bfbef67f245983"
+        },
+        "files": [
+            "./config/packages/stof_doctrine_extensions.yaml"
         ]
     },
     "swiftmailer/swiftmailer": {
@@ -649,6 +686,28 @@
             "version": "3.3",
             "ref": "dae9b39fd6717970be7601101ce5aa960bf53d9a"
         }
+    },
+    "symfony/webpack-encore-bundle": {
+        "version": "1.9",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.9",
+            "ref": "9399a0bfc6ee7a0c019f952bca46d6a6045dd451"
+        },
+        "files": [
+            "./assets/app.js",
+            "./assets/bootstrap.js",
+            "./assets/controllers.json",
+            "./assets/controllers/hello_controller.js",
+            "./assets/styles/app.css",
+            "./config/packages/assets.yaml",
+            "./config/packages/prod/webpack_encore.yaml",
+            "./config/packages/test/webpack_encore.yaml",
+            "./config/packages/webpack_encore.yaml",
+            "./package.json",
+            "./webpack.config.js"
+        ]
     },
     "symfony/yaml": {
         "version": "v4.4.19"

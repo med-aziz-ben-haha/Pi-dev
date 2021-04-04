@@ -1,0 +1,13 @@
+body {
+    font-family: $fontText;
+}
+
+html {
+    &.no-overflow {
+        overflow: hidden;
+    }
+}
+
+.modal-backdrop.show {
+    opacity: 0.8;
+}

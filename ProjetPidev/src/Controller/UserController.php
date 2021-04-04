@@ -372,6 +372,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $user->setFullname($user->getNom().$user->getPrenom());
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -472,6 +473,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $user->setFullname($user->getNom().$user->getPrenom());
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -525,6 +527,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $user->setFullname($user->getNom().$user->getPrenom());
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -578,6 +581,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $user->setFullname($user->getNom().$user->getPrenom());
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)

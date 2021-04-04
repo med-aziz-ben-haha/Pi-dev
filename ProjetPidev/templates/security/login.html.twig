@@ -1,0 +1,63 @@
+{% extends 'simple.html.twig' %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('admin') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('admin') }}
+{% endblock %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
+    {% endif %}
+
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="{{ base_url }}">{{ name_admin }}</a>
+        </div>
+        <!-- /.login-logo -->
+        <div class="login-box-body">
+            <p class="login-box-msg">{{ 'admin.login.sign_to_start'|trans }}</p>
+
+            <form action="{{ path('security_login') }}" method="post">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" id="username" name="_username" placeholder="{{ 'admin.login.form.login'|trans }}">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" id="password" name="_password" class="form-control" placeholder="{{ 'admin.login.form.password'|trans }}">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                <input type="hidden" name="_target_path" value="{{ app.request.get('redirect_to') }}">
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox"> {{ 'admin.login.remember_me'|trans }}
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">
+                            {{ 'admin.login.sign_in'|trans }} <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+            <!-- /.social-auth-links -->
+
+            <a href="{{ path('pages_register') }}" class="text-center">{{ 'admin.login.register_new'|trans }}</a>
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+{% endblock %}

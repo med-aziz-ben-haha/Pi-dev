@@ -1,0 +1,33 @@
+{% set showIconDate = false %}
+{% set showTime = true %}
+{% set addClass = '' %}
+
+{% if options is defined  %}
+    {% if options.showIconDate is defined %}
+        {% set showIconDate = options.showIconDate %}
+    {% endif %}
+
+    {% if options.showTime is defined %}
+        {% set showTime = options.showTime %}
+    {% endif %}
+
+    {% if options.addClass is defined %}
+        {% set addClass = ' ' ~ options.addClass %}
+    {% endif %}
+{% endif %}
+
+{% if published is not empty %}
+    <div class="published{{ addClass }}">
+
+            <i class="fa fa-calendar" aria-hidden="true"></i>
+
+
+        {{ published|date("M j, Y") }}
+
+
+            <span class="published-time">
+              {{ published|date("g:i a") }}
+            </span>
+
+    </div>
+{% endif %}

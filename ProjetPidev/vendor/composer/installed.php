@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'bc18b349bc56189325e65c89ac6ee5b193ed6818',
+    'reference' => '1d866c02f7f913bfad6ad59aa8a206ec0b270d65',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,16 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'bc18b349bc56189325e65c89ac6ee5b193ed6818',
+      'reference' => '1d866c02f7f913bfad6ad59aa8a206ec0b270d65',
+    ),
+    'behat/transliterator' => 
+    array (
+      'pretty_version' => 'v1.3.0',
+      'version' => '1.3.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3c4ec1d77c3d05caa1f0bf8fb3aae4845005c7fc',
     ),
     'captcha-com/captcha' => 
     array (
@@ -37,6 +46,15 @@
       array (
       ),
       'reference' => 'fd071c3f36d646ff87b591ddb3ea531c5f3678c2',
+    ),
+    'cocur/slugify' => 
+    array (
+      'pretty_version' => 'v4.0.0',
+      'version' => '4.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3f1ffc300f164f23abe8b64ffb3f92d35cec8307',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -236,6 +254,15 @@
       ),
       'reference' => '121af47c9aee9c03031bdeca3fac0540f59aa5c3',
     ),
+    'gedmo/doctrine-extensions' => 
+    array (
+      'pretty_version' => 'v3.0.4',
+      'version' => '3.0.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b0db2c2038ff8476898fe60dd59f92c88c40a385',
+    ),
     'guzzlehttp/guzzle' => 
     array (
       'pretty_version' => '7.2.0',
@@ -262,6 +289,15 @@
       array (
       ),
       'reference' => '35ea11d335fd638b5882ff1725228b3d35496ab1',
+    ),
+    'imagine/imagine' => 
+    array (
+      'pretty_version' => '1.2.4',
+      'version' => '1.2.4.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'd2e18be6e930ca169e4f921ef73ebfc061bf55d8',
     ),
     'knplabs/knp-components' => 
     array (
@@ -361,6 +397,15 @@
       array (
       ),
       'reference' => '6b79441f244040760bed5fdcd092a2bda7cf34c6',
+    ),
+    'liip/imagine-bundle' => 
+    array (
+      'pretty_version' => '2.6.0',
+      'version' => '2.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'afa4193c7fde027426ebb19e73878cd026438bbd',
     ),
     'maennchen/zipstream-php' => 
     array (
@@ -669,6 +714,15 @@
       array (
       ),
       'reference' => '430d14c01836b77c28092883d195a43ce413ee32',
+    ),
+    'stof/doctrine-extensions-bundle' => 
+    array (
+      'pretty_version' => 'v1.6.0',
+      'version' => '1.6.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'ef469a9d3b8be23d4c746d558742cc1b3e2588cb',
     ),
     'swiftmailer/swiftmailer' => 
     array (
@@ -1360,6 +1414,15 @@
       array (
       ),
       'reference' => '8e159ee4eab964b67ae87b32a1cab2de153241d7',
+    ),
+    'symfony/webpack-encore-bundle' => 
+    array (
+      'pretty_version' => 'v1.11.1',
+      'version' => '1.11.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '395b60a549ded8e7f77f0d551815d7555e2d9eb0',
     ),
     'symfony/yaml' => 
     array (

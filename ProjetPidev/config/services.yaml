@@ -7,12 +7,21 @@ parameters:
     twilio_sid: 'AC4e90752645b1901c9dd2da1f3a1d41d4'
     twilio_token: '78cfde211831c332f2b6251099c5ea4a'
     twilio_number: '+12402610130'
+    
+    locale: 'en'
+    app_locales: '%env(APP_LOCALES)%'
+    app_countries_locales:
+        'en': 'en_US'
+        'pt': 'pt_BR'
+
 services:
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-
+        bind:
+            $projectDir: '%kernel.project_dir%'
+            $uploadsMediaPath: 'uploads/media'
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
@@ -36,8 +45,19 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    sensio_framework_extra.view.listener:
+        alias: Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener
+
+    Liip\ImagineBundle\Service\FilterService:
+        alias: liip_imagine.service.filter
+
+    # add extra arguments for translator and request.
+    App\Form\PostType:
+        arguments: ['@translator','@request_stack']
 knp_paginator:
     template:
         pagination: "twitter_bootstrap_v4_pagination.html.twig"
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+

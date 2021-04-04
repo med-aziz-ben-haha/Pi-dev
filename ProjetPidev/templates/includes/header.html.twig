@@ -1,0 +1,32 @@
+{% set headingClass = 'page-heading' %}
+{% set mainClass = '' %}
+
+{% if 'gallery' == type|default() %}
+    {% set headingClass = 'post-heading' %}
+{% endif %}
+
+{% if 'pages_homepage' == app.request.attributes.get("_route") %}
+    {% set mainClass = ' d-none d-md-block' %}
+{% endif %}
+
+<header class="masthead{{ mainClass }}">
+    <div class="masthead-image-wrapper">
+        <img id="#"
+             data-src="{# {{ asset(image|default('images/bg.jpg')|imagine_filter('1440x800')) }} #}"
+             alt=""
+             class="lazy"/>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="{{ headingClass }}">
+                    {#  <h1>{{ title|default('Blog Personal') }}</h1>#}
+                    <br><br><br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</header>

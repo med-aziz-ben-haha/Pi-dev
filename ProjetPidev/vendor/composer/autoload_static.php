@@ -105,6 +105,7 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         ),
         'S' => 
         array (
+            'Symfony\\WebpackEncoreBundle\\' => 28,
             'Symfony\\Polyfill\\Php80\\' => 23,
             'Symfony\\Polyfill\\Php73\\' => 23,
             'Symfony\\Polyfill\\Php72\\' => 23,
@@ -174,6 +175,7 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
             'Svg\\' => 4,
+            'Stof\\DoctrineExtensionsBundle\\' => 30,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
         ),
         'P' => 
@@ -202,6 +204,7 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         ),
         'L' => 
         array (
+            'Liip\\ImagineBundle\\' => 19,
             'League\\OAuth2\\Client\\' => 21,
             'Laminas\\ZendFrameworkBridge\\' => 28,
             'Laminas\\Json\\' => 13,
@@ -216,11 +219,16 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
             'Knp\\Bundle\\PaginatorBundle\\' => 27,
             'KnpU\\OAuth2ClientBundle\\' => 24,
         ),
+        'I' => 
+        array (
+            'Imagine\\' => 8,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'Gedmo\\' => 6,
         ),
         'F' => 
         array (
@@ -253,7 +261,12 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         'C' => 
         array (
             'Complex\\' => 8,
+            'Cocur\\Slugify\\' => 14,
             'Captcha\\Bundle\\CaptchaBundle\\' => 29,
+        ),
+        'B' => 
+        array (
+            'Behat\\Transliterator\\' => 21,
         ),
         'A' => 
         array (
@@ -288,6 +301,10 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfony\\WebpackEncoreBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/webpack-encore-bundle/src',
         ),
         'Symfony\\Polyfill\\Php80\\' => 
         array (
@@ -565,6 +582,10 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         array (
             0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
         ),
+        'Stof\\DoctrineExtensionsBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stof/doctrine-extensions-bundle/src',
+        ),
         'Sensio\\Bundle\\FrameworkExtraBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/framework-extra-bundle/src',
@@ -630,6 +651,10 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         array (
             0 => __DIR__ . '/..' . '/markbaker/matrix/classes/src',
         ),
+        'Liip\\ImagineBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/liip/imagine-bundle',
+        ),
         'League\\OAuth2\\Client\\' => 
         array (
             0 => __DIR__ . '/..' . '/league/oauth2-client/src',
@@ -671,6 +696,10 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         array (
             0 => __DIR__ . '/..' . '/knpuniversity/oauth2-client-bundle/src',
         ),
+        'Imagine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/imagine/imagine/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -682,6 +711,10 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Gedmo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/gedmo/doctrine-extensions/src',
         ),
         'FontLib\\' => 
         array (
@@ -765,9 +798,17 @@ class ComposerStaticInit46cafd8a8a4be705ab22a16f66361812
         array (
             0 => __DIR__ . '/..' . '/markbaker/complex/classes/src',
         ),
+        'Cocur\\Slugify\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cocur/slugify/src',
+        ),
         'Captcha\\Bundle\\CaptchaBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/captcha-com/symfony-captcha-bundle',
+        ),
+        'Behat\\Transliterator\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/behat/transliterator/src/Behat/Transliterator',
         ),
         'App\\Tests\\' => 
         array (

@@ -3,3 +3,16 @@
 #    controller: App\Controller\DefaultController::index
 captcha_routing:
   resource: "@CaptchaBundle/Resources/config/routing.yml"
+
+post_index:
+  path:
+    en: /posts
+  controller: App\Controller\Website\PostController::index
+
+post_index_category:
+  path:
+    en: /posts/{category}
+  controller: App\Controller\Website\PostController::index
+post_detail:
+  path:     /{_locale}/{slug}
+  controller: App\Controller\Website\PostController::detail

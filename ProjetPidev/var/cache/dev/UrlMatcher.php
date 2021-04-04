@@ -13,8 +13,24 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/admin' => [[['_route' => 'admin', '_controller' => 'App\\Controller\\AdminController::index'], null, null, null, false, false, null]],
+        '/admin' => [
+            [['_route' => 'admin', '_controller' => 'App\\Controller\\AdminController::index'], null, null, null, false, false, null],
+            [['_route' => 'admin_pages_index', '_controller' => 'App\\Controller\\Admin\\PagesController::index'], null, null, null, false, false, null],
+        ],
+        '/admin/categories' => [[['_route' => 'admin_category_index', '_controller' => 'App\\Controller\\Admin\\CategoryController::index'], null, null, null, false, false, null]],
+        '/admin/category/add' => [[['_route' => 'admin_category_add', '_controller' => 'App\\Controller\\Admin\\CategoryController::add'], null, null, null, false, false, null]],
+        '/admin/medias' => [[['_route' => 'admin_media_index', '_controller' => 'App\\Controller\\Admin\\MediaController::index'], null, null, null, false, false, null]],
+        '/homepage' => [[['_route' => 'admin_pages_homepage', '_controller' => 'App\\Controller\\Admin\\PagesController::homepage'], null, null, null, false, false, null]],
+        '/admin/posts' => [[['_route' => 'admin_post_index', '_controller' => 'App\\Controller\\Admin\\PostController::index'], null, null, null, false, false, null]],
+        '/admin/post/add' => [[['_route' => 'admin_post_add', '_controller' => 'App\\Controller\\Admin\\PostController::add'], null, null, null, false, false, null]],
+        '/pdf/pdf' => [[['_route' => 'post_show_pdf', '_controller' => 'App\\Controller\\Admin\\PostController::pdfAction'], null, ['GET' => 0], null, false, false, null]],
+        '/admin/setting' => [[['_route' => 'admin_setting_index', '_controller' => 'App\\Controller\\Admin\\SettingController::index'], null, null, null, false, false, null]],
         '/api' => [[['_route' => 'api', '_controller' => 'App\\Controller\\ApiController::index'], null, null, null, false, false, null]],
+        '/api/folder' => [[['_route' => 'api_folder_post', '_controller' => 'App\\Controller\\Api\\FolderController::postAction'], null, ['POST' => 0], null, false, false, null]],
+        '/api/folder/delete' => [[['_route' => 'api_folder_delete', '_controller' => 'App\\Controller\\Api\\FolderController::deleteAction'], null, ['DELETE' => 0], null, false, false, null]],
+        '/api/media/upload' => [[['_route' => 'api_media_upload', '_controller' => 'App\\Controller\\Api\\MediaController::uploadAction'], null, ['POST' => 0], null, false, false, null]],
+        '/api/media/delete' => [[['_route' => 'api_media_delete', '_controller' => 'App\\Controller\\Api\\MediaController::deleteAction'], null, ['DELETE' => 0], null, false, false, null]],
+        '/api/media/list' => [[['_route' => 'api_media_list', '_controller' => 'App\\Controller\\Api\\MediaController::listAction'], null, ['GET' => 0], null, false, false, null]],
         '/calendar/calendar' => [[['_route' => 'calendar_index', '_controller' => 'App\\Controller\\CalendarController::index'], null, ['GET' => 0], null, false, false, null]],
         '/calendar/new' => [[['_route' => 'calendar_new', '_controller' => 'App\\Controller\\CalendarController::new'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/categorie/produit' => [[['_route' => 'categorie_produit', '_controller' => 'App\\Controller\\CategorieProduitController::index'], null, null, null, false, false, null]],
@@ -94,8 +110,10 @@ return [
         '/inscriptionPharmacien' => [[['_route' => 'inscriptionPharmacien', '_controller' => 'App\\Controller\\UserController::inscriptionPharmacien'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/inscriptionParapharmacien' => [[['_route' => 'inscriptionParapharmacien', '_controller' => 'App\\Controller\\UserController::inscriptionPara'], null, ['GET' => 0, 'POST' => 1], null, false, false, null]],
         '/afficherStatUser' => [[['_route' => 'afficherStatUser', '_controller' => 'App\\Controller\\UserController::afficherStatUser'], null, null, null, false, false, null]],
+        '/sitemap.xml' => [[['_route' => 'sitemap', '_format' => 'xml', '_controller' => 'App\\Controller\\Website\\SitemapController::index'], null, null, null, false, false, null]],
         '/captcha-handler' => [[['_route' => 'captcha_handler', '_controller' => 'CaptchaBundle:CaptchaHandler:index'], null, ['GET' => 0], null, false, false, null]],
         '/simple-captcha-handler' => [[['_route' => 'simple_captcha_handler', '_controller' => 'CaptchaBundle:SimpleCaptchaHandler:index'], null, ['GET' => 0], null, false, false, null]],
+        '/posts' => [[['_route' => 'post_index', '_controller' => 'App\\Controller\\Website\\PostController::index', '_locale' => 'en'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -135,134 +153,158 @@ return [
                     .')'
                 .')'
                 .'|/a(?'
-                    .'|pi/([^/]++)/edit(*:450)'
+                    .'|dmin/(?'
+                        .'|category/([^/]++)/(?'
+                            .'|edit(*:467)'
+                            .'|delete(*:481)'
+                        .')'
+                        .'|media(?'
+                            .'|/([^/]++)/edit(*:512)'
+                            .'|\\-data/([^/]++)/edit(*:540)'
+                        .')'
+                        .'|post/([^/]++)/(?'
+                            .'|edit(*:570)'
+                            .'|delete(*:584)'
+                        .')'
+                    .')'
+                    .'|pi/([^/]++)/edit(*:610)'
                     .'|ffiche(?'
                         .'|C(?'
-                            .'|ategorieProd/([^/]++)/([^/]++)(*:501)'
+                            .'|ategorieProd/([^/]++)/([^/]++)(*:661)'
                             .'|lien(?'
                                 .'|CategorieProd(?'
-                                    .'|/([^/]++)/([^/]++)(*:550)'
-                                    .'|uit/([^/]++)/([^/]++)/([^/]++)(*:588)'
+                                    .'|/([^/]++)/([^/]++)(*:710)'
+                                    .'|uit/([^/]++)/([^/]++)/([^/]++)(*:748)'
                                 .')'
-                                .'|ListProduit/([^/]++)/([^/]++)(*:626)'
-                                .'|Panier/([^/]++)(*:649)'
+                                .'|ListProduit/([^/]++)/([^/]++)(*:786)'
+                                .'|Panier/([^/]++)(*:809)'
                             .')'
                         .')'
                         .'|r(?'
-                            .'|CategorieSoinMPs/([^/]++)(*:688)'
-                            .'|SoinMPs/([^/]++)/([^/]++)(*:721)'
-                            .'|DetailSoinMPs/([^/]++)/([^/]++)(*:760)'
-                            .'|User/([^/]++)(*:781)'
+                            .'|CategorieSoinMPs/([^/]++)(*:848)'
+                            .'|SoinMPs/([^/]++)/([^/]++)(*:881)'
+                            .'|DetailSoinMPs/([^/]++)/([^/]++)(*:920)'
+                            .'|User/([^/]++)(*:941)'
                         .')'
                         .'|P(?'
                             .'|arapharmacien(?'
-                                .'|ListProduit/([^/]++)/([^/]++)(*:839)'
-                                .'|Commande/([^/]++)(*:864)'
+                                .'|ListProduit/([^/]++)/([^/]++)(*:999)'
+                                .'|Commande/([^/]++)(*:1024)'
                             .')'
                             .'|rod(?'
-                                .'|/([^/]++)/([^/]++)(*:897)'
-                                .'|uit/([^/]++)/([^/]++)/([^/]++)(*:935)'
+                                .'|/([^/]++)/([^/]++)(*:1058)'
+                                .'|uit/([^/]++)/([^/]++)/([^/]++)(*:1097)'
                             .')'
                         .')'
-                        .'|FrontClientPara/([^/]++)(*:969)'
+                        .'|FrontClientPara/([^/]++)(*:1132)'
                     .')'
-                    .'|jouternoteSMP/([^/]++)/([^/]++)/([^/]++)(*:1018)'
+                    .'|jouternoteSMP/([^/]++)/([^/]++)/([^/]++)(*:1182)'
                     .'|ccueilOnline(?'
-                        .'|/([^/]++)(*:1051)'
-                        .'|Med/([^/]++)(*:1072)'
+                        .'|/([^/]++)(*:1215)'
+                        .'|Med/([^/]++)(*:1236)'
                         .'|P(?'
-                            .'|harmacien/([^/]++)(*:1103)'
-                            .'|arapharmacien/([^/]++)(*:1134)'
+                            .'|harmacien/([^/]++)(*:1267)'
+                            .'|arapharmacien/([^/]++)(*:1298)'
                         .')'
                     .')'
                 .')'
                 .'|/Supp(?'
                     .'|Cat(?'
-                        .'|egorie/([^/]++)/([^/]++)(*:1184)'
-                        .'|Post/([^/]++)(*:1206)'
+                        .'|egorie/([^/]++)/([^/]++)(*:1348)'
+                        .'|Post/([^/]++)(*:1370)'
                     .')'
-                    .'|ListProd/([^/]++)/([^/]++)/([^/]++)(*:1251)'
-                    .'|/([^/]++)(*:1269)'
-                    .'|Prod/([^/]++)/([^/]++)(*:1300)'
-                    .'|Region/([^/]++)(*:1324)'
+                    .'|ListProd/([^/]++)/([^/]++)/([^/]++)(*:1415)'
+                    .'|/([^/]++)(*:1433)'
+                    .'|Prod/([^/]++)/([^/]++)(*:1464)'
+                    .'|Region/([^/]++)(*:1488)'
                 .')'
                 .'|/A(?'
                     .'|jout(?'
-                        .'|Categorie/([^/]++)/([^/]++)(*:1373)'
-                        .'|Produit/([^/]++)/([^/]++)(*:1407)'
+                        .'|Categorie/([^/]++)/([^/]++)(*:1537)'
+                        .'|Produit/([^/]++)/([^/]++)(*:1571)'
                     .')'
-                    .'|fficherdetailSoinMPnote/([^/]++)/([^/]++)(*:1458)'
+                    .'|fficherdetailSoinMPnote/([^/]++)/([^/]++)(*:1622)'
                 .')'
                 .'|/s(?'
                     .'|upprimer(?'
-                        .'|CategorieSoinMP/([^/]++)(*:1508)'
+                        .'|CategorieSoinMP/([^/]++)(*:1672)'
                         .'|reclamation(?'
-                            .'|/([^/]++)(*:1540)'
-                            .'|s/([^/]++)(*:1559)'
+                            .'|/([^/]++)(*:1704)'
+                            .'|s/([^/]++)(*:1723)'
                         .')'
-                        .'|SoinMP/([^/]++)(*:1584)'
-                        .'|typereclamation/([^/]++)(*:1617)'
+                        .'|SoinMP/([^/]++)(*:1748)'
+                        .'|typereclamation/([^/]++)(*:1781)'
                         .'|P(?'
                             .'|a(?'
-                                .'|tient/([^/]++)(*:1648)'
-                                .'|rapharmacien/([^/]++)(*:1678)'
+                                .'|tient/([^/]++)(*:1812)'
+                                .'|rapharmacien/([^/]++)(*:1842)'
                             .')'
-                            .'|harmacien/([^/]++)(*:1706)'
+                            .'|harmacien/([^/]++)(*:1870)'
                         .')'
-                        .'|Medecin/([^/]++)(*:1732)'
+                        .'|Medecin/([^/]++)(*:1896)'
                     .')'
                     .'|ervice/(?'
                         .'|s(?'
-                            .'|howByCenter/([^/]++)(*:1776)'
-                            .'|earch(?:/([^/]++)(?:/([^/]++))?)?(*:1818)'
+                            .'|howByCenter/([^/]++)(*:1940)'
+                            .'|earch(?:/([^/]++)(?:/([^/]++))?)?(*:1982)'
                         .')'
-                        .'|front/showByCenter/([^/]++)(*:1855)'
+                        .'|front/showByCenter/([^/]++)(*:2019)'
                         .'|([^/]++)(?'
-                            .'|(*:1875)'
-                            .'|/edit(*:1889)'
-                            .'|(*:1898)'
+                            .'|(*:2039)'
+                            .'|/edit(*:2053)'
+                            .'|(*:2062)'
                         .')'
                     .')'
                 .')'
-                .'|/modifier(?'
-                    .'|CategorieSoinMP/([^/]++)(*:1946)'
-                    .'|reclamations/([^/]++)(*:1976)'
-                    .'|SoinMP/([^/]++)(*:2000)'
-                    .'|typereclamation/([^/]++)(*:2033)'
-                    .'|User/([^/]++)(*:2055)'
-                    .'|Med/([^/]++)(*:2076)'
-                    .'|Phar/([^/]++)(*:2098)'
+                .'|/m(?'
+                    .'|odifier(?'
+                        .'|CategorieSoinMP/([^/]++)(*:2113)'
+                        .'|reclamations/([^/]++)(*:2143)'
+                        .'|SoinMP/([^/]++)(*:2167)'
+                        .'|typereclamation/([^/]++)(*:2200)'
+                        .'|User/([^/]++)(*:2222)'
+                        .'|Med/([^/]++)(*:2243)'
+                        .'|Phar/([^/]++)(*:2265)'
+                    .')'
+                    .'|edia/cache/resolve/(?'
+                        .'|([A-z0-9_-]*)/rc/([^/]++)/(.+)(*:2327)'
+                        .'|([A-z0-9_-]*)/(.+)(*:2354)'
+                    .')'
                 .')'
                 .'|/M(?'
                     .'|odifier(?'
-                        .'|ListProduit/([^/]++)/([^/]++)/([^/]++)/([^/]++)(*:2170)'
-                        .'|Produit/([^/]++)/([^/]++)(*:2204)'
+                        .'|ListProduit/([^/]++)/([^/]++)/([^/]++)/([^/]++)(*:2427)'
+                        .'|Produit/([^/]++)/([^/]++)(*:2461)'
                     .')'
                     .'|edicament(?'
-                        .'|remove/([^/]++)(*:2241)'
-                        .'|modifier/([^/]++)(*:2267)'
+                        .'|remove/([^/]++)(*:2498)'
+                        .'|modifier/([^/]++)(*:2524)'
                     .')'
                 .')'
-                .'|/listp/([^/]++)/([^/]++)(*:2302)'
+                .'|/listp/([^/]++)/([^/]++)(*:2559)'
                 .'|/Ordonnance(?'
-                    .'|remove/([^/]++)(*:2340)'
-                    .'|modifier/([^/]++)(*:2366)'
+                    .'|remove/([^/]++)(*:2597)'
+                    .'|modifier/([^/]++)(*:2623)'
                 .')'
                 .'|/p(?'
-                    .'|arapharmacie/ModifierParapharmacie/([^/]++)(*:2424)'
-                    .'|ostt/([^/]++)(?'
-                        .'|(*:2449)'
-                        .'|/edit(*:2463)'
-                        .'|(*:2472)'
+                    .'|arapharmacie/ModifierParapharmacie/([^/]++)(*:2681)'
+                    .'|ost(?'
+                        .'|t/([^/]++)(?'
+                            .'|(*:2709)'
+                            .'|/edit(*:2723)'
+                            .'|(*:2732)'
+                        .')'
+                        .'|s/([^/]++)(*:2752)'
                     .')'
                 .')'
-                .'|/updateCategorie/([^/]++)(*:2508)'
+                .'|/updateCategorie/([^/]++)(*:2788)'
                 .'|/re(?'
-                    .'|pondre/([^/]++)(*:2538)'
-                    .'|gions/ModifierRegion/([^/]++)(*:2576)'
+                    .'|pondre/([^/]++)(*:2818)'
+                    .'|gions/ModifierRegion/([^/]++)(*:2856)'
                 .')'
-                .'|/envreponse/([^/]++)(*:2606)'
-                .'|/impression/([^/]++)/([^/]++)(*:2644)'
+                .'|/envreponse/([^/]++)(*:2886)'
+                .'|/impression/([^/]++)/([^/]++)(*:2924)'
+                .'|/([^/]++)/([^/]++)(*:2951)'
             .')/?$}sD',
     ],
     [ // $dynamicRoutes
@@ -283,74 +325,84 @@ return [
         397 => [[['_route' => 'centre_medical_show', '_controller' => 'App\\Controller\\CentreMedicalController::show'], ['id'], ['GET' => 0], null, false, true, null]],
         410 => [[['_route' => 'centre_medical_edit', '_controller' => 'App\\Controller\\CentreMedicalController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
         418 => [[['_route' => 'centre_medical_delete', '_controller' => 'App\\Controller\\CentreMedicalController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        450 => [[['_route' => 'api_event_edit', '_controller' => 'App\\Controller\\ApiController::majEvent'], ['id'], ['PUT' => 0], null, false, false, null]],
-        501 => [[['_route' => 'afficheCategorieProd', '_controller' => 'App\\Controller\\CategorieProduitController::affiche'], ['id', 'iduser'], null, null, false, true, null]],
-        550 => [[['_route' => 'afficheClienCategorieProd', '_controller' => 'App\\Controller\\CategorieProduitController::afficheClient'], ['idpara', 'iduser'], null, null, false, true, null]],
-        588 => [[['_route' => 'afficheClienCategorieProduit', '_controller' => 'App\\Controller\\ProduitController::afficheClient'], ['idpara', 'idcat', 'iduser'], null, null, false, true, null]],
-        626 => [[['_route' => 'afficheClienListProduit', '_controller' => 'App\\Controller\\ListProduitController::afficheClient'], ['idpanier', 'iduser'], null, null, false, true, null]],
-        649 => [[['_route' => 'afficheClienPanier', '_controller' => 'App\\Controller\\PanierController::afficheClient'], ['iduser'], null, null, false, true, null]],
-        688 => [[['_route' => 'afficherCategorieSoinMPs', '_controller' => 'App\\Controller\\CategorieSoinMPController::listCategoriesSoinMPs'], ['iduser'], null, null, false, true, null]],
-        721 => [[['_route' => 'afficherSoinMPs', '_controller' => 'App\\Controller\\SoinMPController::listSoinMPs'], ['id', 'iduser'], null, null, false, true, null]],
-        760 => [[['_route' => 'afficherDetailSoinMPs', '_controller' => 'App\\Controller\\SoinMPController::detailSoinMPs'], ['id', 'iduser'], null, null, false, true, null]],
-        781 => [[['_route' => 'afficherUser', '_controller' => 'App\\Controller\\UserController::afficherUser'], ['iduser'], null, null, false, true, null]],
-        839 => [[['_route' => 'afficheParapharmacienListProduit', '_controller' => 'App\\Controller\\ListProduitController::afficheParapharmacien'], ['idpanier', 'idpara'], null, null, false, true, null]],
-        864 => [[['_route' => 'afficheParapharmacienCommande', '_controller' => 'App\\Controller\\PanierController::afficheParapharmacienCommande'], ['idpara'], null, null, false, true, null]],
-        897 => [[['_route' => 'afficheProd', '_controller' => 'App\\Controller\\ProduitController::affiche'], ['id', 'iduser'], null, null, false, true, null]],
-        935 => [[['_route' => 'afficheProduit', '_controller' => 'App\\Controller\\ProduitController::afficheProduit'], ['idpara', 'idp', 'iduser'], null, null, false, true, null]],
-        969 => [[['_route' => 'afficheFrontClientPara', '_controller' => 'App\\Controller\\ParapharmacieController::afficheFrontClient'], ['iduser'], null, null, false, true, null]],
-        1018 => [[['_route' => 'ajouternoteSMP', '_controller' => 'App\\Controller\\NoteSoinMPController::ajouterNote'], ['id', 'iduser', 'valeur'], ['GET' => 0], null, false, true, null]],
-        1051 => [[['_route' => 'accueilOnline', '_controller' => 'App\\Controller\\UserController::accueil'], ['iduser'], null, null, false, true, null]],
-        1072 => [[['_route' => 'accueilOnlineMed', '_controller' => 'App\\Controller\\UserController::accueilMed'], ['iduser'], null, null, false, true, null]],
-        1103 => [[['_route' => 'accueilOnlinePharmacien', '_controller' => 'App\\Controller\\UserController::accueilPharmacien'], ['iduser'], null, null, false, true, null]],
-        1134 => [[['_route' => 'accueilOnlineParapharmacien', '_controller' => 'App\\Controller\\UserController::accueilParapharmacien'], ['iduser'], null, null, false, true, null]],
-        1184 => [[['_route' => 'deleteCategorie', '_controller' => 'App\\Controller\\CategorieProduitController::delete'], ['id', 'iduser'], null, null, false, true, null]],
-        1206 => [[['_route' => 'SuppCatPost', '_controller' => 'App\\Controller\\PostCategorieController::Supp'], ['id'], null, null, false, true, null]],
-        1251 => [[['_route' => 'deleteListProduit', '_controller' => 'App\\Controller\\ListProduitController::delete'], ['id', 'idpanier', 'iduser'], null, null, false, true, null]],
-        1269 => [[['_route' => 'deleteParapharmacie', '_controller' => 'App\\Controller\\ParapharmacieController::delete'], ['id'], null, null, false, true, null]],
-        1300 => [[['_route' => 'deleteProduit', '_controller' => 'App\\Controller\\ProduitController::delete'], ['id', 'iduser'], null, null, false, true, null]],
-        1324 => [[['_route' => 'deleteRegion', '_controller' => 'App\\Controller\\RegionsController::delete'], ['id'], null, null, false, true, null]],
-        1373 => [[['_route' => 'AjoutCategorie', '_controller' => 'App\\Controller\\CategorieProduitController::add'], ['id', 'iduser'], null, null, false, true, null]],
-        1407 => [[['_route' => 'AjoutProduit', '_controller' => 'App\\Controller\\ProduitController::add'], ['id', 'iduser'], null, null, false, true, null]],
-        1458 => [[['_route' => 'AfficherdetailSoinMPnote', '_controller' => 'App\\Controller\\SoinMPController::detailSoinMPsnote'], ['id', 'iduser'], null, null, false, true, null]],
-        1508 => [[['_route' => 'supprimerCategorieSoinMP', '_controller' => 'App\\Controller\\CategorieSoinMPController::SupprimerCategorieSoinMP'], ['id'], null, null, false, true, null]],
-        1540 => [[['_route' => 'supprimerreclamation', '_controller' => 'App\\Controller\\ReclamationController::Supprimerreclamation'], ['id'], null, null, false, true, null]],
-        1559 => [[['_route' => 'supprimerreclamations', '_controller' => 'App\\Controller\\ReclamationController::Supprimerreclamations'], ['id'], null, null, false, true, null]],
-        1584 => [[['_route' => 'supprimerSoinMP', '_controller' => 'App\\Controller\\SoinMPController::SupprimerSoinMP'], ['id'], null, null, false, true, null]],
-        1617 => [[['_route' => 'supprimertypereclamation', '_controller' => 'App\\Controller\\TypereclamationController::Supprimertypereclamation'], ['id'], null, null, false, true, null]],
-        1648 => [[['_route' => 'supprimerPatient', '_controller' => 'App\\Controller\\UserController::SupprimerPatients'], ['id'], null, null, false, true, null]],
-        1678 => [[['_route' => 'supprimerParapharmacien', '_controller' => 'App\\Controller\\UserController::SupprimerParapharmaciens'], ['id'], null, null, false, true, null]],
-        1706 => [[['_route' => 'supprimerPharmacien', '_controller' => 'App\\Controller\\UserController::SupprimerPharmaciens'], ['id'], null, null, false, true, null]],
-        1732 => [[['_route' => 'supprimerMedecin', '_controller' => 'App\\Controller\\UserController::SupprimerMedecins'], ['id'], null, null, false, true, null]],
-        1776 => [[['_route' => 'service_showByCenter', '_controller' => 'App\\Controller\\ServiceController::showByCenter'], ['center'], ['GET' => 0], null, false, true, null]],
-        1818 => [[['_route' => 'product_search', 'order' => 'ASC', 'by' => 'id', '_controller' => 'App\\Controller\\ServiceController::search'], ['order', 'by'], ['GET' => 0], null, false, true, null]],
-        1855 => [[['_route' => 'service_showByCenter_front', '_controller' => 'App\\Controller\\ServiceController::showByCenterFront'], ['center'], ['GET' => 0], null, false, true, null]],
-        1875 => [[['_route' => 'service_show', '_controller' => 'App\\Controller\\ServiceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        1889 => [[['_route' => 'service_edit', '_controller' => 'App\\Controller\\ServiceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        1898 => [[['_route' => 'service_delete', '_controller' => 'App\\Controller\\ServiceController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
-        1946 => [[['_route' => 'modifierCategorieSoinMP', '_controller' => 'App\\Controller\\CategorieSoinMPController::modifierCategorieSoinMP'], ['id'], null, null, false, true, null]],
-        1976 => [[['_route' => 'modifierreclamations', '_controller' => 'App\\Controller\\ReclamationController::modifierreclamation'], ['id'], null, null, false, true, null]],
-        2000 => [[['_route' => 'modifierSoinMP', '_controller' => 'App\\Controller\\SoinMPController::modifierSoinMP'], ['id'], null, null, false, true, null]],
-        2033 => [[['_route' => 'modifiertypereclamation', '_controller' => 'App\\Controller\\TypereclamationController::modifiertypereclamation'], ['id'], null, null, false, true, null]],
-        2055 => [[['_route' => 'modifierUser', '_controller' => 'App\\Controller\\UserController::modifierUser'], ['iduser'], null, null, false, true, null]],
-        2076 => [[['_route' => 'modifierMed', '_controller' => 'App\\Controller\\UserController::modifierMed'], ['iduser'], null, null, false, true, null]],
-        2098 => [[['_route' => 'modifierPhar', '_controller' => 'App\\Controller\\UserController::modifierPhar'], ['iduser'], null, null, false, true, null]],
-        2170 => [[['_route' => 'modifierListProduit', '_controller' => 'App\\Controller\\ListProduitController::modifierPara'], ['id', 'idpanier', 'iduser', 'idprod'], null, null, false, true, null]],
-        2204 => [[['_route' => 'modifierProduit', '_controller' => 'App\\Controller\\ProduitController::modifierPara'], ['id', 'iduser'], null, null, false, true, null]],
-        2241 => [[['_route' => 'Medicamentremove', '_controller' => 'App\\Controller\\MedicamentController::remove'], ['id'], null, null, false, true, null]],
-        2267 => [[['_route' => 'Medicamentmodifier', '_controller' => 'App\\Controller\\MedicamentController::medicamentmodifier'], ['id'], null, null, false, true, null]],
-        2302 => [[['_route' => 'listp', '_controller' => 'App\\Controller\\ListProduitController::listp'], ['idpanier', 'idpara'], null, null, false, true, null]],
-        2340 => [[['_route' => 'Ordonnanceremove', '_controller' => 'App\\Controller\\OrdonnanceController::remove'], ['id'], null, null, false, true, null]],
-        2366 => [[['_route' => 'Ordonnancemodifier', '_controller' => 'App\\Controller\\OrdonnanceController::modifier'], ['id'], null, null, false, true, null]],
-        2424 => [[['_route' => 'modifierParapharmacie', '_controller' => 'App\\Controller\\ParapharmacieController::modifierPara'], ['id'], null, null, false, true, null]],
-        2449 => [[['_route' => 'postt_show', '_controller' => 'App\\Controller\\PosttController::show'], ['id'], ['GET' => 0], null, false, true, null]],
-        2463 => [[['_route' => 'postt_edit', '_controller' => 'App\\Controller\\PosttController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
-        2472 => [[['_route' => 'postt_delete', '_controller' => 'App\\Controller\\PosttController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
-        2508 => [[['_route' => 'updateCategorie', '_controller' => 'App\\Controller\\PostCategorieController::updateCategorie'], ['id'], null, null, false, true, null]],
-        2538 => [[['_route' => 'repondre', '_controller' => 'App\\Controller\\ReclamationController::repondrereclamation'], ['id'], null, null, false, true, null]],
-        2576 => [[['_route' => 'modifierRegion', '_controller' => 'App\\Controller\\RegionsController::modifierPara'], ['id'], null, null, false, true, null]],
-        2606 => [[['_route' => 'envreponse', '_controller' => 'App\\Controller\\ReclamationController::envoyerreponse'], ['id'], ['GET' => 0], null, false, true, null]],
-        2644 => [
-            [['_route' => 'impression', '_controller' => 'App\\Controller\\SoinMPController::impression'], ['id', 'iduser'], null, null, false, true, null],
+        467 => [[['_route' => 'admin_category_edit', '_controller' => 'App\\Controller\\Admin\\CategoryController::edit'], ['id'], null, null, false, false, null]],
+        481 => [[['_route' => 'admin_category_delete', '_controller' => 'App\\Controller\\Admin\\CategoryController::delete'], ['id'], null, null, false, false, null]],
+        512 => [[['_route' => 'admin_media_edit', '_controller' => 'App\\Controller\\Admin\\MediaController::edit'], ['id'], null, null, false, false, null]],
+        540 => [[['_route' => 'admin_media_data_edit', '_controller' => 'App\\Controller\\Admin\\MediaDataController::edit'], ['id'], null, null, false, false, null]],
+        570 => [[['_route' => 'admin_post_edit', '_controller' => 'App\\Controller\\Admin\\PostController::edit'], ['id'], null, null, false, false, null]],
+        584 => [[['_route' => 'admin_post_delete', '_controller' => 'App\\Controller\\Admin\\PostController::delete'], ['id'], null, null, false, false, null]],
+        610 => [[['_route' => 'api_event_edit', '_controller' => 'App\\Controller\\ApiController::majEvent'], ['id'], ['PUT' => 0], null, false, false, null]],
+        661 => [[['_route' => 'afficheCategorieProd', '_controller' => 'App\\Controller\\CategorieProduitController::affiche'], ['id', 'iduser'], null, null, false, true, null]],
+        710 => [[['_route' => 'afficheClienCategorieProd', '_controller' => 'App\\Controller\\CategorieProduitController::afficheClient'], ['idpara', 'iduser'], null, null, false, true, null]],
+        748 => [[['_route' => 'afficheClienCategorieProduit', '_controller' => 'App\\Controller\\ProduitController::afficheClient'], ['idpara', 'idcat', 'iduser'], null, null, false, true, null]],
+        786 => [[['_route' => 'afficheClienListProduit', '_controller' => 'App\\Controller\\ListProduitController::afficheClient'], ['idpanier', 'iduser'], null, null, false, true, null]],
+        809 => [[['_route' => 'afficheClienPanier', '_controller' => 'App\\Controller\\PanierController::afficheClient'], ['iduser'], null, null, false, true, null]],
+        848 => [[['_route' => 'afficherCategorieSoinMPs', '_controller' => 'App\\Controller\\CategorieSoinMPController::listCategoriesSoinMPs'], ['iduser'], null, null, false, true, null]],
+        881 => [[['_route' => 'afficherSoinMPs', '_controller' => 'App\\Controller\\SoinMPController::listSoinMPs'], ['id', 'iduser'], null, null, false, true, null]],
+        920 => [[['_route' => 'afficherDetailSoinMPs', '_controller' => 'App\\Controller\\SoinMPController::detailSoinMPs'], ['id', 'iduser'], null, null, false, true, null]],
+        941 => [[['_route' => 'afficherUser', '_controller' => 'App\\Controller\\UserController::afficherUser'], ['iduser'], null, null, false, true, null]],
+        999 => [[['_route' => 'afficheParapharmacienListProduit', '_controller' => 'App\\Controller\\ListProduitController::afficheParapharmacien'], ['idpanier', 'idpara'], null, null, false, true, null]],
+        1024 => [[['_route' => 'afficheParapharmacienCommande', '_controller' => 'App\\Controller\\PanierController::afficheParapharmacienCommande'], ['idpara'], null, null, false, true, null]],
+        1058 => [[['_route' => 'afficheProd', '_controller' => 'App\\Controller\\ProduitController::affiche'], ['id', 'iduser'], null, null, false, true, null]],
+        1097 => [[['_route' => 'afficheProduit', '_controller' => 'App\\Controller\\ProduitController::afficheProduit'], ['idpara', 'idp', 'iduser'], null, null, false, true, null]],
+        1132 => [[['_route' => 'afficheFrontClientPara', '_controller' => 'App\\Controller\\ParapharmacieController::afficheFrontClient'], ['iduser'], null, null, false, true, null]],
+        1182 => [[['_route' => 'ajouternoteSMP', '_controller' => 'App\\Controller\\NoteSoinMPController::ajouterNote'], ['id', 'iduser', 'valeur'], ['GET' => 0], null, false, true, null]],
+        1215 => [[['_route' => 'accueilOnline', '_controller' => 'App\\Controller\\UserController::accueil'], ['iduser'], null, null, false, true, null]],
+        1236 => [[['_route' => 'accueilOnlineMed', '_controller' => 'App\\Controller\\UserController::accueilMed'], ['iduser'], null, null, false, true, null]],
+        1267 => [[['_route' => 'accueilOnlinePharmacien', '_controller' => 'App\\Controller\\UserController::accueilPharmacien'], ['iduser'], null, null, false, true, null]],
+        1298 => [[['_route' => 'accueilOnlineParapharmacien', '_controller' => 'App\\Controller\\UserController::accueilParapharmacien'], ['iduser'], null, null, false, true, null]],
+        1348 => [[['_route' => 'deleteCategorie', '_controller' => 'App\\Controller\\CategorieProduitController::delete'], ['id', 'iduser'], null, null, false, true, null]],
+        1370 => [[['_route' => 'SuppCatPost', '_controller' => 'App\\Controller\\PostCategorieController::Supp'], ['id'], null, null, false, true, null]],
+        1415 => [[['_route' => 'deleteListProduit', '_controller' => 'App\\Controller\\ListProduitController::delete'], ['id', 'idpanier', 'iduser'], null, null, false, true, null]],
+        1433 => [[['_route' => 'deleteParapharmacie', '_controller' => 'App\\Controller\\ParapharmacieController::delete'], ['id'], null, null, false, true, null]],
+        1464 => [[['_route' => 'deleteProduit', '_controller' => 'App\\Controller\\ProduitController::delete'], ['id', 'iduser'], null, null, false, true, null]],
+        1488 => [[['_route' => 'deleteRegion', '_controller' => 'App\\Controller\\RegionsController::delete'], ['id'], null, null, false, true, null]],
+        1537 => [[['_route' => 'AjoutCategorie', '_controller' => 'App\\Controller\\CategorieProduitController::add'], ['id', 'iduser'], null, null, false, true, null]],
+        1571 => [[['_route' => 'AjoutProduit', '_controller' => 'App\\Controller\\ProduitController::add'], ['id', 'iduser'], null, null, false, true, null]],
+        1622 => [[['_route' => 'AfficherdetailSoinMPnote', '_controller' => 'App\\Controller\\SoinMPController::detailSoinMPsnote'], ['id', 'iduser'], null, null, false, true, null]],
+        1672 => [[['_route' => 'supprimerCategorieSoinMP', '_controller' => 'App\\Controller\\CategorieSoinMPController::SupprimerCategorieSoinMP'], ['id'], null, null, false, true, null]],
+        1704 => [[['_route' => 'supprimerreclamation', '_controller' => 'App\\Controller\\ReclamationController::Supprimerreclamation'], ['id'], null, null, false, true, null]],
+        1723 => [[['_route' => 'supprimerreclamations', '_controller' => 'App\\Controller\\ReclamationController::Supprimerreclamations'], ['id'], null, null, false, true, null]],
+        1748 => [[['_route' => 'supprimerSoinMP', '_controller' => 'App\\Controller\\SoinMPController::SupprimerSoinMP'], ['id'], null, null, false, true, null]],
+        1781 => [[['_route' => 'supprimertypereclamation', '_controller' => 'App\\Controller\\TypereclamationController::Supprimertypereclamation'], ['id'], null, null, false, true, null]],
+        1812 => [[['_route' => 'supprimerPatient', '_controller' => 'App\\Controller\\UserController::SupprimerPatients'], ['id'], null, null, false, true, null]],
+        1842 => [[['_route' => 'supprimerParapharmacien', '_controller' => 'App\\Controller\\UserController::SupprimerParapharmaciens'], ['id'], null, null, false, true, null]],
+        1870 => [[['_route' => 'supprimerPharmacien', '_controller' => 'App\\Controller\\UserController::SupprimerPharmaciens'], ['id'], null, null, false, true, null]],
+        1896 => [[['_route' => 'supprimerMedecin', '_controller' => 'App\\Controller\\UserController::SupprimerMedecins'], ['id'], null, null, false, true, null]],
+        1940 => [[['_route' => 'service_showByCenter', '_controller' => 'App\\Controller\\ServiceController::showByCenter'], ['center'], ['GET' => 0], null, false, true, null]],
+        1982 => [[['_route' => 'product_search', 'order' => 'ASC', 'by' => 'id', '_controller' => 'App\\Controller\\ServiceController::search'], ['order', 'by'], ['GET' => 0], null, false, true, null]],
+        2019 => [[['_route' => 'service_showByCenter_front', '_controller' => 'App\\Controller\\ServiceController::showByCenterFront'], ['center'], ['GET' => 0], null, false, true, null]],
+        2039 => [[['_route' => 'service_show', '_controller' => 'App\\Controller\\ServiceController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        2053 => [[['_route' => 'service_edit', '_controller' => 'App\\Controller\\ServiceController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        2062 => [[['_route' => 'service_delete', '_controller' => 'App\\Controller\\ServiceController::delete'], ['id'], ['POST' => 0], null, false, true, null]],
+        2113 => [[['_route' => 'modifierCategorieSoinMP', '_controller' => 'App\\Controller\\CategorieSoinMPController::modifierCategorieSoinMP'], ['id'], null, null, false, true, null]],
+        2143 => [[['_route' => 'modifierreclamations', '_controller' => 'App\\Controller\\ReclamationController::modifierreclamation'], ['id'], null, null, false, true, null]],
+        2167 => [[['_route' => 'modifierSoinMP', '_controller' => 'App\\Controller\\SoinMPController::modifierSoinMP'], ['id'], null, null, false, true, null]],
+        2200 => [[['_route' => 'modifiertypereclamation', '_controller' => 'App\\Controller\\TypereclamationController::modifiertypereclamation'], ['id'], null, null, false, true, null]],
+        2222 => [[['_route' => 'modifierUser', '_controller' => 'App\\Controller\\UserController::modifierUser'], ['iduser'], null, null, false, true, null]],
+        2243 => [[['_route' => 'modifierMed', '_controller' => 'App\\Controller\\UserController::modifierMed'], ['iduser'], null, null, false, true, null]],
+        2265 => [[['_route' => 'modifierPhar', '_controller' => 'App\\Controller\\UserController::modifierPhar'], ['iduser'], null, null, false, true, null]],
+        2327 => [[['_route' => 'liip_imagine_filter_runtime', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterRuntimeAction'], ['filter', 'hash', 'path'], ['GET' => 0], null, false, true, null]],
+        2354 => [[['_route' => 'liip_imagine_filter', '_controller' => 'Liip\\ImagineBundle\\Controller\\ImagineController::filterAction'], ['filter', 'path'], ['GET' => 0], null, false, true, null]],
+        2427 => [[['_route' => 'modifierListProduit', '_controller' => 'App\\Controller\\ListProduitController::modifierPara'], ['id', 'idpanier', 'iduser', 'idprod'], null, null, false, true, null]],
+        2461 => [[['_route' => 'modifierProduit', '_controller' => 'App\\Controller\\ProduitController::modifierPara'], ['id', 'iduser'], null, null, false, true, null]],
+        2498 => [[['_route' => 'Medicamentremove', '_controller' => 'App\\Controller\\MedicamentController::remove'], ['id'], null, null, false, true, null]],
+        2524 => [[['_route' => 'Medicamentmodifier', '_controller' => 'App\\Controller\\MedicamentController::medicamentmodifier'], ['id'], null, null, false, true, null]],
+        2559 => [[['_route' => 'listp', '_controller' => 'App\\Controller\\ListProduitController::listp'], ['idpanier', 'idpara'], null, null, false, true, null]],
+        2597 => [[['_route' => 'Ordonnanceremove', '_controller' => 'App\\Controller\\OrdonnanceController::remove'], ['id'], null, null, false, true, null]],
+        2623 => [[['_route' => 'Ordonnancemodifier', '_controller' => 'App\\Controller\\OrdonnanceController::modifier'], ['id'], null, null, false, true, null]],
+        2681 => [[['_route' => 'modifierParapharmacie', '_controller' => 'App\\Controller\\ParapharmacieController::modifierPara'], ['id'], null, null, false, true, null]],
+        2709 => [[['_route' => 'postt_show', '_controller' => 'App\\Controller\\PosttController::show'], ['id'], ['GET' => 0], null, false, true, null]],
+        2723 => [[['_route' => 'postt_edit', '_controller' => 'App\\Controller\\PosttController::edit'], ['id'], ['GET' => 0, 'POST' => 1], null, false, false, null]],
+        2732 => [[['_route' => 'postt_delete', '_controller' => 'App\\Controller\\PosttController::delete'], ['id'], ['DELETE' => 0], null, false, true, null]],
+        2752 => [[['_route' => 'post_index_category', '_controller' => 'App\\Controller\\Website\\PostController::index', '_locale' => 'en'], ['category'], null, null, false, true, null]],
+        2788 => [[['_route' => 'updateCategorie', '_controller' => 'App\\Controller\\PostCategorieController::updateCategorie'], ['id'], null, null, false, true, null]],
+        2818 => [[['_route' => 'repondre', '_controller' => 'App\\Controller\\ReclamationController::repondrereclamation'], ['id'], null, null, false, true, null]],
+        2856 => [[['_route' => 'modifierRegion', '_controller' => 'App\\Controller\\RegionsController::modifierPara'], ['id'], null, null, false, true, null]],
+        2886 => [[['_route' => 'envreponse', '_controller' => 'App\\Controller\\ReclamationController::envoyerreponse'], ['id'], ['GET' => 0], null, false, true, null]],
+        2924 => [[['_route' => 'impression', '_controller' => 'App\\Controller\\SoinMPController::impression'], ['id', 'iduser'], null, null, false, true, null]],
+        2951 => [
+            [['_route' => 'post_detail', '_controller' => 'App\\Controller\\Website\\PostController::detail'], ['_locale', 'slug'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

@@ -9,6 +9,30 @@
       "css": [
         "http://localhost:8080/build/app.css"
       ]
+    },
+"website": {
+      "js": [
+        "/build/runtime.1ba6bf05.js",
+        "/build/0.f84fc6d1.js",
+        "/build/1.5de4d7ce.js",
+        "/build/website.8964a68a.js"
+      ],
+      "css": [
+        "/build/1.b503671d.css",
+        "/build/website.8c71383b.css"
+      ]
+    },
+    "admin": {
+      "js": [
+        "/build/runtime.1ba6bf05.js",
+        "/build/0.f84fc6d1.js",
+        "/build/2.6bddd20e.js",
+        "/build/admin.1a70235f.js"
+      ],
+      "css": [
+        "/build/2.d7e8898a.css",
+        "/build/admin.8a5488d5.css"
+      ]
     }
   }
 }

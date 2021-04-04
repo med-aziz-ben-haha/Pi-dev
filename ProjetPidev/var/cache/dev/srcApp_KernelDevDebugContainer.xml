@@ -28,6 +28,9 @@
       <parameter key="CaptchaBundle">Captcha\Bundle\CaptchaBundle\CaptchaBundle</parameter>
       <parameter key="SwiftmailerBundle">Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle</parameter>
       <parameter key="KnpSnappyBundle">Knp\Bundle\SnappyBundle\KnpSnappyBundle</parameter>
+      <parameter key="StofDoctrineExtensionsBundle">Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle</parameter>
+      <parameter key="LiipImagineBundle">Liip\ImagineBundle\LiipImagineBundle</parameter>
+      <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -106,6 +109,18 @@
         <parameter key="path">C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/vendor/knplabs/knp-snappy-bundle/src</parameter>
         <parameter key="namespace">Knp\Bundle\SnappyBundle</parameter>
       </parameter>
+      <parameter key="StofDoctrineExtensionsBundle" type="collection">
+        <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\stof\doctrine-extensions-bundle\src</parameter>
+        <parameter key="namespace">Stof\DoctrineExtensionsBundle</parameter>
+      </parameter>
+      <parameter key="LiipImagineBundle" type="collection">
+        <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\liip\imagine-bundle</parameter>
+        <parameter key="namespace">Liip\ImagineBundle</parameter>
+      </parameter>
+      <parameter key="WebpackEncoreBundle" type="collection">
+        <parameter key="path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\webpack-encore-bundle\src</parameter>
+        <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
+      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">srcApp_KernelDevDebugContainer</parameter>
@@ -114,6 +129,12 @@
     <parameter key="twilio_sid">AC4e90752645b1901c9dd2da1f3a1d41d4</parameter>
     <parameter key="twilio_token">78cfde211831c332f2b6251099c5ea4a</parameter>
     <parameter key="twilio_number" type="string">+12402610130</parameter>
+    <parameter key="locale">en</parameter>
+    <parameter key="app_locales">%env(APP_LOCALES)%</parameter>
+    <parameter key="app_countries_locales" type="collection">
+      <parameter key="en">en_US</parameter>
+      <parameter key="pt">pt_BR</parameter>
+    </parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -265,6 +286,7 @@
       <parameter>@Captcha/captcha.html.twig</parameter>
       <parameter>form_div_layout.html.twig</parameter>
       <parameter>bootstrap_4_layout.html.twig</parameter>
+      <parameter>@LiipImagine/Form/form_div_layout.html.twig</parameter>
     </parameter>
     <parameter key="twig.default_path">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/templates</parameter>
     <parameter key="web_profiler.debug_toolbar.intercept_redirects">false</parameter>
@@ -328,6 +350,69 @@
     <parameter key="knp_snappy.image.binary">%env(WKHTMLTOIMAGE_PATH)%</parameter>
     <parameter key="knp_snappy.image.options" type="collection"/>
     <parameter key="knp_snappy.image.env" type="collection"/>
+    <parameter key="stof_doctrine_extensions.default_locale">en_US</parameter>
+    <parameter key="stof_doctrine_extensions.translation_fallback">false</parameter>
+    <parameter key="stof_doctrine_extensions.persist_default_translation">false</parameter>
+    <parameter key="stof_doctrine_extensions.skip_translation_on_load">false</parameter>
+    <parameter key="stof_doctrine_extensions.listener.translatable.class">Gedmo\Translatable\TranslatableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.timestampable.class">Gedmo\Timestampable\TimestampableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.blameable.class">Gedmo\Blameable\BlameableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sluggable.class">Gedmo\Sluggable\SluggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.tree.class">Gedmo\Tree\TreeListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.loggable.class">Gedmo\Loggable\LoggableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.sortable.class">Gedmo\Sortable\SortableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.softdeleteable.class">Gedmo\SoftDeleteable\SoftDeleteableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.uploadable.class">Gedmo\Uploadable\UploadableListener</parameter>
+    <parameter key="stof_doctrine_extensions.listener.reference_integrity.class">Gedmo\ReferenceIntegrity\ReferenceIntegrityListener</parameter>
+    <parameter key="liip_imagine.resolvers" type="collection">
+      <parameter key="default" type="collection">
+        <parameter key="web_path" type="collection">
+          <parameter key="web_root">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public</parameter>
+          <parameter key="cache_prefix">media/cache</parameter>
+        </parameter>
+      </parameter>
+    </parameter>
+    <parameter key="liip_imagine.loaders" type="collection">
+      <parameter key="default" type="collection">
+        <parameter key="filesystem" type="collection">
+          <parameter key="locator">filesystem</parameter>
+          <parameter key="data_root" type="collection">
+            <parameter>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public</parameter>
+          </parameter>
+          <parameter key="allow_unresolvable_data_roots">false</parameter>
+          <parameter key="bundle_resources" type="collection">
+            <parameter key="enabled">false</parameter>
+            <parameter key="access_control_type">blacklist</parameter>
+            <parameter key="access_control_list" type="collection"/>
+          </parameter>
+        </parameter>
+      </parameter>
+    </parameter>
+    <parameter key="liip_imagine.jpegoptim.binary">/usr/bin/jpegoptim</parameter>
+    <parameter key="liip_imagine.jpegoptim.stripAll">true</parameter>
+    <parameter key="liip_imagine.jpegoptim.max">null</parameter>
+    <parameter key="liip_imagine.jpegoptim.progressive">true</parameter>
+    <parameter key="liip_imagine.jpegoptim.tempDir">null</parameter>
+    <parameter key="liip_imagine.optipng.binary">/usr/bin/optipng</parameter>
+    <parameter key="liip_imagine.optipng.level">7</parameter>
+    <parameter key="liip_imagine.optipng.stripAll">true</parameter>
+    <parameter key="liip_imagine.optipng.tempDir">null</parameter>
+    <parameter key="liip_imagine.pngquant.binary">/usr/bin/pngquant</parameter>
+    <parameter key="liip_imagine.mozjpeg.binary">/opt/mozjpeg/bin/cjpeg</parameter>
+    <parameter key="liip_imagine.driver_service">liip_imagine.gd</parameter>
+    <parameter key="liip_imagine.cache.resolver.default">default</parameter>
+    <parameter key="liip_imagine.default_image">null</parameter>
+    <parameter key="liip_imagine.filter_sets" type="collection"/>
+    <parameter key="liip_imagine.binary.loader.default">default</parameter>
+    <parameter key="liip_imagine.controller.filter_action">Liip\ImagineBundle\Controller\ImagineController::filterAction</parameter>
+    <parameter key="liip_imagine.controller.filter_runtime_action">Liip\ImagineBundle\Controller\ImagineController::filterRuntimeAction</parameter>
+    <parameter key="liip_imagine.webp.generate">false</parameter>
+    <parameter key="liip_imagine.webp.options" type="collection">
+      <parameter key="quality">100</parameter>
+      <parameter key="cache">null</parameter>
+      <parameter key="data_loader">null</parameter>
+      <parameter key="post_processors" type="collection"/>
+    </parameter>
     <parameter key="data_collector.templates" type="collection">
       <parameter key="data_collector.request" type="collection">
         <parameter>request</parameter>
@@ -421,168 +506,257 @@
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\AdminController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\AdminController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\CategoryController" class="App\Controller\Admin\CategoryController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Admin\CategoryController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\MediaController" class="App\Controller\Admin\MediaController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Admin\MediaController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\MediaDataController" class="App\Controller\Admin\MediaDataController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Admin\MediaDataController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\PagesController" class="App\Controller\Admin\PagesController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Admin\PagesController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\PostController" class="App\Controller\Admin\PostController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Admin\PostController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Admin\SettingController" class="App\Controller\Admin\SettingController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Admin\SettingController"/>
       </call>
     </service>
     <service id="App\Controller\ApiController" class="App\Controller\ApiController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ApiController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\ApiController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Api\FolderController" class="App\Controller\Api\FolderController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Api\FolderController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Api\MediaController" class="App\Controller\Api\MediaController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="App\Service\UploaderHelper"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="knp_paginator"/>
+      <argument type="service" id="security.token_storage"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Api\MediaController"/>
       </call>
     </service>
     <service id="App\Controller\CalendarController" class="App\Controller\CalendarController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CalendarController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\CalendarController"/>
       </call>
     </service>
     <service id="App\Controller\CategorieProduitController" class="App\Controller\CategorieProduitController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CategorieProduitController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\CategorieProduitController"/>
       </call>
     </service>
     <service id="App\Controller\CategorieSoinMPController" class="App\Controller\CategorieSoinMPController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CategorieSoinMPController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\CategorieSoinMPController"/>
       </call>
     </service>
     <service id="App\Controller\CentreMedicalController" class="App\Controller\CentreMedicalController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\CentreMedicalController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\CentreMedicalController"/>
       </call>
     </service>
     <service id="App\Controller\ContactController" class="App\Controller\ContactController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ContactController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\ContactController"/>
       </call>
     </service>
     <service id="App\Controller\GoogleController" class="App\Controller\GoogleController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\GoogleController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\GoogleController"/>
       </call>
     </service>
     <service id="App\Controller\ListProduitController" class="App\Controller\ListProduitController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ListProduitController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\ListProduitController"/>
       </call>
     </service>
     <service id="App\Controller\MainController" class="App\Controller\MainController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\MainController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\MainController"/>
       </call>
     </service>
     <service id="App\Controller\MedicamentController" class="App\Controller\MedicamentController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\MedicamentController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\MedicamentController"/>
       </call>
     </service>
     <service id="App\Controller\NoteSoinMPController" class="App\Controller\NoteSoinMPController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\NoteSoinMPController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\NoteSoinMPController"/>
       </call>
     </service>
     <service id="App\Controller\OrdonnanceController" class="App\Controller\OrdonnanceController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\OrdonnanceController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\OrdonnanceController"/>
       </call>
     </service>
     <service id="App\Controller\PanierController" class="App\Controller\PanierController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\PanierController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\PanierController"/>
       </call>
     </service>
     <service id="App\Controller\ParapharmacieController" class="App\Controller\ParapharmacieController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ParapharmacieController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\ParapharmacieController"/>
       </call>
     </service>
     <service id="App\Controller\PostCategorieController" class="App\Controller\PostCategorieController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\PostCategorieController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\PostCategorieController"/>
       </call>
     </service>
     <service id="App\Controller\PosttController" class="App\Controller\PosttController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\PosttController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\PosttController"/>
       </call>
     </service>
     <service id="App\Controller\ProduitController" class="App\Controller\ProduitController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ProduitController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\ProduitController"/>
       </call>
     </service>
     <service id="App\Controller\ReclamationController" class="App\Controller\ReclamationController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ReclamationController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\ReclamationController"/>
       </call>
     </service>
     <service id="App\Controller\RegionsController" class="App\Controller\RegionsController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\RegionsController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\RegionsController"/>
       </call>
     </service>
     <service id="App\Controller\ServiceController" class="App\Controller\ServiceController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\ServiceController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\ServiceController"/>
       </call>
     </service>
     <service id="App\Controller\SoinMPController" class="App\Controller\SoinMPController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\SoinMPController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\SoinMPController"/>
       </call>
     </service>
     <service id="App\Controller\TypereclamationController" class="App\Controller\TypereclamationController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\TypereclamationController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\TypereclamationController"/>
       </call>
     </service>
     <service id="App\Controller\UserController" class="App\Controller\UserController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.vdmMuyE.App\Controller\UserController"/>
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\UserController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Website\PagesController" class="App\Controller\Website\PagesController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Website\PagesController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Website\PostController" class="App\Controller\Website\PostController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Website\PostController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Website\SecurityController" class="App\Controller\Website\SecurityController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Website\SecurityController"/>
+      </call>
+    </service>
+    <service id="App\Controller\Website\SitemapController" class="App\Controller\Website\SitemapController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.QfUaddv.App\Controller\Website\SitemapController"/>
       </call>
     </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
@@ -606,6 +780,10 @@
     <service id="App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
     <service id="App\Form\CentreMedicalType" class="App\Form\CentreMedicalType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -615,8 +793,21 @@
     <service id="App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
+    <service id="App\Form\HomepageRepository" class="App\Form\HomepageRepository" autowire="true" autoconfigure="true"/>
+    <service id="App\Form\HomepageType" class="App\Form\HomepageType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
     <service id="App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Form\MediaDataType" class="App\Form\MediaDataType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="App\Form\MediaType" class="App\Form\MediaType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Form\MedicamentType" class="App\Form\MedicamentType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -626,6 +817,11 @@
     </service>
     <service id="App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Form\PostType" class="App\Form\PostType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
+      <argument type="service" id="request_stack"/>
     </service>
     <service id="App\Form\PosttType" class="App\Form\PosttType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -644,6 +840,10 @@
     </service>
     <service id="App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+    </service>
+    <service id="App\Form\SettingType" class="App\Form\SettingType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
@@ -697,7 +897,19 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\CentreMedicalRepository" class="App\Repository\CentreMedicalRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\FolderRepository" class="App\Repository\FolderRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\HomepageRepository" class="App\Repository\HomepageRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -709,7 +921,19 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\MediaDataRepository" class="App\Repository\MediaDataRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\MediaPostRelRepository" class="App\Repository\MediaPostRelRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\MediaTypeRepository" class="App\Repository\MediaTypeRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -730,6 +954,14 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\PostCategoryRepository" class="App\Repository\PostCategoryRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\PostRepository" class="App\Repository\PostRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -761,7 +993,15 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\SettingRepository" class="App\Repository\SettingRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\SoinMPRepository" class="App\Repository\SoinMPRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Repository\TemplateRepository" class="App\Repository\TemplateRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
@@ -772,6 +1012,22 @@
     <service id="App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
+    </service>
+    <service id="App\Service\MediaHelper" class="App\Service\MediaHelper" autowire="true" autoconfigure="true">
+      <argument type="service" id="App\Service\UploaderHelper"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
+    <service id="App\Service\UploaderHelper" class="App\Service\UploaderHelper" autowire="true" autoconfigure="true">
+      <argument>uploads/media</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev</argument>
+      <argument type="service" id="filesystem"/>
+    </service>
+    <service id="App\Twig\GalleryExtension" class="App\Twig\GalleryExtension" autowire="true" autoconfigure="true">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="App\Twig\WebsiteExtension" class="App\Twig\WebsiteExtension" autowire="true" autoconfigure="true">
+      <tag name="twig.extension"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
     <service id="twilio.client" class="Twilio\Rest\Client" autowire="true" autoconfigure="true">
       <argument>AC4e90752645b1901c9dd2da1f3a1d41d4</argument>
@@ -894,6 +1150,9 @@
         <argument key="monolog.handler.main" type="service" id="monolog.handler.main" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.console" type="service" id="monolog.handler.console" on-invalid="ignore_uninitialized"/>
         <argument key="swiftmailer.email_sender.listener" type="service" id="swiftmailer.email_sender.listener" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.tag_renderer" type="service" id="webpack_encore.tag_renderer" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="service" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
         <argument key="cache.app" type="collection">
@@ -952,6 +1211,15 @@
           <argument>reset</argument>
         </argument>
         <argument key="swiftmailer.email_sender.listener" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.tag_renderer" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.webpack_encore" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="collection">
           <argument>reset</argument>
         </argument>
       </argument>
@@ -1068,6 +1336,7 @@
         <argument>cache.doctrine.orm.default.result</argument>
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
+        <argument>cache.webpack_encore</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:list</argument>
@@ -1195,6 +1464,7 @@
         <argument>App\Form</argument>
         <argument>Symfony\Bridge\Doctrine\Form\Type</argument>
         <argument></argument>
+        <argument>Liip\ImagineBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
         <argument>App\Form\CalendarType</argument>
@@ -1203,19 +1473,25 @@
         <argument>App\Form\CategorieProduitType</argument>
         <argument>App\Form\CategorieSoinMPRechercheType</argument>
         <argument>App\Form\CategorieSoinMPType</argument>
+        <argument>App\Form\CategoryType</argument>
         <argument>App\Form\CentreMedicalType</argument>
         <argument>App\Form\ConnexionType</argument>
         <argument>App\Form\ContactType</argument>
+        <argument>App\Form\HomepageType</argument>
         <argument>App\Form\ListProduitType</argument>
+        <argument>App\Form\MediaDataType</argument>
+        <argument>App\Form\MediaType</argument>
         <argument>App\Form\MedicamentType</argument>
         <argument>App\Form\OrdonnanceType</argument>
         <argument>App\Form\ParapharmacieType</argument>
+        <argument>App\Form\PostType</argument>
         <argument>App\Form\PosttType</argument>
         <argument>App\Form\ProduitType</argument>
         <argument>App\Form\ReclamationType</argument>
         <argument>App\Form\ReclamationsType</argument>
         <argument>App\Form\RegionsType</argument>
         <argument>App\Form\ServiceType</argument>
+        <argument>App\Form\SettingType</argument>
         <argument>App\Form\SoinMPRechercheType</argument>
         <argument>App\Form\SoinMPTriDESCType</argument>
         <argument>App\Form\SoinMPTriFormType</argument>
@@ -1230,6 +1506,7 @@
         <argument>Symfony\Bridge\Doctrine\Form\Type\EntityType</argument>
         <argument>Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType</argument>
         <argument>Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType</argument>
+        <argument>Liip\ImagineBundle\Form\Type\ImageType</argument>
       </argument>
       <argument type="collection">
         <argument>Symfony\Component\Form\Extension\Core\Type\TransformationFailureExtension</argument>
@@ -1443,6 +1720,7 @@
         <argument key="cache.annotations" type="service" id="cache.annotations" on-invalid="ignore_uninitialized"/>
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="cache.global_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
@@ -1458,6 +1736,7 @@
         <argument key="cache.doctrine.orm.default.result" type="service" id="cache.doctrine.orm.default.result" on-invalid="ignore_uninitialized"/>
         <argument key="cache.doctrine.orm.default.query" type="service" id="cache.doctrine.orm.default.query" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="identity_translator" class="Symfony\Component\Translation\IdentityTranslator" public="false"/>
@@ -1560,7 +1839,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension" public="false">
-      <argument type="service" id=".service_locator.b7rZTTN"/>
+      <argument type="service" id=".service_locator.SKJiNuv"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1675,9 +1954,12 @@
     <service id="assets.json_manifest_version_strategy" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy" public="false" abstract="true">
       <argument></argument>
     </service>
+    <service id="assets._version__default" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy" public="false">
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public/build/manifest.json</argument>
+    </service>
     <service id="assets._default_package" class="Symfony\Component\Asset\PathPackage" public="false">
       <argument></argument>
-      <argument type="service" id="assets.empty_version_strategy"/>
+      <argument type="service" id="assets._version__default"/>
       <argument type="service" id="assets.context"/>
     </service>
     <service id="psr18.http_client" class="Symfony\Component\HttpClient\Psr18Client">
@@ -1867,6 +2149,19 @@
         <argument key="cache_dir">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/translations</argument>
         <argument key="debug">true</argument>
         <argument key="resource_files" type="collection">
+          <argument key="en" type="collection">
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/translations\messages.en.xlf</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.en.xliff</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
+          </argument>
+          <argument key="pt" type="collection">
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/translations\messages.pt.xlf</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
+          </argument>
           <argument key="ar" type="collection">
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.ar.xliff</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.ar.xlf</argument>
@@ -1896,12 +2191,6 @@
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.de.xlf</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.de.xlf</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.de.xlf</argument>
-          </argument>
-          <argument key="en" type="collection">
-            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.en.xliff</argument>
-            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.en.xlf</argument>
-            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.en.xlf</argument>
-            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.en.xlf</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\knplabs\knp-paginator-bundle/translations\KnpPaginatorBundle.es.xliff</argument>
@@ -2100,11 +2389,6 @@
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.nn.xlf</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.nn.xlf</argument>
           </argument>
-          <argument key="pt" type="collection">
-            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.pt.xlf</argument>
-            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.pt.xlf</argument>
-            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\validator/Resources/translations\validators.pt.xlf</argument>
-          </argument>
           <argument key="sk" type="collection">
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\form/Resources/translations\validators.sk.xlf</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\security-core/Resources/translations\security.sk.xlf</argument>
@@ -2202,6 +2486,12 @@
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/SwiftmailerBundle/translations</argument>
           <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/vendor/knplabs/knp-snappy-bundle/src/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpSnappyBundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\stof\doctrine-extensions-bundle\src/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/StofDoctrineExtensionsBundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\liip\imagine-bundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/LiipImagineBundle/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\webpack-encore-bundle\src/translations</argument>
+          <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/WebpackEncoreBundle/translations</argument>
           <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
@@ -2248,6 +2538,12 @@
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/SwiftmailerBundle/translations</argument>
             <argument>C:/Users/LENOVO/Desktop/Pi-dev/ProjetPidev/vendor/knplabs/knp-snappy-bundle/src/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/KnpSnappyBundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\stof\doctrine-extensions-bundle\src/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/StofDoctrineExtensionsBundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\liip\imagine-bundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/LiipImagineBundle/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\webpack-encore-bundle\src/translations</argument>
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/WebpackEncoreBundle/translations</argument>
             <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src/Resources/translations</argument>
           </argument>
         </argument>
@@ -2618,6 +2914,10 @@
         <argument>cache.security_expression_language</argument>
         <argument type="service" id="cache.security_expression_language"/>
       </call>
+      <call method="addInstance">
+        <argument>cache.webpack_encore</argument>
+        <argument type="service" id="cache.webpack_encore"/>
+      </call>
     </service>
     <service id=".1_ResolvedFormTypeFactory~1S8.3h5" class="Symfony\Component\Form\ResolvedFormTypeFactory" public="false"/>
     <service id="form.type_extension.form.data_collector" class="Symfony\Component\Form\Extension\DataCollector\Type\DataCollectorTypeExtension" public="false">
@@ -2698,6 +2998,14 @@
         <argument type="collection">
           <argument type="service" id="knp_paginator.subscriber.sliding_pagination"/>
           <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service" id="webpack_encore.exception_listener"/>
+          <argument>onKernelException</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -2970,22 +3278,6 @@
         <argument type="collection">
           <argument type="service" id="sensio_framework_extra.converter.listener"/>
           <argument>onKernelController</argument>
-        </argument>
-        <argument>0</argument>
-      </call>
-      <call method="addListener">
-        <argument>kernel.controller</argument>
-        <argument type="collection">
-          <argument type="service" id="sensio_framework_extra.view.listener"/>
-          <argument>onKernelController</argument>
-        </argument>
-        <argument>-128</argument>
-      </call>
-      <call method="addListener">
-        <argument>kernel.view</argument>
-        <argument type="collection">
-          <argument type="service" id="sensio_framework_extra.view.listener"/>
-          <argument>onKernelView</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -3276,7 +3568,7 @@
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router" public="false">
       <tag name="monolog.logger" channel="router"/>
       <tag name="container.service_subscriber" id="routing.loader"/>
-      <argument type="service" id=".service_locator.n0p5GNi.router.default"/>
+      <argument type="service" id=".service_locator.mesbTvA.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
         <argument key="cache_dir">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev</argument>
@@ -3594,15 +3886,6 @@
     <service id="sensio_framework_extra.view.guesser" class="Sensio\Bundle\FrameworkExtraBundle\Templating\TemplateGuesser">
       <argument type="service" id="kernel"/>
     </service>
-    <service id="sensio_framework_extra.view.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener">
-      <tag name="kernel.event_subscriber"/>
-      <tag name="container.service_subscriber" id="twig"/>
-      <tag name="container.hot_path"/>
-      <argument type="service" id="sensio_framework_extra.view.guesser"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.C2Thyvr.sensio_framework_extra.view.listener"/>
-      </call>
-    </service>
     <service id="sensio_framework_extra.cache.listener" class="Sensio\Bundle\FrameworkExtraBundle\EventListener\HttpCacheListener">
       <tag name="kernel.event_subscriber"/>
       <tag name="container.hot_path"/>
@@ -3768,7 +4051,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.EahblP0"/>
+      <argument type="service" id=".service_locator.JGC_eBy"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -4759,6 +5042,12 @@
         <argument type="service" id="twig.extension.dump"/>
       </call>
       <call method="addExtension">
+        <argument type="service" id="App\Twig\GalleryExtension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="App\Twig\WebsiteExtension"/>
+      </call>
+      <call method="addExtension">
         <argument type="service" id="doctrine.twig.doctrine_extension"/>
       </call>
       <call method="addExtension">
@@ -4769,6 +5058,15 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="ob_highcharts.twig.highcharts_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="liip_imagine.templating.filter_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="webpack_encore.twig_entry_files_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="webpack_encore.twig_stimulus_extension"/>
       </call>
       <call method="addGlobal">
         <argument>app</argument>
@@ -4901,6 +5199,14 @@
       <call method="addPath">
         <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\symfony\swiftmailer-bundle/Resources/views</argument>
         <argument>!Swiftmailer</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\liip\imagine-bundle/Resources/views</argument>
+        <argument>LiipImagine</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\vendor\liip\imagine-bundle/Resources/views</argument>
+        <argument>!LiipImagine</argument>
       </call>
       <call method="addPath">
         <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/templates</argument>
@@ -5706,12 +6012,571 @@
         <argument type="service" id="monolog.logger.snappy" on-invalid="ignore"/>
       </call>
     </service>
+    <service id="liip_imagine.mime_types" class="Symfony\Component\Mime\MimeTypes">
+      <factory class="Symfony\Component\Mime\MimeTypes" method="getDefault"/>
+    </service>
+    <service id="liip_imagine.cache.resolver.default" class="Liip\ImagineBundle\Imagine\Cache\Resolver\WebPathResolver" public="true">
+      <tag name="liip_imagine.cache.resolver" resolver="default"/>
+      <argument type="service" id="filesystem"/>
+      <argument type="service" id="router.request_context"/>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public</argument>
+      <argument>media/cache</argument>
+    </service>
+    <service id="liip_imagine.binary.loader.default" class="Liip\ImagineBundle\Binary\Loader\FileSystemLoader" public="true">
+      <tag name="liip_imagine.binary.loader" loader="default"/>
+      <argument type="service">
+        <service class="Symfony\Component\Mime\MimeTypes">
+          <factory class="Symfony\Component\Mime\MimeTypes" method="getDefault"/>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="Symfony\Component\Mime\MimeTypes">
+          <factory class="Symfony\Component\Mime\MimeTypes" method="getDefault"/>
+        </service>
+      </argument>
+      <argument type="service">
+        <service class="Liip\ImagineBundle\Binary\Locator\FileSystemLocator" public="false">
+          <argument type="collection">
+            <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public</argument>
+          </argument>
+          <argument>false</argument>
+        </service>
+      </argument>
+    </service>
+    <service id="liip_imagine.factory.config.filter.argument.point" class="Liip\ImagineBundle\Factory\Config\Filter\Argument\PointFactory"/>
+    <service id="liip_imagine.factory.config.filter.argument.size" class="Liip\ImagineBundle\Factory\Config\Filter\Argument\SizeFactory"/>
+    <service id="liip_imagine.factory.config.stack" class="Liip\ImagineBundle\Factory\Config\StackFactory"/>
+    <service id="liip_imagine.factory.config.filter.auto_rotate" class="Liip\ImagineBundle\Factory\Config\Filter\AutoRotateFactory"/>
+    <service id="liip_imagine.factory.config.filter.background" class="Liip\ImagineBundle\Factory\Config\Filter\BackgroundFactory">
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.size"/>
+    </service>
+    <service id="liip_imagine.factory.config.filter.crop" class="Liip\ImagineBundle\Factory\Config\Filter\CropFactory">
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.size"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.point"/>
+    </service>
+    <service id="liip_imagine.factory.config.filter.downscale" class="Liip\ImagineBundle\Factory\Config\Filter\DownscaleFactory">
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.size"/>
+    </service>
+    <service id="liip_imagine.factory.config.filter.flip" class="Liip\ImagineBundle\Factory\Config\Filter\FlipFactory"/>
+    <service id="liip_imagine.factory.config.filter.grayscale" class="Liip\ImagineBundle\Factory\Config\Filter\GrayscaleFactory"/>
+    <service id="liip_imagine.factory.config.filter.interlace" class="Liip\ImagineBundle\Factory\Config\Filter\InterlaceFactory"/>
+    <service id="liip_imagine.factory.config.filter.paste" class="Liip\ImagineBundle\Factory\Config\Filter\PasteFactory">
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.point"/>
+    </service>
+    <service id="liip_imagine.factory.config.filter.relative_resize" class="Liip\ImagineBundle\Factory\Config\Filter\RelativeResizeFactory"/>
+    <service id="liip_imagine.factory.config.filter.resize" class="Liip\ImagineBundle\Factory\Config\Filter\ResizeFactory">
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.size"/>
+    </service>
+    <service id="liip_imagine.factory.config.filter.rotate" class="Liip\ImagineBundle\Factory\Config\Filter\RotateFactory"/>
+    <service id="liip_imagine.factory.config.filter.scale" class="Liip\ImagineBundle\Factory\Config\Filter\ScaleFactory">
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.size"/>
+    </service>
+    <service id="liip_imagine.factory.config.filter.strip" class="Liip\ImagineBundle\Factory\Config\Filter\StripFactory"/>
+    <service id="liip_imagine.factory.config.filter.thumbnail" class="Liip\ImagineBundle\Factory\Config\Filter\ThumbnailFactory">
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.size"/>
+    </service>
+    <service id="liip_imagine.factory.config.filter.upscale" class="Liip\ImagineBundle\Factory\Config\Filter\UpscaleFactory">
+      <argument type="service" id="liip_imagine.factory.config.filter.argument.size"/>
+    </service>
+    <service id="liip_imagine.factory.config.filter.watermark" class="Liip\ImagineBundle\Factory\Config\Filter\WatermarkFactory"/>
+    <service id="liip_imagine.config.filter_factory_collection" class="Liip\ImagineBundle\Config\FilterFactoryCollection">
+      <argument type="service" id="liip_imagine.factory.config.filter.auto_rotate"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.background"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.crop"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.downscale"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.flip"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.grayscale"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.interlace"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.paste"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.relative_resize"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.resize"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.rotate"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.scale"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.strip"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.thumbnail"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.upscale"/>
+      <argument type="service" id="liip_imagine.factory.config.filter.watermark"/>
+    </service>
+    <service id="liip_imagine.config.stack_builder" class="Liip\ImagineBundle\Config\StackBuilder">
+      <argument type="service" id="liip_imagine.factory.config.stack"/>
+      <argument type="service" id="liip_imagine.config.filter_factory_collection"/>
+    </service>
+    <service id="liip_imagine.config.stack_collection" class="Liip\ImagineBundle\Config\StackCollection" public="true">
+      <argument type="service" id="liip_imagine.config.stack_builder"/>
+      <argument type="collection"/>
+    </service>
+    <service id="liip_imagine.filter.manager" class="Liip\ImagineBundle\Imagine\Filter\FilterManager" public="true">
+      <argument type="service" id="liip_imagine.filter.configuration"/>
+      <argument type="service" id="liip_imagine.gd"/>
+      <argument type="service" id="liip_imagine.binary.mime_type_guesser"/>
+      <call method="addLoader">
+        <argument>relative_resize</argument>
+        <argument type="service" id="liip_imagine.filter.loader.relative_resize"/>
+      </call>
+      <call method="addLoader">
+        <argument>resize</argument>
+        <argument type="service" id="liip_imagine.filter.loader.resize"/>
+      </call>
+      <call method="addLoader">
+        <argument>thumbnail</argument>
+        <argument type="service" id="liip_imagine.filter.loader.thumbnail"/>
+      </call>
+      <call method="addLoader">
+        <argument>crop</argument>
+        <argument type="service" id="liip_imagine.filter.loader.crop"/>
+      </call>
+      <call method="addLoader">
+        <argument>grayscale</argument>
+        <argument type="service" id="liip_imagine.filter.loader.grayscale"/>
+      </call>
+      <call method="addLoader">
+        <argument>paste_image</argument>
+        <argument type="service" id="liip_imagine.filter.loader.paste_image"/>
+      </call>
+      <call method="addLoader">
+        <argument>paste</argument>
+        <argument type="service" id="liip_imagine.filter.loader.paste"/>
+      </call>
+      <call method="addLoader">
+        <argument>watermark</argument>
+        <argument type="service" id="liip_imagine.filter.loader.watermark"/>
+      </call>
+      <call method="addLoader">
+        <argument>watermark_image</argument>
+        <argument type="service" id="liip_imagine.filter.loader.watermark_image"/>
+      </call>
+      <call method="addLoader">
+        <argument>background</argument>
+        <argument type="service" id="liip_imagine.filter.loader.background"/>
+      </call>
+      <call method="addLoader">
+        <argument>strip</argument>
+        <argument type="service" id="liip_imagine.filter.loader.strip"/>
+      </call>
+      <call method="addLoader">
+        <argument>scale</argument>
+        <argument type="service" id="liip_imagine.filter.loader.scale"/>
+      </call>
+      <call method="addLoader">
+        <argument>upscale</argument>
+        <argument type="service" id="liip_imagine.filter.loader.upscale"/>
+      </call>
+      <call method="addLoader">
+        <argument>downscale</argument>
+        <argument type="service" id="liip_imagine.filter.loader.downscale"/>
+      </call>
+      <call method="addLoader">
+        <argument>auto_rotate</argument>
+        <argument type="service" id="liip_imagine.filter.loader.auto_rotate"/>
+      </call>
+      <call method="addLoader">
+        <argument>rotate</argument>
+        <argument type="service" id="liip_imagine.filter.loader.rotate"/>
+      </call>
+      <call method="addLoader">
+        <argument>flip</argument>
+        <argument type="service" id="liip_imagine.filter.loader.flip"/>
+      </call>
+      <call method="addLoader">
+        <argument>interlace</argument>
+        <argument type="service" id="liip_imagine.filter.loader.interlace"/>
+      </call>
+      <call method="addLoader">
+        <argument>resample</argument>
+        <argument type="service" id="liip_imagine.filter.loader.resample"/>
+      </call>
+      <call method="addLoader">
+        <argument>fixed</argument>
+        <argument type="service" id="liip_imagine.filter.loader.fixed"/>
+      </call>
+      <call method="addPostProcessor">
+        <argument>jpegoptim</argument>
+        <argument type="service" id="liip_imagine.filter.post_processor.jpegoptim"/>
+      </call>
+      <call method="addPostProcessor">
+        <argument>optipng</argument>
+        <argument type="service" id="liip_imagine.filter.post_processor.optipng"/>
+      </call>
+      <call method="addPostProcessor">
+        <argument>pngquant</argument>
+        <argument type="service" id="liip_imagine.filter.post_processor.pngquant"/>
+      </call>
+      <call method="addPostProcessor">
+        <argument>mozjpeg</argument>
+        <argument type="service" id="liip_imagine.filter.post_processor.mozjpeg"/>
+      </call>
+    </service>
+    <service id="liip_imagine.data.manager" class="Liip\ImagineBundle\Imagine\Data\DataManager" public="true">
+      <argument type="service" id="liip_imagine.binary.mime_type_guesser"/>
+      <argument type="service">
+        <service class="Symfony\Component\Mime\MimeTypes">
+          <factory class="Symfony\Component\Mime\MimeTypes" method="getDefault"/>
+        </service>
+      </argument>
+      <argument type="service" id="liip_imagine.filter.configuration"/>
+      <argument>default</argument>
+      <argument>null</argument>
+      <call method="addLoader">
+        <argument>default</argument>
+        <argument type="service" id="liip_imagine.binary.loader.default"/>
+      </call>
+    </service>
+    <service id="liip_imagine.cache.manager" class="Liip\ImagineBundle\Imagine\Cache\CacheManager" public="true">
+      <argument type="service" id="liip_imagine.filter.configuration"/>
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="liip_imagine.cache.signer"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <argument>default</argument>
+      <argument>false</argument>
+      <call method="addResolver">
+        <argument>default</argument>
+        <argument type="service" id="liip_imagine.cache.resolver.default"/>
+      </call>
+      <call method="addResolver">
+        <argument>no_cache</argument>
+        <argument type="service" id="liip_imagine.cache.resolver.no_cache_web_path"/>
+      </call>
+    </service>
+    <service id="liip_imagine.filter.configuration" class="Liip\ImagineBundle\Imagine\Filter\FilterConfiguration">
+      <argument type="collection"/>
+    </service>
+    <service id="liip_imagine.service.filter" class="Liip\ImagineBundle\Service\FilterService">
+      <argument type="service" id="liip_imagine.data.manager"/>
+      <argument type="service" id="liip_imagine.filter.manager"/>
+      <argument type="service" id="liip_imagine.cache.manager"/>
+      <argument>false</argument>
+      <argument>%liip_imagine.webp.options%</argument>
+      <argument type="service" id="monolog.logger" on-invalid="ignore"/>
+    </service>
+    <service id="liip_imagine.controller.config" class="Liip\ImagineBundle\Config\Controller\ControllerConfig" public="false">
+      <argument>301</argument>
+    </service>
+    <service id="Liip\ImagineBundle\Controller\ImagineController" class="Liip\ImagineBundle\Controller\ImagineController" public="true">
+      <argument type="service" id="liip_imagine.service.filter"/>
+      <argument type="service" id="liip_imagine.data.manager"/>
+      <argument type="service" id="liip_imagine.cache.signer"/>
+      <argument type="service" id="liip_imagine.controller.config"/>
+    </service>
+    <service id="liip_imagine.meta_data.reader" class="Imagine\Image\Metadata\ExifMetadataReader" public="false"/>
+    <service id="liip_imagine.gd" class="Imagine\Gd\Imagine" public="false">
+      <call method="setMetadataReader">
+        <argument type="service" id="liip_imagine.meta_data.reader"/>
+      </call>
+    </service>
+    <service id="liip_imagine.imagick" class="Imagine\Imagick\Imagine" public="false">
+      <call method="setMetadataReader">
+        <argument type="service" id="liip_imagine.meta_data.reader"/>
+      </call>
+    </service>
+    <service id="liip_imagine.gmagick" class="Imagine\Gmagick\Imagine" public="false">
+      <call method="setMetadataReader">
+        <argument type="service" id="liip_imagine.meta_data.reader"/>
+      </call>
+    </service>
+    <service id="liip_imagine.templating.filter_extension" class="Liip\ImagineBundle\Templating\FilterExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id="liip_imagine.cache.manager"/>
+    </service>
+    <service id="liip_imagine.filter.loader.relative_resize" class="Liip\ImagineBundle\Imagine\Filter\Loader\RelativeResizeFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="relative_resize"/>
+    </service>
+    <service id="liip_imagine.filter.loader.resize" class="Liip\ImagineBundle\Imagine\Filter\Loader\ResizeFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="resize"/>
+    </service>
+    <service id="liip_imagine.filter.loader.thumbnail" class="Liip\ImagineBundle\Imagine\Filter\Loader\ThumbnailFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="thumbnail"/>
+    </service>
+    <service id="liip_imagine.filter.loader.crop" class="Liip\ImagineBundle\Imagine\Filter\Loader\CropFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="crop"/>
+    </service>
+    <service id="liip_imagine.filter.loader.grayscale" class="Liip\ImagineBundle\Imagine\Filter\Loader\GrayscaleFilterLoader" public="true">
+      <tag name="liip_imagine.filter.loader" loader="grayscale"/>
+    </service>
+    <service id="liip_imagine.filter.loader.paste_image" class="Liip\ImagineBundle\Imagine\Filter\Loader\PasteFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="paste_image"/>
+      <argument type="service" id="liip_imagine.gd"/>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev</argument>
+    </service>
+    <service id="liip_imagine.filter.loader.paste" class="Liip\ImagineBundle\Imagine\Filter\Loader\PasteFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="paste"/>
+      <argument type="service" id="liip_imagine.gd"/>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src</argument>
+    </service>
+    <service id="liip_imagine.filter.loader.watermark" class="Liip\ImagineBundle\Imagine\Filter\Loader\WatermarkFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="watermark"/>
+      <argument type="service" id="liip_imagine.gd"/>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\src</argument>
+    </service>
+    <service id="liip_imagine.filter.loader.watermark_image" class="Liip\ImagineBundle\Imagine\Filter\Loader\WatermarkFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="watermark_image"/>
+      <argument type="service" id="liip_imagine.gd"/>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev</argument>
+    </service>
+    <service id="liip_imagine.filter.loader.background" class="Liip\ImagineBundle\Imagine\Filter\Loader\BackgroundFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="background"/>
+      <argument type="service" id="liip_imagine.gd"/>
+    </service>
+    <service id="liip_imagine.filter.loader.strip" class="Liip\ImagineBundle\Imagine\Filter\Loader\StripFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="strip"/>
+    </service>
+    <service id="liip_imagine.filter.loader.scale" class="Liip\ImagineBundle\Imagine\Filter\Loader\ScaleFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="scale"/>
+    </service>
+    <service id="liip_imagine.filter.loader.upscale" class="Liip\ImagineBundle\Imagine\Filter\Loader\UpscaleFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="upscale"/>
+    </service>
+    <service id="liip_imagine.filter.loader.downscale" class="Liip\ImagineBundle\Imagine\Filter\Loader\DownscaleFilterLoader" public="true">
+      <tag name="liip_imagine.filter.loader" loader="downscale"/>
+    </service>
+    <service id="liip_imagine.filter.loader.auto_rotate" class="Liip\ImagineBundle\Imagine\Filter\Loader\AutoRotateFilterLoader">
+      <tag name="liip_imagine.filter.loader" loader="auto_rotate"/>
+    </service>
+    <service id="liip_imagine.filter.loader.rotate" class="Liip\ImagineBundle\Imagine\Filter\Loader\RotateFilterLoader" public="true">
+      <tag name="liip_imagine.filter.loader" loader="rotate"/>
+    </service>
+    <service id="liip_imagine.filter.loader.flip" class="Liip\ImagineBundle\Imagine\Filter\Loader\FlipFilterLoader" public="true">
+      <tag name="liip_imagine.filter.loader" loader="flip"/>
+    </service>
+    <service id="liip_imagine.filter.loader.interlace" class="Liip\ImagineBundle\Imagine\Filter\Loader\InterlaceFilterLoader" public="true">
+      <tag name="liip_imagine.filter.loader" loader="interlace"/>
+    </service>
+    <service id="liip_imagine.filter.loader.resample" class="Liip\ImagineBundle\Imagine\Filter\Loader\ResampleFilterLoader" public="true">
+      <tag name="liip_imagine.filter.loader" loader="resample"/>
+      <argument type="service" id="liip_imagine.gd"/>
+    </service>
+    <service id="liip_imagine.filter.loader.fixed" class="Liip\ImagineBundle\Imagine\Filter\Loader\FixedFilterLoader" public="true">
+      <tag name="liip_imagine.filter.loader" loader="fixed"/>
+    </service>
+    <service id="liip_imagine.binary.loader.prototype.filesystem" class="Liip\ImagineBundle\Binary\Loader\FileSystemLoader">
+      <argument type="service" id="liip_imagine.mime_type_guesser"/>
+      <argument type="service" id="liip_imagine.extension_guesser"/>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.binary.loader.prototype.stream" class="Liip\ImagineBundle\Binary\Loader\StreamLoader">
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.binary.loader.prototype.flysystem" class="Liip\ImagineBundle\Binary\Loader\FlysystemLoader" abstract="true">
+      <argument type="service" id="liip_imagine.extension_guesser"/>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.binary.loader.prototype.flysystem2" class="Liip\ImagineBundle\Binary\Loader\FlysystemV2Loader" abstract="true">
+      <argument type="service" id="liip_imagine.extension_guesser"/>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.binary.loader.prototype.chain" class="Liip\ImagineBundle\Binary\Loader\ChainLoader" abstract="true">
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.binary.locator.filesystem" class="Liip\ImagineBundle\Binary\Locator\FileSystemLocator" shared="false" public="false">
+      <tag name="liip_imagine.binary.locator" shared=""/>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.binary.locator.filesystem_insecure" class="Liip\ImagineBundle\Binary\Locator\FileSystemInsecureLocator" shared="false" public="false">
+      <tag name="liip_imagine.binary.locator" shared=""/>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.cache.resolver.prototype.web_path" class="Liip\ImagineBundle\Imagine\Cache\Resolver\WebPathResolver" public="true" abstract="true">
+      <argument type="service" id="filesystem"/>
+      <argument type="service" id="router.request_context"/>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.cache.resolver.prototype.aws_s3" class="Liip\ImagineBundle\Imagine\Cache\Resolver\AwsS3Resolver" public="true" abstract="true">
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.cache.resolver.prototype.cache" class="Liip\ImagineBundle\Imagine\Cache\Resolver\CacheResolver" public="true" abstract="true">
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.cache.resolver.prototype.flysystem" class="Liip\ImagineBundle\Imagine\Cache\Resolver\FlysystemResolver" public="true" abstract="true">
+      <argument></argument>
+      <argument type="service" id="router.request_context"/>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.cache.resolver.prototype.flysystem2" class="Liip\ImagineBundle\Imagine\Cache\Resolver\FlysystemV2Resolver" public="true" abstract="true">
+      <argument></argument>
+      <argument type="service" id="router.request_context"/>
+      <argument></argument>
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.cache.resolver.prototype.proxy" class="Liip\ImagineBundle\Imagine\Cache\Resolver\ProxyResolver" public="true" abstract="true">
+      <argument></argument>
+      <argument></argument>
+    </service>
+    <service id="liip_imagine.cache.resolver.no_cache_web_path" class="Liip\ImagineBundle\Imagine\Cache\Resolver\NoCacheWebPathResolver" public="true">
+      <tag name="liip_imagine.cache.resolver" resolver="no_cache"/>
+      <argument type="service" id="router.request_context"/>
+    </service>
+    <service id="liip_imagine.form.type.image" class="Liip\ImagineBundle\Form\Type\ImageType">
+      <tag name="form.type" alias="liip_imagine_image"/>
+    </service>
+    <service id="liip_imagine.mime_type_guesser" class="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesserInterface">
+      <factory class="Symfony\Component\HttpFoundation\File\MimeType\MimeTypeGuesser" method="getInstance"/>
+    </service>
+    <service id="liip_imagine.extension_guesser" class="Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesserInterface">
+      <factory class="Symfony\Component\HttpFoundation\File\MimeType\ExtensionGuesser" method="getInstance"/>
+    </service>
+    <service id="liip_imagine.binary.mime_type_guesser" class="Liip\ImagineBundle\Binary\SimpleMimeTypeGuesser">
+      <argument type="service">
+        <service class="Symfony\Component\Mime\MimeTypes">
+          <factory class="Symfony\Component\Mime\MimeTypes" method="getDefault"/>
+        </service>
+      </argument>
+    </service>
+    <service id="liip_imagine.cache.signer" class="Liip\ImagineBundle\Imagine\Cache\Signer" public="true">
+      <argument>%env(APP_SECRET)%</argument>
+    </service>
+    <service id="liip_imagine.filter.post_processor.jpegoptim" class="Liip\ImagineBundle\Imagine\Filter\PostProcessor\JpegOptimPostProcessor">
+      <tag name="liip_imagine.filter.post_processor" post_processor="jpegoptim"/>
+      <argument>/usr/bin/jpegoptim</argument>
+      <argument>true</argument>
+      <argument>null</argument>
+      <argument>true</argument>
+      <argument>null</argument>
+    </service>
+    <service id="liip_imagine.filter.post_processor.optipng" class="Liip\ImagineBundle\Imagine\Filter\PostProcessor\OptiPngPostProcessor">
+      <tag name="liip_imagine.filter.post_processor" post_processor="optipng"/>
+      <argument>/usr/bin/optipng</argument>
+      <argument>7</argument>
+      <argument>true</argument>
+      <argument>null</argument>
+    </service>
+    <service id="liip_imagine.filter.post_processor.pngquant" class="Liip\ImagineBundle\Imagine\Filter\PostProcessor\PngquantPostProcessor">
+      <tag name="liip_imagine.filter.post_processor" post_processor="pngquant"/>
+      <argument>/usr/bin/pngquant</argument>
+    </service>
+    <service id="liip_imagine.filter.post_processor.mozjpeg" class="Liip\ImagineBundle\Imagine\Filter\PostProcessor\MozJpegPostProcessor">
+      <tag name="liip_imagine.filter.post_processor" post_processor="mozjpeg"/>
+      <argument>/opt/mozjpeg/bin/cjpeg</argument>
+    </service>
+    <service id="liip_imagine.command.cache_remove" class="Liip\ImagineBundle\Command\RemoveCacheCommand">
+      <tag name="console.command" command="liip:imagine:cache:remove" alias="imagine:del"/>
+      <argument type="service" id="liip_imagine.cache.manager"/>
+      <argument type="service" id="liip_imagine.filter.manager"/>
+      <call method="setName">
+        <argument>liip:imagine:cache:remove</argument>
+      </call>
+    </service>
+    <service id="liip_imagine.command.cache_resolve" class="Liip\ImagineBundle\Command\ResolveCacheCommand">
+      <tag name="console.command" command="liip:imagine:cache:resolve" alias="imagine:get"/>
+      <argument type="service" id="liip_imagine.data.manager"/>
+      <argument type="service" id="liip_imagine.cache.manager"/>
+      <argument type="service" id="liip_imagine.filter.manager"/>
+      <call method="setName">
+        <argument>liip:imagine:cache:resolve</argument>
+      </call>
+    </service>
+    <service id="liip_imagine.templating.filter_helper" class="Liip\ImagineBundle\Templating\Helper\FilterHelper">
+      <tag name="templating.helper" alias="imagine"/>
+      <argument type="service" id="liip_imagine.cache.manager"/>
+      <deprecated>The "%service_id%" service is deprecated since LiipImagineBundle 2.2 and will be removed in 3.0.</deprecated>
+    </service>
+    <service id=".1_ServiceLocator~0T6xAYp" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="webpack_encore.entrypoint_lookup_collection" type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+        <argument key="webpack_encore.tag_renderer" type="service" id="webpack_encore.tag_renderer"/>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup_collection" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollection" public="false">
+      <argument type="service" id=".service_locator.0DpzJRH"/>
+      <argument>_default</argument>
+    </service>
+    <service id="webpack_encore.tag_renderer" class="Symfony\WebpackEncoreBundle\Asset\TagRenderer" public="false">
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="service" id="assets.packages"/>
+      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="defer">true</argument>
+      </argument>
+      <argument type="collection"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="webpack_encore.twig_entry_files_extension" class="Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension" public="false">
+      <tag name="twig.extension"/>
+      <argument type="service" id=".1_ServiceLocator~0T6xAYp"/>
+    </service>
+    <service id="webpack_encore.twig_stimulus_extension" class="Symfony\WebpackEncoreBundle\Twig\StimulusTwigExtension" public="false">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup.cache_warmer" class="Symfony\WebpackEncoreBundle\CacheWarmer\EntrypointCacheWarmer" public="false">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="collection">
+        <argument key="_default">C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public/build/entrypoints.json</argument>
+      </argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/webpack_encore.cache.php</argument>
+      <argument type="service" id="cache.webpack_encore"/>
+    </service>
+    <service id="webpack_encore.cache" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" public="false">
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/webpack_encore.cache.php</argument>
+      <argument type="service" id="cache.webpack_encore"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="cache.webpack_encore" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="false">
+      <tag name="cache.pool"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="cache.webpack_encore.recorder_inner"/>
+    </service>
+    <service id="webpack_encore.exception_listener" class="Symfony\WebpackEncoreBundle\EventListener\ExceptionListener" public="false">
+      <tag name="kernel.event_listener" event="kernel.exception"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="collection">
+        <argument>_default</argument>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup[_default]" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookup">
+      <tag name="kernel.reset" method="reset"/>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev/public/build/entrypoints.json</argument>
+      <argument>null</argument>
+      <argument>_default</argument>
+      <argument>true</argument>
+    </service>
+    <service id=".service_locator.0DpzJRH" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="_default" type="service" id="webpack_encore.entrypoint_lookup[_default]"/>
+      </argument>
+    </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\AdminController" class="App\Controller\AdminController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\CategoryController" class="App\Controller\Admin\CategoryController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\CategoryController" class="App\Controller\Admin\CategoryController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\CategoryController" class="App\Controller\Admin\CategoryController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\MediaController" class="App\Controller\Admin\MediaController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\MediaController" class="App\Controller\Admin\MediaController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\MediaController" class="App\Controller\Admin\MediaController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\MediaDataController" class="App\Controller\Admin\MediaDataController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\MediaDataController" class="App\Controller\Admin\MediaDataController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\MediaDataController" class="App\Controller\Admin\MediaDataController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\PagesController" class="App\Controller\Admin\PagesController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\PagesController" class="App\Controller\Admin\PagesController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\PagesController" class="App\Controller\Admin\PagesController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\PostController" class="App\Controller\Admin\PostController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\PostController" class="App\Controller\Admin\PostController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\PostController" class="App\Controller\Admin\PostController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\SettingController" class="App\Controller\Admin\SettingController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\SettingController" class="App\Controller\Admin\SettingController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Admin\SettingController" class="App\Controller\Admin\SettingController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\ApiController" class="App\Controller\ApiController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\FolderController" class="App\Controller\Api\FolderController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\FolderController" class="App\Controller\Api\FolderController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\FolderController" class="App\Controller\Api\FolderController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Api\MediaController" class="App\Controller\Api\MediaController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Api\MediaController" class="App\Controller\Api\MediaController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Api\MediaController" class="App\Controller\Api\MediaController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\CalendarController" class="App\Controller\CalendarController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -5778,6 +6643,18 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserController" class="App\Controller\UserController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\UserController" class="App\Controller\UserController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Website\PagesController" class="App\Controller\Website\PagesController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Website\PagesController" class="App\Controller\Website\PagesController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Website\PagesController" class="App\Controller\Website\PagesController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Website\PostController" class="App\Controller\Website\PostController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Website\PostController" class="App\Controller\Website\PostController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Website\PostController" class="App\Controller\Website\PostController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Website\SecurityController" class="App\Controller\Website\SecurityController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Website\SecurityController" class="App\Controller\Website\SecurityController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Website\SecurityController" class="App\Controller\Website\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Website\SitemapController" class="App\Controller\Website\SitemapController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Website\SitemapController" class="App\Controller\Website\SitemapController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\Website\SitemapController" class="App\Controller\Website\SitemapController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CalendarType" class="App\Form\CalendarType" autowire="true" abstract="true"/>
@@ -5792,20 +6669,30 @@
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPRechercheType" class="App\Form\CategorieSoinMPRechercheType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CategorieSoinMPType" class="App\Form\CategorieSoinMPType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\CategoryType" class="App\Form\CategoryType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\CentreMedicalType" class="App\Form\CentreMedicalType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\CentreMedicalType" class="App\Form\CentreMedicalType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ConnexionType" class="App\Form\ConnexionType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ContactType" class="App\Form\ContactType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ContactType" class="App\Form\ContactType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\HomepageType" class="App\Form\HomepageType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\HomepageType" class="App\Form\HomepageType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ListProduitType" class="App\Form\ListProduitType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MediaDataType" class="App\Form\MediaDataType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MediaDataType" class="App\Form\MediaDataType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MediaType" class="App\Form\MediaType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\MediaType" class="App\Form\MediaType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\MedicamentType" class="App\Form\MedicamentType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\MedicamentType" class="App\Form\MedicamentType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\OrdonnanceType" class="App\Form\OrdonnanceType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\OrdonnanceType" class="App\Form\OrdonnanceType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ParapharmacieType" class="App\Form\ParapharmacieType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PostType" class="App\Form\PostType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\PostType" class="App\Form\PostType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\PosttType" class="App\Form\PosttType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\PosttType" class="App\Form\PosttType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" abstract="true"/>
@@ -5818,6 +6705,8 @@
     <service id=".abstract.instanceof.App\Form\RegionsType" class="App\Form\RegionsType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ServiceType" class="App\Form\ServiceType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SettingType" class="App\Form\SettingType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SettingType" class="App\Form\SettingType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\SoinMPRechercheType" class="App\Form\SoinMPRechercheType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SoinMPTriDESCType" class="App\Form\SoinMPTriDESCType" autowire="true" abstract="true"/>
@@ -5848,14 +6737,26 @@
     <service id=".abstract.instanceof.App\Repository\CategorieProduitRepository" class="App\Repository\CategorieProduitRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategorieSoinMPRepository" class="App\Repository\CategorieSoinMPRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CategorieSoinMPRepository" class="App\Repository\CategorieSoinMPRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CentreMedicalRepository" class="App\Repository\CentreMedicalRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\CentreMedicalRepository" class="App\Repository\CentreMedicalRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FolderRepository" class="App\Repository\FolderRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\FolderRepository" class="App\Repository\FolderRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\HomepageRepository" class="App\Repository\HomepageRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\HomepageRepository" class="App\Repository\HomepageRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LaboratoireRepository" class="App\Repository\LaboratoireRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\LaboratoireRepository" class="App\Repository\LaboratoireRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ListProduitRepository" class="App\Repository\ListProduitRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ListProduitRepository" class="App\Repository\ListProduitRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MediaDataRepository" class="App\Repository\MediaDataRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MediaDataRepository" class="App\Repository\MediaDataRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MediaPostRelRepository" class="App\Repository\MediaPostRelRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MediaPostRelRepository" class="App\Repository\MediaPostRelRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MediaRepository" class="App\Repository\MediaRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MediaTypeRepository" class="App\Repository\MediaTypeRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\MediaTypeRepository" class="App\Repository\MediaTypeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MedicamentRepository" class="App\Repository\MedicamentRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MedicamentRepository" class="App\Repository\MedicamentRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\NoteSoinMPRepository" class="App\Repository\NoteSoinMPRepository" autowire="true" abstract="true"/>
@@ -5866,6 +6767,10 @@
     <service id=".abstract.instanceof.App\Repository\PanierRepository" class="App\Repository\PanierRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ParapharmacieRepository" class="App\Repository\ParapharmacieRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PostCategoryRepository" class="App\Repository\PostCategoryRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PostCategoryRepository" class="App\Repository\PostCategoryRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PostRepository" class="App\Repository\PostRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\PostRepository" class="App\Repository\PostRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\PosttRepository" class="App\Repository\PosttRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\PosttRepository" class="App\Repository\PosttRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" abstract="true"/>
@@ -5880,12 +6785,20 @@
     <service id=".abstract.instanceof.App\Repository\ReservationRepository" class="App\Repository\ReservationRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ServiceRepository" class="App\Repository\ServiceRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SettingRepository" class="App\Repository\SettingRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\SettingRepository" class="App\Repository\SettingRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SoinMPRepository" class="App\Repository\SoinMPRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\SoinMPRepository" class="App\Repository\SoinMPRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TemplateRepository" class="App\Repository\TemplateRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\TemplateRepository" class="App\Repository\TemplateRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TypeReclamationRepository" class="App\Repository\TypeReclamationRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\TypeReclamationRepository" class="App\Repository\TypeReclamationRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Twig\Extension\ExtensionInterface.0.App\Twig\GalleryExtension" class="App\Twig\GalleryExtension" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Twig\GalleryExtension" class="App\Twig\GalleryExtension" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Twig\Extension\ExtensionInterface.0.App\Twig\WebsiteExtension" class="App\Twig\WebsiteExtension" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Twig\WebsiteExtension" class="App\Twig\WebsiteExtension" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -6173,10 +7086,121 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.1aGu84f" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="repository" type="service" id="App\Repository\CategoryRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.M6QdtiG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="translator" type="service" id="translator.data_collector"/>
+      </argument>
+    </service>
+    <service id=".service_locator.7lbz9LB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="category" type="service" id=".errored..service_locator.7lbz9LB.App\Entity\Category"/>
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="translator" type="service" id="translator.data_collector"/>
+      </argument>
+    </service>
+    <service id=".service_locator.UvI3CwT" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="category" type="service" id=".errored..service_locator.UvI3CwT.App\Entity\Category"/>
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.rA.qUgf" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="folderRepository" type="service" id="App\Repository\FolderRepository"/>
+        <argument key="mediaRepository" type="service" id="App\Repository\MediaRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.vyWqPBG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="media" type="service" id=".errored..service_locator.vyWqPBG.App\Entity\Media"/>
+        <argument key="translator" type="service" id="translator.data_collector"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ko.OSqg" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="repository" type="service" id="App\Repository\HomepageRepository"/>
+        <argument key="translator" type="service" id="translator.data_collector"/>
+        <argument key="uploaderHelper" type="service" id="App\Service\UploaderHelper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.g.TPpzl" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="repository" type="service" id="App\Repository\PostRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.TSyX0HP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="translator" type="service" id="translator.data_collector"/>
+        <argument key="uploaderHelper" type="service" id="App\Service\UploaderHelper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.FfH61DP" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="filterService" type="service" id="liip_imagine.service.filter"/>
+        <argument key="post" type="service" id=".errored..service_locator.FfH61DP.App\Entity\Post"/>
+        <argument key="translator" type="service" id="translator.data_collector"/>
+        <argument key="uploaderHelper" type="service" id="App\Service\UploaderHelper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ox9WIUC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="post" type="service" id=".errored..service_locator.ox9WIUC.App\Entity\Post"/>
+      </argument>
+    </service>
+    <service id=".service_locator.wpDho0a" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="PostRepository" type="service" id="App\Repository\PostRepository"/>
+        <argument key="knpSnappyPdf" type="service" id="knp_snappy.pdf"/>
+      </argument>
+    </service>
+    <service id=".service_locator.vII9bR0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="repository" type="service" id="App\Repository\SettingRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.kyU3SI2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.PzagBpr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mediaHelper" type="service" id="App\Service\MediaHelper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.PNcvJyw" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="filterService" type="service" id="liip_imagine.service.filter"/>
       </argument>
     </service>
     <service id=".service_locator.Z.xxrTE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -6495,12 +7519,62 @@
         <argument key="util" type="service" id="session"/>
       </argument>
     </service>
-    <service id=".service_locator.GdKE0fe" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.ipjTSUc" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+      </argument>
+    </service>
+    <service id=".service_locator.wZ067uC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="em" type="service" id="doctrine.orm.default_entity_manager"/>
+        <argument key="passwordEncoder" type="service" id="security.user_password_encoder.generic"/>
+        <argument key="uploaderHelper" type="service" id="App\Service\UploaderHelper"/>
+      </argument>
+    </service>
+    <service id=".service_locator.7iPP.M1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="categoryRepository" type="service" id="App\Repository\CategoryRepository"/>
+        <argument key="paginator" type="service" id="knp_paginator"/>
+        <argument key="postRepository" type="service" id="App\Repository\PostRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.Eev4Mip" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mediaDataRepository" type="service" id="App\Repository\MediaDataRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.g.xob4v" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
+      </argument>
+    </service>
+    <service id=".service_locator.ZiFzqx8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AdminController::index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\Admin\CategoryController::add" type="service" id=".service_locator.M6QdtiG"/>
+        <argument key="App\Controller\Admin\CategoryController::delete" type="service" id=".service_locator.UvI3CwT"/>
+        <argument key="App\Controller\Admin\CategoryController::edit" type="service" id=".service_locator.7lbz9LB"/>
+        <argument key="App\Controller\Admin\CategoryController::index" type="service" id=".service_locator.1aGu84f"/>
+        <argument key="App\Controller\Admin\MediaController::edit" type="service" id=".service_locator.vyWqPBG"/>
+        <argument key="App\Controller\Admin\MediaController::index" type="service" id=".service_locator.rA.qUgf"/>
+        <argument key="App\Controller\Admin\MediaDataController::edit" type="service" id=".service_locator.vyWqPBG"/>
+        <argument key="App\Controller\Admin\PagesController::homepage" type="service" id=".service_locator.ko.OSqg"/>
+        <argument key="App\Controller\Admin\PostController::add" type="service" id=".service_locator.TSyX0HP"/>
+        <argument key="App\Controller\Admin\PostController::delete" type="service" id=".service_locator.ox9WIUC"/>
+        <argument key="App\Controller\Admin\PostController::edit" type="service" id=".service_locator.FfH61DP"/>
+        <argument key="App\Controller\Admin\PostController::index" type="service" id=".service_locator.g.TPpzl"/>
+        <argument key="App\Controller\Admin\PostController::pdfAction" type="service" id=".service_locator.wpDho0a"/>
+        <argument key="App\Controller\Admin\SettingController::index" type="service" id=".service_locator.vII9bR0"/>
         <argument key="App\Controller\ApiController::majEvent" type="service" id=".service_locator.kyU3SI2"/>
+        <argument key="App\Controller\Api\FolderController::deleteAction" type="service" id=".service_locator.PzagBpr"/>
+        <argument key="App\Controller\Api\MediaController::listAction" type="service" id=".service_locator.PNcvJyw"/>
         <argument key="App\Controller\CalendarController::delete" type="service" id=".service_locator.vRKvaXO"/>
         <argument key="App\Controller\CalendarController::edit" type="service" id=".service_locator.vRKvaXO"/>
         <argument key="App\Controller\CalendarController::index" type="service" id=".service_locator.Z.xxrTE"/>
@@ -6642,9 +7716,31 @@
         <argument key="App\Controller\UserController::modifierPhar" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::verifinscirption" type="service" id=".service_locator.bQmDnwY"/>
+        <argument key="App\Controller\Website\PagesController::homepage" type="service" id=".service_locator.ipjTSUc"/>
+        <argument key="App\Controller\Website\PagesController::register" type="service" id=".service_locator.wZ067uC"/>
+        <argument key="App\Controller\Website\PostController::detail" type="service" id=".service_locator.Eev4Mip"/>
+        <argument key="App\Controller\Website\PostController::index" type="service" id=".service_locator.7iPP.M1"/>
+        <argument key="App\Controller\Website\SecurityController::login" type="service" id=".service_locator.g.xob4v"/>
+        <argument key="App\Controller\Website\SitemapController::index" type="service" id=".service_locator.ipjTSUc"/>
         <argument key="App\Controller\AdminController:accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\AdminController:index" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\Admin\CategoryController:add" type="service" id=".service_locator.M6QdtiG"/>
+        <argument key="App\Controller\Admin\CategoryController:delete" type="service" id=".service_locator.UvI3CwT"/>
+        <argument key="App\Controller\Admin\CategoryController:edit" type="service" id=".service_locator.7lbz9LB"/>
+        <argument key="App\Controller\Admin\CategoryController:index" type="service" id=".service_locator.1aGu84f"/>
+        <argument key="App\Controller\Admin\MediaController:edit" type="service" id=".service_locator.vyWqPBG"/>
+        <argument key="App\Controller\Admin\MediaController:index" type="service" id=".service_locator.rA.qUgf"/>
+        <argument key="App\Controller\Admin\MediaDataController:edit" type="service" id=".service_locator.vyWqPBG"/>
+        <argument key="App\Controller\Admin\PagesController:homepage" type="service" id=".service_locator.ko.OSqg"/>
+        <argument key="App\Controller\Admin\PostController:add" type="service" id=".service_locator.TSyX0HP"/>
+        <argument key="App\Controller\Admin\PostController:delete" type="service" id=".service_locator.ox9WIUC"/>
+        <argument key="App\Controller\Admin\PostController:edit" type="service" id=".service_locator.FfH61DP"/>
+        <argument key="App\Controller\Admin\PostController:index" type="service" id=".service_locator.g.TPpzl"/>
+        <argument key="App\Controller\Admin\PostController:pdfAction" type="service" id=".service_locator.wpDho0a"/>
+        <argument key="App\Controller\Admin\SettingController:index" type="service" id=".service_locator.vII9bR0"/>
         <argument key="App\Controller\ApiController:majEvent" type="service" id=".service_locator.kyU3SI2"/>
+        <argument key="App\Controller\Api\FolderController:deleteAction" type="service" id=".service_locator.PzagBpr"/>
+        <argument key="App\Controller\Api\MediaController:listAction" type="service" id=".service_locator.PNcvJyw"/>
         <argument key="App\Controller\CalendarController:delete" type="service" id=".service_locator.vRKvaXO"/>
         <argument key="App\Controller\CalendarController:edit" type="service" id=".service_locator.vRKvaXO"/>
         <argument key="App\Controller\CalendarController:index" type="service" id=".service_locator.Z.xxrTE"/>
@@ -6786,6 +7882,12 @@
         <argument key="App\Controller\UserController:modifierPhar" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierUser" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:verifinscirption" type="service" id=".service_locator.bQmDnwY"/>
+        <argument key="App\Controller\Website\PagesController:homepage" type="service" id=".service_locator.ipjTSUc"/>
+        <argument key="App\Controller\Website\PagesController:register" type="service" id=".service_locator.wZ067uC"/>
+        <argument key="App\Controller\Website\PostController:detail" type="service" id=".service_locator.Eev4Mip"/>
+        <argument key="App\Controller\Website\PostController:index" type="service" id=".service_locator.7iPP.M1"/>
+        <argument key="App\Controller\Website\SecurityController:login" type="service" id=".service_locator.g.xob4v"/>
+        <argument key="App\Controller\Website\SitemapController:index" type="service" id=".service_locator.ipjTSUc"/>
       </argument>
     </service>
     <service id=".service_locator.u8z4W6F" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -6851,7 +7953,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.b7rZTTN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.SKJiNuv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CalendarType" type="service" id="App\Form\CalendarType"/>
@@ -6860,19 +7962,25 @@
         <argument key="App\Form\CategorieProduitType" type="service" id="App\Form\CategorieProduitType"/>
         <argument key="App\Form\CategorieSoinMPRechercheType" type="service" id="App\Form\CategorieSoinMPRechercheType"/>
         <argument key="App\Form\CategorieSoinMPType" type="service" id="App\Form\CategorieSoinMPType"/>
+        <argument key="App\Form\CategoryType" type="service" id="App\Form\CategoryType"/>
         <argument key="App\Form\CentreMedicalType" type="service" id="App\Form\CentreMedicalType"/>
         <argument key="App\Form\ConnexionType" type="service" id="App\Form\ConnexionType"/>
         <argument key="App\Form\ContactType" type="service" id="App\Form\ContactType"/>
+        <argument key="App\Form\HomepageType" type="service" id="App\Form\HomepageType"/>
         <argument key="App\Form\ListProduitType" type="service" id="App\Form\ListProduitType"/>
+        <argument key="App\Form\MediaDataType" type="service" id="App\Form\MediaDataType"/>
+        <argument key="App\Form\MediaType" type="service" id="App\Form\MediaType"/>
         <argument key="App\Form\MedicamentType" type="service" id="App\Form\MedicamentType"/>
         <argument key="App\Form\OrdonnanceType" type="service" id="App\Form\OrdonnanceType"/>
         <argument key="App\Form\ParapharmacieType" type="service" id="App\Form\ParapharmacieType"/>
+        <argument key="App\Form\PostType" type="service" id="App\Form\PostType"/>
         <argument key="App\Form\PosttType" type="service" id="App\Form\PosttType"/>
         <argument key="App\Form\ProduitType" type="service" id="App\Form\ProduitType"/>
         <argument key="App\Form\ReclamationType" type="service" id="App\Form\ReclamationType"/>
         <argument key="App\Form\ReclamationsType" type="service" id="App\Form\ReclamationsType"/>
         <argument key="App\Form\RegionsType" type="service" id="App\Form\RegionsType"/>
         <argument key="App\Form\ServiceType" type="service" id="App\Form\ServiceType"/>
+        <argument key="App\Form\SettingType" type="service" id="App\Form\SettingType"/>
         <argument key="App\Form\SoinMPRechercheType" type="service" id="App\Form\SoinMPRechercheType"/>
         <argument key="App\Form\SoinMPTriDESCType" type="service" id="App\Form\SoinMPTriDESCType"/>
         <argument key="App\Form\SoinMPTriFormType" type="service" id="App\Form\SoinMPTriFormType"/>
@@ -6883,6 +7991,7 @@
         <argument key="App\Form\VerifierInscriptionType" type="service" id="App\Form\VerifierInscriptionType"/>
         <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType" type="service" id="captcha.form.type"/>
         <argument key="Captcha\Bundle\CaptchaBundle\Form\Type\SimpleCaptchaType" type="service" id="simple_captcha.form.type"/>
+        <argument key="Liip\ImagineBundle\Form\Type\ImageType" type="service" id="liip_imagine.form.type.image"/>
         <argument key="Symfony\Bridge\Doctrine\Form\Type\EntityType" type="service" id="form.type.entity"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\ChoiceType" type="service" id="form.type.choice"/>
         <argument key="Symfony\Component\Form\Extension\Core\Type\FileType" type="service" id="form.type.file"/>
@@ -6900,7 +8009,7 @@
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
       </argument>
     </service>
-    <service id=".service_locator.EahblP0" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.JGC_eBy" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\ActualiteRepository" type="service" id="App\Repository\ActualiteRepository"/>
@@ -6910,15 +8019,23 @@
         <argument key="App\Repository\CategoriePostRepository" type="service" id="App\Repository\CategoriePostRepository"/>
         <argument key="App\Repository\CategorieProduitRepository" type="service" id="App\Repository\CategorieProduitRepository"/>
         <argument key="App\Repository\CategorieSoinMPRepository" type="service" id="App\Repository\CategorieSoinMPRepository"/>
+        <argument key="App\Repository\CategoryRepository" type="service" id="App\Repository\CategoryRepository"/>
         <argument key="App\Repository\CentreMedicalRepository" type="service" id="App\Repository\CentreMedicalRepository"/>
+        <argument key="App\Repository\FolderRepository" type="service" id="App\Repository\FolderRepository"/>
+        <argument key="App\Repository\HomepageRepository" type="service" id="App\Repository\HomepageRepository"/>
         <argument key="App\Repository\LaboratoireRepository" type="service" id="App\Repository\LaboratoireRepository"/>
         <argument key="App\Repository\ListProduitRepository" type="service" id="App\Repository\ListProduitRepository"/>
+        <argument key="App\Repository\MediaDataRepository" type="service" id="App\Repository\MediaDataRepository"/>
+        <argument key="App\Repository\MediaPostRelRepository" type="service" id="App\Repository\MediaPostRelRepository"/>
         <argument key="App\Repository\MediaRepository" type="service" id="App\Repository\MediaRepository"/>
+        <argument key="App\Repository\MediaTypeRepository" type="service" id="App\Repository\MediaTypeRepository"/>
         <argument key="App\Repository\MedicamentRepository" type="service" id="App\Repository\MedicamentRepository"/>
         <argument key="App\Repository\NoteSoinMPRepository" type="service" id="App\Repository\NoteSoinMPRepository"/>
         <argument key="App\Repository\OrdonnanceRepository" type="service" id="App\Repository\OrdonnanceRepository"/>
         <argument key="App\Repository\PanierRepository" type="service" id="App\Repository\PanierRepository"/>
         <argument key="App\Repository\ParapharmacieRepository" type="service" id="App\Repository\ParapharmacieRepository"/>
+        <argument key="App\Repository\PostCategoryRepository" type="service" id="App\Repository\PostCategoryRepository"/>
+        <argument key="App\Repository\PostRepository" type="service" id="App\Repository\PostRepository"/>
         <argument key="App\Repository\PosttRepository" type="service" id="App\Repository\PosttRepository"/>
         <argument key="App\Repository\ProduitRepository" type="service" id="App\Repository\ProduitRepository"/>
         <argument key="App\Repository\ReclamationRepository" type="service" id="App\Repository\ReclamationRepository"/>
@@ -6926,7 +8043,9 @@
         <argument key="App\Repository\RendezVousRepository" type="service" id="App\Repository\RendezVousRepository"/>
         <argument key="App\Repository\ReservationRepository" type="service" id="App\Repository\ReservationRepository"/>
         <argument key="App\Repository\ServiceRepository" type="service" id="App\Repository\ServiceRepository"/>
+        <argument key="App\Repository\SettingRepository" type="service" id="App\Repository\SettingRepository"/>
         <argument key="App\Repository\SoinMPRepository" type="service" id="App\Repository\SoinMPRepository"/>
+        <argument key="App\Repository\TemplateRepository" type="service" id="App\Repository\TemplateRepository"/>
         <argument key="App\Repository\TypeReclamationRepository" type="service" id="App\Repository\TypeReclamationRepository"/>
         <argument key="App\Repository\UserRepository" type="service" id="App\Repository\UserRepository"/>
       </argument>
@@ -7123,7 +8242,7 @@
         <argument key="translation.loader.yml" type="service" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id=".service_locator.vdmMuyE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine" type="service" id="doctrine" on-invalid="ignore"/>
@@ -7140,149 +8259,221 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\AdminController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\AdminController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\AdminController"/>
       <argument>App\Controller\AdminController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\ApiController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\Admin\CategoryController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\CategoryController"/>
+      <argument>App\Controller\Admin\CategoryController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Admin\MediaController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\MediaController"/>
+      <argument>App\Controller\Admin\MediaController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Admin\MediaDataController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\MediaDataController"/>
+      <argument>App\Controller\Admin\MediaDataController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Admin\PagesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\PagesController"/>
+      <argument>App\Controller\Admin\PagesController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Admin\PostController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\PostController"/>
+      <argument>App\Controller\Admin\PostController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Admin\SettingController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Admin\SettingController"/>
+      <argument>App\Controller\Admin\SettingController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\ApiController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ApiController"/>
       <argument>App\Controller\ApiController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\CalendarController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\Api\FolderController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Api\FolderController"/>
+      <argument>App\Controller\Api\FolderController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Api\MediaController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Api\MediaController"/>
+      <argument>App\Controller\Api\MediaController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\CalendarController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\CalendarController"/>
       <argument>App\Controller\CalendarController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\CategorieProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\CategorieProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\CategorieProduitController"/>
       <argument>App\Controller\CategorieProduitController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\CategorieSoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\CategorieSoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\CategorieSoinMPController"/>
       <argument>App\Controller\CategorieSoinMPController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\CentreMedicalController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\CentreMedicalController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\CentreMedicalController"/>
       <argument>App\Controller\CentreMedicalController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\ContactController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\ContactController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ContactController"/>
       <argument>App\Controller\ContactController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\GoogleController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\GoogleController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\GoogleController"/>
       <argument>App\Controller\GoogleController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\ListProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\ListProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ListProduitController"/>
       <argument>App\Controller\ListProduitController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\MainController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\MainController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\MainController"/>
       <argument>App\Controller\MainController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\MedicamentController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\MedicamentController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\MedicamentController"/>
       <argument>App\Controller\MedicamentController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\NoteSoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\NoteSoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\NoteSoinMPController"/>
       <argument>App\Controller\NoteSoinMPController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\OrdonnanceController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\OrdonnanceController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\OrdonnanceController"/>
       <argument>App\Controller\OrdonnanceController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\PanierController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\PanierController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\PanierController"/>
       <argument>App\Controller\PanierController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\ParapharmacieController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\ParapharmacieController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ParapharmacieController"/>
       <argument>App\Controller\ParapharmacieController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\PostCategorieController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\PostCategorieController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\PostCategorieController"/>
       <argument>App\Controller\PostCategorieController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\PosttController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\PosttController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\PosttController"/>
       <argument>App\Controller\PosttController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\ProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\ProduitController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ProduitController"/>
       <argument>App\Controller\ProduitController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\ReclamationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\ReclamationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ReclamationController"/>
       <argument>App\Controller\ReclamationController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\RegionsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\RegionsController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\RegionsController"/>
       <argument>App\Controller\RegionsController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\ServiceController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\ServiceController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\ServiceController"/>
       <argument>App\Controller\ServiceController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\SoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\SoinMPController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\SoinMPController"/>
       <argument>App\Controller\SoinMPController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\TypereclamationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\TypereclamationController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\TypereclamationController"/>
       <argument>App\Controller\TypereclamationController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
-    <service id=".service_locator.vdmMuyE.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.QfUaddv.App\Controller\UserController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\UserController"/>
       <argument>App\Controller\UserController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.vdmMuyE" method="withContext"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Website\PagesController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Website\PagesController"/>
+      <argument>App\Controller\Website\PagesController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Website\PostController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Website\PostController"/>
+      <argument>App\Controller\Website\PostController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Website\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Website\SecurityController"/>
+      <argument>App\Controller\Website\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
+    </service>
+    <service id=".service_locator.QfUaddv.App\Controller\Website\SitemapController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\Website\SitemapController"/>
+      <argument>App\Controller\Website\SitemapController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.QfUaddv" method="withContext"/>
     </service>
     <service id=".service_locator.XSes1R5" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -7296,17 +8487,17 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.XSes1R5" method="withContext"/>
     </service>
-    <service id=".service_locator.n0p5GNi" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.mesbTvA" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="routing.loader" type="service" id="routing.loader"/>
       </argument>
     </service>
-    <service id=".service_locator.n0p5GNi.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.mesbTvA.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="router.default"/>
       <argument>router.default</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.n0p5GNi" method="withContext"/>
+      <factory service=".service_locator.mesbTvA" method="withContext"/>
     </service>
     <service id=".service_locator.m90YCjy" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -7319,18 +8510,6 @@
       <argument>router.cache_warmer</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.m90YCjy" method="withContext"/>
-    </service>
-    <service id=".service_locator.C2Thyvr" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
-      </argument>
-    </service>
-    <service id=".service_locator.C2Thyvr.sensio_framework_extra.view.listener" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="sensio_framework_extra.view.listener"/>
-      <argument>sensio_framework_extra.view.listener</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.C2Thyvr" method="withContext"/>
     </service>
     <service id=".service_locator.o9nGMXB" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
@@ -7427,12 +8606,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.GdKE0fe"/>
+      <argument type="service" id=".service_locator.ZiFzqx8"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.GdKE0fe"/>
+      <argument type="service" id=".service_locator.ZiFzqx8"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -7442,6 +8621,11 @@
       </call>
       <factory class="Symfony\Component\HttpClient\HttpClient" method="create"/>
     </service>
+    <service id=".errored..service_locator.7lbz9LB.App\Entity\Category" class="App\Entity\Category"/>
+    <service id=".errored..service_locator.UvI3CwT.App\Entity\Category" class="App\Entity\Category"/>
+    <service id=".errored..service_locator.vyWqPBG.App\Entity\Media" class="App\Entity\Media"/>
+    <service id=".errored..service_locator.FfH61DP.App\Entity\Post" class="App\Entity\Post"/>
+    <service id=".errored..service_locator.ox9WIUC.App\Entity\Post" class="App\Entity\Post"/>
     <service id=".errored..service_locator.vRKvaXO.App\Entity\Calendar" class="App\Entity\Calendar"/>
     <service id=".errored..service_locator..oThYsK.App\Entity\CentreMedical" class="App\Entity\CentreMedical"/>
     <service id=".errored..service_locator.BFQktne.App\Entity\CentreMedical" class="App\Entity\CentreMedical"/>
@@ -7449,7 +8633,7 @@
     <service id=".errored..service_locator.2Iiu8FP.App\Entity\CentreMedical" class="App\Entity\CentreMedical"/>
     <service id=".errored..service_locator.B4owygH.App\Entity\Service" class="App\Entity\Service"/>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
-      <argument type="service" id=".service_locator.7ZbdT7F"/>
+      <argument type="service" id=".service_locator.BdJhgvd"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -7524,6 +8708,8 @@
         <argument key="debug:swiftmailer">swiftmailer.command.debug</argument>
         <argument key="swiftmailer:email:send">swiftmailer.command.new_email</argument>
         <argument key="swiftmailer:spool:send">swiftmailer.command.send_email</argument>
+        <argument key="liip:imagine:cache:remove">liip_imagine.command.cache_remove</argument>
+        <argument key="liip:imagine:cache:resolve">liip_imagine.command.cache_resolve</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:controller">maker.auto_command.make_controller</argument>
@@ -7549,7 +8735,7 @@
         <argument key="make:migration">maker.auto_command.make_migration</argument>
       </argument>
     </service>
-    <service id=".service_locator.7ZbdT7F" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.BdJhgvd" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand" type="service" id="Doctrine\DBAL\Tools\Console\Command\RunSqlCommand"/>
@@ -7613,6 +8799,8 @@
         <argument key="doctrine_migrations.up_to_date_command" type="service" id="doctrine_migrations.up_to_date_command"/>
         <argument key="doctrine_migrations.version_command" type="service" id="doctrine_migrations.version_command"/>
         <argument key="doctrine_migrations.versions_command" type="service" id="doctrine_migrations.versions_command"/>
+        <argument key="liip_imagine.command.cache_remove" type="service" id="liip_imagine.command.cache_remove"/>
+        <argument key="liip_imagine.command.cache_resolve" type="service" id="liip_imagine.command.cache_resolve"/>
         <argument key="maker.auto_command.make_auth" type="service" id="maker.auto_command.make_auth"/>
         <argument key="maker.auto_command.make_command" type="service" id="maker.auto_command.make_command"/>
         <argument key="maker.auto_command.make_controller" type="service" id="maker.auto_command.make_controller"/>
@@ -7708,6 +8896,14 @@
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
+    <service id="cache.webpack_encore.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface" public="false">
+      <argument>wR2IDe7eq6</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>C:\Users\LENOVO\Desktop\Pi-dev\ProjetPidev\var\cache\dev/pools</argument>
+      <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
     <service id=".service_locator.7YWluy." class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7719,6 +8915,7 @@
     <service id="Psr\Container\ContainerInterface" alias="service_container" public="false"/>
     <service id="Symfony\Component\DependencyInjection\ContainerInterface" alias="service_container" public="false"/>
     <service id="Twilio\Rest\Client" alias="twilio.client"/>
+    <service id="Liip\ImagineBundle\Service\FilterService" alias="liip_imagine.service.filter"/>
     <service id="controller_name_converter" alias=".legacy_controller_name_converter" public="false">
       <deprecated>The "%alias_id%" service is deprecated since Symfony 4.3.</deprecated>
     </service>
@@ -7864,9 +9061,20 @@
     <service id="Swift_Transport" alias="swiftmailer.mailer.default.transport.spool" public="false"/>
     <service id="Knp\Snappy\Pdf" alias="knp_snappy.pdf"/>
     <service id="Knp\Snappy\Image" alias="knp_snappy.image"/>
+    <service id="Liip\ImagineBundle\Config\FilterFactoryCollection" alias="liip_imagine.config.filter_factory_collection"/>
+    <service id="Liip\ImagineBundle\Config\StackBuilder" alias="liip_imagine.config.stack_builder"/>
+    <service id="Liip\ImagineBundle\Config\StackCollection" alias="liip_imagine.config.stack_collection"/>
+    <service id="liip_imagine.controller" alias="Liip\ImagineBundle\Controller\ImagineController" public="true"/>
+    <service id="liip_imagine" alias="liip_imagine.gd"/>
+    <service id="Liip\ImagineBundle\Imagine\Cache\CacheManager" alias="liip_imagine.cache.manager" public="false"/>
+    <service id="Liip\ImagineBundle\Imagine\Data\DataManager" alias="liip_imagine.data.manager" public="false"/>
+    <service id="Liip\ImagineBundle\Imagine\Filter\FilterManager" alias="liip_imagine.filter.manager" public="false"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection" public="false"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
+    <service id="sensio_framework_extra.view.listener" alias="Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.GdKE0fe"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.ZiFzqx8"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -7881,8 +9089,10 @@
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
     <service id="Psr\Log\LoggerInterface $snappyLogger" alias="monolog.logger.snappy"/>
+    <service id=".service_locator.ISjGRTp" alias=".1_ServiceLocator~0T6xAYp" public="false"/>
     <service id=".service_locator.xkmSecI" alias=".service_locator.u8z4W6F" public="false"/>
-    <service id=".service_locator.gAMxI5V" alias=".service_locator.b7rZTTN" public="false"/>
+    <service id=".service_locator.WAKoGPU" alias=".service_locator.SKJiNuv" public="false"/>
+    <service id=".service_locator._puOmDy" alias=".service_locator.QfUaddv" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default" public="false"/>
     <service id="event_dispatcher" alias="debug.event_dispatcher" public="true"/>

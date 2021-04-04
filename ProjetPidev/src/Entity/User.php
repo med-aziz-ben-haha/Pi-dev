@@ -99,6 +99,7 @@ class User
      */
     private $lienIconeUser;
 
+
     /**
      * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="user", orphanRemoval=true)
      */
@@ -140,6 +141,11 @@ class User
      * @ORM\OneToMany(targetEntity=Ordonnance::class, mappedBy="Medecin")
      */
     private $medordonnances;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $fullname;
 
     public function __construct()
     {
@@ -531,6 +537,18 @@ class User
                 $medordonnance->setMedecin(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getFullname(): ?string
+    {
+        return $this->fullname;
+    }
+
+    public function setFullname(?string $fullname): self
+    {
+        $this->fullname = $fullname;
 
         return $this;
     }

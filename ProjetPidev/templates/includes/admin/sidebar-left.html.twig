@@ -1,0 +1,141 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="main-sidebar" style="background-color: grey; color:white">
+  <!-- sidebar: style can be found in sidebar.less -->
+  <section class="sidebar">
+    <!-- Sidebar user panel -->
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img src="{{ asset('bundles/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+      </div>
+      <div class="pull-left info">
+        <p>Emna Besbes</p>
+        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+    {#
+    <!-- search form -->
+    <form action="#" method="get" class="sidebar-form">
+      <div class="input-group">
+        <input type="text" name="q" class="form-control" placeholder="Search...">
+        <span class="input-group-btn">
+            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+            </button>
+          </span>
+      </div>
+    </form>
+    <!-- /.search form -->
+    #}
+    <!-- sidebar menu: : style can be found in sidebar.less -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="sidebar-menu" data-widget="tree">
+
+
+
+
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i> <span>Medecine Parallele</span>
+          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+        <ul class="treeview-menu">
+          <li><a href="/afficherCategorieSoinMP"><i class="fa fa-circle-o"></i>Catégories soins</a></li>
+          <li><a href="/afficherSoinMP"><i class="fa fa-circle-o"></i>Soins</a></li>
+          <li><a href="/afficherStatSoinMP"><i class="fa fa-circle-o"></i> Statistiques</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-dashboard"></i> <span>Reclamations</span>
+          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+        <ul class="treeview-menu">
+          <li><a href="/afficherreclamation"><i class="fa fa-circle-o"></i> Reclamations</a></li>
+          <li><a href="/affichertypereclamation"><i class="fa fa-circle-o"></i>Types Reclamations</a></li>
+        </ul>
+      </li>
+
+      <li><a href="/afficheRegions"><i class="fa fa-book"></i> <span>Regions</span></a></li>
+      <li><a href="/affichePara"><i class="fa fa-book"></i> <span>Parapharmacies</span></a></li>
+      <li><a href="/afficheBackProduit"><i class="fa fa-book"></i> <span>Produits</span></a></li>
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-question" aria-hidden="true"></i> <span>Forums</span>
+          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+        <ul class="treeview-menu">
+          <li><a href="/afficherCategoriePost"><i class="fa fa-circle-o"></i> Catégories posts</a></li>
+          <!--<li><a href="/afficherDiscussion"><i class="fa fa-circle-o"></i> Gestion des discussions</a></li>-->
+
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-calendar" aria-hidden="true"></i> <span>Calendar</span>
+          <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span>  </a>
+        <ul class="treeview-menu">
+
+          <li><a href="/calendar"><i class="fa fa-calendar"></i> Afficher </a></li>
+          <li><a href="/calendar/new"><i class="fa fa-calendar"></i> Ajouter </a></li>
+
+        </ul>
+      </li>
+      <li><a href="/centreMedical/"><i class="fa fa-book"></i> <span>Centres médicaux</span></a></li>
+
+
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-list"></i> <span>{{ 'admin.posts'|trans }}</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ path('admin_post_add') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.add'|trans }}</a></li>
+          <li><a href="{{ path('admin_post_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-tags"></i> <span>{{ 'admin.categories'|trans }}</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ path('admin_category_add') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.add'|trans }}</a></li>
+          <li><a href="{{ path('admin_category_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
+        </ul>
+      </li>
+      <li class="treeview">
+        <a href="#">
+          <i class="fa fa-picture-o"></i> <span>{{ 'admin.medias'|trans }}</span>
+          <span class="pull-right-container">
+          <i class="fa fa-angle-left pull-right"></i>
+        </span>
+        </a>
+        <ul class="treeview-menu">
+          <li><a href="{{ path('admin_media_index') }}"><i class="fa fa-circle-o"></i> {{ 'admin.action.list_all'|trans }}</a></li>
+        </ul>
+      </li>
+
+{#
+      <li>
+        <a href="{{ path('admin_setting_index') }}"><i class="fa fa-sliders"></i> <span>{{ 'admin.settings'|trans }}</span></a>
+      </li>
+#}
+    </ul>
+  </section>
+  <!-- /.sidebar -->
+</aside>
