@@ -28,11 +28,11 @@ public class SahtiTn extends Application {
     public void start(Stage primaryStage) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("HomepageFront.fxml"));
+            root = FXMLLoader.load(getClass().getResource("Connexion.fxml"));
       
             //root = FXMLLoader.load(getClass().getResource("HomepageBack.fxml"));
       
-            Scene scene = new Scene(root);
+            Scene scene = new Scene(root,1280,980);
             primaryStage.setTitle("SahtiTN");
             primaryStage.setScene(scene);
             primaryStage.show();

@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.HomepageFrontController">
+<AnchorPane id="AnchorPane" prefHeight="980.0" prefWidth="1280.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.HomepageFrontController">
     <styleClass>
         <String fx:value="mainFxmlClass" />
         <String fx:value="backgroundFront" />
@@ -31,8 +31,6 @@
                       <Image url="@../images/user.png" />
                   </image>
               </ImageView>
-                
-              <Label layoutX="1150.0" layoutY="65.0" text="se deconnecter" />
             <Hyperlink focusTraversable="false" layoutX="422.0" layoutY="42.0" prefHeight="29.0" prefWidth="108.0" text="Médicaments" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -78,25 +76,26 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="1143.0" layoutY="69.0" onAction="#sedeconnecter" prefHeight="29.0" prefWidth="130.0" text="se deconnecter" textFill="#1b1a1a" />
 
             </children>
         </Pane>
         <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
-        <AnchorPane fx:id="home" layoutY="727.0" prefHeight="100.0" prefWidth="1267.0" styleClass="backgroundFooter">
+        <AnchorPane fx:id="home" layoutY="880.0" prefHeight="100.0" prefWidth="1280.0" styleClass="backgroundFooter">
             <children>
-                <Label layoutX="102.0" layoutY="16.0" styleClass="backgroundFooter" text="About" textFill="WHITE" />
-                <Label layoutX="102.0" layoutY="50.0" styleClass="backgroundFooter" text="Un doute, une inquiétude, besoin d’un conseil " textFill="WHITE" />
-                <Label layoutX="102.0" layoutY="71.0" styleClass="backgroundFooter" text="santé ? Sa7ti.TN c’est la solution" textFill="WHITE" />
-                <Label layoutX="745.0" layoutY="15.0" styleClass="backgroundFooter" text="Contact" textFill="WHITE" />
-                <Label layoutX="766.0" layoutY="49.0" styleClass="backgroundFooter" text=" +216 00000000" textFill="WHITE" />
-                <Label layoutX="771.0" layoutY="70.0" styleClass="backgroundFooter" text="sahtitnpidev@gmail.com" textFill="WHITE" />
-                <Label layoutX="1142.0" layoutY="70.0" styleClass="backgroundFooter" text="2021 © Sa7ti.TN" textFill="WHITE" />
-                <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="745.0" layoutY="47.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                <Label layoutX="67.0" layoutY="12.0" styleClass="backgroundFooter" text="About" textFill="WHITE" />
+                <Label layoutX="67.0" layoutY="46.0" styleClass="backgroundFooter" text="Un doute, une inquiétude, besoin d’un conseil " textFill="WHITE" />
+                <Label layoutX="67.0" layoutY="67.0" styleClass="backgroundFooter" text="santé ? Sa7ti.TN c’est la solution" textFill="WHITE" />
+                <Label layoutX="710.0" layoutY="11.0" styleClass="backgroundFooter" text="Contact" textFill="WHITE" />
+                <Label layoutX="731.0" layoutY="45.0" styleClass="backgroundFooter" text=" +216 00000000" textFill="WHITE" />
+                <Label layoutX="736.0" layoutY="66.0" styleClass="backgroundFooter" text="sahtitnpidev@gmail.com" textFill="WHITE" />
+                <Label layoutX="1142.0" layoutY="66.0" styleClass="backgroundFooter" text="2021 © Sa7ti.TN" textFill="WHITE" />
+                <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="710.0" layoutY="43.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/phone.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="742.0" layoutY="67.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="707.0" layoutY="63.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../images/email.png" />
                     </image>
