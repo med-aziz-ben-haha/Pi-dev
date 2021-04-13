@@ -33,6 +33,8 @@ public class HomepageFrontController implements Initializable {
     private AnchorPane home;
     @FXML
     private Hyperlink btn_accueil;
+    @FXML
+    private Hyperlink btn_MP;
 
     /**
      * Initializes the controller class.
@@ -72,6 +74,23 @@ public class HomepageFrontController implements Initializable {
             root = loader.load();
             //récupération du controller lier au fichier fxml 
             SahtiTN.gui.ConnexionController dpc = loader.getController();
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_MP(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorieSoinMPFront.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            SahtiTN.gui.AfficherCategorieSoinMPFrontController dpc = loader.getController();
 
             btn_accueil.getScene().setRoot(root);
         } catch (IOException ex) {

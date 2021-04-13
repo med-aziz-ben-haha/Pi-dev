@@ -76,6 +76,10 @@ public class AfficherUserController implements Initializable {
     private Hyperlink btn_deconnexion;
     @FXML
     private TableColumn<?, ?> id;
+    @FXML
+    private Hyperlink btn_envoi_SoinMP;
+    @FXML
+    private Hyperlink btn_envoi_catSoinMP;
     
     /**
      * Initializes the controller class.
@@ -150,7 +154,8 @@ public class AfficherUserController implements Initializable {
     @FXML
     private void evoi_gestion_util(ActionEvent event) {
         
-           try {
+          
+        try {
             //récupération fichier fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherUser.fxml"));
             //récupération du root  à partir du fichier fxml
@@ -161,8 +166,48 @@ public class AfficherUserController implements Initializable {
 
             btn_gestion_util.getScene().setRoot(root);
         } catch (IOException ex) {
-            Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AfficherUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+    }
+     @FXML
+    private void envoi_SoinMP(ActionEvent event) {
+          
+        try {
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherSoinMP.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root = loader.load();
+            //récupération du controller lier au fichier fxml
+            AfficherSoinMPController dpc = loader.getController();
+            //   dpc.setLbMessage(id_tableUser.getSelectionModel().getSelectedItem().getId() + "");
+
+            btn_envoi_SoinMP.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherUserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+
+    @FXML
+    private void envoi_catSoinMP(ActionEvent event) {
+            
+        
+        try {
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorieSoinMP.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root = loader.load();
+            //récupération du controller lier au fichier fxml
+            AfficherCategorieSoinMPController dpc = loader.getController();
+            //   dpc.setLbMessage(id_tableUser.getSelectionModel().getSelectedItem().getId() + "");
+
+            btn_envoi_catSoinMP.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherUserController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      
+        
     }
 
     @FXML

@@ -22,7 +22,7 @@
                         <Image url="@../images/Logo.jpeg" />
                     </image>
                 </ImageView>
-                <Hyperlink focusTraversable="false" layoutX="185.0" layoutY="42.0" prefHeight="26.0" prefWidth="169.0" text="MédecineParallèle" textFill="#1b1a1a">
+                <Hyperlink fx:id="btn_MP" focusTraversable="false" layoutX="185.0" layoutY="42.0" onAction="#envoi_MP" prefHeight="29.0" prefWidth="147.0" text="MédecineParallèle" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font></Hyperlink>
@@ -102,5 +102,21 @@
                 </ImageView>
             </children>
         </AnchorPane>
+      <Pane layoutY="112.0" prefHeight="210.0" prefWidth="1280.0">
+         <children>
+            <Label layoutX="212.0" layoutY="95.0" text="Un doute , une inquiétude , besoin d'un conseil santé? Sa7ti.TN c'est la " textFill="#97807c" />
+            <Label layoutX="212.0" layoutY="116.0" text="solution" textFill="#97807c" />
+            <ImageView fitHeight="201.0" fitWidth="223.0" layoutX="802.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Logo.jpeg" />
+               </image>
+            </ImageView>
+            <Label layoutX="212.0" layoutY="48.0" prefHeight="45.0" prefWidth="460.0" text="Besoin de soin, Besoin de toi " textFill="#ea3d48">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
     </children>
 </AnchorPane>

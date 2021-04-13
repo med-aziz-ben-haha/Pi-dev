@@ -36,7 +36,7 @@ public class UserCrud {
 //        try {
 //            st = cn2.createStatement();
 //            st.executeUpdate(requete);
-//            System.out.println("ajout établie ! ");
+//            System.out.println("ajout établi! ");
 //
 //        } catch (SQLException ex) {
 //            System.out.println(ex.getMessage());
@@ -159,7 +159,7 @@ public class UserCrud {
         Scanner sc = new Scanner(System.in);
 
     
-        System.out.println("Saisissez votre username");
+        System.out.println("Saisissez votre login");
         String login = sc.next();
         System.out.println(login);
 

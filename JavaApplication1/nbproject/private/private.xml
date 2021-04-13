@@ -2,6 +2,16 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherSoinMPDetailsFront.fxml</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/CardController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherSoinMP.fxml</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/CarddetailsController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherSoinMPDetailsFrontController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherSoinMPFront.fxml</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/services/SoinMPCrud.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/carddetails.css</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/HomepageFront.fxml</file>
+        </group>
     </open-files>
 </project-private>
