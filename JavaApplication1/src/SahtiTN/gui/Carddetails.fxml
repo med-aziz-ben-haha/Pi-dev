@@ -21,12 +21,7 @@
             <TextFlow fx:id="description" prefHeight="126.0" prefWidth="348.0" />
             <Label fx:id="adresse" prefHeight="34.0" prefWidth="356.0" text="" textAlignment="CENTER" />
             
-            <ImageView fx:id="Captcha" fitHeight="132.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true" />
-            <Label fx:id="espace" prefHeight="31.0" prefWidth="356.0" textAlignment="CENTER">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
+                        <ImageView fx:id="Captcha" fitHeight="132.0" fitWidth="348.0" pickOnBounds="true" preserveRatio="true" />
             <TextField fx:id="Captchatext" prefHeight="42.0" prefWidth="348.0" />
             <Button fx:id="btn_captcha" mnemonicParsing="false" onAction="#envoi_Soin_detail_note" prefHeight="53.0" prefWidth="348.0" text="je ne suis pas un rebot" textFill="WHITE">
                <font>
@@ -36,5 +31,10 @@
          </children>
       </VBox>
       <ImageView fx:id="image" fitHeight="178.0" fitWidth="304.0" layoutX="14.0" layoutY="57.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="espace" layoutX="14.0" layoutY="333.0" prefHeight="31.0" prefWidth="356.0" textAlignment="CENTER">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

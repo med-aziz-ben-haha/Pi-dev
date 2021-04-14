@@ -5,6 +5,7 @@
  */
 package SahtiTN.services;
 
+import SahtiTN.entities.CaptchaSoin;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.tools.MyConnection;
 import com.lowagie.text.BadElementException;
@@ -210,6 +211,30 @@ public class SoinMPCrud {
             System.out.println(ex.getMessage());
         }
         return s;
+    }
+        public CaptchaSoin getCaptchaSoin(int id) {
+
+        
+        String requete = "SELECT * FROM captcha where id= ?";
+            CaptchaSoin c = new CaptchaSoin();
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+             pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+               
+                c.setId(rs.getInt("id"));
+                c.setValue(rs.getString("value"));
+                c.setLien_image_captcha(rs.getString("lien_image_captcha"));
+
+                return c;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return c;
     }
     
 

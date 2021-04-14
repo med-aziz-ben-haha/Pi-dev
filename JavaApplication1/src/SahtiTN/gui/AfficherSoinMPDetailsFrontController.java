@@ -5,6 +5,7 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.entities.CaptchaSoin;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.SoinMPCrud;
 import java.io.IOException;
@@ -22,6 +23,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import java.util.Random;
+import java.lang.Math ;
+
 
 /**
  * FXML Controller class
@@ -48,10 +52,12 @@ public class AfficherSoinMPDetailsFrontController implements Initializable {
       public String getsoinId() {
         return soinId;
     }
-
+    CaptchaSoin captcha ;
     public static void sesoinId(String soinId) {
         AfficherSoinMPDetailsFrontController.soinId = soinId;
     }
+    Random random = new Random();
+
 
     /**
      * Initializes the controller class.
@@ -63,11 +69,12 @@ public class AfficherSoinMPDetailsFrontController implements Initializable {
             int column=1;
             int row=0;
             
-            
+          
             // TODO
             SoinMPCrud s =new SoinMPCrud();
             soin=s.afficherAideDetailsFront(Integer.parseInt(soinId));
-          
+            captcha=s.getCaptchaSoin(random.nextInt(20)+1);
+         
             FXMLLoader fxmlLoader = new FXMLLoader();
             
             fxmlLoader.setLocation(getClass().getResource("Carddetails.fxml"));
@@ -81,7 +88,7 @@ public class AfficherSoinMPDetailsFrontController implements Initializable {
             
             
             
-            cardController.setDataSoinMP(soin);
+            cardController.setDataSoinMP(soin,captcha);
         } catch (IOException ex) {
             Logger.getLogger(AfficherSoinMPDetailsFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
