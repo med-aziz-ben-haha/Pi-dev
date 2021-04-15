@@ -123,5 +123,13 @@
             </Label>
          </children>
       </Pane>
+      <Pane fx:id="scroll" layoutX="195.0" layoutY="329.0" prefHeight="545.0" prefWidth="1085.0">
+         <children>
+            <GridPane fx:id="grid" layoutX="10.0" layoutY="16.0" prefHeight="4.0" prefWidth="21.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+            </GridPane>
+         </children></Pane>
     </children>
 </AnchorPane>

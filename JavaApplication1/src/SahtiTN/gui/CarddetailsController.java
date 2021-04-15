@@ -81,7 +81,7 @@ public class CarddetailsController implements Initializable {
         if (Captchatexte.equals(btn_captcha.getId())) {
             try {
 
-                AfficherSoinMPDetailsFrontController.sesoinId(espace.getId());
+                AfficherSoinMPDetailsNoteController.sesoinId(espace.getId());
 
                 //récupération fichier fxml
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherSoinMPDetailsNote.fxml"));

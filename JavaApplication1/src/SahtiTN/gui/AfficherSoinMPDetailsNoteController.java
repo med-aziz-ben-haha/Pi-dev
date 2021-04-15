@@ -5,6 +5,8 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.entities.SoinMP;
+import SahtiTN.services.SoinMPCrud;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,6 +20,8 @@ import javafx.scene.Parent;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -34,6 +38,11 @@ public class AfficherSoinMPDetailsNoteController implements Initializable {
     private Label id_ID;
     @FXML
     private AnchorPane home;
+    @FXML
+    private Pane scroll;
+    @FXML
+    private GridPane grid;
+     SoinMP soin ;
     public String getsoinId() {
         return soinId;
     }
@@ -46,7 +55,36 @@ public class AfficherSoinMPDetailsNoteController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+     try {
+         // TODO
+         
+         // TODO
+         int column=1;
+         int row=0;
+         
+         
+         // TODO
+         SoinMPCrud s =new SoinMPCrud();
+         soin=s.afficherAideDetailsFront(Integer.parseInt(soinId));
+         
+         FXMLLoader fxmlLoader = new FXMLLoader();
+         
+         fxmlLoader.setLocation(getClass().getResource("CarddetailsNote.fxml"));
+         AnchorPane anchorPane=fxmlLoader.load();
+         CarddetailsNoteController cardController= fxmlLoader.getController();
+         
+         
+         grid.add(anchorPane,column,row);
+         
+         
+         
+         
+         
+         cardController.setDataSoinMP(soin);
+     } catch (IOException ex) {
+         Logger.getLogger(AfficherSoinMPDetailsNoteController.class.getName()).log(Level.SEVERE, null, ex);
+     }
+       
     }    
 
  @FXML

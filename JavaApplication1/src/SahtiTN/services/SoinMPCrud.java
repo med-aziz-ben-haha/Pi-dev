@@ -6,6 +6,7 @@
 package SahtiTN.services;
 
 import SahtiTN.entities.CaptchaSoin;
+import SahtiTN.entities.NoteSoin;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.tools.MyConnection;
 import com.lowagie.text.BadElementException;
@@ -20,19 +21,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author LENOVO
  */
 public class SoinMPCrud {
-     Connection cn2;
+
+    Connection cn2;
     Statement st;
 
     public SoinMPCrud() {
         cn2 = MyConnection.getInstance().getCnx();
     }
 
- 
     public void ajouterSoinMP(SoinMP s) {
         String requete = " INSERT INTO soin_mp ( `categorie_soin_mp_id`, `titre_soin_mp`, `description_soin_mp`, `lien_image_smp`, `adresse_soin_mp`)  VALUES(?,?,?,?,?)";
         try {
@@ -58,14 +60,13 @@ public class SoinMPCrud {
 
         try {
             PreparedStatement pst = cn2.prepareStatement(requete);
-            pst.setString(1,ch);
+            pst.setString(1, ch);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
 
-               id_cat = rs.getInt("id");
-            return id_cat;
+                id_cat = rs.getInt("id");
+                return id_cat;
             }
-         
 
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -99,12 +100,12 @@ public class SoinMPCrud {
 
         try {
 
-            PreparedStatement pst = cn2.prepareStatement(requete2);  
+            PreparedStatement pst = cn2.prepareStatement(requete2);
             pst.setString(1, s.getTitre_soin_mp());
             pst.setString(2, s.getDescription_soin_mp());
             pst.setString(3, s.getLien_image_smp());
             pst.setString(4, s.getAdresse_soin_mp());
-        
+
             pst.setInt(5, s.getId());
 
             pst.executeUpdate();
@@ -157,6 +158,7 @@ public class SoinMPCrud {
         }
         return SoinMPs;
     }
+
     public List<SoinMP> afficherSoinMPFront(int id) {
 
         ArrayList<SoinMP> SoinMPs = new ArrayList<>();
@@ -164,7 +166,7 @@ public class SoinMPCrud {
 
         try {
             PreparedStatement pst = cn2.prepareStatement(requete);
-             pst.setInt(1, id);
+            pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
@@ -184,19 +186,18 @@ public class SoinMPCrud {
         }
         return SoinMPs;
     }
-    
-      public SoinMP afficherAideDetailsFront(int id) {
 
-        
+    public SoinMP afficherAideDetailsFront(int id) {
+
         String requete = "SELECT * FROM soin_mp where id= ?";
-            SoinMP s = new SoinMP();
+        SoinMP s = new SoinMP();
         try {
             PreparedStatement pst = cn2.prepareStatement(requete);
-             pst.setInt(1, id);
+            pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
-               
+
                 s.setId(rs.getInt("id"));
                 s.setCategorie_soin_mp_id(rs.getInt("categorie_soin_mp_id"));
                 s.setTitre_soin_mp(rs.getString("titre_soin_mp"));
@@ -212,18 +213,18 @@ public class SoinMPCrud {
         }
         return s;
     }
-        public CaptchaSoin getCaptchaSoin(int id) {
 
-        
+    public CaptchaSoin getCaptchaSoin(int id) {
+
         String requete = "SELECT * FROM captcha where id= ?";
-            CaptchaSoin c = new CaptchaSoin();
+        CaptchaSoin c = new CaptchaSoin();
         try {
             PreparedStatement pst = cn2.prepareStatement(requete);
-             pst.setInt(1, id);
+            pst.setInt(1, id);
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()) {
-               
+
                 c.setId(rs.getInt("id"));
                 c.setValue(rs.getString("value"));
                 c.setLien_image_captcha(rs.getString("lien_image_captcha"));
@@ -236,7 +237,6 @@ public class SoinMPCrud {
         }
         return c;
     }
-    
 
     public List<SoinMP> rechercherSoinMP(String besoin, String caractere) {
 
@@ -313,6 +313,137 @@ public class SoinMPCrud {
         }
 
     }
-    
 
+    public void setSoinMPNoteAvis(int val, String Avis, int userid, int soinid) {
+        if (val != 0) {
+
+            String requete = " INSERT INTO note_soin_mp ( `user_id`, `valeur`, `soim_mp_id`)  VALUES(?,?,?)";
+            try {
+
+                PreparedStatement pst = cn2.prepareStatement(requete);
+                pst.setInt(1, userid);
+                pst.setInt(2, val);
+                pst.setInt(3, soinid);
+
+                pst.executeUpdate();
+
+                System.out.println("note insérer");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        if (Avis != "") {
+
+            String requete = " INSERT INTO note_soin_mp ( `user_id`, `avis`, `soim_mp_id`)  VALUES(?,?,?)";
+            try {
+
+                PreparedStatement pst = cn2.prepareStatement(requete);
+                pst.setInt(1, userid);
+                pst.setString(2, Avis);
+                pst.setInt(3, soinid);
+
+                pst.executeUpdate();
+
+                System.out.println("avis insérer");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    public NoteSoin getSoinMPNoteAvis(int userid, int soinid) {
+        NoteSoin m = new NoteSoin();
+        m=null;
+        
+        String requete = "Select * from note_soin_mp where user_id= ? AND soin_mp_id= ?";
+        try {
+
+            PreparedStatement pst = cn2.prepareStatement(requete);
+            pst.setInt(1, userid);
+            pst.setInt(2, soinid);
+
+            pst.executeQuery();
+
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                NoteSoin n = new NoteSoin();
+        
+                n.setId(rs.getInt("id"));
+                n.setSoin_mp_id(rs.getInt("soin_mp_id"));
+                n.setUser_id(rs.getInt("user_id"));
+                n.setAvis(rs.getString("Avis"));
+                n.setValeur(rs.getInt("Valeur"));
+             return n;
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return m;
+    }
+    
+    public void updateSoinMPNoteAvis(int val, String Avis, int noteid) {
+        if (val != 0) {
+ 
+            String requete = "UPDATE note_soin_mp SET valeur = ?  WHERE id = ?";
+            try {
+
+                PreparedStatement pst = cn2.prepareStatement(requete);
+                pst.setInt(1, val);
+                pst.setInt(2, noteid);
+                
+
+                pst.executeUpdate();
+
+                System.out.println("note modifiée");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        if (Avis != "") {
+
+            String requete = "UPDATE note_soin_mp SET avis = ?  WHERE id = ?";
+            try {
+
+                PreparedStatement pst = cn2.prepareStatement(requete);
+                pst.setInt(2, noteid);
+                pst.setString(1, Avis);
+             
+                pst.executeUpdate();
+
+                System.out.println("avis modifier");
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+    
+    public float MoyenneNotes(int soinId){
+        int s=0;
+        float m=0;
+        int i=0;
+
+        String requete= "Select valeur from note_soin_mp where soin_mp_id= ?";
+        try {
+            PreparedStatement pst= cn2.prepareStatement(requete);
+            pst.setInt(1, soinId);
+            pst.executeQuery();
+            
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                s=s+rs.getInt("Valeur");
+                i=i+1;       
+            }
+            if (s!=0)
+            {m=s/i;  }
+          return m;
+        } catch (SQLException ex) {
+            Logger.getLogger(SoinMPCrud.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return m;
+    }
 }
