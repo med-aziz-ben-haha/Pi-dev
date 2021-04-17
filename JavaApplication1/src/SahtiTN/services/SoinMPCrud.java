@@ -317,7 +317,7 @@ public class SoinMPCrud {
     public void setSoinMPNoteAvis(int val, String Avis, int userid, int soinid) {
         if (val != 0) {
 
-            String requete = " INSERT INTO note_soin_mp ( `user_id`, `valeur`, `soim_mp_id`)  VALUES(?,?,?)";
+            String requete = " INSERT INTO note_soin_mp ( `user_id`, `valeur`, `soin_mp_id`)  VALUES(?,?,?)";
             try {
 
                 PreparedStatement pst = cn2.prepareStatement(requete);
@@ -327,14 +327,14 @@ public class SoinMPCrud {
 
                 pst.executeUpdate();
 
-                System.out.println("note insérer");
+                System.out.println("note insérée");
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
         }
         if (Avis != "") {
 
-            String requete = " INSERT INTO note_soin_mp ( `user_id`, `avis`, `soim_mp_id`)  VALUES(?,?,?)";
+            String requete = " INSERT INTO note_soin_mp ( `user_id`, `avis`, `soin_mp_id`)  VALUES(?,?,?)";
             try {
 
                 PreparedStatement pst = cn2.prepareStatement(requete);
@@ -344,7 +344,7 @@ public class SoinMPCrud {
 
                 pst.executeUpdate();
 
-                System.out.println("avis insérer");
+                System.out.println("avis inséré");
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }
@@ -413,7 +413,7 @@ public class SoinMPCrud {
              
                 pst.executeUpdate();
 
-                System.out.println("avis modifier");
+                System.out.println("avis modifié");
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
             }

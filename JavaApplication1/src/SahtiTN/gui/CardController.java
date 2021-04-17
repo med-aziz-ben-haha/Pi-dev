@@ -131,12 +131,7 @@ public class CardController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(CardController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       /*    Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
-        Message message = Message.creator(
-                new com.twilio.type.PhoneNumber("+21624602806"),
-                new com.twilio.type.PhoneNumber("+12402610130"),
-                "merci d'avoir consulter les soins")
-            .create();*/
+     
     }
     }
 
