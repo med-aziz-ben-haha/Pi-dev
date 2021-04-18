@@ -93,6 +93,27 @@ public class SoinMPCrud {
         }
         return titres;
     }
+    
+    public String cherchercattitre(int id) {
+
+        String titre = "";
+        String requete = "SELECT libelle_categorie_soin_mp FROM categorie_soin_mp where id= ?";
+
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+            pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery();
+            
+            while (rs.next()) {
+
+                titre=rs.getString("libelle_categorie_soin_mp");
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return titre;
+    }
 
     public void modifierSoinMP(SoinMP s) {
 
@@ -116,14 +137,14 @@ public class SoinMPCrud {
         }
     }
 
-    public void supprimerSoinMP(SoinMP a) {
+    public void supprimerSoinMP(int id) {
 
         String requete2 = "DELETE FROM soin_mp WHERE id= ?";
 
         try {
 
             PreparedStatement pst = cn2.prepareStatement(requete2);
-            pst.setInt(1, a.getId());
+            pst.setInt(1, id);
             pst.executeUpdate();
             System.out.println("SoinMP supprimé");
 

@@ -69,14 +69,14 @@ public class CategorieSoinMPCrud {
         }
     }
 
-    public void deleteCategorieSoinMP(CategorieSoinMP c) {
+    public void deleteCategorieSoinMP(int id) {
 
         String requete2 = "DELETE FROM categorie_soin_mp WHERE id= ?";
 
         try {
 
             PreparedStatement pst = cn2.prepareStatement(requete2);
-            pst.setInt(1, c.getId());
+            pst.setInt(1, id);
             pst.executeUpdate();
             System.out.println("Categorie SoinMP supprimée");
 
@@ -109,6 +109,30 @@ public class CategorieSoinMPCrud {
         return CategorieSoinMPs;
     }
 
+      public CategorieSoinMP chercherCategorieSoinMP(int id) {
+     
+        CategorieSoinMP c =new CategorieSoinMP();
+        String requete = "SELECT * FROM categorie_soin_mp where id= ?";
+
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                
+                c.setId(rs.getInt("id"));
+                c.setLibelle_categorie_soin_mp(rs.getString("libelle_categorie_soin_mp"));
+                c.setLien_icone_csmp(rs.getString("lien_icone_csmp"));
+                
+            return c;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return c;
+    }
     public List<CategorieSoinMP> rechercherCategorieSoinMP(String besoin, String caractere) {
 
         ArrayList<CategorieSoinMP> CategorieSoinMPs = new ArrayList<>();

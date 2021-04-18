@@ -25,6 +25,12 @@ public class CategorieSoinMP {
         return id;
     }
 
+    public CategorieSoinMP(Integer id, String libelle_categorie_soin_mp, String lien_icone_csmp) {
+        this.id = id;
+        this.libelle_categorie_soin_mp = libelle_categorie_soin_mp;
+        this.lien_icone_csmp = lien_icone_csmp;
+    }
+
     public void setId(Integer id) {
         this.id = id;
     }

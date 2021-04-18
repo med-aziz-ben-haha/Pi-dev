@@ -44,6 +44,15 @@ public class SoinMP {
         this.titre_soin_mp = titre_soin_mp;
     }
 
+    public SoinMP(Integer id, int categorie_soin_mp_id, String titre_soin_mp, String description_soin_mp, String lien_image_smp, String adresse_soin_mp) {
+        this.id = id;
+        this.categorie_soin_mp_id = categorie_soin_mp_id;
+        this.titre_soin_mp = titre_soin_mp;
+        this.description_soin_mp = description_soin_mp;
+        this.lien_image_smp = lien_image_smp;
+        this.adresse_soin_mp = adresse_soin_mp;
+    }
+
     public String getDescription_soin_mp() {
         return description_soin_mp;
     }

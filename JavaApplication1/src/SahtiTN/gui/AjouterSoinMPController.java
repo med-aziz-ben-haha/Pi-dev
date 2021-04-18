@@ -132,7 +132,7 @@ public class AjouterSoinMPController implements Initializable {
            
             int id=Soins.chercherCatSoinMPid(ch);
             
-            SoinMP s = new SoinMP( id ,titre.getText(),Description.getText(), null,Adresse.getText());
+            SoinMP s = new SoinMP( id ,titre.getText(),Description.getText(), "2.4Méditation-603aee9ce4bff.jpeg",Adresse.getText());
             //      Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
             Soins.ajouterSoinMP(s);
             

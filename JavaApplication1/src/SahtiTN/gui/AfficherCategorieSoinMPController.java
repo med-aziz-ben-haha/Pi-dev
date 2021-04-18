@@ -15,6 +15,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -27,17 +29,21 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -53,24 +59,19 @@ public class AfficherCategorieSoinMPController implements Initializable {
     @FXML
     private Hyperlink btn_envoi_catSoinMP;
     @FXML
-    private TableView<CategorieSoinMP> id_table;
-    @FXML
-    private TableColumn<?, ?> id;
-    @FXML
     private Button btn_ajouterCatSoinMP;
-    @FXML
-    private Button btn_suppCatSoinMP;
     @FXML
     private TextField id_recherche;
     @FXML
     private Button btn_pdf;
     @FXML
     private Hyperlink btn_deconnexion;
-        private ObservableList<CategorieSoinMP> data;
+    private List<CategorieSoinMP> data;
     @FXML
-    private TableColumn<CategorieSoinMP, String> libelle_categorie_soin_mp;
+    private ScrollPane scroll;
     @FXML
-    private TableColumn<CategorieSoinMP, String> lien_icone_csmp;
+    private GridPane grid;
+    
 
 
     /**
@@ -80,7 +81,7 @@ public class AfficherCategorieSoinMPController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-            data = FXCollections.observableArrayList();
+            data = new ArrayList();
 
         CategorieSoinMPCrud Categories = new CategorieSoinMPCrud();
 
@@ -89,51 +90,33 @@ public class AfficherCategorieSoinMPController implements Initializable {
             data.add(a);
 
         });
-        id.setCellValueFactory(new PropertyValueFactory<>("id"));
-        libelle_categorie_soin_mp.setCellValueFactory(new PropertyValueFactory<>("libelle_categorie_soin_mp"));
-        lien_icone_csmp.setCellValueFactory(new PropertyValueFactory<>("lien_icone_csmp"));
-        
-        id_table.setEditable(true);
-        libelle_categorie_soin_mp.setCellFactory(TextFieldTableCell.forTableColumn());
-
-        id_table.setItems(null);
-        id_table.setItems(data);
-        //titre.setCellFactory(TextFieldTableCell.forTableColumn());
-        //icone.setCellFactory(TextFieldTableCell.forTableColumn());
-        // TODO
-        FilteredList<CategorieSoinMP> filteredData = new FilteredList<>(data, b -> true);
-
-        // 2. Set the filter Predicate whenever the filter changes.
-        id_recherche.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(alo -> {
-                // If filter text is empty, display all persons.
-
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-
-                // Compare first name and last name of every person with filter text.
-                String lowerCaseFilter = newValue.toLowerCase();
-
-                if (alo.getLibelle_categorie_soin_mp().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                    return true; // Filter matches first name.
+              int column=1;
+        int row=0;
+          
+        for(int i=0; i<data.size();i++){
+          
+         
                 
-                } else {
-                    return false; // Does not match.
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    
+                    fxmlLoader.setLocation(getClass().getResource("TabCatSoinBack.fxml"));
+                    AnchorPane anchorPane=fxmlLoader.load();
+                    TabCatSoinBackController cardController= fxmlLoader.getController();
+ 
+                    cardController.setDataCat(data.get(i));
+                    row++;
+                    
+                    
+                    grid.add(anchorPane,column,row);
+                    
+                    GridPane.setMargin(anchorPane,new Insets(2));
+                } catch (IOException ex) {
+                    Logger.getLogger(AfficherCategorieSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            });
-        });
-
-        // 3. Wrap the FilteredList in a SortedList. 
-        SortedList<CategorieSoinMP> sortedData = new SortedList<>(filteredData);
-
-        // 4. Bind the SortedList comparator to the TableView comparator.
-        // 	  Otherwise, sorting the TableView would have no effect.
-        sortedData.comparatorProperty().bind(id_table.comparatorProperty());
-
-        // 5. Add sorted (and filtered) data to the table.
-        id_table.setItems(sortedData);
-    }    
+              
+             
+    }  }  
 
     @FXML
     private void evoi_gestion_util(ActionEvent event) {
@@ -210,56 +193,6 @@ public class AfficherCategorieSoinMPController implements Initializable {
         
     }
 
-    @FXML
-    private void supprimerCategorieSoinMP(ActionEvent event) {
-           CategorieSoinMP CategorieSoinMPtab = id_table.getSelectionModel().getSelectedItem();
-//        Action ad = Dialogs.create()
-//                .title("TESt")
-//                .actions(Dialog.ACTION_OK , Dialog.ACTION_NO)
-//                .message("test")
-//                .styleClass(Dialog.STYLE_CLASS_NATIVE)
-//                .showConfirm();
-        if (CategorieSoinMPtab != null) {
-            Alert alert = new Alert(AlertType.CONFIRMATION);
-            //alert.setTitle("Confirmation Dialog");
-            //alert.setHeaderText("Look, a Confirmation Dialog");
-            alert.setContentText("Voulez vous vraiment supprimer cette CategorieAide  ?");
-
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-
-                CategorieSoinMPCrud crud = new CategorieSoinMPCrud();
-                CategorieSoinMP c = new CategorieSoinMP();
-                c.setId(CategorieSoinMPtab.getId());
-
-                crud.deleteCategorieSoinMP(c);
-            }
-            //récupération fichier fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorieSoinMP.fxml"));
-            //récupération du root  à partir du fichier fxml
-            Parent root;
-            try {
-                root = loader.load();
-                //récupération du controller lier au fichier fxml 
-                AfficherCategorieSoinMPController dpc = loader.getController();
-                //             dpc.setLbMessage(id_act.getText());
-
-                btn_suppCatSoinMP.getScene().setRoot(root);
-
-            } catch (IOException ex) {
-                Logger.getLogger(AfficherCategorieSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        } else {
-            Alert alert = new Alert(AlertType.ERROR);
-            alert.setTitle("Error Dialog");
-            //alert.setHeaderText("Look, an Error Dialog");
-            alert.setContentText("Vous devez selectionner un champs ");
-
-            alert.showAndWait();
-
-        }
-    }  
 
     @FXML
     private void GeneratePdf(ActionEvent event) throws SQLException, IOException {
@@ -294,18 +227,6 @@ public class AfficherCategorieSoinMPController implements Initializable {
     }
     
 
-    @FXML
-    private void editTitre(TableColumn.CellEditEvent<CategorieSoinMP, String> event) {
-          CategorieSoinMPCrud c = new CategorieSoinMPCrud();
-        event.getRowValue().setLibelle_categorie_soin_mp(event.getNewValue());
-        c.modifierCategorieSoinMP(event.getRowValue());
-    }
-
-    @FXML
-    private void editIcone(TableColumn.CellEditEvent<CategorieSoinMP, String> event) {
-        CategorieSoinMPCrud c = new CategorieSoinMPCrud();
-        event.getRowValue().setLien_icone_csmp(event.getNewValue());
-        c.modifierCategorieSoinMP(event.getRowValue());
-    }
+   
     
 }

@@ -107,14 +107,14 @@ public class UserCrud {
         }  
     }
 
-    public void deleteUser(User u) {
+    public void deleteUser(int id) {
 
         String requete2 = "DELETE FROM user WHERE id= ?";
 
         try {
 
             PreparedStatement pst = cn2.prepareStatement(requete2);
-            pst.setInt(1, u.getId());
+            pst.setInt(1, id);
 
             pst.executeUpdate();
             System.out.println("Utilisateur supprimé");

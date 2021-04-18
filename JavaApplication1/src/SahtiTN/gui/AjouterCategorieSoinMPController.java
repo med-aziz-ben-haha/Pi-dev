@@ -114,7 +114,7 @@ public class AjouterCategorieSoinMPController implements Initializable {
     private void ajout_CatSoinMP(ActionEvent event) {
         
             CategorieSoinMPCrud categories = new CategorieSoinMPCrud();
-            CategorieSoinMP c = new CategorieSoinMP(titre.getText());
+            CategorieSoinMP c = new CategorieSoinMP(titre.getText(), "categorie-605339359cead.png");
             //      Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
             categories.AjouterCategorieSoinMP(c);
             
