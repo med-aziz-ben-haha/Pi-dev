@@ -38,6 +38,7 @@ import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import com.lowagie.text.BadElementException;
 import java.lang.String;
+
 /**
  * FXML Controller class
  *
@@ -165,13 +166,13 @@ public class CarddetailsNoteController implements Initializable {
         if (noteSoin == null) {
 
             s.setSoinMPNoteAvis(valeur + 1, "", userid, Integer.parseInt(espace.getId()));
-          
-                 Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
-        Message message = Message.creator(
-                new com.twilio.type.PhoneNumber("+21624602806"),
-                new com.twilio.type.PhoneNumber("+12402610130"),
-                "merci d'avoir noté le soin " + dataSoinMP.getTitre_soin_mp() )
-            .create();
+
+            Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
+            Message message = Message.creator(
+                    new com.twilio.type.PhoneNumber("+21624602806"),
+                    new com.twilio.type.PhoneNumber("+12402610130"),
+                    "Merci d'avoir noté le soin " + dataSoinMP.getTitre_soin_mp())
+                    .create();
             try {
 
                 AfficherSoinMPDetailsNoteController.sesoinId(espace.getId());
@@ -191,14 +192,14 @@ public class CarddetailsNoteController implements Initializable {
         } else {
 
             s.updateSoinMPNoteAvis(valeur + 1, "", noteSoin.id);
-                   Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
-        Message message = Message.creator(
-                new com.twilio.type.PhoneNumber("+21624602806"),
-                new com.twilio.type.PhoneNumber("+12402610130"),
-                "merci d'avoir modifé la  note le soin " + dataSoinMP.getTitre_soin_mp() )
-            .create();
+            Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
+            Message message = Message.creator(
+                    new com.twilio.type.PhoneNumber("+21624602806"),
+                    new com.twilio.type.PhoneNumber("+12402610130"),
+                    "Merci d'avoir modifé la note du soin " + dataSoinMP.getTitre_soin_mp())
+                    .create();
 
-          try {
+            try {
 
                 AfficherSoinMPDetailsNoteController.sesoinId(espace.getId());
                 //récupération fichier fxml
@@ -213,7 +214,8 @@ public class CarddetailsNoteController implements Initializable {
                 espace.getScene().setRoot(root);
             } catch (IOException ex) {
                 Logger.getLogger(CarddetailsNoteController.class.getName()).log(Level.SEVERE, null, ex);
-            } }
+            }
+        }
     }
 
     @FXML

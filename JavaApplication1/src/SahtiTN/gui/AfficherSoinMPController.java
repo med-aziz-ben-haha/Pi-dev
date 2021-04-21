@@ -41,6 +41,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -67,7 +68,7 @@ public class AfficherSoinMPController implements Initializable {
     private Button btn_pdf;
     @FXML
     private Hyperlink btn_deconnexion;
-    
+
     private List<SoinMP> data;
     @FXML
     private ScrollPane scroll;
@@ -78,14 +79,13 @@ public class AfficherSoinMPController implements Initializable {
     @FXML
     private Label categorie;
 
-
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-            data = new ArrayList();
+        data = new ArrayList();
 
         SoinMPCrud soins = new SoinMPCrud();
 
@@ -94,41 +94,35 @@ public class AfficherSoinMPController implements Initializable {
             data.add(a);
 
         });
-         int column=1;
-        int row=0;
-         
-        for(int i=0; i<data.size();i++){
-          
-         
-                
-                try {
-                    FXMLLoader fxmlLoader = new FXMLLoader();
-                    
-                    fxmlLoader.setLocation(getClass().getResource("TabSoinBack.fxml"));
-                    AnchorPane anchorPane=fxmlLoader.load();
-                    TabSoinBackController cardController= fxmlLoader.getController();
-                    
-                    
-                    
-                    
-                    cardController.setDataSoinMP(data.get(i));
-                    row++;
-                    
-                    
-                    grid.add(anchorPane,column,row);
-                    
-                    GridPane.setMargin(anchorPane,new Insets(2));
-                } catch (IOException ex) {
-                    Logger.getLogger(AfficherSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-              
-            }  
-        
-    }    
+        int column = 1;
+        int row = 0;
+
+        for (int i = 0; i < data.size(); i++) {
+
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+
+                fxmlLoader.setLocation(getClass().getResource("TabSoinBack.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                TabSoinBackController cardController = fxmlLoader.getController();
+
+                cardController.setDataSoinMP(data.get(i));
+                row++;
+
+                grid.add(anchorPane, column, row);
+
+                GridPane.setMargin(anchorPane, new Insets(2));
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+    }
 
     @FXML
     private void evoi_gestion_util(ActionEvent event) {
-        
+
         try {
             //récupération fichier fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherUser.fxml"));
@@ -142,12 +136,12 @@ public class AfficherSoinMPController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AfficherSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     @FXML
     private void envoi_SoinMP(ActionEvent event) {
-          try {
+        try {
             //récupération fichier fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherSoinMP.fxml"));
             //récupération du root  à partir du fichier fxml
@@ -164,7 +158,7 @@ public class AfficherSoinMPController implements Initializable {
 
     @FXML
     private void envoi_catSoinMP(ActionEvent event) {
-            
+
         try {
             //récupération fichier fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherCategorieSoinMP.fxml"));
@@ -178,14 +172,12 @@ public class AfficherSoinMPController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AfficherSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }
 
- 
+    }
 
     @FXML
     private void navigation_ajout(ActionEvent event) {
-        
+
         try {
             //récupération fichier fxml
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AjouterSoinMP.fxml"));
@@ -199,15 +191,13 @@ public class AfficherSoinMPController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AfficherSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }
 
-    
+    }
 
     @FXML
     private void GeneratePdf(ActionEvent event) throws SQLException, IOException {
         PDFutil pdf = new PDFutil();
-       
+
         try {
             pdf.listSoinMP();
         } catch (FileNotFoundException ex) {
@@ -223,8 +213,7 @@ public class AfficherSoinMPController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             //récupération du root  à partir du fichier fxml
             Parent root;
-            
-            
+
             root = loader.load();
             //récupération du controller lier au fichier fxml 
             SahtiTN.gui.ConnexionController dpc = loader.getController();
@@ -233,8 +222,44 @@ public class AfficherSoinMPController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AfficherSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
-    
-    
+
+    @FXML
+    private void chercherSoinMP(KeyEvent event) {
+        grid.getChildren().clear();
+        data = new ArrayList();
+
+        SoinMPCrud soins = new SoinMPCrud();
+
+        soins.rechercherSoinMP(id_recherche.getText()).forEach((a) -> {
+
+            data.add(a);
+
+        });
+        int column = 1;
+        int row = 0;
+
+        for (int i = 0; i < data.size(); i++) {
+
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+
+                fxmlLoader.setLocation(getClass().getResource("TabSoinBack.fxml"));
+                AnchorPane anchorPane = fxmlLoader.load();
+                TabSoinBackController cardController = fxmlLoader.getController();
+
+                cardController.setDataSoinMP(data.get(i));
+                row++;
+
+                grid.add(anchorPane, column, row);
+
+                GridPane.setMargin(anchorPane, new Insets(2));
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }
+
 }

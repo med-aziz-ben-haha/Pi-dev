@@ -150,7 +150,7 @@
       </Pane>
         <Label layoutX="683.0" layoutY="154.0" scaleX="2.0" scaleY="2.0" text="Gestion des utilisateurs" textAlignment="CENTER" textFill="#ea3d48" />
         <Label layoutX="324.0" layoutY="219.0" scaleX="1.2" scaleY="1.2" text="Liste utilisateurs :" />
-        <TextField fx:id="id_recherche" layoutX="392.0" layoutY="257.0" prefHeight="26.0" prefWidth="711.0" promptText="Recherche" />
+        <TextField fx:id="id_recherche" layoutX="392.0" layoutY="257.0" onKeyReleased="#chercherUser" prefHeight="26.0" prefWidth="711.0" promptText="Recherche" />
     </children>
     <styleClass>
         <String fx:value="mainFxmlClass" />

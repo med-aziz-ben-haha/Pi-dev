@@ -68,7 +68,7 @@
         <Pane layoutX="267.0" layoutY="107.0" prefHeight="875.0" prefWidth="1012.0" styleClass="backgroundFront">
          <children>
                       <Button fx:id="btn_ajouterCatSoinMP" layoutX="102.0" layoutY="829.0" mnemonicParsing="false" onAction="#navigation_ajout" prefHeight="32.0" prefWidth="230.0" text="Ajouter Catégorie" textFill="WHITE" />
-                      <TextField fx:id="id_recherche" layoutX="102.0" layoutY="178.0" prefHeight="26.0" prefWidth="807.0" promptText="Recherche" />
+                      <TextField fx:id="id_recherche" layoutX="102.0" layoutY="178.0" onKeyReleased="#chercherCatSoin" prefHeight="26.0" prefWidth="807.0" promptText="Recherche" />
                       <Button fx:id="btn_pdf" layoutX="680.0" layoutY="133.0" mnemonicParsing="false" onAction="#GeneratePdf" prefHeight="32.0" prefWidth="230.0" text="Télécharger PDF" textFill="WHITE" />
             <ScrollPane fx:id="scroll" layoutX="86.0" layoutY="260.0" prefHeight="555.0" prefWidth="634.0" styleClass="backgroundBack" translateX="120.0 ">
                <content>

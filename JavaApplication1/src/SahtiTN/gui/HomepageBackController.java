@@ -30,12 +30,13 @@ public class HomepageBackController implements Initializable {
     private Label id_ID;
     @FXML
     private Hyperlink btn_gestion_util;
-    @FXML
-    private Label btn_deconnexion;
+   
     @FXML
     private Hyperlink btn_envoi_SoinMP;
     @FXML
     private Hyperlink btn_envoi_catSoinMP;
+    @FXML
+    private Hyperlink btn_deconnexion;
 
     /**
      * Initializes the controller class.
@@ -98,12 +99,13 @@ public class HomepageBackController implements Initializable {
     }
 
     @FXML
-    private void sedeconnecter(MouseEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
-        //récupération du root  à partir du fichier fxml
-        Parent root;
-
-        try {
+    private void sedeconnecter(ActionEvent event) {
+       try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root;
+            
+            
             root = loader.load();
             //récupération du controller lier au fichier fxml 
             SahtiTN.gui.ConnexionController dpc = loader.getController();
@@ -113,5 +115,7 @@ public class HomepageBackController implements Initializable {
             Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+   
     
 }

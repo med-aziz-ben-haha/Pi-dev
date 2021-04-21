@@ -7,13 +7,20 @@ package SahtiTN.gui;
 
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.SoinMPCrud;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -23,6 +30,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javax.imageio.ImageIO;
+import org.apache.commons.io.FilenameUtils;
 
 /**
  * FXML Controller class
@@ -52,7 +65,12 @@ public class AjouterSoinMPController implements Initializable {
     ObservableList<String> catSoin = FXCollections.observableArrayList();
     @FXML
     private Hyperlink btn_deconnexion;
-
+    @FXML
+    private ImageView CatImage;
+    @FXML
+    private Button btn_image;
+ SoinMP s = new SoinMP();
+    
     /**
      * Initializes the controller class.
      */
@@ -132,8 +150,11 @@ public class AjouterSoinMPController implements Initializable {
            
             int id=Soins.chercherCatSoinMPid(ch);
             
-            SoinMP s = new SoinMP( id ,titre.getText(),Description.getText(), "2.4Méditation-603aee9ce4bff.jpeg",Adresse.getText());
-            //      Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
+            s.setCategorie_soin_mp_id(id);
+            s.setTitre_soin_mp(titre.getText());
+            s.setDescription_soin_mp(Description.getText());
+            s.setAdresse_soin_mp(Adresse.getText());
+//      Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
             Soins.ajouterSoinMP(s);
             
             //récupération fichier fxml
@@ -192,6 +213,34 @@ public class AjouterSoinMPController implements Initializable {
             Logger.getLogger(AjouterSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    
+    }
+
+    @FXML
+    private void insert_image(ActionEvent event) {
+           FileChooser fileChooser = new FileChooser();
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+                try {
+                BufferedImage bufferedImage = ImageIO.read(selectedFile);
+                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                CatImage.setImage(image);
+                String uniqueid = UUID.randomUUID().toString();
+                System.out.println("\n" + uniqueid);
+                
+                System.out.println(selectedFile.getPath());
+                String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
+              
+                Path tmp = Files.move(Paths.get(selectedFile.getPath()),
+                       Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
+              System.out.print(tmp);
+              
+               
+              s.setLien_image_smp(uniqueid+"."+extension);
+                
+                } catch (IOException ex) {
+                    System.out.print(ex.getMessage());
+                
+            }
     
     }
     

@@ -183,14 +183,14 @@ public class UserCrud {
         
     }*/
 
-    public List<User> rechercherUser(String besoin, String caractere) {
+    public List<User> rechercherUser(String caractere) {
 
         ArrayList<User> utilisateurs = new ArrayList<>();
-        String requete = "select * from user where " + besoin + " LIKE '" + caractere + "%'";
+        String requete = "select * from user where email LIKE '%" + caractere + "%' OR nom LIKE '%" + caractere + "%' OR prenom LIKE '%" + caractere + "%' OR telephone LIKE '%" + caractere + "%' OR sexe LIKE '%" + caractere + "%' OR adresse_user LIKE '%" + caractere + "%'";
 
         try {
             PreparedStatement pst2 = cn2.prepareStatement(requete);
-            //    pst2.setString(1, besoin);
+           
 
             pst2.executeQuery();
             System.out.println("recherche done");

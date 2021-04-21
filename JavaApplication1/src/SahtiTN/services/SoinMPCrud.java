@@ -259,10 +259,10 @@ public class SoinMPCrud {
         return c;
     }
 
-    public List<SoinMP> rechercherSoinMP(String besoin, String caractere) {
+    public List<SoinMP> rechercherSoinMP(String caractere) {
 
         ArrayList<SoinMP> SoinMPs = new ArrayList<>();
-        String requete = "select * from soin_mp where " + besoin + " LIKE '" + caractere + "%'";
+        String requete = "select * from soin_mp where titre_soin_mp LIKE '%" + caractere + "%' OR description_soin_mp LIKE '%" + caractere + "%' OR adresse_soin_mp LIKE '%" + caractere + "%'";
 
         try {
             PreparedStatement pst2 = cn2.prepareStatement(requete);

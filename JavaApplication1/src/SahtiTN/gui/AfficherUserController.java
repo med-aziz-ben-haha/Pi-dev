@@ -35,6 +35,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
@@ -204,6 +205,48 @@ public class AfficherUserController implements Initializable {
             Logger.getLogger(AfficherUserController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    @FXML
+    private void chercherUser(KeyEvent event) {
+        grid.getChildren().clear();
+        data = new ArrayList();
+
+        UserCrud utilisateurs = new UserCrud();
+
+        utilisateurs.rechercherUser(id_recherche.getText()).forEach((u) -> {
+
+            data.add(u);
+
+        });
+         int column=1;
+        int row=0;
+          
+        for(int i=0; i<data.size();i++){
+          
+         
+                
+                try {
+                    FXMLLoader fxmlLoader = new FXMLLoader();
+                    
+                    fxmlLoader.setLocation(getClass().getResource("TabUserBack.fxml"));
+                    AnchorPane anchorPane=fxmlLoader.load();
+                    TabUserBackController cardController= fxmlLoader.getController();
+ 
+                    cardController.setUserData(data.get(i));
+                    row++;
+                    
+                    
+                    grid.add(anchorPane,column,row);
+                    
+                    GridPane.setMargin(anchorPane,new Insets(2));
+                } catch (IOException ex) {
+                    Logger.getLogger(AfficherUserController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+              
+             
+    } 
+        
     }
     
 }

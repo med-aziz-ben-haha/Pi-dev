@@ -68,7 +68,7 @@
                         <Image url="@../images/user.png" />
                     </image>
                 </ImageView>
-            <Label fx:id="btn_deconnexion" layoutX="883.0" layoutY="68.0" onDragDetected="#sedeconnecter" text="Se déconnecter" textFill="WHITE" />
+            <Hyperlink fx:id="btn_deconnexion" layoutX="879.0" layoutY="57.0" onAction="#sedeconnecter" text="Se deconnecter" textFill="WHITE" />
          </children>
       </Pane>
     </children>

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="SahtiTN.gui.ModifierCategorieSoinMPController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.ModifierCategorieSoinMPController">
     <stylesheets>
         <URL value="@homepage.css" />
     </stylesheets>
@@ -68,8 +68,11 @@
                 <Label layoutX="59.0" layoutY="123.0" scaleX="1.2" scaleY="1.2" text="Modifier Catégories SoinMP :" />
                 <Label layoutX="228.0" layoutY="256.0" text="Titre :" />
                 <TextField fx:id="titre" layoutX="352.0" layoutY="253.0" prefHeight="31.0" prefWidth="337.0" />
-                <Button fx:id="btn_modifier" layoutX="559.0" layoutY="347.0" mnemonicParsing="false" onAction="#modifier_CatSoinMP" prefHeight="31.0" prefWidth="146.0" text="Modifier Catégorie" textFill="WHITE" />
-                <Button fx:id="btn_retour" layoutX="354.0" layoutY="347.0" mnemonicParsing="false" onAction="#navigation_affich" text="Retour" textFill="WHITE" />
+                <Button fx:id="btn_modifier" layoutX="540.0" layoutY="517.0" mnemonicParsing="false" onAction="#modifier_CatSoinMP" prefHeight="31.0" prefWidth="148.0" text="Modifier Catégorie" textFill="WHITE" />
+                <Button fx:id="btn_retour" layoutX="352.0" layoutY="517.0" mnemonicParsing="false" onAction="#navigation_affich" text="Retour" textFill="WHITE" />
+            <ImageView fx:id="CatImage" fitHeight="150.0" fitWidth="337.0" layoutX="352.0" layoutY="301.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btn_image" layoutX="352.0" layoutY="470.0" mnemonicParsing="false" onAction="#insert_image" prefHeight="31.0" prefWidth="337.0" text="Ajouter image" textFill="WHITE" />
+            <Label layoutX="226.0" layoutY="301.0" text="Image:" />
             </children>
         </Pane>
           <Pane layoutX="268.0" prefHeight="110.0" prefWidth="1012.0" styleClass="backgroundBackNav">

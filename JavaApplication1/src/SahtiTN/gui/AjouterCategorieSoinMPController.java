@@ -7,11 +7,19 @@ package SahtiTN.gui;
 
 import SahtiTN.entities.CategorieSoinMP;
 import SahtiTN.services.CategorieSoinMPCrud;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,7 +28,13 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javax.imageio.ImageIO;
+import org.apache.commons.io.FilenameUtils;
 /**
  * FXML Controller class
  *
@@ -42,7 +56,11 @@ public class AjouterCategorieSoinMPController implements Initializable {
     private Button btn_retour;
     @FXML
     private Hyperlink btn_deconnexion;
-
+    @FXML
+    private Button btn_image;
+    CategorieSoinMP c = new CategorieSoinMP();
+    @FXML
+    private ImageView CatImage;
     /**
      * Initializes the controller class.
      */
@@ -114,7 +132,7 @@ public class AjouterCategorieSoinMPController implements Initializable {
     private void ajout_CatSoinMP(ActionEvent event) {
         
             CategorieSoinMPCrud categories = new CategorieSoinMPCrud();
-            CategorieSoinMP c = new CategorieSoinMP(titre.getText(), "categorie-605339359cead.png");
+            c.setLibelle_categorie_soin_mp(titre.getText());
             //      Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
             categories.AjouterCategorieSoinMP(c);
             
@@ -174,6 +192,35 @@ public class AjouterCategorieSoinMPController implements Initializable {
             Logger.getLogger(AjouterCategorieSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    
+    }
+
+    @FXML
+    private void insert_image(ActionEvent event) {
+         FileChooser fileChooser = new FileChooser();
+        File selectedFile = fileChooser.showOpenDialog(new Stage());
+                try {
+                BufferedImage bufferedImage = ImageIO.read(selectedFile);
+                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+                CatImage.setImage(image);
+                String uniqueid = UUID.randomUUID().toString();
+                System.out.println("\n" + uniqueid);
+                
+                System.out.println(selectedFile.getPath());
+                String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
+              
+                Path tmp = Files.move(Paths.get(selectedFile.getPath()),
+                       Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
+              System.out.print(tmp);
+              
+               
+              c.setLien_icone_csmp(uniqueid+"."+extension);
+                
+                } catch (IOException ex) {
+                    System.out.print(ex.getMessage());
+                
+            }
+    
     
     }
     

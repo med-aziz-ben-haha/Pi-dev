@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherSoinMPFrontController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherSoinMPDetailsNoteController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/CarddetailsController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherSoinMPDetailsFrontController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherCategorieSoinMPController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/AfficherUserController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/TabUserBackController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/CarddetailsNoteController.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/TabUserBack.fxml</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/TabCatSoinBackController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/InscriptionPharmacienController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/InscriptionPara.fxml</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/ConnexionController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/InscriptionChoixController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/InscriptionParaController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/InscriptionController.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/InscriptionChoix.fxml</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/InscriptionMed.fxml</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-java/Pi-dev/JavaApplication1/src/SahtiTN/gui/InscriptionMedController.java</file>
         </group>
     </open-files>
 </project-private>

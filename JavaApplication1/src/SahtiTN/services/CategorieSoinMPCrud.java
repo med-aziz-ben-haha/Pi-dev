@@ -133,14 +133,13 @@ public class CategorieSoinMPCrud {
         }
         return c;
     }
-    public List<CategorieSoinMP> rechercherCategorieSoinMP(String besoin, String caractere) {
+    public List<CategorieSoinMP> rechercherCategorieSoinMP( String caractere) {
 
         ArrayList<CategorieSoinMP> CategorieSoinMPs = new ArrayList<>();
-        String requete = "select * from categorie_soin_mp where " + besoin + " LIKE '" + caractere + "%'";
+        String requete = "select * from categorie_soin_mp where libelle_categorie_soin_mp LIKE '%" + caractere + "%'";
 
         try {
             PreparedStatement pst2 = cn2.prepareStatement(requete);
-            //    pst2.setString(1, besoin);
 
             pst2.executeQuery();
             System.out.println("Recherche avec succès");

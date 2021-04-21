@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="SahtiTN.gui.ModifierSoinMPController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.ModifierSoinMPController">
     <stylesheets>
         <URL value="@homepage.css" />
     </stylesheets>
@@ -69,14 +69,17 @@
                 <Label layoutX="59.0" layoutY="123.0" scaleX="1.2" scaleY="1.2" text="Modifer SoinMP :" />
                 <Label layoutX="228.0" layoutY="256.0" text="Titre :" />
                 <TextField fx:id="titre" layoutX="352.0" layoutY="253.0" prefHeight="31.0" prefWidth="337.0" />
-                <Button fx:id="btn_modifier" layoutX="565.0" layoutY="473.0" mnemonicParsing="false" onAction="#btn_modifier" text="Modifier SoinMP" textFill="WHITE" />
-                <Button fx:id="btn_retour" layoutX="358.0" layoutY="473.0" mnemonicParsing="false" onAction="#navigation_affich" text="Retour" textFill="WHITE" />
+                <Button fx:id="btn_modifier" layoutX="579.0" layoutY="646.0" mnemonicParsing="false" onAction="#btn_modifier" text="Modifier Soin" textFill="WHITE" />
+                <Button fx:id="btn_retour" layoutX="352.0" layoutY="646.0" mnemonicParsing="false" onAction="#navigation_affich" text="Retour" textFill="WHITE" />
             <TextField fx:id="Adresse" layoutX="352.0" layoutY="380.0" prefHeight="31.0" prefWidth="337.0" />
             <TextField fx:id="Description" layoutX="352.0" layoutY="336.0" prefHeight="31.0" prefWidth="337.0" />
             <Label layoutX="229.0" layoutY="299.0" text="Catégorie:" />
             <Label layoutX="231.0" layoutY="340.0" text="Description:" />
             <Label layoutX="232.0" layoutY="385.0" text="Adresse:" />
             <ComboBox fx:id="Categorie_soin" layoutX="352.0" layoutY="295.0" prefHeight="25.0" prefWidth="337.0" />
+            <ImageView fx:id="CatImage" fitHeight="150.0" fitWidth="337.0" layoutX="352.0" layoutY="424.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btn_image" layoutX="352.0" layoutY="593.0" mnemonicParsing="false" onAction="#insert_image" prefHeight="31.0" prefWidth="337.0" text="Ajouter image" textFill="WHITE" />
+            <Label layoutX="232.0" layoutY="427.0" text="Image:" />
             </children>
         </Pane>
           <Pane layoutX="268.0" prefHeight="110.0" prefWidth="1012.0" styleClass="backgroundBackNav">

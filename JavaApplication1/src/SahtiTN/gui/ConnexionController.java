@@ -134,11 +134,11 @@ public class ConnexionController implements Initializable {
     @FXML
     public void envoiCreer() throws IOException {
         //récupération fichier fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Inscription.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("InscriptionChoix.fxml"));
         //récupération du root  à partir du fichier fxml
         Parent root = loader.load();
         //récupération du controller lier au fichier fxml 
-        InscriptionController dpc = loader.getController();
+        InscriptionChoixController dpc = loader.getController();
         //   dpc.setLbMessage(id_tableUser.getSelectionModel().getSelectedItem().getId() + "");
 
         login.getScene().setRoot(root);
