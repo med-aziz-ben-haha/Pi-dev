@@ -167,12 +167,12 @@ public class CarddetailsNoteController implements Initializable {
 
             s.setSoinMPNoteAvis(valeur + 1, "", userid, Integer.parseInt(espace.getId()));
 
-            Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
+            /*Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
             Message message = Message.creator(
                     new com.twilio.type.PhoneNumber("+21624602806"),
                     new com.twilio.type.PhoneNumber("+12402610130"),
                     "Merci d'avoir noté le soin " + dataSoinMP.getTitre_soin_mp())
-                    .create();
+                    .create();*/
             try {
 
                 AfficherSoinMPDetailsNoteController.sesoinId(espace.getId());
@@ -192,12 +192,12 @@ public class CarddetailsNoteController implements Initializable {
         } else {
 
             s.updateSoinMPNoteAvis(valeur + 1, "", noteSoin.id);
-            Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
+            /*Twilio.init("AC4e90752645b1901c9dd2da1f3a1d41d4", "78cfde211831c332f2b6251099c5ea4a");
             Message message = Message.creator(
                     new com.twilio.type.PhoneNumber("+21624602806"),
                     new com.twilio.type.PhoneNumber("+12402610130"),
                     "Merci d'avoir modifé la note du soin " + dataSoinMP.getTitre_soin_mp())
-                    .create();
+                    .create();*/
 
             try {
 

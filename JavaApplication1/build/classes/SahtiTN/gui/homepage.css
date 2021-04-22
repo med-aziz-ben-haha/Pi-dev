@@ -23,3 +23,8 @@
     -fx-background-color: linear-gradient( #EA3D48 , #EA3D48 );
 }
 
+.btnFront{
+    -fx-background-color: linear-gradient( #ffffff , #ffffff );
+    -fx-border-color:#ea3d48;
+    
+}

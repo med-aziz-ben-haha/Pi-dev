@@ -10,6 +10,7 @@ import SahtiTN.entities.CategorieSoinMP;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.CategorieSoinMPCrud;
 import SahtiTN.tools.PDFutil;
+import SahtiTN.tools.Session;
 import com.lowagie.text.DocumentException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -79,7 +80,6 @@ public class AfficherCategorieSoinMPController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-
         data = new ArrayList();
 
         CategorieSoinMPCrud Categories = new CategorieSoinMPCrud();
@@ -203,6 +203,7 @@ public class AfficherCategorieSoinMPController implements Initializable {
 
     @FXML
     private void sedeconnecter(ActionEvent event) {
+        Session.getSession().clearSession();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             //récupération du root  à partir du fichier fxml

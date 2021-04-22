@@ -17,7 +17,7 @@
         <URL value="@homepage.css" />
     </stylesheets>
     <children>
-        <Pane prefHeight="111.0" prefWidth="1267.0">
+        <Pane prefHeight="111.0" prefWidth="1267.0" styleClass="backgroundFront" >
             <children>
                 <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="11.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -33,17 +33,17 @@
                       <Image url="@../images/user.png" />
                   </image>
               </ImageView>
-            <Hyperlink focusTraversable="false" layoutX="422.0" layoutY="42.0" prefHeight="29.0" prefWidth="108.0" text="Médicaments" textFill="#1b1a1a">
+            <Hyperlink fx:id="btn_Med" focusTraversable="false" layoutX="422.0" layoutY="42.0" onAction="#envoi_Med" prefHeight="29.0" prefWidth="108.0" text="Médicaments" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Hyperlink>
-            <Hyperlink focusTraversable="false" layoutX="322.0" layoutY="41.0" prefHeight="26.0" prefWidth="169.0" text="Réclamation" textFill="#1b1a1a">
+            <Hyperlink focusTraversable="false" layoutX="322.0" layoutY="41.0" prefHeight="29.0" prefWidth="109.0" text="Réclamation" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Hyperlink>
-            <Hyperlink focusTraversable="false" layoutX="523.0" layoutY="42.0" prefHeight="29.0" prefWidth="108.0" text="Ordonnances" textFill="#1b1a1a">
+            <Hyperlink fx:id="btn_Ord" focusTraversable="false" layoutX="523.0" layoutY="42.0" onAction="#envoi_Ord" prefHeight="29.0" prefWidth="108.0" text="Ordonnances" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -113,7 +113,7 @@
             </GridPane>
          </content>
       </ScrollPane>
-       <Pane layoutY="112.0" prefHeight="210.0" prefWidth="1280.0">
+       <Pane layoutY="112.0" prefHeight="210.0" prefWidth="1280.0" styleClass="backgroundFront" >
          <children>
             <Label layoutX="212.0" layoutY="95.0" text="Un doute , une inquiétude , besoin d'un conseil santé? Sa7ti.TN c'est la " textFill="#97807c" />
             <Label layoutX="212.0" layoutY="116.0" text="solution" textFill="#97807c" />

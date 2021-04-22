@@ -5,6 +5,7 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.tools.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -35,6 +36,10 @@ public class HomepageFrontController implements Initializable {
     private Hyperlink btn_accueil;
     @FXML
     private Hyperlink btn_MP;
+    @FXML
+    private Hyperlink btn_Med;
+    @FXML
+    private Hyperlink btn_Ord;
 
     /**
      * Initializes the controller class.
@@ -66,6 +71,7 @@ public class HomepageFrontController implements Initializable {
 
     @FXML
     private void sedeconnecter(ActionEvent event) {
+        Session.getSession().clearSession();
          FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
         //récupération du root  à partir du fichier fxml
         Parent root;
@@ -91,6 +97,40 @@ public class HomepageFrontController implements Initializable {
             root = loader.load();
             //récupération du controller lier au fichier fxml 
             SahtiTN.gui.AfficherCategorieSoinMPFrontController dpc = loader.getController();
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_Med(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionMedicamentFront.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            GestionMedicamentFrontController dpc = loader.getController();
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_Ord(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionOrdonnanceFront.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            GestionOrdonnanceFrontController dpc = loader.getController();
 
             btn_accueil.getScene().setRoot(root);
         } catch (IOException ex) {

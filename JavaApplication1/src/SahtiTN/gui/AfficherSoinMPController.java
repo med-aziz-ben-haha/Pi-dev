@@ -8,6 +8,7 @@ package SahtiTN.gui;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.SoinMPCrud;
 import SahtiTN.tools.PDFutil;
+import SahtiTN.tools.Session;
 import com.lowagie.text.DocumentException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -209,6 +210,7 @@ public class AfficherSoinMPController implements Initializable {
 
     @FXML
     private void sedeconnecter(ActionEvent event) {
+        Session.getSession().clearSession();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             //récupération du root  à partir du fichier fxml

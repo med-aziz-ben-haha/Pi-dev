@@ -8,6 +8,7 @@ package SahtiTN.gui;
 import SahtiTN.entities.CaptchaSoin;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.SoinMPCrud;
+import SahtiTN.tools.Session;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -49,6 +50,10 @@ public class AfficherSoinMPDetailsFrontController implements Initializable {
     private Pane scroll;
     @FXML
     private GridPane grid;
+    @FXML
+    private Hyperlink btn_Med;
+    @FXML
+    private Hyperlink btn_Ord;
       public String getsoinId() {
         return soinId;
     }
@@ -97,20 +102,73 @@ public class AfficherSoinMPDetailsFrontController implements Initializable {
 
     @FXML
     private void envoiAccueil(ActionEvent event) {
-        try {
-            //récupération fichier fxml
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFront.fxml"));
-            //récupération du root  à partir du fichier fxml
-            Parent root;
-            
-            
-            root = loader.load();
-            //récupération du controller lier au fichier fxml 
-            SahtiTN.gui.HomepageFrontController dpc = loader.getController();
+        int role = Session.getSession().getSessionUser().getRole();
+        if (role == 1) {
+            try {
+                //récupération fichier fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFront.fxml"));
+                //récupération du root  à partir du fichier fxml
+                Parent root;
 
-            btn_accueil.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(AfficherSoinMPDetailsFrontController.class.getName()).log(Level.SEVERE, null, ex);
+                root = loader.load();
+                //récupération du controller lier au fichier fxml 
+                SahtiTN.gui.HomepageFrontController dpc = loader.getController();
+
+                btn_accueil.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherCategorieSoinMPFrontController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        if (role == 2) {
+            try {
+                //récupération fichier fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFrontMed.fxml"));
+                //récupération du root  à partir du fichier fxml
+                Parent root;
+
+                root = loader.load();
+                //récupération du controller lier au fichier fxml 
+                HomepageFrontMedController dpc = loader.getController();
+
+                btn_accueil.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherCategorieSoinMPFrontController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        if (role == 3) {
+            try {
+                //récupération fichier fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFrontPhar.fxml"));
+                //récupération du root  à partir du fichier fxml
+                Parent root;
+
+                root = loader.load();
+                //récupération du controller lier au fichier fxml 
+                HomepageFrontPharController dpc = loader.getController();
+
+                btn_accueil.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherCategorieSoinMPFrontController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        if (role == 4) {
+            try {
+                //récupération fichier fxml
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFrontPara.fxml"));
+                //récupération du root  à partir du fichier fxml
+                Parent root;
+
+                root = loader.load();
+                //récupération du controller lier au fichier fxml 
+                HomepageFrontParaController dpc = loader.getController();
+
+                btn_accueil.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherCategorieSoinMPFrontController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
        
     }
@@ -119,6 +177,7 @@ public class AfficherSoinMPDetailsFrontController implements Initializable {
 
     @FXML
     private void sedeconnecter(ActionEvent event) {
+        Session.getSession().clearSession();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             //récupération du root  à partir du fichier fxml
@@ -153,6 +212,40 @@ public class AfficherSoinMPDetailsFrontController implements Initializable {
             Logger.getLogger(AfficherSoinMPDetailsFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
       
+    }
+    
+    @FXML
+    private void envoi_Med(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionMedicamentFront.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            GestionMedicamentFrontController dpc = loader.getController();
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_Ord(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionOrdonnanceFront.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            GestionOrdonnanceFrontController dpc = loader.getController();
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

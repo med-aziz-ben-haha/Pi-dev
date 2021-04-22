@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import SahtiTN.entities.User;
 import SahtiTN.services.UserCrud;
+import SahtiTN.tools.Session;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -191,6 +192,7 @@ public class AfficherUserController implements Initializable {
 
     @FXML
     private void sedeconnecter(ActionEvent event) {
+        Session.getSession().clearSession();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
         //récupération du root  à partir du fichier fxml
         Parent root;

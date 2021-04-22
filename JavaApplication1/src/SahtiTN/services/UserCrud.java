@@ -51,7 +51,7 @@ public class UserCrud {
     public void ajouterUser(User u) {
        
         String requete2 = "INSERT INTO user ( `login`, `nom`, `prenom`, `telephone`, "
-                + "`email`, `sexe`, `password`, `role`, `lien_image_user`, `fullname`, `adresse_user`) "
+                + "`email`, `sexe`, `mdp`, `role`, `lien_image_user`, `fullname`, `adresse_user`) "
                 + "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
@@ -80,7 +80,7 @@ public class UserCrud {
   
     public void modifierUser(User u, String userLogin, String userNom, String userPrenom, String userTel, String userMail, String userSexe, String userPassword, String userLienImage, String userAdresse) {
            String userFullname=userNom;
-        String requete2 = "UPDATE user SET login = ?, nom = ?, prenom = ?, telephone = ?, email = ?, sexe = ?, password = ?, lien_image_user =?, user_fullname=?, user_adresse=? WHERE id = ?";
+        String requete2 = "UPDATE user SET login = ?, nom = ?, prenom = ?, telephone = ?, email = ?, sexe = ?, mdp = ?, lien_image_user =?, user_fullname=?, user_adresse=? WHERE id = ?";
 
         try {
 
@@ -286,27 +286,34 @@ public class UserCrud {
         return mail;
     }
 
-    public boolean VerifUserLogin(String s_login, String s_password) {
-
-        String sql = "SELECT * FROM user WHERE login = ? and password = ?";
+    public User VerifUserLogin(String s_login) {
+        User u = new User();
+        String sql = "SELECT * FROM user WHERE login = ?";
 
         try {
             PreparedStatement pst = cn2.prepareStatement(sql);
             pst.setString(1, s_login);
-            pst.setString(2, s_password);
+          
             ResultSet rs = pst.executeQuery();
-            if (!rs.next()) {
-                return false;
-
-            } else {
-
-                return true;
+            while (rs.next()) {
+               
+              u.setLogin(rs.getString("login"));
+               u.setId(rs.getInt("id"));
+              u.setEmail(rs.getString("email"));
+                u.setNom(rs.getString("nom"));
+                u.setPrenom(rs.getString("prenom"));
+                u.setTelephone(rs.getString("telephone"));
+                u.setSexe(rs.getString("sexe"));
+                u.setAdresse_user(rs.getString("adresse_user"));
+                u.setLien_image_user(rs.getString("lien_image_user"));      
+                u.setPassword(rs.getString("mdp"));
+                u.setRole(rs.getInt("role"));
             }
-
+         return u;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return u;
     }
 
     public boolean VerifUserMail(String s_email) {
@@ -388,7 +395,7 @@ public class UserCrud {
 
     public void modifierPwdUser(String userMail, String passW) {
 
-        String requete2 = "UPDATE user SET password = ?  WHERE email = ? ";
+        String requete2 = "UPDATE user SET mdp = ?  WHERE email = ? ";
 
         try {
 

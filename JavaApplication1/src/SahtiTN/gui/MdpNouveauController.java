@@ -5,6 +5,7 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.tools.BCrypt;
 import SahtiTN.services.UserCrud;
 import static SahtiTN.gui.ConnexionController.infoBox;
 import java.io.IOException;
@@ -21,12 +22,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-
-
-
-
-
-
 
 
 /**
@@ -57,7 +52,7 @@ public class MdpNouveauController implements Initializable {
     private void RécuprationPwdUser(ActionEvent event) {
              String s_password = password.getText();
         String msg = lbMessage.getText();
-        utilisateurs.modifierPwdUser(msg, s_password);
+        utilisateurs.modifierPwdUser(msg, BCrypt.hashpw(s_password,BCrypt.gensalt()));
 
         infoBox(" Password modifié ", "Success", null);
 

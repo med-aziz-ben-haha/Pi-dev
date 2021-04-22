@@ -39,6 +39,8 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import org.apache.commons.io.FilenameUtils;
+import SahtiTN.tools.BCrypt;
+
 /**
  * FXML Controller class
  *
@@ -184,9 +186,9 @@ public class InscriptionController implements Initializable {
     {     
           UserCrud utilisateurs = new UserCrud();
     
-       
         u.setLogin(login.getText());
-        u.setPassword(password.getText());
+        String hashedPassword = BCrypt.hashpw(password.getText(),BCrypt.gensalt());
+        u.setPassword(hashedPassword);
         u.setNom(nom.getText());
         u.setPrenom(prenom.getText());
         u.setAdresse_user(adresse.getText());

@@ -5,6 +5,9 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.tools.BCrypt;
+import SahtiTN.tools.Session;
+import SahtiTN.entities.User;
 import SahtiTN.services.UserCrud;
 import java.io.IOException;
 import java.net.URL;
@@ -48,14 +51,15 @@ public class ConnexionController implements Initializable {
 
     Stage dialogStage = new Stage();
     Scene scene;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
- 
+    }
+
     public static void infoBox(String infoMessage, String titleBar, String headerMessage) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titleBar);
@@ -68,49 +72,102 @@ public class ConnexionController implements Initializable {
     private void LoginUser(ActionEvent event) {
         String s_login = login.getText().toString();
         String s_password = password.getText().toString();
-        int role ;
-        if (utilisateurs.VerifUserLogin(s_login, s_password) == false) {
-             infoBox("Enter Correct username and  Password", "Failed", null);
-         } 
-        else {
-          
-       
-        role=utilisateurs.verifRole(s_login);
-       
-        if (role ==0)
-        {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageBack.fxml"));
-        //récupération du root  à partir du fichier fxml
-        Parent root;
-        try {
-            root = loader.load();
+        int role;
+        User u = new User();
+        u = utilisateurs.VerifUserLogin(s_login);
+        if (u == null) {
+            infoBox(" Verifier votre Login  ", "Echec", null);
+        } else {
+            if (BCrypt.checkpw(s_password, u.getPassword()) == false) {
+                infoBox("Verifier votre mot de passe  ", "Echec", null);
+            } else {
+                role = utilisateurs.verifRole(s_login);
+                Session.StartSession().SetSessionUser(u);
 
-            //récupération du controller lier au fichier fxml 
-            SahtiTN.gui.HomepageBackController dpc = loader.getController();
-            //        dpc.setLbMessage("" + username.getText() + "");
+                if (role == 0) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageBack.fxml"));
+                    //récupération du root  à partir du fichier fxml
+                    Parent root;
+                    try {
+                        root = loader.load();
 
-            login.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(ConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+                        //récupération du controller lier au fichier fxml 
+                        SahtiTN.gui.HomepageBackController dpc = loader.getController();
+                        //        dpc.setLbMessage("" + username.getText() + "");
+
+                        login.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+                if (role == 1) {//récupération fichier fxml
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFront.fxml"));
+                    //récupération du root  à partir du fichier fxml
+                    Parent root;
+                    try {
+                        root = loader.load();
+
+                        //récupération du controller lier au fichier fxml 
+                        SahtiTN.gui.HomepageFrontController dpc = loader.getController();
+                        //        dpc.setLbMessage("" + username.getText() + "");
+
+                        login.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                if (role == 2) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFrontMed.fxml"));
+                    //récupération du root  à partir du fichier fxml
+                    Parent root;
+                    try {
+                        root = loader.load();
+
+                        //récupération du controller lier au fichier fxml 
+                        SahtiTN.gui.HomepageFrontMedController dpc = loader.getController();
+                        //        dpc.setLbMessage("" + username.getText() + "");
+
+                        login.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                if (role == 3) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFrontPhar.fxml"));
+                    //récupération du root  à partir du fichier fxml
+                    Parent root;
+                    try {
+                        root = loader.load();
+
+                        //récupération du controller lier au fichier fxml 
+                        SahtiTN.gui.HomepageFrontPharController dpc = loader.getController();
+                        //        dpc.setLbMessage("" + username.getText() + "");
+
+                        login.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                if (role == 4) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("HomepageFrontPara.fxml"));
+                    //récupération du root  à partir du fichier fxml
+                    Parent root;
+                    try {
+                        root = loader.load();
+
+                        //récupération du controller lier au fichier fxml 
+                        SahtiTN.gui.HomepageFrontParaController dpc = loader.getController();
+                        //        dpc.setLbMessage("" + username.getText() + "");
+
+                        login.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ConnexionController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                }
+            }
         }
-        
-       }
-        else{//récupération fichier fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageFront.fxml"));
-        //récupération du root  à partir du fichier fxml
-        Parent root;
-        try {
-            root = loader.load();
-
-            //récupération du controller lier au fichier fxml 
-            SahtiTN.gui.HomepageFrontController dpc = loader.getController();
-            //        dpc.setLbMessage("" + username.getText() + "");
-
-            login.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(ConnexionController.class.getName()).log(Level.SEVERE, null, ex);
-        }        }}
-
 
     }
 

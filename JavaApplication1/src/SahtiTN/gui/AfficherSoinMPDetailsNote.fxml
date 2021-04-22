@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.AfficherSoinMPDetailsNoteController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="backgroundFront" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.AfficherSoinMPDetailsNoteController">
     <stylesheets>
         <URL value="@homepage.css"/>
     </stylesheets>
@@ -36,17 +36,17 @@
                       <Image url="@../images/user.png" />
                   </image>
               </ImageView>
-            <Hyperlink focusTraversable="false" layoutX="422.0" layoutY="42.0" prefHeight="29.0" prefWidth="108.0" text="Médicaments" textFill="#1b1a1a">
+            <Hyperlink fx:id="btn_Med" focusTraversable="false" layoutX="422.0" layoutY="42.0" onAction="#envoi_Med" prefHeight="29.0" prefWidth="108.0" text="Médicaments" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Hyperlink>
-            <Hyperlink focusTraversable="false" layoutX="322.0" layoutY="41.0" prefHeight="26.0" prefWidth="169.0" text="Réclamation" textFill="#1b1a1a">
+            <Hyperlink focusTraversable="false" layoutX="322.0" layoutY="41.0" prefHeight="29.0" prefWidth="109.0" text="Réclamation" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Hyperlink>
-            <Hyperlink focusTraversable="false" layoutX="523.0" layoutY="42.0" prefHeight="29.0" prefWidth="108.0" text="Ordonnances" textFill="#1b1a1a">
+            <Hyperlink fx:id="btn_Ord" focusTraversable="false" layoutX="523.0" layoutY="42.0" onAction="#envoi_Ord" prefHeight="29.0" prefWidth="108.0" text="Ordonnances" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

@@ -7,6 +7,7 @@ package SahtiTN.gui;
 
 import SahtiTN.entities.CategorieSoinMP;
 import SahtiTN.services.CategorieSoinMPCrud;
+import SahtiTN.tools.Session;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -177,6 +178,7 @@ public class AjouterCategorieSoinMPController implements Initializable {
 
     @FXML
     private void sedeconnecter(ActionEvent event) {
+        Session.getSession().clearSession();
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
             //récupération du root  à partir du fichier fxml
