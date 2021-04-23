@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package SahtiTN.gui;
+
 import SahtiTN.entities.JavamailUtil;
 import static SahtiTN.gui.ConnexionController.infoBox;
 import SahtiTN.services.UserCrud;
@@ -44,14 +45,17 @@ public class MdpOublieController implements Initializable {
     private TextField email;
     @FXML
     private ImageView logo;
-UserCrud utilisateurs = new UserCrud();
+    UserCrud utilisateurs = new UserCrud();
+    @FXML
+    private Button btn_cnx;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void RécuprationPwdUser(ActionEvent event) {
@@ -79,28 +83,28 @@ UserCrud utilisateurs = new UserCrud();
                 }
                 if (result.get().equals(code)) {
 
-                 try{   //récupération fichier fxml
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("mdpNouveau.fxml"));
-                    //récupération du root  à partir du fichier fxml
-                    Parent root = loader.load();
-                    //récupération du controller lier au fichier fxml
-                    MdpNouveauController dpc = loader.getController();
-                    dpc.setLbMessage(email.getText());
-                    email.getScene().setRoot(root);}    
-                 catch (IOException ex) {
-                Logger.getLogger(MdpOublieController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    try {   //récupération fichier fxml
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("mdpNouveau.fxml"));
+                        //récupération du root  à partir du fichier fxml
+                        Parent root = loader.load();
+                        //récupération du controller lier au fichier fxml
+                        MdpNouveauController dpc = loader.getController();
+                        dpc.setLbMessage(email.getText());
+                        email.getScene().setRoot(root);
+                    } catch (IOException ex) {
+                        Logger.getLogger(MdpOublieController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
                 } else {
-                try{
-                    //récupération fichier fxml
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("mdpOublie.fxml"));
-                    //récupération du root  à partir du fichier fxml
-                    Parent root = loader.load();
-                    //récupération du controller lier au fichier fxml
-                }catch (IOException ex) {
-                Logger.getLogger(MdpOublieController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    try {
+                        //récupération fichier fxml
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("mdpOublie.fxml"));
+                        //récupération du root  à partir du fichier fxml
+                        Parent root = loader.load();
+                        //récupération du controller lier au fichier fxml
+                    } catch (IOException ex) {
+                        Logger.getLogger(MdpOublieController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
 
 // The Java 8 way to get the response value (with lambda expression).
@@ -111,5 +115,24 @@ UserCrud utilisateurs = new UserCrud();
 
         }
     }
-    
+
+    @FXML
+    private void envoi_cnx(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+        
+        try {
+            root = loader.load();
+          //récupération du controller lier au fichier fxml 
+            ConnexionController dpc = loader.getController();
+            //             dpc.setLbMessage(id_act.getText());
+
+            btn_cnx.getScene().setRoot(root);
+            } catch (IOException ex) 
+            {
+            Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+
 }

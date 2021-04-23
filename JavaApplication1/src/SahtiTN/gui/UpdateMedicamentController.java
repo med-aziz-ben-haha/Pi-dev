@@ -14,23 +14,26 @@ import static java.lang.Integer.parseInt;
 import java.net.ProtocolException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
-import rest.file.uploader.tn.FileUploader;
+
 
 /**
  * FXML Controller class
@@ -56,6 +59,9 @@ public class UpdateMedicamentController implements Initializable {
     @FXML
     private Button bt_uploadImage2;
     private File file ;
+    private FileChooser uploadPic;
+    private File picPath;
+    private String imgUrl ="";
 
     public void setTf_update_nom_medicament(String tf_update_nom_medicament) {
         this.tf_update_nom_medicament.setText(tf_update_nom_medicament);
@@ -84,17 +90,18 @@ public class UpdateMedicamentController implements Initializable {
     public void setTf_update_date_modif(LocalDate tf_update_date_modif) {
         this.tf_update_date_modif.setValue(tf_update_date_modif);
     }
-
     public void setTf_update_image(String tf_update_image) {
-        this.tf_update_image.setText(tf_update_image);
-    }
-
+        this.tf_update_image.setText(tf_update_image);}
+    
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+     
+        
     }    
 
     @FXML
@@ -170,25 +177,20 @@ public class UpdateMedicamentController implements Initializable {
 
     @FXML
     private void uploadImage2(ActionEvent event) throws ProtocolException, IOException {
-        FileChooser.ExtensionFilter imageFilter
-        = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png" , "*.gif");
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(imageFilter);
-                
-        file = fileChooser.showOpenDialog(null);
-        if (file != null) {
-            try {
-                BufferedImage bufferedImage = ImageIO.read(file);
-                WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
-                //imagev.setImage(image);
-                } catch (IOException ex) {
-               // Logger.getLogger(JavaFXPixel.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                String img=file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\")+1);
-                this.tf_update_image.setText("C:\\wamp64\\www\\PIJAVA\\uploads\\"+img );
-                }
-                FileUploader fu = new FileUploader("http://localhost/PIJAVA/");
-                String fileNameInServer = fu.upload(file.getAbsolutePath());
+         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        uploadPic = new FileChooser();
+        uploadPic.setTitle("Select the image you want to add");
+        picPath = uploadPic.showOpenDialog(stage);
+        System.out.println(picPath.toString());
+        try {
+            imgUrl = picPath.toURI().toURL().toExternalForm();
+            tf_update_image.setText(imgUrl);
+            BufferedImage buffImage = ImageIO.read(picPath);
+            Image up = SwingFXUtils.toFXImage(buffImage, null);
+           
+        } catch(IOException ex){
+            System.err.println(ex.getMessage());
+        }
                 
             
     }

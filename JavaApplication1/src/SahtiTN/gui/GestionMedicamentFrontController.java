@@ -45,17 +45,17 @@ public class GestionMedicamentFrontController implements Initializable {
     @FXML
     private TableView<Medicament> tab_medicament;
     @FXML
-    private TableColumn<Medicament,Integer> id_col;
+    private TableColumn id_col;
     @FXML
-    private TableColumn<Medicament, String> nom_medicament_col;
+    private TableColumn nom_medicament_col;
     @FXML
-    private TableColumn<Medicament, String> descmedicament_col;
+    private TableColumn descmedicament_col;
     @FXML
-    private TableColumn<Medicament, Integer> dispo_col;
+    private TableColumn dispo_col;
     @FXML
-    private TableColumn<Medicament, LocalDate> date_modif_col;
+    private TableColumn date_modif_col;
     @FXML
-    private TableColumn<Medicament, String> image_col;
+    private TableColumn image_col;
     @FXML
     private TextField tf_rechercher;
     @FXML
@@ -147,28 +147,28 @@ public class GestionMedicamentFrontController implements Initializable {
 
     @FXML
     private void rechercheMedicament(KeyEvent event) {
-        MedicamentService Mc=new MedicamentService();
+         MedicamentService Mc=new MedicamentService();
         ObservableList<Medicament> medicaments = Mc.rechercheMedicament(tf_rechercher.getText());
-        id_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("id"));
-        nom_medicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("nom_medicament"));
-        descmedicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("descmedicament"));
-        dispo_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("dispo"));
-        date_modif_col.setCellValueFactory(new PropertyValueFactory<Medicament,LocalDate>("date_modif"));
-        image_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("img_medicament"));
+        id_col.setCellValueFactory(new PropertyValueFactory("id"));
+        nom_medicament_col.setCellValueFactory(new PropertyValueFactory("nom_medicament"));
+        descmedicament_col.setCellValueFactory(new PropertyValueFactory("descmedicament"));
+        dispo_col.setCellValueFactory(new PropertyValueFactory("dispo"));
+        date_modif_col.setCellValueFactory(new PropertyValueFactory("date_modif"));
+        image_col.setCellValueFactory(new PropertyValueFactory("showimage"));
         
-        tab_medicament.setItems(medicaments);
+        tab_medicament.setItems(medicaments); 
     }
     
     public void afficherMedicament()
     {
-        MedicamentService Mc=new MedicamentService();
+       MedicamentService Mc=new MedicamentService();
         ObservableList<Medicament> medicaments = Mc.afficherMedicament();
-        id_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("id"));
-        nom_medicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("nom_medicament"));
-        descmedicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("descmedicament"));
-        dispo_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("dispo"));
-        date_modif_col.setCellValueFactory(new PropertyValueFactory<Medicament,LocalDate>("date_modif"));
-        image_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("img_medicament"));
+        id_col.setCellValueFactory(new PropertyValueFactory("id"));
+        nom_medicament_col.setCellValueFactory(new PropertyValueFactory("nom_medicament"));
+        descmedicament_col.setCellValueFactory(new PropertyValueFactory("descmedicament"));
+        dispo_col.setCellValueFactory(new PropertyValueFactory("dispo"));
+        date_modif_col.setCellValueFactory(new PropertyValueFactory("date_modif"));
+        image_col.setCellValueFactory(new PropertyValueFactory("showimage"));
         
         tab_medicament.setItems(medicaments);
     }

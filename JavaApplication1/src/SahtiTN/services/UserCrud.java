@@ -415,4 +415,33 @@ public class UserCrud {
         int pass = (int) ((Math.random() * ((99999999 - 1) + 1)) + 1);
         return pass;
     }
+    
+    
+     public boolean isExisteEmail(String mail){
+     String sql="select * from user where email = ?";
+     List <User> Users  = new ArrayList();
+     try{
+     PreparedStatement pst = cn2.prepareStatement(sql);
+            pst.setString(1, mail);
+            ResultSet rs = pst.executeQuery();
+     return rs.first();
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+      return false;
+     }
+    }
+     
+     public boolean isExisteLogin(String login){
+     String sql="select * from user where login = ?";
+     List <User> Users  = new ArrayList();
+     try{
+     PreparedStatement pst = cn2.prepareStatement(sql);
+            pst.setString(1, login);
+            ResultSet rs = pst.executeQuery();
+     return rs.first();
+     } catch(SQLException ex){
+        System.out.print(ex.getMessage());
+      return false;
+     }
+    }
 }

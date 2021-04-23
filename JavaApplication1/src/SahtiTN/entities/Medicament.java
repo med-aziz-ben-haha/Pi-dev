@@ -7,6 +7,7 @@ package SahtiTN.entities;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -19,6 +20,24 @@ public class Medicament {
     private int dispo;
     private String img_medicament;
     private String descmedicament;
+    private ImageView showimage;
+
+    public ImageView getShowimage() {
+        return showimage;
+    }
+
+    public void setShowimage(ImageView showimage) {
+        this.showimage = showimage;
+    }
+
+    public Medicament(int id, String nom_medicament, LocalDate date_modif, int dispo, String descmedicament, ImageView showimage) {
+        this.id = id;
+        this.nom_medicament = nom_medicament;
+        this.date_modif = date_modif;
+        this.dispo = dispo;
+        this.descmedicament = descmedicament;
+        this.showimage = showimage;
+    }
 
     public Medicament() {
     }

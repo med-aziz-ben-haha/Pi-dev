@@ -132,12 +132,13 @@
                            </font>
                         </Label>
                         <TextField fx:id="tf_nom_medicament" layoutX="233.0" layoutY="34.0" prefHeight="31.0" prefWidth="560.0" />
-                        <TextField fx:id="tf_image" layoutX="234.0" layoutY="438.0" prefHeight="31.0" prefWidth="479.0" />
+                        <TextField fx:id="tf_image" editable="false" layoutX="234.0" layoutY="438.0" prefHeight="31.0" prefWidth="479.0" />
                         <Button fx:id="bt_ajouterMedicament" layoutX="1132.0" layoutY="507.0" mnemonicParsing="false" onAction="#ajouterMedicament" prefHeight="42.0" prefWidth="89.0" style="-fx-background-color: #5CCC26;" text="Ajouter" />
                         <CheckBox fx:id="check_dispo" layoutX="236.0" layoutY="281.0" mnemonicParsing="false" text="Disponible" />
                         <TextArea fx:id="tf_desc" layoutX="233.0" layoutY="105.0" prefHeight="133.0" prefWidth="559.0" />
                         <DatePicker fx:id="tf_date_modif" layoutX="234.0" layoutY="345.0" onMouseClicked="#ControlDatePicker" prefHeight="35.0" prefWidth="563.0" />
                         <Button fx:id="bt_uploadImage" layoutX="728.0" layoutY="438.0" mnemonicParsing="false" onAction="#uploadImage" text="Upload" />
+                        <ImageView fx:id="imageToPost" fitHeight="150.0" fitWidth="200.0" layoutX="1044.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" />
                      </children>
                   </AnchorPane>
                </content>

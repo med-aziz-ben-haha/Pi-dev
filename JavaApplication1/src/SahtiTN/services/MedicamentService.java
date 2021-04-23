@@ -18,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -40,7 +42,11 @@ public class MedicamentService {
                 M.setNom_medicament(rst.getString("nom_medicament"));
                 M.setDate_modif(rst.getDate("date_modif").toLocalDate());
                 M.setDispo(rst.getInt("dispo")); 
-                M.setImg_medicament(rst.getString("img_medicament"));
+                Image image = new Image(rst.getString("img_medicament"));
+                ImageView imgV = new ImageView(image);
+                imgV.setFitHeight(80);
+                imgV.setFitWidth(80);
+                M.setShowimage(imgV);
                 M.setDescmedicament(rst.getString("descmedicament"));
                 medicaments.add(M);
             }   
@@ -102,7 +108,11 @@ public class MedicamentService {
                 M.setNom_medicament(rst.getString("nom_medicament"));
                 M.setDate_modif(rst.getDate("date_modif").toLocalDate());
                 M.setDispo(rst.getInt("dispo")); 
-                M.setImg_medicament(rst.getString("img_medicament"));
+                Image image = new Image(rst.getString("img_medicament"));
+                ImageView imgV = new ImageView(image);
+                imgV.setFitHeight(80);
+                imgV.setFitWidth(80);
+                M.setShowimage(imgV);
                 M.setDescmedicament(rst.getString("descmedicament"));
                 medicaments.add(M);
             }   
@@ -125,7 +135,11 @@ public class MedicamentService {
                 M.setNom_medicament(rst.getString("nom_medicament"));
                 M.setDate_modif(rst.getDate("date_modif").toLocalDate());
                 M.setDispo(rst.getInt("dispo")); 
-                M.setImg_medicament(rst.getString("img_medicament"));
+               Image image = new Image(rst.getString("img_medicament"));
+                ImageView imgV = new ImageView(image);
+                imgV.setFitHeight(80);
+                imgV.setFitWidth(80);
+                M.setShowimage(imgV);
                 M.setDescmedicament(rst.getString("descmedicament"));
                 medicaments.add(M);
             }   
@@ -134,4 +148,28 @@ public class MedicamentService {
         }
         return (medicaments);
     }
+    public  String DeterminerNomById(int data) {
+            
+        String Nom="";
+        try { 
+            
+        String req = "SELECT img_medicament FROM medicament WHERE id= " +data+"";
+            
+            PreparedStatement st = MyConnection.getInstance().getCnx().prepareStatement(req);
+            
+            ResultSet rst = st.executeQuery(req);
+            
+            while (rst.next())
+            {
+                Nom=rst.getString("img_medicament");
+            }
+            
+            return Nom;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MedicamentService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return Nom;
+     }
+    
 }

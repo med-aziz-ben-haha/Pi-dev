@@ -40,6 +40,9 @@ import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import org.apache.commons.io.FilenameUtils;
 import SahtiTN.tools.BCrypt;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import org.apache.commons.validator.routines.EmailValidator;
 
 /**
  * FXML Controller class
@@ -79,6 +82,7 @@ public class InscriptionController implements Initializable {
     @FXML
     private Button btn_image;
      User u= new User();
+     UserCrud utilisateurs = new UserCrud();
 
     public TextField getEmail() {
         return email;
@@ -183,9 +187,37 @@ public class InscriptionController implements Initializable {
     }  
     @FXML
     private void Inscription(ActionEvent event) 
-    {     
-          UserCrud utilisateurs = new UserCrud();
-    
+    { 
+        EmailValidator validator = EmailValidator.getInstance();
+        if(email.getText().compareTo("")==0||password.getText().compareTo("")==0||login.getText().compareTo("")==0){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Un ou plusieurs champs sont manquants"); 
+        alert.setHeaderText("Un ou plusieurs champs sont manquants ");
+        alert.setContentText("Les champs e-mail, login et mot de passe sont obligatoires !");
+        alert.showAndWait();
+        }else if(validator.isValid(email.getText())==false){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Adresse mail non valid "); 
+        alert.setHeaderText("Adresse mail non valid ");
+        alert.setContentText("");
+        alert.showAndWait();
+        email.clear();
+       } 
+        else if(utilisateurs.isExisteEmail(email.getText())){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Adresse Mail existe déja"); 
+        alert.setHeaderText("");
+        alert.setContentText("Adresse Mail existe déja !");
+        alert.showAndWait();
+        } 
+        else if(utilisateurs.isExisteLogin(login.getText())){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Login existe déja"); 
+        alert.setHeaderText("");
+        alert.setContentText("Login existe déja !");
+        alert.showAndWait();
+        }
+        else{
         u.setLogin(login.getText());
         String hashedPassword = BCrypt.hashpw(password.getText(),BCrypt.gensalt());
         u.setPassword(hashedPassword);
@@ -215,7 +247,7 @@ public class InscriptionController implements Initializable {
             } catch (IOException ex) 
             {
             Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }}
         
     }
 

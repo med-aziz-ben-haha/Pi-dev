@@ -50,6 +50,7 @@ import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -65,6 +66,8 @@ import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
@@ -76,7 +79,6 @@ import javax.imageio.ImageIO;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import rest.file.uploader.tn.FileUploader;
 
 /**
  * FXML Controller class
@@ -85,6 +87,10 @@ import rest.file.uploader.tn.FileUploader;
  */
 public class GestionMedicamentBackController implements Initializable {
 
+    private File file ;
+    private FileChooser uploadPic;
+    private File picPath;
+    private String imgUrl ="";
     private TextField tf_dispo;
     @FXML
     private TextArea tf_desc;
@@ -97,17 +103,17 @@ public class GestionMedicamentBackController implements Initializable {
     @FXML
     private TableView<Medicament> tab_medicament;
     @FXML
-    private TableColumn<Medicament,Integer> id_col;
+    private TableColumn id_col;
     @FXML
-    private TableColumn<Medicament, String> nom_medicament_col;
+    private TableColumn nom_medicament_col;
     @FXML
-    private TableColumn<Medicament, String> descmedicament_col;
+    private TableColumn descmedicament_col;
     @FXML
-    private TableColumn<Medicament, Integer> dispo_col;
+    private TableColumn dispo_col;
     @FXML
-    private TableColumn<Medicament, LocalDate> date_modif_col;
+    private TableColumn date_modif_col;
     @FXML
-    private TableColumn<Medicament, String> image_col;
+    private TableColumn image_col;
     @FXML
     private Button bt_afficherMedicament;
     @FXML
@@ -123,7 +129,6 @@ public class GestionMedicamentBackController implements Initializable {
     @FXML
     private Button bt_exportExcel;
     private FileInputStream fis;
-    private File file ;
     @FXML
     private AnchorPane home;
     @FXML
@@ -140,6 +145,8 @@ public class GestionMedicamentBackController implements Initializable {
     private ComboBox<String> methodeTri;
     @FXML
     private CheckBox check_methodeTri;
+    @FXML
+    private ImageView imageToPost;
 
     /**
      * Initializes the controller class.
@@ -162,12 +169,12 @@ public class GestionMedicamentBackController implements Initializable {
     {
         MedicamentService Mc=new MedicamentService();
         ObservableList<Medicament> medicaments = Mc.afficherMedicament();
-        id_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("id"));
-        nom_medicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("nom_medicament"));
-        descmedicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("descmedicament"));
-        dispo_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("dispo"));
-        date_modif_col.setCellValueFactory(new PropertyValueFactory<Medicament,LocalDate>("date_modif"));
-        image_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("img_medicament"));
+        id_col.setCellValueFactory(new PropertyValueFactory("id"));
+        nom_medicament_col.setCellValueFactory(new PropertyValueFactory("nom_medicament"));
+        descmedicament_col.setCellValueFactory(new PropertyValueFactory("descmedicament"));
+        dispo_col.setCellValueFactory(new PropertyValueFactory("dispo"));
+        date_modif_col.setCellValueFactory(new PropertyValueFactory("date_modif"));
+        image_col.setCellValueFactory(new PropertyValueFactory("showimage"));
         
         tab_medicament.setItems(medicaments);
     }
@@ -205,12 +212,14 @@ public class GestionMedicamentBackController implements Initializable {
             tf_date_modif.setEditable(false);
             tf_desc.clear();
             tf_image.clear();
+            imageToPost.setImage(null);
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Ajouter médicament");
             alert.setHeaderText(null);
             alert.setContentText("Médicament ajouté avec succés !");
             alert.showAndWait();
         }
+        
     }
     
     private boolean Validatefields(){
@@ -290,6 +299,7 @@ public class GestionMedicamentBackController implements Initializable {
 
     @FXML
     private void updateWindow(ActionEvent event) {
+        String img_medicament="";
         Medicament medicament = tab_medicament.getSelectionModel().getSelectedItem();
         if (medicament==null){
             Alert alert = new Alert(AlertType.WARNING);
@@ -298,7 +308,8 @@ public class GestionMedicamentBackController implements Initializable {
             alert.setContentText("Veuillez sélectionner un médicament");
             alert.showAndWait();
         }
-        else{
+        else{MedicamentService Mc=new MedicamentService();
+            img_medicament= Mc.DeterminerNomById(medicament.getId());
             try {
                 FXMLLoader fxmlloader=new FXMLLoader(getClass().getResource("UpdateMedicament.fxml"));
                 Parent root1= (Parent) fxmlloader.load();
@@ -309,7 +320,7 @@ public class GestionMedicamentBackController implements Initializable {
                 UC.setTf_update_desc(medicament.getDescmedicament());
                 UC.setCheck_update_dispo(medicament.getDispo());
                 UC.setTf_update_date_modif(medicament.getDate_modif());
-                UC.setTf_update_image(medicament.getImg_medicament());
+               UC.setTf_update_image(img_medicament);
             
                 Stage stage = new Stage();
                 stage.setTitle("UpdateMedicament");
@@ -325,13 +336,12 @@ public class GestionMedicamentBackController implements Initializable {
     private void rechercheMedicament(KeyEvent event) {
         MedicamentService Mc=new MedicamentService();
         ObservableList<Medicament> medicaments = Mc.rechercheMedicament(tf_rechercher.getText());
-        id_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("id"));
-        nom_medicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("nom_medicament"));
-        descmedicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("descmedicament"));
-        dispo_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("dispo"));
-        date_modif_col.setCellValueFactory(new PropertyValueFactory<Medicament,LocalDate>("date_modif"));
-        image_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("img_medicament"));
-        
+         id_col.setCellValueFactory(new PropertyValueFactory("id"));
+        nom_medicament_col.setCellValueFactory(new PropertyValueFactory("nom_medicament"));
+        descmedicament_col.setCellValueFactory(new PropertyValueFactory("descmedicament"));
+        dispo_col.setCellValueFactory(new PropertyValueFactory("dispo"));
+        date_modif_col.setCellValueFactory(new PropertyValueFactory("date_modif"));
+        image_col.setCellValueFactory(new PropertyValueFactory("showimage"));     
         tab_medicament.setItems(medicaments); 
     }
 
@@ -480,25 +490,20 @@ public class GestionMedicamentBackController implements Initializable {
 
     @FXML
     private void uploadImage(ActionEvent event) throws ProtocolException, IOException {
-        FileChooser.ExtensionFilter imageFilter
-        = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png" , "*.gif");
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(imageFilter);
-                
-        file = fileChooser.showOpenDialog(null);
-        if (file != null) {
-            try {
-                BufferedImage bufferedImage = ImageIO.read(file);
-                WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
-                //imagev.setImage(image);
-                } catch (IOException ex) {
-               // Logger.getLogger(JavaFXPixel.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                String img=file.getAbsolutePath().substring(file.getAbsolutePath().lastIndexOf("\\")+1);
-                this.tf_image.setText("C:\\wamp64\\www\\PIJAVA\\uploads\\"+img );
-                }
-                FileUploader fu = new FileUploader("http://localhost/PIJAVA/");
-                String fileNameInServer = fu.upload(file.getAbsolutePath());
+      Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        uploadPic = new FileChooser();
+        uploadPic.setTitle("Select the image you want to add");
+        picPath = uploadPic.showOpenDialog(stage);
+        System.out.println(picPath.toString());
+        try {
+            imgUrl = picPath.toURI().toURL().toExternalForm();
+            tf_image.setText(imgUrl);
+            BufferedImage buffImage = ImageIO.read(picPath);
+            Image up = SwingFXUtils.toFXImage(buffImage, null);
+            imageToPost.setImage(up);
+        } catch(IOException ex){
+            System.err.println(ex.getMessage());
+        }
                 
         }
 
@@ -516,13 +521,12 @@ public class GestionMedicamentBackController implements Initializable {
              methode2 ="DESC";
         }
         ObservableList<Medicament> medicaments = Mc.triMedicament(methode,methode2);
-        id_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("id"));
-        nom_medicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("nom_medicament"));
-        descmedicament_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("descmedicament"));
-        dispo_col.setCellValueFactory(new PropertyValueFactory<Medicament,Integer>("dispo"));
-        date_modif_col.setCellValueFactory(new PropertyValueFactory<Medicament,LocalDate>("date_modif"));
-        image_col.setCellValueFactory(new PropertyValueFactory<Medicament,String>("img_medicament"));
-        
+         id_col.setCellValueFactory(new PropertyValueFactory("id"));
+        nom_medicament_col.setCellValueFactory(new PropertyValueFactory("nom_medicament"));
+        descmedicament_col.setCellValueFactory(new PropertyValueFactory("descmedicament"));
+        dispo_col.setCellValueFactory(new PropertyValueFactory("dispo"));
+        date_modif_col.setCellValueFactory(new PropertyValueFactory("date_modif"));
+        image_col.setCellValueFactory(new PropertyValueFactory("showimage")); 
         tab_medicament.setItems(medicaments);
     }
 

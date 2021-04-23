@@ -2,6 +2,8 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="980.0" prefWidth="1280.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.InscriptionChoixController">
@@ -9,9 +11,15 @@
         <URL value="@homepage.css" />
     </stylesheets>
    <children>
-      <Button fx:id="inscription" layoutX="498.0" layoutY="361.0" mnemonicParsing="false" onAction="#envoi_inscri" prefHeight="31.0" prefWidth="352.0" text="Inscription" textFill="WHITE" />
-      <Button fx:id="inscri_para" layoutX="498.0" layoutY="504.0" mnemonicParsing="false" onAction="#envoi_inscri_para" prefHeight="31.0" prefWidth="352.0" text="Inscription Parapharmacien" textFill="WHITE" />
-      <Button fx:id="inscri_phar" layoutX="498.0" layoutY="459.0" mnemonicParsing="false" onAction="#envoi_inscri_phar" prefHeight="31.0" prefWidth="352.0" text="Inscription Pharmacien" textFill="WHITE" />
-      <Button fx:id="inscri_med" layoutX="498.0" layoutY="411.0" mnemonicParsing="false" onAction="#envoi_inscri_med" prefHeight="31.0" prefWidth="352.0" text="Inscription Medecin" textFill="WHITE" />
+      <Button fx:id="inscription" layoutX="464.0" layoutY="435.0" mnemonicParsing="false" onAction="#envoi_inscri" prefHeight="31.0" prefWidth="352.0" text="Inscription" textFill="WHITE" />
+      <Button fx:id="inscri_para" layoutX="464.0" layoutY="578.0" mnemonicParsing="false" onAction="#envoi_inscri_para" prefHeight="31.0" prefWidth="352.0" text="Inscription Parapharmacien" textFill="WHITE" />
+      <Button fx:id="inscri_phar" layoutX="464.0" layoutY="533.0" mnemonicParsing="false" onAction="#envoi_inscri_phar" prefHeight="31.0" prefWidth="352.0" text="Inscription Pharmacien" textFill="WHITE" />
+      <Button fx:id="inscri_med" layoutX="464.0" layoutY="485.0" mnemonicParsing="false" onAction="#envoi_inscri_med" prefHeight="31.0" prefWidth="352.0" text="Inscription Medecin" textFill="WHITE" />
+      <ImageView fx:id="logo" fitHeight="232.0" fitWidth="218.0" layoutX="529.0" layoutY="153.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.jpeg" />
+         </image>
+      </ImageView>
+      <Button fx:id="btn_cnx" layoutX="613.0" layoutY="670.0" mnemonicParsing="false" onAction="#envoi_cnx" prefHeight="31.0" prefWidth="77.0" text="Retour" textFill="WHITE" />
    </children>
 </AnchorPane>

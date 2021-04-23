@@ -37,7 +37,8 @@ import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import org.apache.commons.io.FilenameUtils;
 import SahtiTN.tools.BCrypt;
-
+import javafx.scene.control.Alert;
+import org.apache.commons.validator.routines.EmailValidator;
 
 /**
  * FXML Controller class
@@ -76,102 +77,127 @@ public class InscriptionMedController implements Initializable {
     private ImageView userImage;
     @FXML
     private Button btn_image;
-     User u= new User();
+    User u = new User();
     @FXML
     private TextField matricule;
     @FXML
     private TextField specialite;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
     private void Inscription(ActionEvent event) {
-          UserCrud utilisateurs = new UserCrud();
-    
-       
-        u.setLogin(login.getText());
-        String hashedPassword = BCrypt.hashpw(password.getText(),BCrypt.gensalt());
-        u.setPassword(hashedPassword);
-        u.setNom(nom.getText());
-        u.setPrenom(prenom.getText());
-        u.setAdresse_user(adresse.getText());
-        u.setTelephone(telephone.getText());
-        u.setEmail(email.getText());
-        u.setSexe(gender.getSelectedToggle().toString().substring(21, 26));
-        u.setFullname(nom.getText());
-        u.setSpecialite(specialite.getText());
-        u.setMatricule_fiscale(matricule.getText());
-        u.setRole(2);
-        //      Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
-        utilisateurs.ajouterUser(u);
+        UserCrud utilisateurs = new UserCrud();
+        EmailValidator validator = EmailValidator.getInstance();
+        if (email.getText().compareTo("") == 0 || password.getText().compareTo("") == 0 || login.getText().compareTo("") == 0|| specialite.getText().compareTo("") == 0|| matricule.getText().compareTo("") == 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Un ou plusieurs champs sont manquants");
+            alert.setHeaderText("Un ou plusieurs champs sont manquants ");
+            alert.setContentText("Les champs e-mail, login, mot de passe, specialite et matricule fiscale sont obligatoires !");
+            alert.showAndWait();
+        } else if (validator.isValid(email.getText()) == false) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Adresse mail non valid ");
+            alert.setHeaderText("Adresse mail non valid ");
+            alert.setContentText("");
+            alert.showAndWait();
+            email.clear();
+        } else if (utilisateurs.isExisteEmail(email.getText())) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Adresse Mail existe déja");
+            alert.setHeaderText("");
+            alert.setContentText("Adresse Mail existe déja !");
+            alert.showAndWait();
+        } else if (utilisateurs.isExisteLogin(login.getText())) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Login existe déja");
+            alert.setHeaderText("");
+            alert.setContentText("Login existe déja !");
+            alert.showAndWait();
+        } else {
 
-        //récupération fichier fxml
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
-        //récupération du root  à partir du fichier fxml
-        Parent root;
-        
-        try {
-            root = loader.load();
-          //récupération du controller lier au fichier fxml 
-            ConnexionController dpc = loader.getController();
-            //             dpc.setLbMessage(id_act.getText());
+            u.setLogin(login.getText());
+            String hashedPassword = BCrypt.hashpw(password.getText(), BCrypt.gensalt());
+            u.setPassword(hashedPassword);
+            u.setNom(nom.getText());
+            u.setPrenom(prenom.getText());
+            u.setAdresse_user(adresse.getText());
+            u.setTelephone(telephone.getText());
+            u.setEmail(email.getText());
+            u.setSexe(gender.getSelectedToggle().toString().substring(21, 26));
+            u.setFullname(nom.getText());
+            u.setSpecialite(specialite.getText());
+            u.setMatricule_fiscale(matricule.getText());
+            u.setRole(2);
+            //      Logger.getLogger(StartPageController.class.getName()).log(Level.SEVERE, null, ex);
+            utilisateurs.ajouterUser(u);
 
-            btn_inscrip.getScene().setRoot(root);
-            } catch (IOException ex) 
-            {
-            Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+            //récupération fichier fxml
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root;
+
+            try {
+                root = loader.load();
+                //récupération du controller lier au fichier fxml 
+                ConnexionController dpc = loader.getController();
+                //             dpc.setLbMessage(id_act.getText());
+
+                btn_inscrip.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
     }
 
     @FXML
     private void envoi_cnx(ActionEvent event) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
         //récupération du root  à partir du fichier fxml
         Parent root;
-        
+
         try {
             root = loader.load();
-          //récupération du controller lier au fichier fxml 
+            //récupération du controller lier au fichier fxml 
             ConnexionController dpc = loader.getController();
             //             dpc.setLbMessage(id_act.getText());
 
             btn_inscrip.getScene().setRoot(root);
-            } catch (IOException ex) 
-            {
+        } catch (IOException ex) {
             Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        }
     }
 
     @FXML
     private void insertImage(ActionEvent event) {
-                FileChooser fileChooser = new FileChooser();
+        FileChooser fileChooser = new FileChooser();
         File selectedFile = fileChooser.showOpenDialog(new Stage());
-                try {
-                BufferedImage bufferedImage = ImageIO.read(selectedFile);
-                Image image = SwingFXUtils.toFXImage(bufferedImage, null);
-                userImage.setImage(image);
-                String uniqueid = UUID.randomUUID().toString();
-                System.out.println("\n" + uniqueid);
-                
-                System.out.println(selectedFile.getPath());
-                String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
-              
-                Path tmp = Files.move(Paths.get(selectedFile.getPath()),
-                       Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
-              System.out.print(tmp);
-              
-               
-              u.setLien_image_user(uniqueid+"."+extension);
-                
-                } catch (IOException ex) {
-                    System.out.print(ex.getMessage());
-                
-            }
+        try {
+            BufferedImage bufferedImage = ImageIO.read(selectedFile);
+            Image image = SwingFXUtils.toFXImage(bufferedImage, null);
+            userImage.setImage(image);
+            String uniqueid = UUID.randomUUID().toString();
+            System.out.println("\n" + uniqueid);
+
+            System.out.println(selectedFile.getPath());
+            String extension = FilenameUtils.getExtension(selectedFile.getAbsolutePath());
+
+            Path tmp = Files.move(Paths.get(selectedFile.getPath()),
+                    Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" + uniqueid + "." + extension));
+            System.out.print(tmp);
+
+            u.setLien_image_user(uniqueid + "." + extension);
+
+        } catch (IOException ex) {
+            System.out.print(ex.getMessage());
+
+        }
     }
-    
+
 }

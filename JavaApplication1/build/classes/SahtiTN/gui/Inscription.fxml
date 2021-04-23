@@ -35,7 +35,7 @@
             </ImageView>
             <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="440.0" layoutY="297.0">
                <image>
-                  <Image url="@../images/icons8-email-32.png" />
+                  <Image url="@../images/email.png" />
                </image>
             </ImageView>
             <Button fx:id="btn_inscrip" layoutX="612.0" layoutY="846.0" mnemonicParsing="false" onAction="#Inscription" text="S'inscrire" textFill="WHITE" />

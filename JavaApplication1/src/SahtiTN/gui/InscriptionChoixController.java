@@ -16,6 +16,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -32,6 +33,10 @@ public class InscriptionChoixController implements Initializable {
     private Button inscri_phar;
     @FXML
     private Button inscri_med;
+    @FXML
+    private ImageView logo;
+    @FXML
+    private Button btn_cnx;
 
     /**
      * Initializes the controller class.
@@ -112,6 +117,25 @@ public class InscriptionChoixController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(InscriptionChoixController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void envoi_cnx(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Connexion.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+        
+        try {
+            root = loader.load();
+          //récupération du controller lier au fichier fxml 
+            ConnexionController dpc = loader.getController();
+            //             dpc.setLbMessage(id_act.getText());
+
+            btn_cnx.getScene().setRoot(root);
+            } catch (IOException ex) 
+            {
+            Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
     
 }

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="SahtiTN.gui.InscriptionMedController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.InscriptionMedController">
     <stylesheets>
         <URL value="@homepage.css" />
     </stylesheets>
@@ -35,7 +35,7 @@
             </ImageView>
             <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="440.0" layoutY="268.0">
                <image>
-                  <Image url="@../images/icons8-email-32.png" />
+                  <Image url="@../images/email.png" />
                </image>
             </ImageView>
             <Button fx:id="btn_inscrip" layoutX="612.0" layoutY="913.0" mnemonicParsing="false" onAction="#Inscription" text="S'inscrire" textFill="WHITE" />
@@ -82,16 +82,16 @@
             <Hyperlink fx:id="btn_cnx" layoutX="605.0" layoutY="951.0" onAction="#envoi_cnx" text="Se connecter" textFill="#5b5454" />
             <ImageView fx:id="userImage" fitHeight="150.0" fitWidth="317.0" layoutX="495.0" layoutY="644.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="btn_image" layoutX="496.0" layoutY="808.0" mnemonicParsing="false" onAction="#insertImage" prefHeight="31.0" prefWidth="317.0" text="Ajouter image" textFill="WHITE" />
-            <ImageView layoutX="440.0" layoutY="555.0">
+            <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="437.0" layoutY="554.0">
                <image>
-                  <Image url="@../images/phone.png" />
+                  <Image url="@../images/mat.png" />
                </image>
             </ImageView>
-            <TextField fx:id="matricule" layoutX="494.0" layoutY="553.0" prefHeight="31.0" prefWidth="317.0" promptText="Telephone" />
-            <TextField fx:id="specialite" layoutX="494.0" layoutY="600.0" prefHeight="31.0" prefWidth="317.0" promptText="Adresse" />
-            <ImageView fitHeight="25.0" fitWidth="24.0" layoutX="440.0" layoutY="603.0">
+            <TextField fx:id="matricule" layoutX="494.0" layoutY="553.0" prefHeight="31.0" prefWidth="317.0" promptText="Matricule fiscale" />
+            <TextField fx:id="specialite" layoutX="494.0" layoutY="600.0" prefHeight="31.0" prefWidth="317.0" promptText="Spécialité" />
+            <ImageView fitHeight="29.0" fitWidth="31.0" layoutX="437.0" layoutY="601.0">
                <image>
-                  <Image url="@../images/adresse.png" />
+                  <Image url="@../images/specialte.png" />
                </image>
             </ImageView>
          </children>
