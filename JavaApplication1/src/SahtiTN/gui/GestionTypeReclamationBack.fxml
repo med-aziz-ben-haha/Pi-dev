@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="980.0" prefWidth="1280.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.GestionTypeReclamationBackController">
+    <styleClass>
+        <String fx:value="mainFxmlClass" />
+        <String fx:value="backgroundBack" />
+    </styleClass>
+    <children>
+        <Separator layoutX="262.0" layoutY="113.0" orientation="VERTICAL" prefHeight="812.0" prefWidth="11.0" />
+        <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
+        <Pane layoutX="295.0" layoutY="158.0" prefHeight="784.0" prefWidth="986.0" styleClass="backgroundBack">
+         <children>
+            <GridPane hgap="1.0" layoutX="-32.0" layoutY="154.0" prefHeight="401.0" prefWidth="347.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="21.0" minHeight="10.0" prefHeight="21.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="29.0" minHeight="10.0" prefHeight="29.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="44.0" minHeight="3.0" prefHeight="44.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label prefHeight="27.0" prefWidth="221.0" text="Type de réclamation :" textFill="#bc1515" underline="true" GridPane.columnIndex="3" GridPane.columnSpan="7" GridPane.rowIndex="5" GridPane.rowSpan="2">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="tftype" prefHeight="75.0" prefWidth="302.0" GridPane.columnIndex="3" GridPane.columnSpan="6" GridPane.rowIndex="9" GridPane.rowSpan="2">
+                     <font>
+                        <Font name="Arial" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="btnAddNew" mnemonicParsing="false" onAction="#btnAddNewOnAction" style="-fx-background-color: #c52020;" text="Ajouter" textFill="WHITE" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.rowIndex="12" />
+                  <Button fx:id="btnUpdate" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #c52020;" text="Modifier" textFill="WHITE" GridPane.columnIndex="8" GridPane.columnSpan="3" GridPane.rowIndex="15" GridPane.rowSpan="2" />
+               </children>
+            </GridPane>
+            <Label layoutX="141.0" layoutY="-56.0" prefHeight="183.0" prefWidth="577.0" text="Gestion des types de réclamations" textFill="#b21e1e">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rechAvan" layoutX="359.0" layoutY="139.0" onKeyReleased="#rechAvanOnAction" opacity="0.67" prefHeight="31.0" prefWidth="358.0" promptText="Chercher un type de réclamation" />
+            <Button fx:id="btnTrier" layoutX="727.0" layoutY="138.0" mnemonicParsing="false" onAction="#btnTrierOnAction" prefHeight="31.0" prefWidth="80.0" style="-fx-background-color: #c52020;" text="TRIER" textFill="WHITE" />
+            <Button fx:id="btnDelete" layoutX="760.0" layoutY="618.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" style="-fx-background-color: #c52020;" text="Effacer" textFill="WHITE" />
+            <ListView fx:id="tableview" layoutX="330.0" layoutY="185.0" prefHeight="422.0" prefWidth="519.0" />
+         </children></Pane>
+          <Pane layoutX="268.0" prefHeight="110.0" prefWidth="1016.0" styleClass="backgroundBackNav">
+         <children>
+                <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="928.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/user.png" />
+                    </image>
+                </ImageView>
+            <Hyperlink fx:id="btn_deconnexion" layoutX="889.0" layoutY="63.0" onAction="#sedeconnecter" text="Se déconnecter" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane prefHeight="982.0" prefWidth="271.0" styleClass="backgroundBackNav">
+         <children>
+            <Separator layoutX="-3.0" layoutY="165.0" prefHeight="26.0" prefWidth="269.0" />
+            <Separator layoutX="1.0" layoutY="327.0" prefHeight="26.0" prefWidth="269.0" />
+            <Label layoutX="66.0" layoutY="948.0" text="A propos de SahtiTN" />
+            <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="83.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Logo.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="7.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/users.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/soin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/soin.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="btn_gestion_util" focusTraversable="false" layoutX="48.0" layoutY="133.0" onAction="#evoi_gestion_util" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Utilisateurs" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_envoi_SoinMP" focusTraversable="false" layoutX="51.0" layoutY="199.0" onAction="#envoi_SoinMP" prefHeight="25.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des SoinsMP" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_envoi_catSoinMP" focusTraversable="false" layoutX="53.0" layoutY="229.0" onAction="#envoi_catSoinMP" prefHeight="29.0" prefWidth="200.0" scaleX="1.2" scaleY="1.2" text="Gestion des Categories SMP" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/statline.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="cat_Stat" layoutX="35.0" layoutY="291.0" onAction="#envoi_cat_Stat" prefHeight="32.0" prefWidth="244.0" text="Statistique des Categories SoinMP" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="stat_soin" layoutX="34.0" layoutY="257.0" onAction="#envoi_statSoin" prefHeight="42.0" prefWidth="185.0" text="Statistique des SoinMP" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Hyperlink>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="7.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/donut.PNG" />
+               </image>
+            </ImageView>
+            <Separator layoutY="104.0" prefHeight="17.0" prefWidth="269.0" />
+            <Hyperlink fx:id="rec" focusTraversable="false" layoutX="35.0" layoutY="360.0" onAction="#recOnAction" prefHeight="29.0" prefWidth="240.0" text="Gestion des réclamations" textFill="WHITE" />
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rec.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rec.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="gestion" focusTraversable="false" layoutX="35.0" layoutY="389.0" onAction="#gestionTypeAction" prefHeight="29.0" prefWidth="244.0" text="Gestion des Types réclamations" textFill="WHITE" />
+            <Separator layoutX="1.0" layoutY="424.0" prefHeight="26.0" prefWidth="269.0" />
+         </children>
+      </Pane>
+    </children>
+ 
+</AnchorPane>

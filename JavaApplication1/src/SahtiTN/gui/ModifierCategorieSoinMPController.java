@@ -73,6 +73,14 @@ public class ModifierCategorieSoinMPController implements Initializable {
     private Button btn_image;
 
      CategorieSoinMP c = new CategorieSoinMP();
+    @FXML
+    private Hyperlink cat_Stat;
+    @FXML
+    private Hyperlink stat_soin;
+    @FXML
+    private Hyperlink rec;
+    @FXML
+    private Hyperlink gestion;
     /**
      * Initializes the controller class.
      */
@@ -231,6 +239,67 @@ public class ModifierCategorieSoinMPController implements Initializable {
                     System.out.print(ex.getMessage());
                 
             }
+    }
+      
+
+    @FXML
+    private void envoi_cat_Stat(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StatCatSoinMP.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root;
+
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            StatCatSoinMPController dpc = loader.getController();
+
+            cat_Stat.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherCategorieSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_statSoin(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("StatSoinMP.fxml"));
+            //récupération du root  à partir du fichier fxml
+            Parent root;
+
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            StatSoinMPController dpc = loader.getController();
+
+            stat_soin.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherCategorieSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void recOnAction(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionReclamationBack.fxml"));
+        try {
+            Parent root = loader.load();
+      GestionReclamationBackController apc = loader.getController();
+           rec.getScene().setRoot(root);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+
+
+    @FXML
+    private void gestionTypeAction(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionTypeReclamationBack.fxml"));
+            
+            Parent root = loader.load();
+            rec.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

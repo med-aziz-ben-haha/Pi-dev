@@ -40,6 +40,10 @@ public class HomepageFrontController implements Initializable {
     private Hyperlink btn_Med;
     @FXML
     private Hyperlink btn_Ord;
+    @FXML
+    private Hyperlink btn_reclamation;
+    
+ 
 
     /**
      * Initializes the controller class.
@@ -131,6 +135,23 @@ public class HomepageFrontController implements Initializable {
             root = loader.load();
             //récupération du controller lier au fichier fxml 
             GestionOrdonnanceFrontController dpc = loader.getController();
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_reclamation(ActionEvent event) {
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("GestionReclamationFront.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            GestionReclamationFrontController dpc = loader.getController();
 
             btn_accueil.getScene().setRoot(root);
         } catch (IOException ex) {

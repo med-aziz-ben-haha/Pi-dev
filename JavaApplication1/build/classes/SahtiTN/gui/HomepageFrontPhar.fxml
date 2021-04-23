@@ -37,7 +37,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Hyperlink>
-            <Hyperlink focusTraversable="false" layoutX="322.0" layoutY="41.0" prefHeight="29.0" prefWidth="109.0" text="Réclamation" textFill="#1b1a1a">
+            <Hyperlink fx:id="btn_reclamation" focusTraversable="false" layoutX="322.0" layoutY="41.0" onAction="#envoi_reclamation" prefHeight="29.0" prefWidth="109.0" text="Réclamation" textFill="#1b1a1a">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

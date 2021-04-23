@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="980.0" prefWidth="1280.0" styleClass="mainFxmlClass" stylesheets="@HomePage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.GestionReclamationBackController">
+    <styleClass>
+        <String fx:value="mainFxmlClass" />
+        <String fx:value="backgroundBack" />
+    </styleClass>
+    <children>
+        <Separator layoutX="262.0" layoutY="113.0" orientation="VERTICAL" prefHeight="812.0" prefWidth="11.0" />
+        <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
+        <Pane layoutX="267.0" layoutY="107.0" prefHeight="874.0" prefWidth="1011.0" styleClass="backgroundBack">
+         <children>
+            <Label layoutX="217.0" layoutY="32.0" prefHeight="62.0" prefWidth="522.0" text="Gestion des Réclamations" textFill="#e14f4f">
+               <font>
+                  <Font name="System Bold" size="42.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnUpdate" layoutX="281.0" layoutY="553.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" style="-fx-background-color: #c52020;" text="Répondre" textFill="WHITE" />
+            <TextField fx:id="tfReponse" layoutX="83.0" layoutY="460.0" prefHeight="72.0" prefWidth="283.0" />
+            <Label layoutX="83.0" layoutY="424.0" prefHeight="21.0" prefWidth="174.0" text="La réponse :" textFill="#c52020" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Label>
+            <TextField fx:id="tfdescription" layoutX="83.0" layoutY="244.0" prefHeight="165.0" prefWidth="283.0" promptText="Veiller séléctionner la réclamation à répondre." />
+            <PieChart fx:id="piechart" layoutX="418.0" layoutY="491.0" prefHeight="347.0" prefWidth="476.0" />
+            <Label layoutX="83.0" layoutY="208.0" prefHeight="21.0" prefWidth="174.0" text="La réclamation :" textFill="#c52020" underline="true">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="406.0" layoutY="429.0" prefHeight="62.0" prefWidth="499.0" text="Les statistiques sur les réclamations par rapport aux types" textFill="#e14f4f">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="rechAvan" layoutX="382.0" layoutY="121.0" onKeyReleased="#rechAvanOnAction" opacity="0.67" prefHeight="31.0" prefWidth="435.0" promptText="Chercher une réclamation" />
+            <Button fx:id="btnTrier" layoutX="827.0" layoutY="120.0" mnemonicParsing="false" onAction="#btnTrierOnAction" prefHeight="31.0" prefWidth="102.0" style="-fx-background-color: #c52020;" text="TRIER" textFill="WHITE" />
+            <ListView fx:id="tableView" layoutX="418.0" layoutY="198.0" prefHeight="237.0" prefWidth="476.0" />
+         </children></Pane>
+          <Pane layoutX="268.0" prefHeight="110.0" prefWidth="1011.0" styleClass="backgroundBackNav">
+         <children>
+                <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="935.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/user.png" />
+                    </image>
+                </ImageView>
+            <Hyperlink fx:id="btn_deconnexion" layoutX="896.0" layoutY="67.0" onAction="#sedeconnecter" text="Se déconnecter" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane layoutY="-1.0" prefHeight="982.0" prefWidth="271.0" styleClass="backgroundBackNav">
+         <children>
+            <Separator layoutX="-3.0" layoutY="165.0" prefHeight="26.0" prefWidth="269.0" />
+            <Separator layoutX="1.0" layoutY="327.0" prefHeight="26.0" prefWidth="269.0" />
+            <Label layoutX="66.0" layoutY="948.0" text="A propos de SahtiTN" />
+            <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="83.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Logo.jpeg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="7.0" layoutY="134.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/users.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/soin.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="230.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/soin.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="btn_gestion_util" focusTraversable="false" layoutX="48.0" layoutY="133.0" onAction="#evoi_gestion_util" prefHeight="26.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des Utilisateurs" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_envoi_SoinMP" focusTraversable="false" layoutX="51.0" layoutY="199.0" onAction="#envoi_SoinMP" prefHeight="25.0" prefWidth="169.0" scaleX="1.2" scaleY="1.2" text="Gestion des SoinsMP" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_envoi_catSoinMP" focusTraversable="false" layoutX="53.0" layoutY="229.0" onAction="#envoi_catSoinMP" prefHeight="29.0" prefWidth="200.0" scaleX="1.2" scaleY="1.2" text="Gestion des Categories SMP" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Hyperlink>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/statline.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="cat_Stat" layoutX="35.0" layoutY="291.0" onAction="#envoi_cat_Stat" prefHeight="32.0" prefWidth="244.0" text="Statistique des Categories SoinMP" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="stat_soin" layoutX="34.0" layoutY="257.0" onAction="#envoi_statSoin" prefHeight="42.0" prefWidth="185.0" text="Statistique des SoinMP" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Hyperlink>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="7.0" layoutY="294.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/donut.PNG" />
+               </image>
+            </ImageView>
+            <Separator layoutY="104.0" prefHeight="17.0" prefWidth="269.0" />
+            <Hyperlink fx:id="rec" focusTraversable="false" layoutX="35.0" layoutY="360.0" onAction="#recOnAction" prefHeight="29.0" prefWidth="240.0" text="Gestion des réclamations" textFill="WHITE" />
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="361.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rec.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="32.0" layoutX="6.0" layoutY="390.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/rec.png" />
+               </image>
+            </ImageView>
+            <Hyperlink fx:id="gestion" focusTraversable="false" layoutX="35.0" layoutY="389.0" onAction="#gestionTypeAction" prefHeight="29.0" prefWidth="244.0" text="Gestion des Types réclamations" textFill="WHITE" />
+            <Separator layoutX="1.0" layoutY="424.0" prefHeight="26.0" prefWidth="269.0" />
+         </children>
+      </Pane>
+    </children>
+ 
+</AnchorPane>

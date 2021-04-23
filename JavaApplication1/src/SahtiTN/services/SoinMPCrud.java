@@ -467,4 +467,26 @@ public class SoinMPCrud {
         }
         return m;
     }
+    
+    public int CountSoins(int id) {
+
+        int i = 0;
+        String requete = "SELECT * FROM soin_mp where categorie_soin_mp_id= ?  ";
+
+        try {
+            PreparedStatement pst = cn2.prepareStatement(requete);
+            pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+             i=i+1;
+            }
+          
+         return i; 
+         
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return i;
+    }
 }
