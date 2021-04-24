@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AjouterCategorie.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/RechercheArticle.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/ItemFront.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/Home.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/FXMLDocument.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/services/GestionTags.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/ModifierTag.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/services/GestionCategories.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/services/Categories.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/RechercheCategories.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AjouterTag.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/ModifierArticle.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/GestionCatego.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/pidev/PIDEV.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AjoutArticle.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/ModifierCategorie.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/Recherchetags.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/Gestiontags.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/HomeFrontController.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/RechercheArticle.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/services/GestionArticles.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AffichageArticleList.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/GestionCatego.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AffichageCatList.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/services/Tags.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/ModifierCategorie.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AjoutArticle.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/services/Articles.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/Controller.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/Gestiontags.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/ItemTags.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/ModifierArticle.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/Item.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/HomeFront.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AjouterCategorie.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/tools/Conx_BD.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/ModifierTag.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/RechercheTags.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AffichagetagsList.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/Itemcat.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/RechercheCategorie.java</file>
+            <file>file:/C:/Users/21692/Desktop/Gestion_Blog/src/Sa7tiTN/gui/AjouterTag.fxml</file>
+        </group>
+    </open-files>
+</project-private>
