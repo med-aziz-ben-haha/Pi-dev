@@ -32,6 +32,8 @@ public class HomepageFrontController implements Initializable {
     private AnchorPane home;
     @FXML
     private Hyperlink btn_accueil;
+    @FXML
+    private Hyperlink btn_centremed;
 
     /**
      * Initializes the controller class.
@@ -56,6 +58,23 @@ public class HomepageFrontController implements Initializable {
             btn_accueil.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoiCentreMed(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(" Gestion_Services_Front.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+            Gestion_Services_FrontController dpc = loader.getController();
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(Gestion_Services_FrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
