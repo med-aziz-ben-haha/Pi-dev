@@ -1,0 +1,129 @@
+#but
+{
+    -fx-background-color : grey;
+    -fx-text-fill : white;
+}
+
+#butna
+{
+    -fx-background-color : grey;
+    -fx-text-fill: black;
+}
+
+#butna:hover{
+    -fx-background-color : lightcoral;
+}
+
+#butna:pressed
+{
+    -fx-background-color : darkred;
+}
+
+
+
+.scroll-pane {
+    -fx-background-color:transparent;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 2em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #c1c1c1;
+    -fx-background-radius: 7em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+
+StackPane {
+	-fx-background-color: transparent;
+}
+
+#cont{
+    -fx-background-color :  transparent;
+    -fx-border-radius :  2em;
+    -fx-background-radius: 2em;
+    -fx-border-color: red;
+ }
+ 
+ #tab {
+   -fx-background-color:  transparent;
+   -fx-border-color: transparent;
+   -fx-background-radius: 2em;
+   -fx-border-radius: 2em;
+ }
+
+ #add{
+          -fx-background-color:  seagreen;   
+
+ }
+ #modif{
+          -fx-background-color:  orange !important ;   
+ }
+ #supp{
+          -fx-background-color:  red;   
+
+ }
+ 
+  #add :hover{
+                -fx-background-color:  darkseagreen;   
+
+ }
+ #modif :hover{
+          -fx-background-color:  lightskyblue;   
+
+ }
+ #supp :hover{
+   -fx-background-color: lightcoral ;
+ }
+ 
+  #add :pressed{
+     -fx-background-color: green ;   
+ }
+ #modif :pressed{
+          -fx-background-color:  darkblue;   
+
+ }
+ #supp :pressed{
+         -fx-background-color:  darkredred;   
+ 
+ }
+ 
+ #tit{
+        -fx-text-fill : red; 
+          -fx-background-color :  transparent;
+    -fx-border-radius :  2em;
+    -fx-background-radius: 2em;
+    -fx-border-color: transparent;
+ }
+ 
+ #ite{
+     -fx-text-fill : white; 
+          -fx-background-color :  darkred;
+    -fx-border-radius :  2em;
+    -fx-background-radius: 2em;
+    -fx-border-color: transparent; 
+ }
+ 
+ #con{
+    -fx-background-color :  transparent;
+    -fx-border-radius :  2em;
+    -fx-background-radius: 2em;
+    -fx-border-color: #e7e5e5;
+ }

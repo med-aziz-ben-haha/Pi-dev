@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="793.0" prefWidth="1290.0" stylesheets="@../style/homepage.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion_blog.controller.HomeFrontController">
+   <styleClass>
+      <String fx:value="mainFxmlClass" />
+      <String fx:value="backgroundFront" />
+   </styleClass>
+   <children>
+      <Pane prefHeight="72.0" prefWidth="1290.0">
+         <children>
+            <ImageView fitHeight="62.0" fitWidth="69.0" layoutX="11.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Logo.jpeg" />
+               </image>
+            </ImageView>
+            <Hyperlink focusTraversable="false" layoutX="100.0" layoutY="19.0" prefHeight="29.0" prefWidth="69.0" text="Acceuil" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="172.0" layoutY="19.0" prefHeight="29.0" prefWidth="145.0" text="MédecineParallèle" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <ImageView fitHeight="40.0" fitWidth="34.0" layoutX="1213.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/jimmy-fallon.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="1183.0" layoutY="47.0" text="se deconnecter" />
+            <Hyperlink focusTraversable="false" layoutX="430.0" layoutY="19.0" prefHeight="29.0" prefWidth="108.0" text="Médicaments" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="321.0" layoutY="19.0" prefHeight="29.0" prefWidth="101.0" text="Réclamation" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="545.0" layoutY="19.0" prefHeight="29.0" prefWidth="108.0" text="Ordonnances" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="937.0" layoutY="19.0" prefHeight="29.0" prefWidth="80.0" text="Actualités" textFill="RED">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="660.0" layoutY="19.0" prefHeight="29.0" prefWidth="124.0" text="Parapharmacies" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="1035.0" layoutY="19.0" prefHeight="29.0" prefWidth="69.0" text="Forum" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="1104.0" layoutY="19.0" prefHeight="29.0" prefWidth="60.0" text="Panier" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="792.0" layoutY="19.0" prefHeight="29.0" prefWidth="137.0" text="CentresMédicaux" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
+      <AnchorPane fx:id="home" layoutY="753.0" maxHeight="60.0" prefHeight="40.0" prefWidth="1290.0" styleClass="backgroundFooter">
+         <children>
+            <Label layoutX="21.0" layoutY="10.0" prefHeight="21.0" prefWidth="522.0" styleClass="backgroundFooter" text="Un doute, une inquiétude, besoin d’un conseil sante ?  Sa7ti.tn est la solution" textFill="WHITE" />
+            <Label layoutX="634.0" layoutY="12.0" styleClass="backgroundFooter" text=" +216 00000000" textFill="WHITE" />
+            <Label layoutX="783.0" layoutY="10.0" styleClass="backgroundFooter" text="sahtitnpidev@gmail.com" textFill="WHITE" />
+            <Label layoutX="1082.0" layoutY="10.0" styleClass="backgroundFooter" text="2021 © Runtime Terror" textFill="WHITE" />
+            <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="611.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/phone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="756.0" layoutY="10.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/email.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <StackPane layoutY="87.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="655.0" prefWidth="1300.0" style="-fx-background-radius: 2em; -fx-border-radius: 2em; -fx-background-color: transparent;">
+         <children>
+            <Pane fx:id="accueilpane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="655.0" prefWidth="1321.0" style="-fx-background-radius: 2em; -fx-border-radius: 2em;">
+               <children>
+                  <ScrollPane cache="true" layoutX="4.0" layoutY="-2.0" prefHeight="661.0" prefWidth="1300.0" style="-fx-border-color: transparent; -fx-background-color: transparent; -fx-background-radius: 2em; -fx-border-radius: 2em;">
+                     <content>
+                        <VBox fx:id="pnItems" cacheShape="false" centerShape="false" pickOnBounds="false" prefHeight="659.0" prefWidth="890.0" scaleShape="false" spacing="5.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                     <padding>
+                        <Insets left="13.0" />
+                     </padding>
+                  </ScrollPane>
+                  <VBox fx:id="pnItems1" cacheShape="false" centerShape="false" pickOnBounds="false" prefHeight="649.0" prefWidth="315.0" scaleShape="false" spacing="5.0">
+                     <padding>
+                        <Insets bottom="5.0" left="945.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="335.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/eat.jpg" />
+                           </image>
+                           <VBox.margin>
+                              <Insets right="-10.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <VBox>
+                           <children>
+                              <Label prefHeight="36.0" prefWidth="149.0" text="SOME INFO">
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Bodoni MT Black" size="23.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="122.0" prefWidth="334.0">
+                                 <children>
+                                    <ImageView fitHeight="75.0" fitWidth="82.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/oms.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                    <Label prefHeight="21.0" prefWidth="230.0" text="La santé est un état de complet bien-être">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="11.5" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="92.0" layoutY="10.0" prefHeight="21.0" prefWidth="230.0" text="physique, mental et social, et ne consiste">
+                                       <HBox.margin>
+                                          <Insets left="-230.0" top="20.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="11.5" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="127.0" layoutY="10.0" prefWidth="230.0" text="pas seulement en une absence de maladie">
+                                       <HBox.margin>
+                                          <Insets left="-230.0" top="40.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="11.5" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="162.0" layoutY="10.0" prefHeight="18.0" prefWidth="140.0" text="ou d’infirmité.">
+                                       <HBox.margin>
+                                          <Insets left="-230.0" top="60.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font size="11.5" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="-25.0" top="-7.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <HBox prefWidth="338.0">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/right_add1.jpg" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets right="2.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/right_add2.jpg" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets left="2.0" />
+                                 </HBox.margin>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <ImageView fitHeight="233.0" fitWidth="234.0" layoutX="955.0" layoutY="539.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../images/podcast.jpg" />
+                           </image>
+                           <VBox.margin>
+                              <Insets left="50.0" />
+                           </VBox.margin>
+                        </ImageView>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </VBox>
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+      <AnchorPane fx:id="home1" layoutY="743.0" maxHeight="60.0" prefHeight="60.0" prefWidth="1300.0" styleClass="backgroundFooter">
+         <children>
+            <Label layoutX="102.0" layoutY="11.0" prefHeight="21.0" prefWidth="364.0" styleClass="backgroundFooter" text="Un doute, une inquiétude, besoin d’un conseil sante ?" textFill="WHITE" />
+            <Label layoutX="102.0" layoutY="32.0" styleClass="backgroundFooter" text="Sa7ti.TN est la solution" textFill="WHITE" />
+            <Label layoutX="781.0" layoutY="10.0" styleClass="backgroundFooter" text=" +216 00000000" textFill="WHITE" />
+            <Label layoutX="783.0" layoutY="31.0" styleClass="backgroundFooter" text="sahtitnpidev@gmail.com" textFill="WHITE" />
+            <Label layoutX="1082.0" layoutY="11.0" styleClass="backgroundFooter" text="2021 © Runtime Terror" textFill="WHITE" />
+            <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="745.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/phone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="742.0" layoutY="28.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/email.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
