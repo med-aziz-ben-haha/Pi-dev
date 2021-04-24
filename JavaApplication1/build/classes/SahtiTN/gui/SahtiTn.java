@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author LENOVO
+ * @author allouch
  */
 public class SahtiTn extends Application {
     

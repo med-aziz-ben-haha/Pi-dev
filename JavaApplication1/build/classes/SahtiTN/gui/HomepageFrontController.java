@@ -22,7 +22,7 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author LENOVO
+ * @author allouch
  */
 public class HomepageFrontController implements Initializable {
 
