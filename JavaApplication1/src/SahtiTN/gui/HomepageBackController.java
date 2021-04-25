@@ -16,9 +16,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -46,6 +48,12 @@ public class HomepageBackController implements Initializable {
     private Hyperlink rec;
     @FXML
     private Hyperlink gestion;
+    @FXML
+    private Hyperlink btnaccueil;
+    @FXML
+    private Hyperlink gestioncat;
+    @FXML
+    private Hyperlink btntags;
 
     /**
      * Initializes the controller class.
@@ -188,6 +196,33 @@ public class HomepageBackController implements Initializable {
             rec.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     @FXML
+    public void handleClicks(ActionEvent actionEvent) throws IOException {
+        if (actionEvent.getSource() == gestioncat) {
+           
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/GestionCatego.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+        
+        }
+
+        if (actionEvent.getSource() == btntags) {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/Gestiontags.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+
+        }
+                 if (actionEvent.getSource() == btnaccueil) {
+          
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/Home.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+
         }
     }
    

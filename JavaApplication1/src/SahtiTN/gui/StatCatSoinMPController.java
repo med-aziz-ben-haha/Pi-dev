@@ -55,6 +55,12 @@ public class StatCatSoinMPController implements Initializable {
     private PieChart chart;
     ObservableList<PieChart.Data> pieChartData;
     Map<String, Integer> data;
+    @FXML
+    private Hyperlink btnaccueil;
+    @FXML
+    private Hyperlink gestioncat;
+    @FXML
+    private Hyperlink btntags;
 
     /**
      * Initializes the controller class.
@@ -204,6 +210,34 @@ public class StatCatSoinMPController implements Initializable {
             rec.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void handleClicks(ActionEvent event) throws IOException {
+         if (event.getSource() == gestioncat) {
+           
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/GestionCatego.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+        
+        }
+
+        if (event.getSource() == btntags) {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/Gestiontags.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+
+        }
+                 if (event.getSource() == btnaccueil) {
+          
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/Home.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+
         }
     }
 
