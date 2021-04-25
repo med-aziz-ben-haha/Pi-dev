@@ -79,6 +79,12 @@ public class AjouterSoinMPController implements Initializable {
     private Hyperlink rec;
     @FXML
     private Hyperlink gestion;
+    @FXML
+    private Hyperlink btnaccueil;
+    @FXML
+    private Hyperlink gestioncat;
+    @FXML
+    private Hyperlink btntags;
     
     /**
      * Initializes the controller class.
@@ -313,6 +319,34 @@ public class AjouterSoinMPController implements Initializable {
             rec.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void handleClicks(ActionEvent event) throws IOException {
+         if (event.getSource() == gestioncat) {
+           
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/GestionCatego.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+        
+        }
+
+        if (event.getSource() == btntags) {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/Gestiontags.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+
+        }
+                 if (event.getSource() == btnaccueil) {
+          
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/SahtiTN/gui/Home.fxml"));
+            Parent root = loader.load();
+             rec.getScene().setRoot(root);
+
         }
     }
     

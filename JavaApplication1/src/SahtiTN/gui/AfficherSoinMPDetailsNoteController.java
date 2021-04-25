@@ -50,6 +50,8 @@ public class AfficherSoinMPDetailsNoteController implements Initializable {
     private Hyperlink btn_Ord;
     @FXML
     private Hyperlink btn_reclamation;
+    @FXML
+    private Hyperlink btn_act;
     public String getsoinId() {
         return soinId;
     }
@@ -256,6 +258,23 @@ public class AfficherSoinMPDetailsNoteController implements Initializable {
             root = loader.load();
             //récupération du controller lier au fichier fxml 
             GestionReclamationFrontController dpc = loader.getController();
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_act(ActionEvent event) {
+               FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeFront.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+          
 
             btn_accueil.getScene().setRoot(root);
         } catch (IOException ex) {
