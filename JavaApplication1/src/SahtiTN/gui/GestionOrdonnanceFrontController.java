@@ -60,6 +60,7 @@ public class GestionOrdonnanceFrontController implements Initializable {
     private Hyperlink btn_Ord;
     @FXML
     private Hyperlink btn_reclamation;
+    int idP=Session.getSession().getSessionUser().getId();
 
     /**
      * Initializes the controller class.
@@ -144,17 +145,18 @@ public class GestionOrdonnanceFrontController implements Initializable {
     @FXML
     private void rechercheOrdonnance(KeyEvent event) {
         OrdonnanceService Oc=new OrdonnanceService();
-        ObservableList<Ordonnance> ordonnances = Oc.rechercheOrdonnance(tf_recherche2.getText());
+        ObservableList<Ordonnance> ordonnances = Oc.rechercheOrdonnanceFront(tf_recherche2.getText(),idP);
         id_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,Integer>("id"));
         contenu_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("contenu"));
         date_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,LocalDate>("dateOrdonnance"));
+        liste_med_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("liste_medicament"));
        
         tab_ordonnance.setItems(ordonnances);
     }
     
     private void afficherOrdonnance(){
         OrdonnanceService Oc=new OrdonnanceService();
-        ObservableList<Ordonnance> ordonnances = Oc.afficherOrdonnance();
+        ObservableList<Ordonnance> ordonnances = Oc.afficherOrdonnanceFront(idP);
         id_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,Integer>("id"));
         contenu_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("contenu"));
         date_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,LocalDate>("dateOrdonnance"));

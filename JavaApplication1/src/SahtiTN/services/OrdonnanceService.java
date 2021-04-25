@@ -28,10 +28,10 @@ import javafx.collections.ObservableList;
 public class OrdonnanceService {
     
     
-    public ObservableList<Ordonnance> afficherOrdonnance() {
+    public ObservableList<Ordonnance> afficherOrdonnanceBack(int Data) {
         
         ObservableList<Ordonnance> ordonnances = FXCollections.observableArrayList();
-        String req = "SELECT * FROM ordonnance";
+        String req = "SELECT * FROM ordonnance WHERE medecin_id="+Data+"";
         try {
             Statement st = MyConnection.getInstance().getCnx().createStatement();
             ResultSet rst = st.executeQuery(req);
@@ -40,9 +40,50 @@ public class OrdonnanceService {
             {
                 Ordonnance o = new Ordonnance();
                 o.setId(rst.getInt("id"));
+                
+                String ListeNomMedicament="";
+                ObservableList<Integer> ListeId= TrouverTtMed(o.getId());
+                for (Integer m:ListeId)    
+                {  
+                    String NomMed= GetNomFrom_Medicament(m);
+                    ListeNomMedicament+= NomMed+" " ;
+                }
+                
+                o.setListe_medicament(ListeNomMedicament);
                 o.setContenu(rst.getString("contenu_ord")); 
                 o.setDateOrdonnance(rst.getDate("date_ord").toLocalDate());
-                o.setListe_medicament(rst.getString("liste_medicament"));
+                ordonnances.add(o);
+            }   
+        } catch (SQLException ex) {
+            Logger.getLogger(MedicamentService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (ordonnances);
+    }
+        
+        public ObservableList<Ordonnance> afficherOrdonnanceFront(int Data) {
+        
+        ObservableList<Ordonnance> ordonnances = FXCollections.observableArrayList();
+        String req = "SELECT * FROM ordonnance WHERE user_id="+Data+"";
+        try {
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rst = st.executeQuery(req);
+            
+            while (rst.next())
+            {
+                Ordonnance o = new Ordonnance();
+                o.setId(rst.getInt("id"));
+                
+                String ListeNomMedicament="";
+                ObservableList<Integer> ListeId= TrouverTtMed(o.getId());
+                for (Integer m:ListeId)    
+                {  
+                    String NomMed= GetNomFrom_Medicament(m);
+                    ListeNomMedicament+= NomMed+" " ;
+                }
+                
+                o.setListe_medicament(ListeNomMedicament);
+                o.setContenu(rst.getString("contenu_ord")); 
+                o.setDateOrdonnance(rst.getDate("date_ord").toLocalDate());
                 ordonnances.add(o);
             }   
         } catch (SQLException ex) {
@@ -51,7 +92,7 @@ public class OrdonnanceService {
         return (ordonnances);
     }
     
-    public ObservableList<String> afficherlisteMedicament() {
+        public ObservableList<String> afficherlisteMedicament() {
         
         ObservableList<String> listeMedicament = FXCollections.observableArrayList();
         String req = "SELECT nom_medicament FROM medicament";
@@ -70,16 +111,70 @@ public class OrdonnanceService {
         return (listeMedicament);
         
     }
+//******************************************************************************************
+//******************************************************************************************
+        public ObservableList<String> afficherlistePatient() {
+        
+        ObservableList<String> listePatient = FXCollections.observableArrayList();
+        String req = "SELECT nom FROM user WHERE role=1";
+        try {
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rst = st.executeQuery(req);
+            while (rst.next())
+            {
+                String nom;
+                nom=rst.getString("nom");
+                listePatient.add(nom);
+            }   
+        } catch (SQLException ex) {
+            Logger.getLogger(MedicamentService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (listePatient);   
+    }
     
-    public void ajouterOrdonnance(Ordonnance o){
+        public  int DeterminerIDByNom(String NomP) {
+        int id=0;
+        String req = "SELECT id FROM user WHERE nom LIKE '%"+NomP+"%'";
+        try {
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rst = st.executeQuery(req);
+            while (rst.next())
+            {
+                id=rst.getInt("id");
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdonnanceService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+        
+        public  String DeterminerNomById(int data) {
+        String Nom="";
+        String req = "SELECT nom FROM user WHERE id="+data+"";
+        try {
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rst = st.executeQuery(req);
+           
+            while (rst.next())
+            {
+                Nom=rst.getString("nom");
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdonnanceService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return Nom;
+    }
+  
+        public void ajouterOrdonnance(Ordonnance o){
         try 
         {
-            String req="INSERT INTO ordonnance (contenu_ord,date_ord,liste_medicament) "
-                    + "VALUES(?,?,?)";
+            String req="INSERT INTO ordonnance (user_id,contenu_ord,date_ord,medecin_id) "
+                    + "VALUES(?,?,?,?)";
             PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
-            pst.setString   (1, o.getContenu());
-            pst.setDate     (2, Date.valueOf(o.getDateOrdonnance()));
-            pst.setString   (3, o.getListe_medicament());
+            pst.setInt      (1, o.getUser_id());
+            pst.setString   (2, o.getContenu());
+            pst.setDate     (3, Date.valueOf(o.getDateOrdonnance()));
+            pst.setInt      (4, o.getMedecin_id());
             pst.executeUpdate();
             System.out.println("Ordonnance Ajouté !");
         } 
@@ -88,8 +183,9 @@ public class OrdonnanceService {
             System.out.println(ex.getMessage());
         }
     }
-    
-    public void supprimerOrdonnance(int id) throws SQLException {
+//********************************************************************************************  
+//******************************************************************************************** 
+        public void supprimerOrdonnance(int id) throws SQLException {
         String req = "DELETE FROM ordonnance WHERE id=?";
         PreparedStatement pst =MyConnection.getInstance().getCnx().prepareStatement(req);
         pst.setInt(1,id);
@@ -97,20 +193,19 @@ public class OrdonnanceService {
         System.out.println("Ordonnance supprimer !");
     }
     
-    public void updateOrdonnance(Ordonnance o,int id) throws SQLException {
-        String req = "UPDATE ordonnance SET contenu_ord=?,date_ord=?,liste_medicament=? WHERE id=?";
+        public void updateOrdonnance(Ordonnance o,int id) throws SQLException {
+        String req = "UPDATE ordonnance SET contenu_ord=?,date_ord=? WHERE id=?";
         PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
         pst.setString(1, o.getContenu());
         pst.setDate(2,Date.valueOf(o.getDateOrdonnance()));
-        pst.setString(3, o.getListe_medicament());
-        pst.setInt(4,id);
+        pst.setInt(3,id);
         pst.executeUpdate();
         System.out.println("Ordonnance mis a jour !");
     }
 
-    public ObservableList<Ordonnance> rechercheOrdonnance(String Data) {
+        public ObservableList<Ordonnance> rechercheOrdonnanceBack(String Data,int Data2){
         ObservableList<Ordonnance> ordonnances = FXCollections.observableArrayList();
-        String req = "SELECT * FROM ordonnance WHERE contenu_ord LIKE'%"+Data+"%'";
+        String req = "SELECT * FROM ordonnance WHERE contenu_ord LIKE'%"+Data+"%'AND medecin_id="+Data2+"";
         try {
             Statement st = MyConnection.getInstance().getCnx().createStatement();
             ResultSet rst = st.executeQuery(req);
@@ -119,6 +214,17 @@ public class OrdonnanceService {
             {
                 Ordonnance o = new Ordonnance();
                 o.setId(rst.getInt("id"));
+                
+                String ListeNomMedicament="";
+                ObservableList<Integer> ListeId= TrouverTtMed(o.getId());
+                for (Integer m:ListeId)    
+                {  
+                    String NomMed= GetNomFrom_Medicament(m);
+                    ListeNomMedicament+= NomMed+" " ;
+                }
+                
+                o.setListe_medicament(ListeNomMedicament);
+                
                 o.setContenu(rst.getString("contenu_ord"));
                 o.setDateOrdonnance(rst.getDate("date_ord").toLocalDate());
                 ordonnances.add(o);
@@ -128,11 +234,10 @@ public class OrdonnanceService {
         }
         return (ordonnances);
     }
-    
-    public ObservableList<Ordonnance> triOrdonnance() {
-        
+
+        public ObservableList<Ordonnance> rechercheOrdonnanceFront(String Data,int Data2) {
         ObservableList<Ordonnance> ordonnances = FXCollections.observableArrayList();
-        String req = "SELECT * FROM ordonnance ORDER BY date_ord DESC";
+        String req = "SELECT * FROM ordonnance WHERE contenu_ord LIKE'%"+Data+"%'AND user_id="+Data2+"";
         try {
             Statement st = MyConnection.getInstance().getCnx().createStatement();
             ResultSet rst = st.executeQuery(req);
@@ -141,15 +246,142 @@ public class OrdonnanceService {
             {
                 Ordonnance o = new Ordonnance();
                 o.setId(rst.getInt("id"));
-                o.setContenu(rst.getString("contenu_ord")); 
+                
+                String ListeNomMedicament="";
+                ObservableList<Integer> ListeId= TrouverTtMed(o.getId());
+                for (Integer m:ListeId)    
+                {  
+                    String NomMed= GetNomFrom_Medicament(m);
+                    ListeNomMedicament+= NomMed+" " ;
+                }
+                
+                o.setListe_medicament(ListeNomMedicament);
+                o.setContenu(rst.getString("contenu_ord"));
                 o.setDateOrdonnance(rst.getDate("date_ord").toLocalDate());
-                o.setListe_medicament(rst.getString("liste_medicament"));
                 ordonnances.add(o);
             }   
         } catch (SQLException ex) {
             Logger.getLogger(MedicamentService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return (ordonnances);
+    }
+   
+        public ObservableList<Ordonnance> triOrdonnance(int Data) {
+        
+        ObservableList<Ordonnance> ordonnances = FXCollections.observableArrayList();
+        String req = "SELECT * FROM ordonnance WHERE medecin_id= "+Data+" ORDER BY date_ord DESC";
+        try {
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rst = st.executeQuery(req);
+            
+            while (rst.next())
+            {
+                Ordonnance o = new Ordonnance();
+                o.setId(rst.getInt("id"));
+                
+                String ListeNomMedicament="";
+                ObservableList<Integer> ListeId= TrouverTtMed(o.getId());
+                for (Integer m:ListeId)    
+                {  
+                    String NomMed= GetNomFrom_Medicament(m);
+                    ListeNomMedicament+= NomMed+" " ;
+                }
+                
+                o.setListe_medicament(ListeNomMedicament);
+                
+                o.setContenu(rst.getString("contenu_ord")); 
+                o.setDateOrdonnance(rst.getDate("date_ord").toLocalDate());
+                ordonnances.add(o);
+            }   
+        } catch (SQLException ex) {
+            Logger.getLogger(MedicamentService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (ordonnances);
+    }
+    
+
+//***************************************************************************
+        // AJOUT MANY TO MANY
+//***************************************************************************
+        public  int GetIdFrom_Medicament(String nomMed){
+        try{
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st.executeQuery("SELECT id FROM medicament WHERE nom_medicament= '"+nomMed+"'");
+            rs.next();
+            int h = rs.getInt(1);
+            return h;
+        }catch(Exception ex){
+            return 0;
+        }
+    }
+         
+        public  void InsertInto_Ord_Med(int Ord_id, int Med_id){
+        try{
+            PreparedStatement pst =MyConnection.getInstance().getCnx().prepareStatement("INSERT INTO ordonnance_medicament VALUES(?,?)");
+            pst.setInt(1, Ord_id);
+            pst.setInt(2, Med_id);
+            pst.executeUpdate();
+        }   catch(Exception ex){
+            System.out.println(ex);
+        }
+    }
+        
+        public  int GetIdFrom_Ord(String Contenu){
+            try{
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st.executeQuery("SELECT id FROM ordonnance WHERE contenu_ord= '"+Contenu+"'");
+            int h = 0;
+            while(rs.next()){
+                h = rs.getInt(1);
+            }
+            return h;
+        }catch(Exception ex){
+            return 0;
+        }  
+    }
+         
+     
+//***************************************************************************
+        // AFFICHAGE MANY TO MANY
+//***************************************************************************    
+        public  String GetNomFrom_Medicament(int id){
+        String h="";    
+        try{
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rs = st.executeQuery("SELECT nom_medicament FROM medicament WHERE id= '"+id+"'");
+            rs.next();
+            h = rs.getString("nom_medicament");
+            return h;
+        }catch(Exception ex){
+            return h;
+        }
+    }
+    
+        public ObservableList<Integer> TrouverTtMed(int idOrd) {
+           ObservableList<Integer> ListeIdMed = FXCollections.observableArrayList();
+        String req = "SELECT medicament_id FROM ordonnance_medicament WHERE ordonnance_id= "+idOrd+"";
+        try {
+            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            ResultSet rst = st.executeQuery(req);
+            while (rst.next())
+            {
+                ListeIdMed.add(rst.getInt("medicament_id"));
+            }  
+        } catch (SQLException ex) {
+            Logger.getLogger(OrdonnanceService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return (ListeIdMed);
+    }
+//***************************************************************************
+        // SUPPRIMER MANY TO MANY
+//*************************************************************************** 
+        
+        public void DeleteFrom_Ord_Med(int id) throws SQLException {
+        String req = "DELETE FROM ordonnance_medicament WHERE ordonnance_id=?";
+        PreparedStatement pst =MyConnection.getInstance().getCnx().prepareStatement(req);
+        pst.setInt(1,id);
+        pst.executeUpdate();
+        System.out.println("Ordonnance_medicament supprimer !");
     }
     
 }

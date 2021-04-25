@@ -13,6 +13,7 @@ import static java.lang.Integer.parseInt;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,11 +21,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
@@ -63,6 +66,7 @@ public class UpdateOrdonnanceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         afficherlisteMedicament();
+        tf_update_dateOrdonnance.setEditable(false);
     }    
 
         private void afficherlisteMedicament(){
@@ -80,17 +84,23 @@ public class UpdateOrdonnanceController implements Initializable {
         int id= parseInt(tf_idOrd.getText());
         String contenu =  tf_update_contenu.getText();
         LocalDate date_ord = tf_update_dateOrdonnance.getValue();
-        String ord_listeMedicament ="";
-            ObservableList<String> listeMedicament= list_medicament2.getSelectionModel().getSelectedItems();
-            for (String m:listeMedicament)
-            {
-                ord_listeMedicament+= m+" " ;
-            }
         
         ordonnance.setContenu(contenu);
         ordonnance.setDateOrdonnance(date_ord);
-        ordonnance.setListe_medicament(ord_listeMedicament);
         Oc.updateOrdonnance(ordonnance,id);
+        
+        ObservableList<String> listeMedicament= list_medicament2.getSelectionModel().getSelectedItems();
+        if (!listeMedicament.isEmpty())
+        {
+            // fasa5 
+            Oc.DeleteFrom_Ord_Med(id);
+            // fasa5
+            for (String m:listeMedicament)
+            {
+            Oc.InsertInto_Ord_Med(id,Oc.GetIdFrom_Medicament(m));
+            }
+        }
+        
         
         Stage stage = (Stage) bt_updateOrdonnance2.getScene().getWindow();
         stage.close();
@@ -116,5 +126,22 @@ public class UpdateOrdonnanceController implements Initializable {
            }
            return verif;
        }
+
+    @FXML
+    private void ControlDatePicker(MouseEvent event) {
+        if (!(tf_update_dateOrdonnance.isEditable())){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation Dialog");
+        alert.setHeaderText(null);
+        alert.setContentText("Voulez vous changer la date du systeme ?");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            tf_update_dateOrdonnance.setEditable(true);
+       } else {
+            tf_update_dateOrdonnance.setEditable(false);
+       }    
+    }
+    }
     
 }

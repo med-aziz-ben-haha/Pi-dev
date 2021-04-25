@@ -27,6 +27,6 @@
          <font>
             <Font name="System Bold" size="19.0" />
          </font></Label>
-      <DatePicker fx:id="tf_update_dateOrdonnance" layoutX="238.0" layoutY="283.0" prefHeight="43.0" prefWidth="446.0" />
+      <DatePicker fx:id="tf_update_dateOrdonnance" layoutX="238.0" layoutY="283.0" onMouseClicked="#ControlDatePicker" prefHeight="43.0" prefWidth="446.0" />
    </children>
 </AnchorPane>

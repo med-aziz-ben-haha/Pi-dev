@@ -355,20 +355,20 @@ public class GestionMedicamentBackController implements Initializable {
         XSSFWorkbook  wb = new XSSFWorkbook();
         XSSFSheet sheet = wb.createSheet("Medicament details");
         XSSFRow header = sheet.createRow(0);
-        header.createCell(0).setCellValue("id");
-        header.createCell(1).setCellValue("nom_medicament");
-        header.createCell(2).setCellValue("descmedicament");
-        header.createCell(3).setCellValue("date_modif");
-        header.createCell(4).setCellValue("dispo");
+       
+        header.createCell(0).setCellValue("nom_medicament");
+        header.createCell(1).setCellValue("descmedicament");
+        header.createCell(2).setCellValue("date_modif");
+        header.createCell(3).setCellValue("dispo");
         
           int index =1;
           while(rs.next()) {
              XSSFRow row = sheet.createRow(index);
-             row.createCell(0).setCellValue(rs.getInt("id"));
-             row.createCell(1).setCellValue(rs.getString("nom_medicament"));
-             row.createCell(2).setCellValue(rs.getString("descmedicament"));
-             row.createCell(3).setCellValue(rs.getDate("date_modif").toString());
-             row.createCell(4).setCellValue(rs.getString("dispo"));
+             
+             row.createCell(0).setCellValue(rs.getString("nom_medicament"));
+             row.createCell(1).setCellValue(rs.getString("descmedicament"));
+             row.createCell(2).setCellValue(rs.getDate("date_modif").toString());
+             row.createCell(3).setCellValue(rs.getString("dispo"));
              
              
              index++;

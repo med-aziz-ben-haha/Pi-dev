@@ -13,10 +13,29 @@ import java.time.LocalDate;
  * @author House
  */
 public class Ordonnance {
+
     private int id;
     private String contenu;
     private LocalDate dateOrdonnance;
     private String liste_medicament;
+    private int user_id;
+    private int medecin_id;
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public int getMedecin_id() {
+        return medecin_id;
+    }
+
+    public void setMedecin_id(int medecin_id) {
+        this.medecin_id = medecin_id;
+    }
 
     public Ordonnance() {
     }

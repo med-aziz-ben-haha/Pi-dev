@@ -59,6 +59,7 @@ import java.io.FileNotFoundException;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.ComboBox;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -108,6 +109,11 @@ public class GestionOrdonnanceBackController implements Initializable {
     private Button bt_exportExcel2;
     @FXML
     private Button bt_triOrdonnance;
+    @FXML
+    private Label Nom_Med;
+    @FXML
+    private ComboBox<String> Combo_nomP;
+    private int idMed=Session.getSession().getSessionUser().getId();
    
 
     /**
@@ -117,21 +123,14 @@ public class GestionOrdonnanceBackController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         afficherOrdonnance();
         afficherlisteMedicament();
+        afficherlistePatient();
+        
+        OrdonnanceService Oc=new OrdonnanceService();
+        Nom_Med.setText(Oc.DeterminerNomById(idMed));
         tf_dateOrdonnance.setValue(LocalDate.now());
         tf_dateOrdonnance.setEditable(false);
     }    
 
-    @FXML
-    private void afficherOrdonnance(){
-        OrdonnanceService Oc=new OrdonnanceService();
-        ObservableList<Ordonnance> ordonnances = Oc.afficherOrdonnance();
-        id_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,Integer>("id"));
-        contenu_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("contenu"));
-        date_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,LocalDate>("dateOrdonnance"));
-        liste_med_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("liste_medicament"));
-       
-        tab_ordonnance.setItems(ordonnances);
-    }
     
     private void afficherlisteMedicament(){
         OrdonnanceService Oc=new OrdonnanceService();
@@ -140,6 +139,27 @@ public class GestionOrdonnanceBackController implements Initializable {
         list_medicament.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
     
+    private void afficherlistePatient(){
+        OrdonnanceService Oc=new OrdonnanceService();
+        ObservableList<String> listeMedicament = Oc.afficherlistePatient();
+        Combo_nomP.setItems(listeMedicament);
+    }
+    
+    
+    @FXML
+    private void afficherOrdonnance(){
+        OrdonnanceService Oc=new OrdonnanceService();
+        ObservableList<Ordonnance> ordonnances = Oc.afficherOrdonnanceBack(idMed);
+        id_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,Integer>("id"));
+        contenu_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("contenu"));
+        date_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,LocalDate>("dateOrdonnance"));
+        liste_med_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("liste_medicament"));
+       
+        tab_ordonnance.setItems(ordonnances);
+    }
+    
+    
+    
     @FXML
     private void ajouterOrdonnance(ActionEvent event) {
             // SAUVEGARDE DANS LA BASE
@@ -147,17 +167,24 @@ public class GestionOrdonnanceBackController implements Initializable {
             Ordonnance o = new Ordonnance();
             String contenu = tf_contenu.getText();
             LocalDate date_ord = tf_dateOrdonnance.getValue();
-            String ord_listeMedicament ="";
-            ObservableList<String> listeMedicament= list_medicament.getSelectionModel().getSelectedItems();
-            for (String m:listeMedicament)
-            {
-                ord_listeMedicament+= m+" " ;
-            }
+
+            int idP=Oc.DeterminerIDByNom(Combo_nomP.getValue());
+            int idM=idMed;
+
             if(Validatefields()){
                 o.setContenu(contenu);        
                 o.setDateOrdonnance(date_ord);
-                o.setListe_medicament(ord_listeMedicament);
+                o.setUser_id(idP);
+                o.setMedecin_id(idM);
                 Oc.ajouterOrdonnance(o);
+                
+                int Ordonnance_id = Oc.GetIdFrom_Ord(o.getContenu());
+                ObservableList<String> listeMedicament= list_medicament.getSelectionModel().getSelectedItems();
+                for (String m:listeMedicament)
+                {
+                Oc.InsertInto_Ord_Med(Ordonnance_id,Oc.GetIdFrom_Medicament(m));
+                }
+                
                 afficherOrdonnance();
                 tf_contenu.clear();
                 tf_dateOrdonnance.setValue(LocalDate.now());
@@ -262,10 +289,11 @@ public class GestionOrdonnanceBackController implements Initializable {
     @FXML
     private void rechercheOrdonnance(KeyEvent event) {
         OrdonnanceService Oc=new OrdonnanceService();
-        ObservableList<Ordonnance> ordonnances = Oc.rechercheOrdonnance(tf_recherche2.getText());
+        ObservableList<Ordonnance> ordonnances = Oc.rechercheOrdonnanceBack(tf_recherche2.getText(),idMed);
         id_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,Integer>("id"));
         contenu_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("contenu"));
         date_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,LocalDate>("dateOrdonnance"));
+        liste_med_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("liste_medicament"));
        
         tab_ordonnance.setItems(ordonnances);
     }
@@ -301,14 +329,14 @@ public class GestionOrdonnanceBackController implements Initializable {
         XSSFRow header = sheet.createRow(0);
         header.createCell(0).setCellValue("contenu_ord");
         header.createCell(1).setCellValue("date_ord");
-        header.createCell(2).setCellValue("liste_medicament");
+        
         
           int index =1;
           while(rs.next()) {
              XSSFRow row = sheet.createRow(index);
-             row.createCell(1).setCellValue(rs.getString("contenu_ord"));
-             row.createCell(3).setCellValue(rs.getDate("date_ord").toString());
-             row.createCell(4).setCellValue(rs.getString("liste_medicament"));
+             row.createCell(0).setCellValue(rs.getString("contenu_ord"));
+             row.createCell(1).setCellValue(rs.getDate("date_ord").toString());
+             
              
              
              index++;
@@ -345,13 +373,13 @@ public class GestionOrdonnanceBackController implements Initializable {
                     PdfWriter.getInstance(my_pdf_report, new FileOutputStream("OrdonnanceDetails.pdf"));
                     my_pdf_report.open();            
                     //we have four columns in our table
-                    PdfPTable my_report_table = new PdfPTable(4);
+                    PdfPTable my_report_table = new PdfPTable(3);
                     //create a cell object
                     PdfPCell table_cell;
                        my_report_table.addCell("Ordonnance ID");
                        my_report_table.addCell("Contenu Ordonnance");
                        my_report_table.addCell("Date Ordonnance");
-                       my_report_table.addCell("Liste médicaments");
+                      
 
                     while (query_set.next()) {  
                                     String id = query_set.getString("id");
@@ -366,9 +394,7 @@ public class GestionOrdonnanceBackController implements Initializable {
                                     table_cell=new PdfPCell(new Phrase(date));
                                     my_report_table.addCell(table_cell);
                                     
-                                    String medicament=query_set.getString("liste_medicament").toString();
-                                    table_cell=new PdfPCell(new Phrase(medicament));
-                                    my_report_table.addCell(table_cell);
+                                    
                                     }
                     /* Attach report table to PDF */
                     my_pdf_report.add(my_report_table);                      
@@ -413,7 +439,7 @@ public class GestionOrdonnanceBackController implements Initializable {
     @FXML
     private void bt_triOrdonnance(ActionEvent event) {
         OrdonnanceService Oc=new OrdonnanceService();
-        ObservableList<Ordonnance> ordonnances = Oc.triOrdonnance();
+        ObservableList<Ordonnance> ordonnances = Oc.triOrdonnance(idMed);
         id_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,Integer>("id"));
         contenu_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,String>("contenu"));
         date_ord_col.setCellValueFactory(new PropertyValueFactory<Ordonnance,LocalDate>("dateOrdonnance"));
