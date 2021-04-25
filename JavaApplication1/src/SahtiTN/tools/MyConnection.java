@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author LENOVO
  */
 public class MyConnection {
-    public  String url="jdbc:mysql://localhost:3306/pidev?serverTimezone=UTC";   
+    public  String url="jdbc:mysql://localhost:3306/sahtitn?serverTimezone=UTC";   
     public  String pwd="";
     public  String login="root";
     public static MyConnection instance;
@@ -40,6 +40,10 @@ private MyConnection() {
             instance=new MyConnection();
         }
         return instance;
+    }
+
+    public Connection getConnection() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

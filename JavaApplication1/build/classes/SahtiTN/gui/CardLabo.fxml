@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="anchor" prefHeight="400.0" prefWidth="434.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="1.0" layoutY="10.0" prefHeight="387.0" prefWidth="552.0" stylesheets="@../../../../../../pidev%20javaouss/pidev%20java/Pi-dev/JavaApplication1/src/SahtiTN/gui/HomePage.css">
+         <children>
+            <Label layoutX="13.0" layoutY="91.0" prefHeight="27.0" prefWidth="102.0" text="Nom          :" textFill="#978080">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="31.0" prefHeight="34.0" prefWidth="102.0" text="Spécialité  :" textFill="#978080">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="265.0" prefHeight="27.0" prefWidth="102.0" text="E-mail        :" textFill="#978080">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="150.0" prefHeight="27.0" prefWidth="102.0" text="Adresse     :" textFill="#978080">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="212.0" prefHeight="27.0" prefWidth="102.0" text="Tél°            :" textFill="#978080">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="138.0" layoutY="319.0" prefHeight="59.0" prefWidth="178.0" text="Laboratoire" textFill="#f52e2e">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_spec_lab" layoutX="128.0" layoutY="38.0" prefHeight="27.0" prefWidth="253.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_nom_lab" layoutX="128.0" layoutY="91.0" prefHeight="27.0" prefWidth="253.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_adresse_lab" layoutX="128.0" layoutY="150.0" prefHeight="34.0" prefWidth="410.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_tel_lab" layoutX="138.0" layoutY="212.0" prefHeight="27.0" prefWidth="253.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lb_email_lab" layoutX="119.0" layoutY="265.0" prefHeight="27.0" prefWidth="253.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
