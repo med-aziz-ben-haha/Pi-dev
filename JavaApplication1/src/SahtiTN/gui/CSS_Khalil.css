@@ -1,0 +1,67 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.backgroundBack
+{ 
+    -fx-background-color: white;
+}
+.backgroundBackNav
+{ 
+    -fx-background-color: grey;
+}
+.backgroundFront
+{ 
+    -fx-background-color: white;
+}
+.backgroundFooter
+{ 
+    -fx-background-color: #382D2D;
+    -fx-color: white;
+}
+.button{
+     -fx-background-color: #CD2936;
+     -fx-text-fill: white;
+}
+.button:hover{
+     -fx-background-color: grey;
+}
+.button:pressed{
+    -fx-background-color: #01D28E;
+}
+
+.table-view {
+   
+    -fx-background-radius:14 14 14 14;
+    
+}
+.table-view .filler, .table-view .column-header {
+    -fx-size: 65;
+    -fx-border-style: null;
+    -fx-border-width: 0 0 2 0;
+    -fx-background-color: transparent;
+}
+
+.table-view .show-hide-columns-button
+{
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background
+{
+    -fx-background-color: #889DF4;
+        -fx-background-radius:14 14 0 0;
+        -fx-background-insets: 0 0 0 0;
+}
+
+.table-row-cell {
+    -fx-cell-size: 40px;
+    -fx-background: #E2E2FF;
+}
+.table-row-cell:selected{
+    -fx-background-color: white;
+}
+.table-cell {
+    -fx-border-color: transparent; /* Vertical Lines*/
+    -fx-border-width: 1;
+}
