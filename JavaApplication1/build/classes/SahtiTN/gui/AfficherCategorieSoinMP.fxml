@@ -176,6 +176,8 @@
                     </image>
                 </ImageView>
             <Hyperlink fx:id="btn_deconnexion" layoutX="883.0" layoutY="65.0" onAction="#sedeconnecter" text="Se déconnecter" textFill="WHITE" />
+                    
+
          </children>
       </Pane>
         <Label layoutX="683.0" layoutY="154.0" scaleX="2.0" scaleY="2.0" text="Gestion des Catégories SoinsMP" textAlignment="CENTER" textFill="#ea3d48" />

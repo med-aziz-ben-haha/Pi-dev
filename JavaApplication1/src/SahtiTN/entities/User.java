@@ -51,7 +51,16 @@ public class User {
         this.sexe = sexe;
         this.role = role;
         this.lien_image_user = lien_image_user;
-        this.fullname = fullname;
+        this.fullname = nom;
+    }
+        public User(int id, String login, String nom, String prenom, String telephone, String email) {
+        
+        this.login = login;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.telephone = telephone;
+        this.email = email;
+        this.fullname = nom;
     }
     public User( String login, String password, String nom, String prenom, String adresse_user, String matricule_fiscale, String telephone, String specialite, String email, String sexe, int role, String lien_image_user, String fullname) {
         this.id = id;
@@ -67,7 +76,7 @@ public class User {
         this.sexe = sexe;
         this.role = role;
         this.lien_image_user = lien_image_user;
-        this.fullname = fullname;
+        this.fullname = nom;
     }
 
     public String getAdresse_user() {

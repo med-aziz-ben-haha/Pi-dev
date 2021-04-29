@@ -80,7 +80,7 @@
                </font>
             </Hyperlink>
             <Hyperlink focusTraversable="false" layoutX="1156.0" layoutY="56.0" onAction="#sedeconnecter" prefHeight="29.0" prefWidth="124.0" text="se deconnecter" textFill="#1b1a1a" />
-
+    <Hyperlink fx:id="LienProfil" layoutX="1164.0" layoutY="14.0" onAction="#envoi_profil" prefHeight="51.0" prefWidth="73.0" />
             </children>
         </Pane>
         <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />

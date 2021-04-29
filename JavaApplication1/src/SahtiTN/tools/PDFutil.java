@@ -5,6 +5,7 @@
  */
 package SahtiTN.tools;
 
+import SahtiTN.entities.Articles;
 import java.sql.Connection;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
@@ -174,5 +175,74 @@ public class PDFutil {
         doc.close();
         Desktop.getDesktop().open(new File("./SoinMP.pdf"));
     }
+       public void listArticle() throws SQLException, FileNotFoundException, DocumentException, IOException {
+            ste = cn2.createStatement();
+       ResultSet rs = ste.executeQuery("SELECT * from article");
+        PdfWriter.getInstance(doc, new FileOutputStream("./article.pdf"));
+
+        doc.open();
+        //Image image = Image.getInstance("C:\\Users\\LENOVO\\Desktop\\pidev-java\\Pi-dev\\JavaApplication1\\src\\SahtiTN\\images\\Logo.jpeg");
+        
+        //document.add(new Paragraph("test\n  test")); 
+        //doc.add(image);
+        doc.add(new Paragraph("   "));
+        doc.add(new Paragraph("  Liste des Articles "));
+        doc.add(new Paragraph("   "));
+
+        PdfPTable table = new PdfPTable(3);
+        table.setWidthPercentage(100);
+        PdfPCell cell;
+        
+   
+        
+
+        cell = new PdfPCell(new Phrase("Titre", FontFactory.getFont("Comic Sans MS", 15)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(cell);
+
+        cell = new PdfPCell(new Phrase("Description", FontFactory.getFont("Comic Sans MS", 15)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(cell);
+        
+        
+        cell = new PdfPCell(new Phrase("Date", FontFactory.getFont("Comic Sans MS", 15)));
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
+        table.addCell(cell);
+        
+
+        while (rs.next()) {
+
+            Articles s = new Articles();
+
+          
+            s.setTitre(rs.getString(2));
+            s.setDescription(rs.getString(7));
+            s.setDate(rs.getString(6));
+
+
+        
+
+            cell = new PdfPCell(new Phrase(s.getTitre(), FontFactory.getFont("Comic Sans MS", 12)));
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table.addCell(cell);
+            
+            cell = new PdfPCell(new Phrase(s.getDescription(), FontFactory.getFont("Comic Sans MS", 12)));
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table.addCell(cell);
+            
+              cell = new PdfPCell(new Phrase(s.getDate(), FontFactory.getFont("Comic Sans MS", 12)));
+            cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+            table.addCell(cell);
+            
+
+          
+
+        }
+
+        doc.add(table);
+        doc.close();
+        Desktop.getDesktop().open(new File("./article.pdf"));
+    }
+     
      
 }

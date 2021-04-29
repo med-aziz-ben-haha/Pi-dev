@@ -78,7 +78,6 @@
                </font>
             </Hyperlink>
             <Hyperlink focusTraversable="false" layoutX="1143.0" layoutY="69.0" onAction="#sedeconnecter" prefHeight="29.0" prefWidth="130.0" text="se deconnecter" textFill="#1b1a1a" />
-
             </children>
         </Pane>
         <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />

@@ -46,6 +46,8 @@ public class HomepageFrontMedController implements Initializable {
     private Hyperlink btn_reclmation;
     @FXML
     private Hyperlink btn_act;
+    @FXML
+    private Hyperlink LienProfil;
 
     /**
      * Initializes the controller class.
@@ -194,6 +196,10 @@ public class HomepageFrontMedController implements Initializable {
             Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    
+    
+    
 
     
     

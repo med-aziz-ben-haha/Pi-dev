@@ -43,6 +43,8 @@ public class HomepageFrontParaController implements Initializable {
     private Hyperlink btn_reclamation;
     @FXML
     private Hyperlink btn_act;
+    @FXML
+    private Hyperlink LienProfil;
 
     /**
      * Initializes the controller class.
@@ -175,6 +177,8 @@ public class HomepageFrontParaController implements Initializable {
             Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    
 
 
 }

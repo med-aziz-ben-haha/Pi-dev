@@ -114,6 +114,8 @@ public class GestionOrdonnanceBackController implements Initializable {
     @FXML
     private ComboBox<String> Combo_nomP;
     private int idMed=Session.getSession().getSessionUser().getId();
+    @FXML
+    private Hyperlink LienProfil;
    
 
     /**
@@ -464,6 +466,23 @@ public class GestionOrdonnanceBackController implements Initializable {
             tf_dateOrdonnance.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(AfficherCategorieSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_profil(ActionEvent event) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Profil.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+          
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

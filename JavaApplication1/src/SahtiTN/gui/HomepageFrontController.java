@@ -44,6 +44,8 @@ public class HomepageFrontController implements Initializable {
     private Hyperlink btn_reclamation;
     @FXML
     private Hyperlink btn_act;
+    @FXML
+    private Hyperlink LienProfil;
     
  
 
@@ -164,6 +166,23 @@ public class HomepageFrontController implements Initializable {
     @FXML
     private void envoi_act(ActionEvent event) {
                FXMLLoader loader = new FXMLLoader(getClass().getResource("HomeFront.fxml"));
+        //récupération du root  à partir du fichier fxml
+        Parent root;
+
+        try {
+            root = loader.load();
+            //récupération du controller lier au fichier fxml 
+          
+
+            btn_accueil.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomepageFrontController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void envoi_profil(ActionEvent event) {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Profil.fxml"));
         //récupération du root  à partir du fichier fxml
         Parent root;
 

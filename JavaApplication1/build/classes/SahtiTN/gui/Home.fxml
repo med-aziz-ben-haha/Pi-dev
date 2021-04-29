@@ -27,7 +27,7 @@
          <graphic>
             <ImageView fitHeight="16.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../el%209dim/Gestion_Blog/Gestion_Blog/src/gestion_blog/images/icons8_Search_52px_new.png" />
+                  <Image url="@../images/icons8_Search_52px_new.png" />
                </image>
             </ImageView>
          </graphic>
@@ -207,6 +207,7 @@
             <Hyperlink fx:id="btn_deconnexion" layoutX="874.0" layoutY="62.0" onAction="#sedeconnecter" text="Se déconnecter" textFill="WHITE" />
          </children>
       </Pane>
+      <Button fx:id="btn_pdf" layoutX="817.0" layoutY="204.0" mnemonicParsing="false" onAction="#GeneratePdf" prefHeight="32.0" prefWidth="97.0" text=" PDF" textFill="WHITE" style="-fx-background-color: #EA3D48 " />
    </children>
    <effect>
       <DropShadow color="#1b1eeb" />

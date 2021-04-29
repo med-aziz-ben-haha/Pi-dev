@@ -78,24 +78,24 @@ public class UserCrud {
         } 
     }
   
-    public void modifierUser(User u, String userLogin, String userNom, String userPrenom, String userTel, String userMail, String userSexe, String userPassword, String userLienImage, String userAdresse) {
-           String userFullname=userNom;
-        String requete2 = "UPDATE user SET login = ?, nom = ?, prenom = ?, telephone = ?, email = ?, sexe = ?, mdp = ?, lien_image_user =?, user_fullname=?, user_adresse=? WHERE id = ?";
+    public void modifierUser(User u) {
+           String userFullname=u.getNom();
+        String requete2 = "UPDATE user SET login = ?, nom = ?, prenom = ?, telephone = ?, email = ?, sexe = ?, mdp = ?, lien_image_user =?, fullname=?, adresse_user=? WHERE id = ?";
 
         try {
 
             PreparedStatement pst = cn2.prepareStatement(requete2);
 
-            pst.setString(1, userLogin);
-            pst.setString(2, userNom);
-            pst.setString(3, userPrenom);
-            pst.setString(4, userTel);
-            pst.setString(5, userMail);
-            pst.setString(6, userSexe);
-            pst.setString(7, userPassword);
-            pst.setString(8, userLienImage);
+            pst.setString(1, u.getLogin());
+            pst.setString(2, u.getNom());
+            pst.setString(3, u.getPrenom());
+            pst.setString(4, u.getTelephone());
+            pst.setString(5, u.getEmail());
+            pst.setString(6, u.getSexe());
+            pst.setString(7, u.getPassword());
+            pst.setString(8, u.getLien_image_user());
             pst.setString(9, userFullname);
-            pst.setString(10, userAdresse);
+            pst.setString(10, u.getAdresse_user());
             
             pst.setInt(11, u.getId());
 
@@ -123,7 +123,24 @@ public class UserCrud {
             System.out.println(ex.getMessage());
         }
     }
+       public void updateImage(User u)
+       {       
+        String requete2 = "UPDATE user SET lien_image_user =? WHERE id = ?";
 
+        try {
+
+            PreparedStatement pst = cn2.prepareStatement(requete2);
+
+            pst.setString(1, u.getLien_image_user());
+            pst.setInt(2, u.getId());
+            
+            pst.executeUpdate();
+            System.out.println("photo  modifié");
+          
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }  
+       }
     public List<User> afficherUser() {
 
         ArrayList<User> utilisateurs = new ArrayList<>();

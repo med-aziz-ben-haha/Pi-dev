@@ -3,13 +3,16 @@ package SahtiTN.gui;
 import SahtiTN.entities.Articles;
 import SahtiTN.services.GestionArticles;
 import SahtiTN.services.GestionCategories;
+import SahtiTN.tools.PDFutil;
 import SahtiTN.tools.Session;
+import com.lowagie.text.DocumentException;
 import java.awt.AWTException;
 import java.awt.SystemTray;
 import java.awt.Toolkit;
 import java.awt.TrayIcon;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileNotFoundException;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,6 +28,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -110,6 +114,8 @@ public class Controller implements Initializable {
     private Hyperlink gestion;
     @FXML
     private Hyperlink btn_deconnexion;
+    @FXML
+    private Button btn_pdf;
 
     public void setModifint(boolean modifint) {
         this.modifint = modifint;
@@ -432,6 +438,20 @@ try {
         } catch (IOException ex) {
             Logger.getLogger(HomepageBackController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void GeneratePdf(ActionEvent event) throws SQLException, IOException {
+          PDFutil pdf = new PDFutil();
+
+        try {
+            pdf.listArticle();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AfficherCategorieSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DocumentException ex) {
+            Logger.getLogger(AfficherCategorieSoinMPController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 }

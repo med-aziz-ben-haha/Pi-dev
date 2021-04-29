@@ -8,6 +8,7 @@ package SahtiTN.gui;
 import SahtiTN.entities.NoteSoin;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.SoinMPCrud;
+import SahtiTN.tools.Session;
 import java.io.IOException;
 import static java.lang.Math.round;
 import java.net.URL;
@@ -47,7 +48,7 @@ import java.lang.String;
 public class CarddetailsNoteController implements Initializable {
 
     SoinMP dataSoinMP;
-    int userid = 7;
+    int userid = Session.getSession().getSessionUser().getId();
     float moyenne = 0;
     String Avi = "";
     int val = 0;
