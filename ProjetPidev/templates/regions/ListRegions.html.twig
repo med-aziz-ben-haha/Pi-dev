@@ -1,0 +1,59 @@
+{% include 'temp1.html.twig' %}
+
+
+
+
+<div class="box">
+    <div class="box-header">
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des Regions </h1>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div class="col-sm-8"></div>
+
+        <div class="col-sm-4"><a href="regions/AjoutRegion" class="btn btn-block btn-primary" role="button">Ajouter Region</a></div>
+
+
+
+
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+
+                <th>id</th>
+                <th>Region</th>
+                <th>Modifier Region</th>
+                <th>Supprimer Region</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr {% for R in region %}>
+
+
+                <td>{{ R.id }}</td>
+                <td>{{ R.region }}</td>
+
+                <td><a href="{{ path('modifierRegion',{'id':R.id}) }}" class="btn btn-block btn-warning" role="button">Modifier</a></td>
+                <td><a href="{{ path('deleteRegion',{'id':R.id}) }}" class="btn btn-block btn-danger" role="button">Supprimer</a></td>
+
+
+
+            </tr {% endfor %}>
+
+
+
+
+            </tbody>
+
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
+
+{% include 'temp2.html.twig' %}

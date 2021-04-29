@@ -1,0 +1,29 @@
+{% include 'tempFrontAccueil1.html.twig' %}
+<div style ="margin-left: 28%; margin-right: 28%;  border: solid 1px #EA3D48; padding:2%; border-radius: 30px; margin-bottom: 25px ">
+
+
+    {{ form_start(formConnexion,{'attr': {'novalidate': 'novalidate'}} ) }}
+    <h1 style ="margin-bottom: 2%; text-align: center; color: #EA3D48 ;  " > Se Connecter  </h1>
+
+    <h6 style ="margin-top: 2%;  color: #EA3D48 ;  " >   {{ message }}</h6>
+    {# { form_errors(formConnexion.login) }#}
+    {{ form_label(formConnexion.login,"Login") }}
+    {{ form_widget(formConnexion.login) }}
+
+    {# { form_errors(formConnexion.mdp)}#}
+    {{ form_label(formConnexion.mdp,"Mot de passe") }}
+    {{ form_widget(formConnexion.mdp)}}
+
+    {{ form_end(formConnexion) }}
+    <center>
+        <div>
+            <a class="hollow button primary" href="/connect/google/">
+                <img width="35px" style="margin-bottom:3px; font-size: 250px; margin-right:5px" alt="Google login" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                Se Connecter via Google
+            </a>
+        </div>
+    </center>
+
+</div>
+
+{% include 'tempFrontAccueil2.html.twig' %}

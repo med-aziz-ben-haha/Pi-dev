@@ -1,0 +1,33 @@
+{% include 'templateAccueil.html.twig'  %}
+
+
+<section class="hero-section hk-section " >
+    <center><div style="margin-right: 30% ;" > <a href="{{ path('afficheParapharmacienCommande' , {'idpara':idpara})  }}" class="btn btn-main-outline mt-2" style ="margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;">Gestion des Commandes<i class="fas fa-chevron-right"></i></a></div></center>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 order-lg-1 order-xl-1 order-sm-1 order-2">
+                <div class="hero-content">
+                    <h3 style=" color: #EA3D48; margin-top: 10%;">{{ parapharmacie.nomPara }}</h3>
+                    <h5>Region:{{ parapharmacie.region.region }}</h5>
+                    <h5>Adresse:{{ parapharmacie.adressePara }}</h5>
+                    <h5>Numero Tel:{{ parapharmacie.telPara }}</h5>
+                </div>
+            </div>
+
+            <div class="col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1">
+                <div class="hero-image d-flex align-items-center h-100">
+                    <img src= "{{ asset('uploads/' ~ parapharmacie.getLienImageP)}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="row">
+    <div class="col-sm-4" style="margin-left:5%;">    <a href="{{ path("afficheCategorieProd",{ 'id': idpara , 'iduser' : iduser}) }}" class="btn btn-main-outline mt-2" style ="margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;">Gestion Des Categories<i class="fas fa-chevron-right"></i></a></div>
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">    <a href="{{ path("choixCategorie",{ 'id': idpara , 'iduser' : iduser}) }}" class="btn btn-main-outline mt-2" style ="margin-bottom: 20%;margin-top: 8%; width:40%; margin-left:30%;">Gestion Des Produits<i class="fas fa-chevron-right"></i></a></div>
+</div>
+{% include 'templateAccueilFooter.html.twig' %}
+

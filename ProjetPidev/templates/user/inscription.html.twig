@@ -1,0 +1,43 @@
+{% include 'tempFrontAccueil1.html.twig' %}
+<div style ="margin-left: 28%; margin-right: 28%;  border: solid 1px #EA3D48; padding:2%; border-radius: 30px; margin-bottom: 25px ">
+
+
+    {{ form_start(formInscription,{'attr': {'novalidate': 'novalidate'}} ) }}
+    <h1 style ="margin-bottom: 2%; text-align: center; color: #EA3D48 ;  " > S'inscrire  </h1>
+
+    {# { form_errors(formInscription.login) }#}
+    {{ form_label(formInscription.login,"Login") }}
+    {{ form_widget(formInscription.login) }}
+
+    {# { form_errors(formInscription.mdp)}#}
+    {{ form_label(formInscription.mdp,"Mot de passe") }}
+    {{ form_widget(formInscription.mdp)}}
+
+    {# { form_errors(formInscription.email)}#}
+    {{ form_label(formInscription.email,"Email ") }}
+    {{ form_widget(formInscription.email)}}
+
+    {# { form_errors(formInscription.nom)}#}
+    {{ form_label(formInscription.nom,"Nom") }}
+    {{ form_widget(formInscription.nom)}}
+
+    {# { form_errors(formInscription.prenom) }#}
+    {{ form_label(formInscription.prenom,"Prénom") }}
+    {{ form_widget(formInscription.prenom) }}
+
+    {# { form_errors(formInscription.adresseUser)}#}
+    {{ form_label(formInscription.adresseUser,"Adresse") }}
+    {{ form_widget(formInscription.adresseUser)}}
+
+    {# { form_errors(formInscription.telephone)}#}
+    {{ form_label(formInscription.telephone,"Telephone ") }}
+    {{ form_widget(formInscription.telephone)}}
+
+    {# { form_errors(formInscription.sexe)}#}
+    {{ form_label(formInscription.sexe,"Sexe") }}
+    {{ form_widget(formInscription.sexe)}}
+
+    {{ form_end(formInscription) }}
+
+</div>
+{% include 'tempFrontAccueil2.html.twig' %}

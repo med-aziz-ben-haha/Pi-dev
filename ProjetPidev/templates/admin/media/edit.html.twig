@@ -1,0 +1,82 @@
+{% extends 'admin.html.twig' %}
+
+{% block headerNavbar %}
+    <li{{ route_name == 'admin_media_edit' ? ' class="active"':'' }}>
+        <a href="{{ path('admin_media_edit', { id: mediaForm.vars.data.id }) }}">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <span>{{ 'app.general.general'|trans }}</span>
+        </a>
+    </li>
+
+    <li{{ route_name  == 'admin_media_data_edit' ? ' class="active"':'' }}>
+        <a href="{{ path('admin_media_data_edit', { id: mediaForm.vars.data.id }) }}">
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+            <span>{{ 'app.general.data'|trans }}</span>
+        </a>
+    </li>
+{% endblock %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            {{ 'admin.medias.edit_data'|trans }}
+        </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box box-danger">
+                    {% if 'image' == mediaForm.vars.data.type.slug and
+                        mediaForm.vars.data.file is not empty
+                    %}
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.image'|trans }}</h3>
+                    </div>
+
+                    <div class="box-body">
+                        <img src="{{ asset(mediaForm.vars.data.file)|imagine_filter('480x480') }}"
+                             class="img-responsive"
+                             alt="">
+                    </div>
+                    {% endif %}
+                </div>
+                <!-- /.box -->
+            </div>
+
+            <div class="col-md-8">
+                {{ form_start(mediaForm) }}
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    {{ form_row(mediaForm.title) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(mediaForm.user) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(mediaForm.created) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-danger">{{ 'admin.data_medias.form.button.save_data'|trans }}</button>
+                        </div>
+                    </div>
+                {{ form_end(mediaForm) }}
+            </div>
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

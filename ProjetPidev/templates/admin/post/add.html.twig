@@ -1,0 +1,142 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {% set csrfTokenMedia = csrf_token('media') %}
+
+    <section class="content-header">
+        <h1>
+            {{ 'admin.posts.add_new_post'|trans }}
+        </h1>
+
+    </section>
+
+  {#  {% set postComponent = register_component('post', {
+        csrfTokenMedia: csrfTokenMedia,
+    }) %}
+  id="{{ postComponent }}"#}
+    <!-- Main content -->
+    <section  class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                {{ form_start(postForm) }}
+                    {% do postForm.slug.setRendered() %}
+
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Template</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {{ form_row(postForm.template, {
+                                            'attr': {
+                                                'class': 'js-post-template'
+                                            }
+                                        })
+                                    }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-12 post-gallery-content js-post-gallery-content">
+                                    <button type="button"
+                                            class="btn btn-primary js-post-gallery-add"
+                                            data-toggle="modal"
+                                            data-target=".js-modal-post-gallery">
+                                        <i class="fa fa-picture-o"></i> {{ 'admin.posts.form.button.add_images_to_gallery'|trans }}
+                                    </button>
+
+                                    <div class="row post-gallery-images-selected js-post-gallery-images-selected">
+                                        <div class="col-sm-6 col-md-3 post-gallery-images-selected-file is-copy js-post-gallery-images-selected-file"
+                                             data-media-id="">
+                                            <div class="thumbnail">
+                                                <img src="https://dummyimage.com/600x400/d1d1d1/ffffff"
+                                                     alt="..."
+                                                     class="img-responsive js-post-gallery-images-selected-file-img"/>
+
+                                                <div class="caption">
+                                                    <p>
+                                                        <button type="button"
+                                                                class="btn btn-danger btn-xs js-post-gallery-images-selected-file-delete">
+                                                            <i class="fa fa-trash"></i> {{ 'admin.action.delete'|trans }}
+                                                        </button>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{ form_row(postForm.images, {'attr': {'class': 'js-input-gallery-images'}}) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.active) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.title) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.description) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.text) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.imageFile) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.headerImageFile) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.categories) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(postForm.user) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.highlight) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.published) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-danger">{{ 'admin.posts.form.button.save_post'|trans }}</button>
+                        </div>
+                    </div>
+                {{ form_end(postForm) }}
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+
+        {% include 'includes/admin/modal-post-gallery.html.twig' %}
+    </section>
+    <!-- /.content -->
+{% endblock %}
+
+{% block scripts %}
+    {%- include "includes/admin/scripts/ckeditor.html.twig" with {'ids': ['post_text']} only %}
+{% endblock %}

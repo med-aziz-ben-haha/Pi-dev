@@ -1,0 +1,58 @@
+
+{% if posts %}
+  <div class="show-more-posts pt-5">
+    <div class="container">
+
+      <div class="entity_inner__title header_red">
+        <h2>Related News</h2>
+      </div>
+      <div class="row">
+        {% for post in posts %}
+          <div class="col-md-4 col-lg-4 mb-5">
+            <div class="card">
+              <div class="card-stretched-link-limited">
+                <a href="{{ path('post_detail', {slug: post.slug}) }}"
+                   class="stretched-link"></a>
+
+                {% if post.image is not empty %}
+                  <div class="card-img-wrapper">
+                    <img src="{{ asset(post.image)|imagine_filter('600x375') }}"
+                         class="card-img-top"
+                         alt="{{ post.title }}">
+                  </div>
+                {% endif %}
+
+                <div class="card-body px-0" style="margin-top: -10px;">
+                  <h2 class="media-heading"><a href="single.html" target="_self"> {{ post.title }}</a></h2>
+                </div>
+              </div>
+
+              <div class="media" style="margin-top: -12px;">
+                {% if post.userAvatar is not empty %}
+                  <img src="{{ asset(post.userAvatar)|imagine_filter('50x50') }}"
+                       class="rounded-circle mr-2"
+                       alt="{{ post.userName }}">
+                {% endif %}
+                <!----show avatar------>
+                <div class="media-body" style="margin-top: 7px;margin-left: 10px;">
+                  <h5 class="post-user-name mt-1 mb-1"> <i class="fa fa-pencil-square-o" aria-hidden="true">{{ post.userName }}</i></h5>
+
+                  {% include 'includes/published.html.twig' with {published: post.published} only %}
+                </div>
+
+              </div>
+
+
+
+
+
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+

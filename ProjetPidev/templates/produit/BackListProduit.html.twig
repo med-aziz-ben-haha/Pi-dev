@@ -1,0 +1,62 @@
+{% include 'temp1.html.twig' %}
+
+
+
+
+<div class="box">
+    <div class="box-header">
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > List Des Produits </h1>
+        <div class="col-sm-8"></div>
+
+
+
+
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Image Produit</th>
+                <th>id</th>
+                <th>Nom Produit</th>
+                <th>Prix Unitaire</th>
+                <th>Quantite Produit</th>
+                <th>TVA</th>
+                <th>Description</th>
+
+
+            </tr>
+            </thead>
+            <tbody id="all">
+            <tr {% for p in produit %}>
+                <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ p.getLienImgP)}}"></td>
+
+                <td>{{ p.id }}</td>
+                <td>{{ p.nomProduit }}</td>
+                <td>{{ p.prixProduit }} DT</td>
+                <td>{{ p.quantiteProduit}} pieces</td>
+                <td>{{ p.tva }} %</td>
+                <td>{{ p.description }}</td>
+
+
+            </tr {% endfor %}>
+
+
+
+
+            </tbody>
+            <tbody id="search">
+
+            </tbody>
+
+        </table>
+    </div>
+    <div style="margin-left: 37.2%; margin-top: 3%;">{{ knp_pagination_render(produit) }}</div>
+
+    <!-- /.box-body -->
+</div>
+
+
+
+{% include 'temp2.html.twig' %}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table, td, th {
+            border: 1px solid black;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .titles{
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<h1 style="text-align: center; margin-bottom: 5%; color:#EA3D48;">{{ soin.titreSoinMP }}</h1>
+<table>
+    <tr>
+        <th class="titles">Categorie</th>
+        <td>{{ soin.getCategorieSoinMP()}}</td>
+    </tr>
+    <tr>
+        <th class="titles">Description</th>
+        <td>{{ soin.descriptionSoinMP}}</td>
+    </tr>
+    <tr>
+        <th class="titles">Adresse</th>
+        <td>{{ soin.adresseSoinMP}}</td>
+    </tr>
+</table>
+
+</body>
+</html>

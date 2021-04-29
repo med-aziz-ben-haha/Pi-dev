@@ -1,0 +1,37 @@
+
+{% include 'temp1.html.twig' %}
+    <h1 style="margin-top: 0% !important;">Service</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ service.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom_centre_medical</th>
+                <td>{{ service.nomCentreMedical }}</td>
+            </tr>
+            <tr>
+                <th>Nom_patient</th>
+                <td>{{ service.nomPatient }}</td>
+            </tr>
+            <tr>
+                <th>Service</th>
+                <td>{{ service.service }}</td>
+            </tr>
+            <tr>
+                <th>Matricule</th>
+                <td>{{ service.matricule }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('service_index') }}">back to list</a>
+
+    <a href="{{ path('service_edit', {'id': service.id}) }}">edit</a>
+
+    {{ include('service/_delete_form.html.twig') }}
+
+
+{% include 'temp2.html.twig' %}

@@ -1,0 +1,40 @@
+{% include 'temp1.html.twig'   %}
+<style>
+    .dropdown button {
+        color: #FFFFFF;
+        background-color: #d11414;
+        border-color: #d11414;
+        border-radius: 6px;
+        padding: 8px;
+        font-size:18px;
+    }
+    .dropdown button:hover {
+        color: #FFFFFF !important;
+        opacity: 0.8 !important;
+        background-color: #d11414!important;
+        border-color: #d11414!important;
+        border-radius: 6px!important;
+    }
+    .dropdown button:active {
+        color: #FFFFFF !important;
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px !important;
+    }
+
+    .dropdown button:focus{
+        color: #FFFFFF!important;
+        background-color: #d11414!important;
+        border-color: #d11414!important;
+        border-radius: 6px!important;
+    }
+</style>
+
+<div class="dropdown" >
+    <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ; margin-top:0%!important;" > Répondre </h1>
+<form action="{{path('envreponse',{'id':id,'Method':'GET'})}}" style="margin:10%; margin-top:5%;">
+    <textarea id="w3review" name="reponse" rows="6" cols="150" ></textarea>
+    <button type="submit" style="margin-left: 87%">Répondre</button>
+</form>
+<div>
+{% include 'temp2.html.twig' %}

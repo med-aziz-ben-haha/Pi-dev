@@ -1,0 +1,57 @@
+
+
+    <!--style>
+        button {
+            color: #FFFFFF;
+            background-color: #ee5057;
+            border-color: #ee5057;
+            border-radius: 6px;
+            padding: 8px;
+            font-size:18px;
+        }
+        button:hover {
+            color: #FFFFFF;
+            opacity: 0.8;
+            background-color: #ee5057;
+            border-color: #ee5057;
+            border-radius: 6px;
+        }
+        button:active {
+            color: #FFFFFF;
+            background-color: #ee5057;
+            border-color: #ee5057;
+            border-radius: 6px;
+        }
+
+    </style-->
+
+
+    {% include 'tempFront1SoinMP.html.twig' with   { 'iduser': iduser }  %}
+
+    <section class="feature-box-section hk-section section-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mb-3 feature-box-title" style="font-size:270%; color:#ee5057;">{{ DetailSoinMPs.titreSoinMP }}</h2>
+                    <div class="  align-items-center h-100" style="width:120% !important; margin-top:15%;">
+                        <img  style="width:75% !important;" src="{{ asset('uploads/'~ DetailSoinMPs.getlienImageSMP())}}" alt="Image">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-box" style="font-size:100%;">
+                        <!--span class="feature-box-pre text-uppercase">Community Supported</span-->
+
+                        <p>Description:</p>
+                        <p>{{ DetailSoinMPs.descriptionSoinMP}}</p>
+                        <p>Adresse:</p>
+                        <p>{{ DetailSoinMPs.adresseSoinMP}}</p>
+                        <img  src="{{ asset('' ~ captcha.getLienImageCaptcha())}}">
+                        {{ form(formCaptcha) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% include 'tempFront2SoinMP.html.twig' %}
+
+

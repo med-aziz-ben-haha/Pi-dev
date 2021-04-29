@@ -1,0 +1,41 @@
+<html>
+
+<body>
+<center><h1>Liste des Posts</h1></center>
+<table class="table" >
+    <thead>
+    <tr style="border: solid 1px black;">
+        <th style="border: solid 1px black;">Title</th>
+        <th style="border: solid 1px black;">Description</th>
+        <th style="border: solid 1px black;">Content</th>
+        <th style="border: solid 1px black;">Created</th>
+        <th style="border: solid 1px black;">Published</th>
+        <th style="border: solid 1px black;">Active</th>
+    </tr>
+    </thead>
+    <tbody id="body"  style="border: solid 1px black;">
+    {% for post in posts %}
+        {% if post.deleted == null %}
+        <tr style="border: solid 1px black;">
+            <td style="border: solid 1px black;">{{ post.title }}</td>
+            <td style="border: solid 1px black;">{{ post.slug }}</td>
+            <td style="border: solid 1px black;">{{ post.text }}</td>
+            <td style="border: solid 1px black;">{{ post.created|date("Y/m/d") }}</td>
+            <td style="border: solid 1px black;">{{ post.published|date("Y/m/d") }}</td>
+
+           {% if post.active  == 1 %}
+                <td style="border: solid 1px black;"> yes </td>
+            {% else %}
+                <td style="border: solid 1px black;"> No </td>
+            {% endif %}
+
+
+        </tr>
+
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

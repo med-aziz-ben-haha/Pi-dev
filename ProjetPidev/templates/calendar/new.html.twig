@@ -1,0 +1,13 @@
+{% extends 'baseOussemaN.html.twig' %}
+
+{% block title %}New Calendar{% endblock %}
+
+{% block body %}
+    {% include 'temp1.html.twig' %}
+    <center><h1 style="color:#EA3D48;margin-top:0%;" >Create new Calendar</h1></center>
+
+    {{ include('calendar/_form.html.twig') }}
+
+    <!--a href="{# {{ path('calendar_index') }} #}">back to list</a-->
+    {% include 'temp2.html.twig' %}
+{% endblock %}

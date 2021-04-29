@@ -1,0 +1,35 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            {#       {{ 'admin.index.homepage'|trans }} #}
+        </h1>
+
+    </section>
+
+    <section class="content">
+        <div class="row">
+            <div class="col-xs-12">
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 order-lg-1 order-xl-1 order-sm-1 order-2">
+                    <div class="hero-content">
+                        <h3 style=" color: #EA3D48; margin-top: 10%;">Besoin de soin, Besoin de toi</h3>
+                        <p class="hero-subtitle">Un doute, une inquiétude, besoin d’un conseil santé ? <br> Sa7ti.TN c’est la solution</p>
+                    </div>
+                </div>
+
+                <div class="col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1">
+                    <img style="margin-left: 30%; margin-top: 5%; width: 40%; height: 40% ;" src= "{{ asset('images/Logo.jpeg')}}" >
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

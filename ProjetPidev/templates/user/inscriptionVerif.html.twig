@@ -1,0 +1,25 @@
+{% include 'tempFrontAccueil1.html.twig' %}
+{% for message in app.flashes('message') %}
+    <div class="alert alert-success" style="background-color: #e79595; color:black;">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<div style ="margin-left: 28%; margin-right: 28%;  border: solid 1px #EA3D48; padding:2%; border-radius: 30px; margin-bottom: 25px ">
+    {{ form_start(formverif,{'attr': {'novalidate': 'novalidate'}} ) }}
+<h1 style ="margin-bottom: 2%; text-align: center; color: #EA3D48 ;  " > Verification  </h1>
+
+{{ form_label(formverif.verif,"inserer le code verification") }}
+    {{ form_widget(formverif.verif) }}
+{{ form_end(formverif) }}
+
+
+</div>
+
+
+
+
+
+
+
+{% include 'tempFrontAccueil2.html.twig' %}

@@ -1,0 +1,41 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <section class="content-header">
+        <h1>
+            {{ 'admin.categories.add_new_category'|trans }}
+        </h1>
+
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-12">
+                <!-- general form elements -->
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
+                    </div>
+
+                    {{ form_start(categoryForm) }}
+                        <div class="box-body">
+                            {{ form_row(categoryForm.name) }}
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-danger">
+                                {{ 'admin.categories.form.button.save_category'|trans }}
+                            </button>
+                        </div>
+                    {{ form_end(categoryForm) }}
+                </div>
+                <!-- /.box -->
+            </div>
+            <!--/.col (left) -->
+        </div>
+        <!-- /.row -->
+    </section>
+    <!-- /.content -->
+{% endblock %}

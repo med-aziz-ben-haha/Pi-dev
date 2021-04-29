@@ -1,0 +1,200 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    {% set csrfTokenMedia = csrf_token('media') %}
+
+    <section class="content-header">
+        <h1>
+            {{ 'admin.posts.edit_post'|trans }}
+        </h1>
+
+    </section>
+
+    {% set images = [] %}
+    {% for media in medias %}
+        {% set images = images|merge({
+        }) %}
+    {% endfor %}
+
+    {# {% set postComponent = register_component('post', {
+        csrfTokenMedia: csrfTokenMedia,
+        medias: medias
+    }) %} #}
+
+    <!-- Main content -->
+    <section  class="content">
+        <div class="row">
+            <div class="col-md-9">
+                {{ form_start(postForm) }}
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Template</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    {{ form_row(postForm.template, {'attr': {'class': 'select-readonly'}}) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box box-danger">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">{{ 'app.general.basic_information'|trans }}</h3>
+                        </div>
+
+                        <div class="box-body">
+                            <div class="row">
+                                {# By Gallery, will appear gallery selected. #}
+                                {% if 'gallery' == postForm.vars.data.template.slug %}
+                                    <div class="col-md-12 post-gallery-content js-post-gallery-content is-show">
+                                        <button type="button"
+                                                class="btn btn-primary js-post-gallery-add"
+                                                data-toggle="modal"
+                                                data-target=".js-modal-post-gallery">
+                                            <i class="fa fa-picture-o"></i> {{ 'admin.posts.form.button.add_images_to_gallery'|trans }}
+                                        </button>
+
+                                        <div class="row post-gallery-images-selected js-post-gallery-images-selected">
+                                            <div class="col-sm-6 col-md-3 post-gallery-images-selected-file is-copy js-post-gallery-images-selected-file"
+                                                 data-media-id="">
+                                                <div class="thumbnail">
+                                                    <img src="https://dummyimage.com/600x400/d1d1d1/ffffff"
+                                                         alt="..."
+                                                         class="img-responsive js-post-gallery-images-selected-file-img"/>
+
+                                                    <div class="caption">
+                                                        <p>
+                                                            <button type="button"
+                                                                    class="btn btn-danger btn-xs js-post-gallery-images-selected-file-delete">
+                                                                <i class="fa fa-trash"></i> {{ 'admin.action.delete'|trans }}
+                                                            </button>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {{ form_row(postForm.images, {'attr': {'class': 'js-input-gallery-images'}}) }}
+                                    </div>
+                                {% endif %}
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.active) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.title) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group {% if not postForm.slug.vars.valid %}has-error{% endif %}">
+                                        {{ form_label(postForm.slug) }}
+                                        <div class="input-group">
+                                            <span class="input-group-addon">/</span>
+                                            {{ form_widget(postForm.slug) }}
+                                            <span class="input-group-btn">
+                                                <a href="{{ path('post_detail', {
+                                                    slug: postForm.vars.data.slug
+                                                }) }}"
+                                                   class="btn btn-primary"
+                                                   target="_blank"
+                                                   type="button">
+                                                    <i class="fa fa-external-link"></i> {{ 'admin.action.visit_page'|trans }}
+                                                </a>
+                                            </span>
+                                        </div>
+                                        {{ form_errors(postForm.slug) }}
+                                        <small>{{ form_help(postForm.slug) }}</small>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.slug) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.description) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.text) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.imageFile) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.headerImageFile) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.categories) }}
+                                </div>
+
+                                <div class="col-md-6">
+                                    {{ form_row(postForm.user) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.highlight) }}
+                                </div>
+
+                                <div class="col-md-12">
+                                    {{ form_row(postForm.published) }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-danger">{{ 'admin.posts.form.button.save_post'|trans }}</button>
+                        </div>
+                    </div>
+                {{ form_end(postForm) }}
+            </div>
+
+            <div class="col-md-3">
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.image'|trans }}</h3>
+                    </div>
+
+                    <div class="box-body">
+                        {% if postForm.vars.data.urlPhoto is not empty %}
+                        <img src="{{ asset(postForm.vars.data.urlPhoto) }}"
+                             class="img-responsive"
+                             alt="">
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- /.box -->
+
+                <div class="box box-danger">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">{{ 'app.general.header_image'|trans }}</h3>
+                    </div>
+
+                    <div class="box-body">
+                        {% if postForm.vars.data.headerImage is not empty %}
+                            <img src="{{ asset(postForm.vars.data.headerImage) }}"
+                                 class="img-responsive"
+                                 alt="">
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- /.box -->
+            </div>
+        </div>
+        <!-- /.row -->
+
+        {% include 'includes/admin/modal-post-gallery.html.twig' %}
+    </section>
+    <!-- /.content -->
+{% endblock %}
+
+{% block scripts %}
+    {%- include "includes/admin/scripts/ckeditor.html.twig" with {'ids': ['post_text']} only %}
+{% endblock %}

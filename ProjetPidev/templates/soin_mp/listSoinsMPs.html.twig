@@ -1,0 +1,58 @@
+{% include 'tempFront1SoinMP.html.twig' with { 'iduser' :iduser } %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" id="idMP">Médecine Parallèle</h2>
+                <!--div style="width:80%; margin-left:10%; margin-top:3%;">{{ form(formSearch,{'attr': {'novalidate': 'novalidate'}}) }}</div-->
+               <input style="width:80%; margin-left:10%; margin-top:3%;" id="search" class="form-control mr-sm-2" type="text" name="search" placeholder="Search ..." aria-label="Search"  >
+            </div>
+
+                <div class="row text-center" id="sa">
+                    <script src="{{ asset('/js/jquery.min.js') }}"></script>
+            {% for S in listSoinsMPs %}
+                    <div class="col-12 col-md-6 col-lg-4" >
+                        <article class="service-box text-center" style="height:650px;">
+                            <div class="service-box-icon"><img style=" padding-right: 2px; padding-left: 2px;  width:300px ; height: 200px ; " src="{{ asset('uploads/' ~ S.getLienImageSMP())}}"></div>
+                            <h3 class="service-box-title">{{ S.titreSoinMP }}</h3>
+                            <p>{{ S.descriptionSoinMP}}</p>
+                            <p>{{ S.adresseSoinMP}}</p>
+                            <a  href="{{ path("afficherDetailSoinMPs",{'id':S.getId(), 'iduser': iduser } ) }}" class="btn btn-main-outline mt-2">Consulter<i class="fas fa-chevron-right"></i></a>
+                        </article>
+                    </div>
+            {% endfor %}
+                    <script>
+                        $(document).ready(function(){
+                            $('#search').keyup(function(){
+                                search_table($(this).val());
+                            });
+                            function search_table(value){
+                                $('#sa div article').each(function(){
+                                    var found = 'false';
+                                    $(this).each(function(){
+                                        if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0)
+                                        {
+                                            found = 'true';
+                                        }
+                                    });
+                                    if(found == 'true')
+                                    {
+                                        $(this).show();
+
+                                    }
+                                    else
+                                    {
+                                        $(this).hide();
+
+                                    }
+                                });
+                            }
+                        });
+                    </script>
+        </div>
+    </div>
+    </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}

@@ -1,0 +1,12 @@
+{% extends 'baseOussemaN.html.twig' %}
+
+{% block title %}Edit Postt{% endblock %}
+
+{% block body %}
+    {% include 'tempFront1Forum.html.twig' %}
+    <h1>Edit Postt</h1>
+    {{ include('postt/_form.html.twig', {'button_label': 'Update'}) }}
+    <a href="{{ path('afficherCategoriePostFront') }}">back to list</a>
+    {% include 'tempFront2Forum.html.twig' %}
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% include 'templateAccueilPhar.html.twig'  %}
+<style> .btn-primary {
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+
+    }
+    .btn-primary:hover {
+        opacity: 0.8;
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+    }
+    .btn-primary:active {
+        background-color: #d11414 !important;
+        border-color: #d11414 !important;
+        border-radius: 6px;
+    }
+</style>
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" id="id">Gestion des Médicaments</h2>
+            </div>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <table style="margin-top: 5% ; margin-bottom: 4% ; margin-left: 16%">
+                    <tr>
+                        <td>
+                            <form method="post" action="{{ path ('recherchemed') }}">
+                                <label>Rechercher</label>
+                                <input type="text" name="search"><input class="btn-primary"  type="submit" value="Recherche">
+                            </form>
+                        </td>
+                        <td>
+                            <form action=" {{ path('trimedicament') }} "><button  class="btn-primary" >Trier medicament</button></form>
+                        </td>
+                        <td>
+                            <form action=" {{ path('Excel') }} "><button class="btn-primary" >Exporter excel</button></form>
+                        </td>
+                        <td>
+                            <form action=" {{ path('PDF') }} "><button class="btn-primary" >Imprimer</button></form>
+                        </td>
+                    </tr>
+            </table>
+                <table id="example1" class="table table-bordered table-striped" >
+                    <tr>
+                        <td>id</td>
+                        <td> Nom du médicament </td>
+                        <td> Description du médicament </td>
+                        <td> Disponibilité </td>
+                        <td> Image du medicament </td>
+                        <td> Date de modification </td>
+                        <td> Supprimer </td>
+                        <td> Edit </td>
+                    </tr>
+                    {% for i in listmedicament %}
+                        <tr>
+                            <td>{{ i.id }}</td>
+                            <td>{{ i.nomMedicament }}</td>
+                            <td> {{ i.Descmedicament }} </td>
+
+                            {% if i.dispo == 1 %}
+                                <td><img src="{{ asset ('bundles/dist/img/available.png') }}" alt="Disponible"></td>
+                            {% endif %}
+                            {% if i.dispo == 0 %}
+                                <td><img src="{{ asset ('bundles/dist/img/nn available.png') }}" alt="Non disponible"></td>
+                            {% endif %}
+
+
+                            <td><img style=" padding-right: 2px; padding-left: 2px;  width:75px ; height: 75px ; " src="{{ asset ('uploads/brochures/'~ i.getImgMedicament() ) }}" alt="Image"></td>
+                            <td> {{ i.dateModif|date("d/m/Y") }} </td>
+
+                            <td><a href="{{ path('Medicamentremove',{'id':i.id} )}}" >Supprimer</a></td>
+                            <td><a href="{{ path('Medicamentmodifier',{'id':i.id} )}}" >Editer</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <a style="font-size: 20px"; href="{{ path('Medicamentajout') }}"><button class="btn-primary" >Ajouter medicament</button></a>
+        </div>
+    </div>
+    <div style="margin-left: 37.2%; margin-top: 5%;">{{ knp_pagination_render(listmedicament) }}</div>
+</section>
+
+{% include 'tempFront2MO.html.twig' %}

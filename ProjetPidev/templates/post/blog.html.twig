@@ -1,0 +1,202 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'includes/header.html.twig' %}
+
+    <div id="main-wrapper">
+
+
+        <div class="uc-mobile-menu-pusher">
+            <div class="content-wrapper">
+
+
+                <section id="entity_section" class="entity_section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="entity_wrapper">
+                                    <header>
+                                        {% if post.title is not empty %}
+                                    <div class="entity_title">
+                                        <h1>{{ post.title }}</h1>
+                                    </div>
+                                        {% endif %}
+                                    <!-- entity_title -->
+
+
+                                    <div class="entity_meta" style="margin:10px 0;">
+                                      <h4>  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>  {{ post.user.fullname }}  </i></h4>
+                                        {% include 'includes/published.html.twig' with {published: post.published} only %}
+                                    </div>
+                                    <!-- entity_meta -->
+
+
+
+
+                                    <div class="entity_thumb">
+                                        {% if post.urlPhoto is not empty %}
+                                            <img class="img-responsive" src="{{ asset(post.urlPhoto)|imagine_filter('600x375') }}"alt="feature-top">
+
+                                        {% endif %}
+                                    </div>
+                                    <!-- entity_thumb -->
+                                    </header>
+                                    <div class="entity_content ckeditor">
+
+
+                                        <blockquote class="pull-left">
+                                            {% if post.description is not empty %}
+                                            {{ post.description }}
+                                            {% endif %}
+                                        </blockquote>
+                                        {% if post.text is not empty %}
+                                            {{ post.text|raw }}
+                                        {% endif %}
+                                    </div>
+                                    <!-- entity_content -->
+
+                                    <div class="entity_footer">
+                                        {% if 0 < post.categories|length %}
+
+                                        {% for category in post.categories %}
+
+                                        <div class="entity_tag">
+                                            <span class="blank"><a   href="{{ path('post_index_category', {category: category.slug}) }}">
+                                                        {{ category.name }}</a></span>
+                                        </div>
+                                        <!-- entity_tag -->
+                                        {% endfor %}
+
+                                        {% endif %}
+
+                                    </div>
+                                    <!-- entity_footer -->
+
+
+                                </div>
+
+                                {% include 'includes/see-more-posts.html.twig' with {posts: posts} only %}
+
+
+
+
+
+                                <div class="readers_comment">
+                                    <div class="entity_inner__title header_red">
+                                        <h2>Readers Comments</h2>
+                                    </div>
+                                    <!-- entity_title -->
+                                    {% include 'includes/comments-facebook.html.twig' %}
+                                </div>
+                                <!--Readers Comment-->
+
+
+                            </div>
+                            <!--Left Section-->
+
+                            <div class="col-md-4">
+
+                                <div class="widget reviews m30">
+                                    <div class="widget_title widget_red">
+                                        <h2>Categories</h2>
+                                    </div>
+                                    <div class="media">
+
+                                        <div class="media-body">
+
+                                            {% if 0 < post.categories|length %}
+
+                                                {% for category in post.categories %}
+                                            <h3 class="media-heading">
+                                    <a
+                                            href="{{ path('post_index_category', {category: category.slug}) }}">
+                                                        {{ category.name }}
+                                                    </a>
+                                            </h3>
+                                                {% endfor %}
+
+                                            {% endif %}
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- category list -->
+
+                                <div class="widget hidden-xs m30" >
+                                    <div style="display: flex;">
+                                        <img class="img-responsive" src="{{ asset ("images/right_add1.jpg") }}" alt="add_one">
+                                        <img class="img-responsive" src="{{ asset ("images/right_add2.jpg") }}" alt="add_one">
+                                    </div>
+                                    <div style="display: flex;">
+                                        <img class="img-responsive " src="{{ asset ("images/right_add3.jpg") }}" alt="add_one">
+                                        <img class="img-responsive " src="{{ asset ("images/right_add4.jpg") }}" alt="add_one">
+                                    </div>
+                                </div>
+
+                                <!-- Advertisement -->
+
+
+
+
+
+
+                                <div class="widget m30">
+                                    <div class="widget_title widget_red">
+                                        <h2>Some info</h2>
+                                    </div>
+                                    <div class="widget_body"><img class="img-responsive left" src="{{ asset ("images/right_add2.jpg") }}"
+                                                                  alt="Generic placeholder image">
+                                        <h5>
+                                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
+                                                users after installed base benefits. Dramatically visualize customer directed convergence without</p>
+
+                                            <p>Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C
+                                                users after installed base benefits. Dramatically visualize customer directed convergence without
+                                                revolutionary ROI.</p>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <!-- some info -->
+
+
+
+
+
+                                <div class="widget hidden-xs m30">
+                                    <img class="img-responsive widget_img" src="{{ asset ("images/podcast.jpg") }}" alt="add_one">
+                                </div>
+                                <!--Advertisement-->
+                            </div>
+                            <!-- Right Section -->
+
+                        </div>
+                        <!-- row -->
+
+                    </div>
+                    <!-- container -->
+
+                </section>
+                <!-- Entity Section Wrapper -->
+
+
+            </div>
+            <!-- #content-wrapper -->
+
+        </div>
+        <!-- .offcanvas-pusher -->
+
+        <a href="#" class="crunchify-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+
+
+
+    </div>
+    <!-- #main-wrapper -->
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}

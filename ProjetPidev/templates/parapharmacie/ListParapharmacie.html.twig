@@ -1,0 +1,65 @@
+{% include 'temp1.html.twig' %}
+
+
+
+
+    <div class="box">
+        <div class="box-header">
+            <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Gestion Des Parapharmacies </h1>
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            <div class="col-sm-8"></div>
+
+            <div class="col-sm-4"><a href="parapharmacie/AjoutParapharmacie" class="btn btn-block btn-primary" role="button">Ajouter Parapharmacie</a></div>
+
+
+
+
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Image Parapharmacie</th>
+                    <th>id</th>
+                    <th>Nom Parapharmacie</th>
+                    <th>Region</th>
+                    <th>Adresse Parapharmacie</th>
+                    <th>Tel Parapharmacie</th>
+                    <th>Modifier Parapharmacie</th>
+                    <th>Supprimer Parapharmacie</th>
+
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr {% for p in parapharmacie %}>
+                    <td><img style=" padding-right: 2px; padding-left: 2px;  width:60px ; hight: 60px ;" src="{{ asset('uploads/' ~ p.getLienImageP)}}"></td>
+
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.nomPara }}</td>
+                    <td>{{ p.region.region }}</td>
+                    <td>{{ p.adressePara}}</td>
+                    <td>{{ p.telPara }}</td>
+                    <td><a href="{{ path('modifierParapharmacie',{'id':p.id}) }}" class="btn btn-block btn-warning" role="button">Modifier</a></td>
+                    <td><a href="{{ path('deleteParapharmacie',{'id':p.id}) }}" class="btn btn-block btn-danger" role="button">Supprimer</a></td>
+
+
+
+                </tr {% endfor %}>
+
+
+
+
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.box-body -->
+    </div>
+
+{% include 'temp2.html.twig' %}

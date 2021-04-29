@@ -1,0 +1,30 @@
+{% include 'templateAccueilPara.html.twig' %}
+
+<section class="services-section hk-section section-bg" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="section-title" >Choisie La Categorie Du Produit</h2>
+                <div class="hero-btns" style="margin-top: 10%;">
+                    <a href="{{ path('accueilOnlineParapharmacien',{'iduser':iduser}  ) }}" class="btn btn-main" role="button">Retour a mon Parapharmacie</a>
+
+                </div>
+
+            </div>
+            {% for c in categorie %}
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="service-box text-center">
+                        <div class="service-box-icon"><img style=" padding-right: 2px; padding-left: 2px;  width:80px ; hight: 80px ;" src="{{ asset('uploads/' ~ c.getLienImgCat)}}"></div>
+                        <h3 class="service-box-title">{{ c.categorie }}</h3>
+                        <a href="{{ path("afficheProd",{ 'id':c.getId() , 'iduser':iduser}) }}" class="btn btn-main-outline mt-2">Selectionée<i class="fas fa-chevron-right"></i></a>
+
+
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include 'tempFront2SoinMP.html.twig' %}

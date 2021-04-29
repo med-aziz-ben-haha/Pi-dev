@@ -1,0 +1,80 @@
+<?php
+
+declare(strict_types=1);
+
+namespace DoctrineMigrations;
+
+use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
+
+/**
+ * Auto-generated Migration: Please modify to your needs!
+ */
+final class Version20210403221437 extends AbstractMigration
+{
+    public function getDescription() : string
+    {
+        return '';
+    }
+
+    public function up(Schema $schema) : void
+    {
+        // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql('CREATE TABLE category (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, created DATETIME DEFAULT NULL, deleted DATETIME DEFAULT NULL, locale VARCHAR(5) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE folder (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, parent_id INT DEFAULT NULL, created DATETIME DEFAULT NULL, deleted DATETIME DEFAULT NULL, active TINYINT(1) DEFAULT \'1\' NOT NULL, slug VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE homepage (id INT AUTO_INCREMENT NOT NULL, locale VARCHAR(5) NOT NULL, limit_highlights INT DEFAULT NULL, sidebar_about_me_photo VARCHAR(255) DEFAULT NULL, sidebar_about_me_text LONGTEXT DEFAULT NULL, sidebar_categories LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:array)\', modified DATETIME DEFAULT NULL, sidebar_about_me_url_facebook VARCHAR(255) DEFAULT NULL, sidebar_about_me_url_instagram VARCHAR(255) DEFAULT NULL, sidebar_about_me_url_github VARCHAR(255) DEFAULT NULL, sidebar_about_me_url_youtube VARCHAR(255) DEFAULT NULL, sidebar_about_me_url_linkedin VARCHAR(255) DEFAULT NULL, sidebar_about_me_active TINYINT(1) DEFAULT \'0\' NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE media_data (id INT AUTO_INCREMENT NOT NULL, media_id INT NOT NULL, title VARCHAR(255) DEFAULT NULL, description LONGTEXT DEFAULT NULL, locale VARCHAR(5) NOT NULL, created DATETIME DEFAULT NULL, modified DATETIME DEFAULT NULL, lat VARCHAR(20) DEFAULT NULL, lng VARCHAR(20) DEFAULT NULL, INDEX IDX_6EB42CB0EA9FDD75 (media_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE media_post_rel (id INT AUTO_INCREMENT NOT NULL, post_id INT DEFAULT NULL, media_id INT DEFAULT NULL, created DATETIME DEFAULT NULL, position INT DEFAULT NULL, INDEX IDX_A29C747CEA9FDD75 (media_id), INDEX IDX_A29C747C4B89032C (post_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE media_type (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, created DATETIME DEFAULT NULL, deleted DATETIME DEFAULT NULL, slug VARCHAR(255) DEFAULT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE post (id INT AUTO_INCREMENT NOT NULL, user_id INT NOT NULL, template_id INT NOT NULL, title VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, text LONGTEXT NOT NULL, created DATETIME DEFAULT NULL, modified DATETIME DEFAULT NULL, deleted DATETIME DEFAULT NULL, description VARCHAR(255) DEFAULT NULL, url_photo VARCHAR(300) DEFAULT NULL, published DATETIME DEFAULT NULL, active TINYINT(1) DEFAULT \'0\' NOT NULL, locale VARCHAR(5) DEFAULT NULL, header_image VARCHAR(255) DEFAULT NULL, highlight TINYINT(1) DEFAULT \'0\' NOT NULL, INDEX IDX_5A8A6C8DA76ED395 (user_id), INDEX IDX_5A8A6C8D5DA0FB8 (template_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE post_category (post_id INT NOT NULL, category_id INT NOT NULL, INDEX IDX_B9A190604B89032C (post_id), INDEX IDX_B9A1906012469DE2 (category_id), PRIMARY KEY(post_id, category_id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE setting (id INT AUTO_INCREMENT NOT NULL, google_gtag_id VARCHAR(255) DEFAULT NULL, url_facebook VARCHAR(255) DEFAULT NULL, url_instagram VARCHAR(255) DEFAULT NULL, url_linkedin VARCHAR(255) DEFAULT NULL, url_github VARCHAR(255) DEFAULT NULL, updated DATETIME DEFAULT NULL, app_id_facebook VARCHAR(50) DEFAULT NULL, show_comments_facebook TINYINT(1) DEFAULT \'0\' NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE template (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) NOT NULL, created DATETIME DEFAULT NULL, modified DATETIME DEFAULT NULL, deleted DATETIME DEFAULT NULL, view VARCHAR(255) NOT NULL, slug VARCHAR(255) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE media_data ADD CONSTRAINT FK_6EB42CB0EA9FDD75 FOREIGN KEY (media_id) REFERENCES media (id)');
+        $this->addSql('ALTER TABLE media_post_rel ADD CONSTRAINT FK_A29C747CEA9FDD75 FOREIGN KEY (media_id) REFERENCES media (id)');
+        $this->addSql('ALTER TABLE media_post_rel ADD CONSTRAINT FK_A29C747C4B89032C FOREIGN KEY (post_id) REFERENCES post (id)');
+        $this->addSql('ALTER TABLE post ADD CONSTRAINT FK_5A8A6C8DA76ED395 FOREIGN KEY (user_id) REFERENCES `user` (id)');
+        $this->addSql('ALTER TABLE post ADD CONSTRAINT FK_5A8A6C8D5DA0FB8 FOREIGN KEY (template_id) REFERENCES template (id)');
+        $this->addSql('ALTER TABLE post_category ADD CONSTRAINT FK_B9A190604B89032C FOREIGN KEY (post_id) REFERENCES post (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE post_category ADD CONSTRAINT FK_B9A1906012469DE2 FOREIGN KEY (category_id) REFERENCES category (id) ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE media DROP FOREIGN KEY FK_6A2CA10CA2843073');
+        $this->addSql('DROP INDEX IDX_6A2CA10CA2843073 ON media');
+        $this->addSql('ALTER TABLE media ADD folder_id INT DEFAULT NULL, ADD user_id INT NOT NULL, ADD description LONGTEXT DEFAULT NULL, ADD created DATETIME DEFAULT NULL, ADD deleted DATETIME DEFAULT NULL, ADD external TINYINT(1) DEFAULT \'0\', DROP type_media, CHANGE actualite_id type_id INT NOT NULL, CHANGE fichier_media title VARCHAR(255) DEFAULT NULL, CHANGE description_media file VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE media ADD CONSTRAINT FK_6A2CA10C162CB942 FOREIGN KEY (folder_id) REFERENCES folder (id)');
+        $this->addSql('ALTER TABLE media ADD CONSTRAINT FK_6A2CA10CC54C8C93 FOREIGN KEY (type_id) REFERENCES media_type (id)');
+        $this->addSql('ALTER TABLE media ADD CONSTRAINT FK_6A2CA10CA76ED395 FOREIGN KEY (user_id) REFERENCES `user` (id)');
+        $this->addSql('CREATE INDEX IDX_6A2CA10C162CB942 ON media (folder_id)');
+        $this->addSql('CREATE INDEX IDX_6A2CA10CC54C8C93 ON media (type_id)');
+        $this->addSql('CREATE INDEX IDX_6A2CA10CA76ED395 ON media (user_id)');
+        $this->addSql('ALTER TABLE user ADD fullname VARCHAR(255) DEFAULT NULL');
+    }
+
+    public function down(Schema $schema) : void
+    {
+        // this down() migration is auto-generated, please modify it to your needs
+        $this->addSql('ALTER TABLE post_category DROP FOREIGN KEY FK_B9A1906012469DE2');
+        $this->addSql('ALTER TABLE media DROP FOREIGN KEY FK_6A2CA10C162CB942');
+        $this->addSql('ALTER TABLE media DROP FOREIGN KEY FK_6A2CA10CC54C8C93');
+        $this->addSql('ALTER TABLE media_post_rel DROP FOREIGN KEY FK_A29C747C4B89032C');
+        $this->addSql('ALTER TABLE post_category DROP FOREIGN KEY FK_B9A190604B89032C');
+        $this->addSql('ALTER TABLE post DROP FOREIGN KEY FK_5A8A6C8D5DA0FB8');
+        $this->addSql('DROP TABLE category');
+        $this->addSql('DROP TABLE folder');
+        $this->addSql('DROP TABLE homepage');
+        $this->addSql('DROP TABLE media_data');
+        $this->addSql('DROP TABLE media_post_rel');
+        $this->addSql('DROP TABLE media_type');
+        $this->addSql('DROP TABLE post');
+        $this->addSql('DROP TABLE post_category');
+        $this->addSql('DROP TABLE setting');
+        $this->addSql('DROP TABLE template');
+        $this->addSql('ALTER TABLE media DROP FOREIGN KEY FK_6A2CA10CA76ED395');
+        $this->addSql('DROP INDEX IDX_6A2CA10C162CB942 ON media');
+        $this->addSql('DROP INDEX IDX_6A2CA10CC54C8C93 ON media');
+        $this->addSql('DROP INDEX IDX_6A2CA10CA76ED395 ON media');
+        $this->addSql('ALTER TABLE media ADD actualite_id INT NOT NULL, ADD type_media VARCHAR(50) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, DROP folder_id, DROP type_id, DROP user_id, DROP description, DROP created, DROP deleted, DROP external, CHANGE file description_media VARCHAR(255) CHARACTER SET utf8mb4 NOT NULL COLLATE `utf8mb4_unicode_ci`, CHANGE title fichier_media VARCHAR(255) CHARACTER SET utf8mb4 DEFAULT NULL COLLATE `utf8mb4_unicode_ci`');
+        $this->addSql('ALTER TABLE media ADD CONSTRAINT FK_6A2CA10CA2843073 FOREIGN KEY (actualite_id) REFERENCES actualite (id)');
+        $this->addSql('CREATE INDEX IDX_6A2CA10CA2843073 ON media (actualite_id)');
+        $this->addSql('ALTER TABLE `user` DROP fullname');
+    }
+}

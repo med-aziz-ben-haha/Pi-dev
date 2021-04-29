@@ -1,0 +1,72 @@
+{% include 'templateAccueilPara.html.twig'  %}
+
+
+
+
+
+<section class="hero-section hk-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 order-lg-1 order-xl-1 order-sm-1 order-2">
+                <div class="hero-content">
+                    <h3 style=" color: #EA3D48; margin-top: 10%;">{{ parapharmacie.nomPara }}</h3>
+                    <h5>Region:{{ parapharmacie.region.region }}</h5>
+                    <h5>Adresse:{{ parapharmacie.adressePara }}</h5>
+                    <h5>Numero Tel:{{ parapharmacie.telPara }}</h5>
+                </div>
+            </div>
+            <div class="col-md-5 order-lg-2 order-xl-2 order-sm-2 order-1">
+                <div class="hero-image d-flex align-items-center h-100">
+                    <img src= "{{ asset('uploads/' ~ parapharmacie.getLienImageP)}}" >
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="box">
+    <div class="box-header">
+        <h1 style ="margin-bottom: 2%; text-align: center; color: #d11414 ;  " > Les Commandes </h1>
+        <div class="col-sm-8"></div>
+
+
+
+
+
+
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body">
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+            <tr>
+
+                <th>Nom Client</th>
+                <th>Prix des produits</th>
+                <th>TVA</th>
+                <th>Prix totale</th>
+                <th>Affiche Panier</th>
+
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr {% for p in panier %}>
+
+
+                <td>{{ p.user.getNom }} {{ p.user.getPrenom }}</td>
+                <td>{{ p.prixTot }} DT</td>
+                <td>{{ p.tvaTot }} DT</td>
+                <td>{{ p.prixFinale}} DT</td>
+                <td><a href="{{ path('afficheParapharmacienListProduit',{'idpanier':p.id , 'idpara':parapharmacie.id}) }}" class="btn btn-block btn-outline-danger" role="button">Afficher Commande</a></td>
+
+            </tr {% endfor %}>
+            </tbody>
+
+
+
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
