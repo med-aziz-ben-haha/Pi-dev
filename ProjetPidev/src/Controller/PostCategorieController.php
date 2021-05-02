@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Ob\HighchartsBundle\Highcharts\Highcharts;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use App\Controller\PosttController;
 
 
 
@@ -147,6 +148,26 @@ public function Supp($id,SessionInterface $session)
 
 
 
+    /**
+     * @param PosttRepository $repository
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route ("/afficherPosttBack", name="afficherPosttBack")
+     */
+    public function afficherPosttBack(SessionInterface $session,PosttRepository $repository){
+        //$repo=$this->getDoctrine()->getRepository(CategoriePostRepository::class);
+        $user=$session->get('user');
+        if(is_null($user)) {
+            return $this->redirectToRoute('connexion');
+        }
+        $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
+
+        $postt=$repository->findAll();
+
+        return $this->render('postt/afficherPosttBack.html.twig',
+
+            ['postt'=>$postt,'iduser' =>$iduser,'user'=>$userfind,]);
+    }
 
 
 

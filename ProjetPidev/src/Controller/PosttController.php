@@ -153,4 +153,23 @@ class PosttController extends AbstractController
         );
     }
 
+
+    /**
+     * @Route ("/SuppPosttBack/{id}",name="SuppPosttBack")
+     */
+    public function SuppPosttBack($id,SessionInterface $session)
+    {          $user=$session->get('user');
+        if(is_null($user)) {
+            return $this->redirectToRoute('connexion');
+        }
+        $iduser=$user->getId();
+        $userfind = $this->getDoctrine()->getRepository(User::class)->find($iduser);
+
+
+        $postt = $this->getDoctrine()->getRepository(Postt::class)->find($id);
+        $em=$this->getDoctrine()->getManager();
+        $em->remove($postt);
+        $em->flush();
+        return $this->redirectToRoute("afficherPosttBack",['iduser' =>$iduser,'user'=>$userfind,]);
+    }
 }

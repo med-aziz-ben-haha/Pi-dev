@@ -7356,6 +7356,12 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.fsqR_OE" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="client" type="service" id="twilio.client"/>
+      </argument>
+    </service>
     <service id=".service_locator.R4eaE2j" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7391,6 +7397,13 @@
       <argument type="collection">
         <argument key="repository" type="service" id="App\Repository\CategoriePostRepository"/>
         <argument key="repositoryy" type="service" id="App\Repository\PosttRepository"/>
+        <argument key="session" type="service" id="session"/>
+      </argument>
+    </service>
+    <service id=".service_locator.R4ct3nY" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="repository" type="service" id="App\Repository\PosttRepository"/>
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
@@ -7502,6 +7515,12 @@
         <argument key="session" type="service" id="session"/>
       </argument>
     </service>
+    <service id=".service_locator.iP8eVIx" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="mailer" type="service" id="mailer.mailer"/>
+      </argument>
+    </service>
     <service id=".service_locator.JF7P1XJ" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7553,7 +7572,7 @@
         <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.ZiFzqx8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.e7DPLk6" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\AdminController::accueilAdmin" type="service" id=".service_locator.o3htLhs"/>
@@ -7621,6 +7640,7 @@
         <argument key="App\Controller\MedicamentController::recherche2" type="service" id=".service_locator.KFbFhB7"/>
         <argument key="App\Controller\MedicamentController::remove" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\NoteSoinMPController::ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
+        <argument key="App\Controller\NoteSoinMPController::ajouterNoteJson" type="service" id=".service_locator.fsqR_OE"/>
         <argument key="App\Controller\OrdonnanceController::Ordonnanceajout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\OrdonnanceController::index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\OrdonnanceController::listordonnance" type="service" id=".service_locator.wf.M68N"/>
@@ -7640,8 +7660,10 @@
         <argument key="App\Controller\PostCategorieController::add" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PostCategorieController::afficherCategoriePost" type="service" id=".service_locator.Jhdbo9o"/>
         <argument key="App\Controller\PostCategorieController::afficherCategoriePostFront" type="service" id=".service_locator.tLPfv13"/>
+        <argument key="App\Controller\PostCategorieController::afficherPosttBack" type="service" id=".service_locator.R4ct3nY"/>
         <argument key="App\Controller\PostCategorieController::index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PostCategorieController::updateCategorie" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PosttController::SuppPosttBack" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PosttController::delete" type="service" id=".service_locator.5HlRGVi"/>
         <argument key="App\Controller\PosttController::edit" type="service" id=".service_locator.5HlRGVi"/>
         <argument key="App\Controller\PosttController::index" type="service" id=".service_locator.oL8Br3K"/>
@@ -7711,6 +7733,7 @@
         <argument key="App\Controller\UserController::inscriptionMed" type="service" id=".service_locator.JF7P1XJ"/>
         <argument key="App\Controller\UserController::inscriptionPara" type="service" id=".service_locator.JF7P1XJ"/>
         <argument key="App\Controller\UserController::inscriptionPharmacien" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController::inscriptionjson" type="service" id=".service_locator.iP8eVIx"/>
         <argument key="App\Controller\UserController::logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController::modifierPhar" type="service" id=".service_locator.o3htLhs"/>
@@ -7787,6 +7810,7 @@
         <argument key="App\Controller\MedicamentController:recherche2" type="service" id=".service_locator.KFbFhB7"/>
         <argument key="App\Controller\MedicamentController:remove" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\NoteSoinMPController:ajouterNote" type="service" id=".service_locator.WdJYCNp"/>
+        <argument key="App\Controller\NoteSoinMPController:ajouterNoteJson" type="service" id=".service_locator.fsqR_OE"/>
         <argument key="App\Controller\OrdonnanceController:Ordonnanceajout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\OrdonnanceController:index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\OrdonnanceController:listordonnance" type="service" id=".service_locator.wf.M68N"/>
@@ -7806,8 +7830,10 @@
         <argument key="App\Controller\PostCategorieController:add" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PostCategorieController:afficherCategoriePost" type="service" id=".service_locator.Jhdbo9o"/>
         <argument key="App\Controller\PostCategorieController:afficherCategoriePostFront" type="service" id=".service_locator.tLPfv13"/>
+        <argument key="App\Controller\PostCategorieController:afficherPosttBack" type="service" id=".service_locator.R4ct3nY"/>
         <argument key="App\Controller\PostCategorieController:index" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PostCategorieController:updateCategorie" type="service" id=".service_locator.o3htLhs"/>
+        <argument key="App\Controller\PosttController:SuppPosttBack" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\PosttController:delete" type="service" id=".service_locator.5HlRGVi"/>
         <argument key="App\Controller\PosttController:edit" type="service" id=".service_locator.5HlRGVi"/>
         <argument key="App\Controller\PosttController:index" type="service" id=".service_locator.oL8Br3K"/>
@@ -7877,6 +7903,7 @@
         <argument key="App\Controller\UserController:inscriptionMed" type="service" id=".service_locator.JF7P1XJ"/>
         <argument key="App\Controller\UserController:inscriptionPara" type="service" id=".service_locator.JF7P1XJ"/>
         <argument key="App\Controller\UserController:inscriptionPharmacien" type="service" id=".service_locator.JF7P1XJ"/>
+        <argument key="App\Controller\UserController:inscriptionjson" type="service" id=".service_locator.iP8eVIx"/>
         <argument key="App\Controller\UserController:logout" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierMed" type="service" id=".service_locator.o3htLhs"/>
         <argument key="App\Controller\UserController:modifierPhar" type="service" id=".service_locator.o3htLhs"/>
@@ -8606,12 +8633,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.ZiFzqx8"/>
+      <argument type="service" id=".service_locator.e7DPLk6"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.ZiFzqx8"/>
+      <argument type="service" id=".service_locator.e7DPLk6"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -9074,7 +9101,7 @@
     <service id="sensio_framework_extra.view.listener" alias="Sensio\Bundle\FrameworkExtraBundle\EventListener\TemplateListener"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.ZiFzqx8"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.e7DPLk6"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

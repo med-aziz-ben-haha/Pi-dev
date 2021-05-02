@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="980.0" prefWidth="1280.0" styleClass="mainFxmlClass" stylesheets="@CSS_Khalil.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.GestionMedicamentBackController">
+    <styleClass>
+        <String fx:value="mainFxmlClass" />
+        <String fx:value="backgroundFront" />
+    </styleClass>
+    <children>
+        <Pane prefHeight="111.0" prefWidth="1281.0">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="11.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/Logo2.png" />
+                    </image>
+                </ImageView>
+              <ImageView fitHeight="51.0" fitWidth="40.0" layoutX="1196.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../images/user.png" />
+                  </image>
+              </ImageView>
+            <Hyperlink fx:id="btn_accueil" focusTraversable="false" layoutX="124.0" layoutY="43.0" onAction="#envoiAccueil" prefHeight="29.0" prefWidth="69.0" text="Accueil" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="1158.0" layoutY="63.0" onAction="#sedeconnecter" prefHeight="29.0" prefWidth="116.0" text="se deconnecter" textFill="#1b1a1a" />
+    <Hyperlink fx:id="LienProfil" layoutX="1164.0" layoutY="14.0" onAction="#envoi_profil" prefHeight="51.0" prefWidth="73.0" />
+            </children>
+        </Pane>
+        <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
+        <AnchorPane fx:id="home" layoutY="880.0" prefHeight="100.0" prefWidth="1281.0" styleClass="backgroundFooter">
+            <children>
+                <Label layoutX="102.0" layoutY="16.0" styleClass="backgroundFooter" text="About" textFill="WHITE" />
+                <Label layoutX="102.0" layoutY="50.0" styleClass="backgroundFooter" text="Un doute, une inquiétude, besoin d’un conseil " textFill="WHITE" />
+                <Label layoutX="102.0" layoutY="71.0" styleClass="backgroundFooter" text="santé ? Sa7ti.TN c’est la solution" textFill="WHITE" />
+                <Label layoutX="745.0" layoutY="15.0" styleClass="backgroundFooter" text="Contact" textFill="WHITE" />
+                <Label layoutX="766.0" layoutY="49.0" styleClass="backgroundFooter" text=" +216 00000000" textFill="WHITE" />
+                <Label layoutX="771.0" layoutY="70.0" styleClass="backgroundFooter" text="sahtitnpidev@gmail.com" textFill="WHITE" />
+                <Label layoutX="1142.0" layoutY="70.0" styleClass="backgroundFooter" text="2021 © Sa7ti.TN" textFill="WHITE" />
+                <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="745.0" layoutY="47.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/phone.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="742.0" layoutY="67.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/email.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+      <TabPane layoutX="11.0" layoutY="263.0" prefHeight="610.0" prefWidth="1267.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Dashboard">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="683.0" prefWidth="1335.0">
+                     <children>
+                        <TableView fx:id="tab_medicament" layoutX="13.0" layoutY="71.0" prefHeight="419.0" prefWidth="1245.0">
+                           <columns>
+                              <TableColumn fx:id="id_col" prefWidth="75.0" text="ID" visible="false" />
+                              <TableColumn fx:id="nom_medicament_col" prefWidth="149.0" text="Nom Médicament" />
+                              <TableColumn fx:id="descmedicament_col" prefWidth="203.0" text="Descriprtion" />
+                              <TableColumn fx:id="dispo_col" prefWidth="112.0" text="Disponibilité" />
+                              <TableColumn fx:id="date_modif_col" prefWidth="183.0" text="Date De modification" />
+                              <TableColumn fx:id="image_col" prefWidth="219.0" text="Image" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="bt_afficherMedicament" layoutX="1164.0" layoutY="503.0" mnemonicParsing="false" onAction="#afficherMedicament" prefHeight="42.0" prefWidth="89.0" text="Actualiser" />
+                        <Button fx:id="bt_supprimerMedicament" layoutX="947.0" layoutY="503.0" mnemonicParsing="false" onAction="#supprimerMedicament" prefHeight="42.0" prefWidth="89.0" text="Supprimer" />
+                        <Button fx:id="bt_updateMedicament" layoutX="1054.0" layoutY="503.0" mnemonicParsing="false" onAction="#updateWindow" prefHeight="42.0" prefWidth="89.0" text="Update" />
+                        <TextField fx:id="tf_rechercher" layoutX="122.0" layoutY="14.0" onKeyTyped="#rechercheMedicament" prefHeight="31.0" prefWidth="338.0" />
+                        <Label layoutX="22.0" layoutY="19.0" text="Rechercher" />
+                        <Button fx:id="bt_exportExcel" layoutX="22.0" layoutY="499.0" mnemonicParsing="false" onAction="#exportExcel" prefHeight="47.0" prefWidth="121.0" text="Export To Excel" />
+                        <Button fx:id="bt_exportPDF" layoutX="168.0" layoutY="500.0" mnemonicParsing="false" onAction="#exportPDF" prefHeight="47.0" prefWidth="124.0" text="Export To Pdf" />
+                        <Button fx:id="bt_triMedicament" layoutX="1164.0" layoutY="15.0" mnemonicParsing="false" onAction="#triMedicament" prefHeight="40.0" prefWidth="80.0" text="Tri" />
+                        <ComboBox fx:id="methodeTri" layoutX="979.0" layoutY="4.0" prefHeight="31.0" prefWidth="164.0" />
+                        <CheckBox fx:id="check_methodeTri" layoutX="979.0" layoutY="45.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="115.0" text="Ascendant">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </CheckBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Ajouter un médicament">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="610.0" prefWidth="834.0">
+                     <children>
+                        <Label layoutX="53.0" layoutY="36.0" text="Nom Medicament">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="25.0" layoutY="349.0" text="Date de modification">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="105.0" layoutY="278.0" text="Disponibilité">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="110.0" layoutY="105.0" text="Description">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="159.0" layoutY="440.0" text="Image">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tf_nom_medicament" layoutX="233.0" layoutY="34.0" prefHeight="31.0" prefWidth="560.0" />
+                        <TextField fx:id="tf_image" editable="false" layoutX="234.0" layoutY="438.0" prefHeight="31.0" prefWidth="479.0" />
+                        <Button fx:id="bt_ajouterMedicament" layoutX="1132.0" layoutY="507.0" mnemonicParsing="false" onAction="#ajouterMedicament" prefHeight="42.0" prefWidth="89.0" style="-fx-background-color: #5CCC26;" text="Ajouter" />
+                        <CheckBox fx:id="check_dispo" layoutX="236.0" layoutY="281.0" mnemonicParsing="false" text="Disponible" />
+                        <TextArea fx:id="tf_desc" layoutX="233.0" layoutY="105.0" prefHeight="133.0" prefWidth="559.0" />
+                        <DatePicker fx:id="tf_date_modif" layoutX="234.0" layoutY="345.0" onMouseClicked="#ControlDatePicker" prefHeight="35.0" prefWidth="563.0" />
+                        <Button fx:id="bt_uploadImage" layoutX="728.0" layoutY="438.0" mnemonicParsing="false" onAction="#uploadImage" text="Upload" />
+                        <ImageView fx:id="imageToPost" fitHeight="150.0" fitWidth="200.0" layoutX="1044.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Label layoutX="476.0" layoutY="173.0" prefHeight="69.0" prefWidth="404.0" text="Espace Pharmacien" textFill="#ea3d48">
+         <font>
+            <Font size="47.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

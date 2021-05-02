@@ -69,7 +69,7 @@ class __TwigTemplate_4a1341d3b772bb69971c1fe02b577abaf00f490b68eaf111aaa8675a07c
 </style>
 <div class=\"box\">
     <div class=\"box-header\">
-        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion des patients</h1>
+        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion des Users</h1>
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">
@@ -206,7 +206,7 @@ class __TwigTemplate_4a1341d3b772bb69971c1fe02b577abaf00f490b68eaf111aaa8675a07c
 </style>
 <div class=\"box\">
     <div class=\"box-header\">
-        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion des patients</h1>
+        <h1 style =\"margin-bottom: 2%; text-align: center; color: #d11414 ;  \" > Gestion des Users</h1>
     </div>
     <!-- /.box-header -->
     <div class=\"box-body\">

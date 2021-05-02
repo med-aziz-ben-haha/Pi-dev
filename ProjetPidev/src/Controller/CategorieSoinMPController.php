@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class CategorieSoinMPController extends AbstractController
 {
@@ -48,8 +49,10 @@ class CategorieSoinMPController extends AbstractController
             $titre=$data['recherche'];
             $categorieSoinMPfind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->search($titre);
             return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categorieSoinMPfind,'formSearch'=>$form->createView(),'user'=>$userfind,]);
+
         }
         return $this->render('categorie_soin_mp/listCategoriesSoinMP.html.twig', ['listCategorieSoinMP' => $categoriesSoinMP,'formSearch'=>$form->createView(),'user'=>$userfind,]);
+
     }
 
     /**
@@ -90,6 +93,25 @@ class CategorieSoinMPController extends AbstractController
             return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categorieSoinMPfind,'formSearch'=>$form->createView(), 'iduser'=>$iduser,'user'=>$userfind,]);
         }
         return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(), 'iduser'=>$iduser,'user'=>$userfind,]);
+    }
+
+    /**
+     * @param Request $request
+     * @param $iduser
+     * @return Response
+     * @Route("Api/CatSoin/Afficher", name="afficherCategorieSoinMPsJson")
+     */
+    public function listCategoriesSoinMPsJson(Request $request): Response
+    {
+
+        $donnees = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findAll();
+        $jsonContent= Array();
+        foreach ($donnees as $key=>$Cat){
+            $jsonContent[$key]['id']= $Cat->getId();
+            $jsonContent[$key]['libelleCategorieSoinMP']= $Cat->getLibelleCategorieSoinMP();
+            $jsonContent[$key]['lienIconeCSMP']=$Cat->getLienIconeCSMP();
+        }
+        return new JsonResponse($jsonContent);
     }
 
     /**

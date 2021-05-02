@@ -228,7 +228,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des utilisateurs</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des patients</a></li>
+                        <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des Users</a></li>
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
                         <li><a href=\"/Parapharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmaciens</a></li>
                         <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
@@ -268,6 +268,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                     <ul class=\"treeview-menu\">
                         <li><a href=\"/afficherCategoriePost\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories posts</a></li>
                         <!--<li><a href=\"/afficherDiscussion\"><i class=\"fa fa-circle-o\"></i> Gestion des discussions</a></li>-->
+                        <li><a href=\"/afficherPosttBack\"><i class=\"fa fa-circle-o\"></i> Gestion des posts</a></li>
 
                     </ul>
                 </li>
@@ -289,7 +290,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                 <li class=\"treeview\">
                     <a href=\"#\">
                         <i class=\"fa fa-list\"></i> <span>";
-        // line 204
+        // line 205
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("admin.posts"), "html", null, true);
         echo "</span>
                         <span class=\"pull-right-container\">
@@ -298,13 +299,13 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                     </a>
                     <ul class=\"treeview-menu\">
                         <li><a href=\"";
-        // line 210
+        // line 211
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_post_add");
         echo "\"><i class=\"fa fa-circle-o\"></i> ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("admin.action.add"), "html", null, true);
         echo "</a></li>
                         <li><a href=\"";
-        // line 211
+        // line 212
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_post_index");
         echo "\"><i class=\"fa fa-circle-o\"></i> ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("admin.action.list_all"), "html", null, true);
@@ -314,7 +315,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                 <li class=\"treeview\">
                     <a href=\"#\">
                         <i class=\"fa fa-tags\"></i> <span>";
-        // line 216
+        // line 217
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("admin.categories"), "html", null, true);
         echo "</span>
                         <span class=\"pull-right-container\">
@@ -323,13 +324,13 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                     </a>
                     <ul class=\"treeview-menu\">
                         <li><a href=\"";
-        // line 222
+        // line 223
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_category_add");
         echo "\"><i class=\"fa fa-circle-o\"></i> ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("admin.action.add"), "html", null, true);
         echo "</a></li>
                         <li><a href=\"";
-        // line 223
+        // line 224
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_category_index");
         echo "\"><i class=\"fa fa-circle-o\"></i> ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("admin.action.list_all"), "html", null, true);
@@ -339,7 +340,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                 <li class=\"treeview\">
                     <a href=\"#\">
                         <i class=\"fa fa-picture-o\"></i> <span>";
-        // line 228
+        // line 229
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("admin.medias"), "html", null, true);
         echo "</span>
                         <span class=\"pull-right-container\">
@@ -348,7 +349,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                     </a>
                     <ul class=\"treeview-menu\">
                         <li><a href=\"";
-        // line 234
+        // line 235
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_media_index");
         echo "\"><i class=\"fa fa-circle-o\"></i> ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("admin.action.list_all"), "html", null, true);
@@ -384,7 +385,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
 
     public function getDebugInfo()
     {
-        return array (  352 => 234,  343 => 228,  333 => 223,  327 => 222,  318 => 216,  308 => 211,  302 => 210,  293 => 204,  216 => 130,  195 => 112,  182 => 102,  173 => 96,  136 => 62,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
+        return array (  353 => 235,  344 => 229,  334 => 224,  328 => 223,  319 => 217,  309 => 212,  303 => 211,  294 => 205,  216 => 130,  195 => 112,  182 => 102,  173 => 96,  136 => 62,  102 => 31,  97 => 29,  92 => 27,  87 => 25,  82 => 23,  77 => 21,  71 => 18,  66 => 16,  61 => 14,  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -532,7 +533,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                         <i class=\"fa fa-dashboard\"></i> <span>Gestion des utilisateurs</span>
                         <span class=\"pull-right-container\"><i class=\"fa fa-angle-left pull-right\"></i></span>  </a>
                     <ul class=\"treeview-menu\">
-                        <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des patients</a></li>
+                        <li><a href=\"/Patients\"><i class=\"fa fa-circle-o\"></i> Gestion des Users</a></li>
                         <li><a href=\"/Medecins\"><i class=\"fa fa-circle-o\"></i> Gestion des médecins</a></li>
                         <li><a href=\"/Parapharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des parapharmaciens</a></li>
                         <li><a href=\"/Pharmaciens\"><i class=\"fa fa-circle-o\"></i> Gestion des pharmaciens</a></li>
@@ -572,6 +573,7 @@ class __TwigTemplate_31f16af033521fb6653d49c77b7f946c9d05323a5c26187988a3406fe2e
                     <ul class=\"treeview-menu\">
                         <li><a href=\"/afficherCategoriePost\"><i class=\"fa fa-circle-o\"></i> Gestion des catégories posts</a></li>
                         <!--<li><a href=\"/afficherDiscussion\"><i class=\"fa fa-circle-o\"></i> Gestion des discussions</a></li>-->
+                        <li><a href=\"/afficherPosttBack\"><i class=\"fa fa-circle-o\"></i> Gestion des posts</a></li>
 
                     </ul>
                 </li>

@@ -1,0 +1,31 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.backgroundBack
+{ 
+    -fx-background-color: white;
+}
+.backgroundBackNav
+{ 
+    -fx-background-color: grey;
+}
+.backgroundFront
+{ 
+    -fx-background-color: white;
+}
+.backgroundFooter
+{ 
+    -fx-background-color: #382D2D;
+    -fx-color: white;
+}
+.button {
+    -fx-background-color: linear-gradient( #EA3D48 , #EA3D48 );
+    
+}
+
+.btnFront{
+    -fx-background-color: linear-gradient( #ffffff , #ffffff );
+    -fx-border-color:#ea3d48;
+    
+}

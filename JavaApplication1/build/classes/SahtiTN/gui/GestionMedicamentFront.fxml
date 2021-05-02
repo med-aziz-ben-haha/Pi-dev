@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="980.0" prefWidth="1280.0" styleClass="mainFxmlClass" stylesheets="@CSS_Khalil.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.GestionMedicamentFrontController">
+    <styleClass>
+        <String fx:value="mainFxmlClass" />
+        <String fx:value="backgroundFront" />
+    </styleClass>
+    <children>
+        <Pane prefHeight="111.0" prefWidth="1280.0">
+            <children>
+                <ImageView fitHeight="100.0" fitWidth="200.0" layoutX="11.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/Logo2.png" />
+                    </image>
+                </ImageView>
+                <Hyperlink focusTraversable="false" layoutX="185.0" layoutY="42.0" prefHeight="26.0" prefWidth="169.0" text="MédecineParallèle" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></Hyperlink>
+              <ImageView fitHeight="51.0" fitWidth="40.0" layoutX="1194.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@../images/user.png" />
+                  </image>
+              </ImageView>
+            <Hyperlink fx:id="btn_Med" focusTraversable="false" layoutX="422.0" layoutY="42.0" onAction="#envoi_Med" prefHeight="29.0" prefWidth="108.0" text="Médicaments" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_reclamation" focusTraversable="false" layoutX="322.0" layoutY="41.0" onAction="#envoi_reclamation" prefHeight="29.0" prefWidth="109.0" text="Réclamation" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_Ord" focusTraversable="false" layoutX="523.0" layoutY="42.0" onAction="#envoi_Ord" prefHeight="29.0" prefWidth="108.0" text="Ordonnances" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_act" focusTraversable="false" layoutX="877.0" layoutY="43.0" onAction="#envoi_act" prefHeight="29.0" prefWidth="80.0" text="Actualités" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="624.0" layoutY="42.0" prefHeight="29.0" prefWidth="124.0" text="Parapharmacies" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="983.0" layoutY="41.0" prefHeight="29.0" prefWidth="69.0" text="Forum" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="1071.0" layoutY="42.0" prefHeight="29.0" prefWidth="60.0" text="Panier" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="746.0" layoutY="42.0" prefHeight="29.0" prefWidth="137.0" text="CentresMédicaux" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="btn_accueil" focusTraversable="false" layoutX="124.0" layoutY="43.0" onAction="#envoiAccueil" prefHeight="29.0" prefWidth="69.0" text="Accueil" textFill="#1b1a1a">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink focusTraversable="false" layoutX="1159.0" layoutY="58.0" onAction="#sedeconnecter" prefHeight="29.0" prefWidth="124.0" text="se deconnecter" textFill="#1b1a1a" />
+    <Hyperlink fx:id="LienProfil" layoutX="1164.0" layoutY="14.0" onAction="#envoi_profil" prefHeight="51.0" prefWidth="73.0" />
+            </children>
+        </Pane>
+        <Label fx:id="id_ID" layoutX="701.0" layoutY="105.0" scaleX="2.0" scaleY="2.0" text="id_user" visible="false" />
+        <AnchorPane fx:id="home" layoutX="-5.0" layoutY="880.0" prefHeight="100.0" prefWidth="1287.0" styleClass="backgroundFooter">
+            <children>
+                <Label layoutX="102.0" layoutY="16.0" styleClass="backgroundFooter" text="About" textFill="WHITE" />
+                <Label layoutX="102.0" layoutY="50.0" styleClass="backgroundFooter" text="Un doute, une inquiétude, besoin d’un conseil " textFill="WHITE" />
+                <Label layoutX="102.0" layoutY="71.0" styleClass="backgroundFooter" text="santé ? Sa7ti.TN c’est la solution" textFill="WHITE" />
+                <Label layoutX="745.0" layoutY="15.0" styleClass="backgroundFooter" text="Contact" textFill="WHITE" />
+                <Label layoutX="766.0" layoutY="49.0" styleClass="backgroundFooter" text=" +216 00000000" textFill="WHITE" />
+                <Label layoutX="771.0" layoutY="70.0" styleClass="backgroundFooter" text="sahtitnpidev@gmail.com" textFill="WHITE" />
+                <Label layoutX="1142.0" layoutY="70.0" styleClass="backgroundFooter" text="2021 © Sa7ti.TN" textFill="WHITE" />
+                <ImageView fitHeight="21.0" fitWidth="27.0" layoutX="745.0" layoutY="47.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/phone.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="742.0" layoutY="67.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../images/email.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+      <Pane layoutY="164.0" prefHeight="598.0" prefWidth="1267.0">
+         <children>
+            <TableView fx:id="tab_medicament" layoutX="11.0" layoutY="74.0" prefHeight="518.0" prefWidth="1245.0">
+               <columns>
+                  <TableColumn fx:id="id_col" prefWidth="75.0" text="ID" visible="false" />
+                  <TableColumn fx:id="nom_medicament_col" prefWidth="149.0" text="Nom Médicament" />
+                  <TableColumn fx:id="descmedicament_col" prefWidth="568.0" text="Descriprtion" />
+                  <TableColumn fx:id="dispo_col" minWidth="0.0" prefWidth="147.0" text="Disponibilité" />
+                  <TableColumn fx:id="date_modif_col" minWidth="0.0" prefWidth="212.0" text="Date De modification" />
+                  <TableColumn fx:id="image_col" prefWidth="155.0" text="Image" />
+               </columns>
+            </TableView>
+            <TextField fx:id="tf_rechercher" layoutX="134.0" layoutY="25.0" onKeyTyped="#rechercheMedicament" prefHeight="31.0" prefWidth="338.0" />
+            <Label layoutX="34.0" layoutY="30.0" text="Rechercher" />
+         </children>
+      </Pane>
+    </children>
+</AnchorPane>

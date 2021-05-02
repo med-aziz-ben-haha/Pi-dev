@@ -13,10 +13,13 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Security\Core\Encoder\BCryptPasswordEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 class UserController extends AbstractController
 {
@@ -30,6 +33,138 @@ class UserController extends AbstractController
         ]);
     }
 
+
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     * @Route("Api/User/inscription/{login}/{mdp}/{mail}/{nom}/{prenom}/{sexe}/{adresse}/{tell}", name="inscriptionjson")
+     */
+    public function inscriptionjson($login,$mdp,$mail,$nom,$prenom,$sexe,$adresse,$tell,MailerInterface $mailer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $loginverif= $this->getDoctrine()->getRepository(User::class)->findBy(array('login' => $login));
+        $emailverif= $this->getDoctrine()->getRepository(User::class)->findBy(array('email' => $mail));
+        $user=new user();
+        $user->setLogin($login);
+        $user->setEmail($mail);
+        $user->setAdresseUser($adresse);
+        $user->setFullname($nom);
+        $user->setSexe($sexe);
+        $user->setNom($nom);
+        $user->setPrenom($prenom);
+        $user->setMdp(password_hash ($mdp,PASSWORD_BCRYPT,['cost' => 12]));
+        $user->setTelephone($tell);
+        $user->setRole(1);
+        $users= Array();
+
+        foreach ($user as $key=>$Cat){
+            $users[0]['id']= $Cat->getId();
+            $users[0]['login']= $Cat->getLogin();
+            $users[0]['password']= $Cat->getMdp();
+            $users[0]['$email']=$Cat->getEmail();
+            $users[0]['nom']= $Cat->getNom();
+            $users[0]['prenom']= $Cat->getPrenom();
+            $users[0]['adresse_user']= $Cat->getAdresseUser();
+            $users[0]['role']= $Cat->getRole();
+            $users[0]['telephone']= $Cat->getTelephone();
+            $users[0]['sexe']= $Cat->getSexe();}
+        if (($loginverif==null)&&($emailverif==null))
+        {   $em->persist($user);
+            $em->flush();
+            $email = (new Email())
+                ->from('sahtitnpidev@gmail.com')
+                ->to("{$user->getEmail()}")
+                ->subject('SahtiTN!')
+                ->text("Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès ! ❤️")
+                ->html("<h1>Bienvenu {$user->getPrenom()} {$user->getNom()} dans SahtiTN, votre compte a été crée avec succès  ! ❤ </h1>");
+            $mailer->send($email);
+
+            $users[0]['password']="ok";
+
+        }
+        if($loginverif!=null)
+        {
+            $users[0]['password']="fauxlogin";
+
+        }
+        if($emailverif!=null)
+        {$users[0]['password']="fauxmail";
+
+        }
+
+        return new JsonResponse($users);
+
+
+    }
+
+
+    /**
+     * @Route("Api/User/connexion/{login}/{mdp}", name="connexionjson")
+     */
+    public function connexionjson($login,$mdp): Response
+    {
+
+         $donnees= $this->getDoctrine()->getRepository(User::class)->findBy(array('login' => $login));
+         $fauxdonnes= $this->getDoctrine()->getRepository(User::class)->findAll();
+
+       if ($donnees!=null){
+
+           $users= Array();
+
+           foreach ($donnees as $key=>$Cat){
+               $users[$key]['id']= $Cat->getId();
+               $users[$key]['login']= $Cat->getLogin();
+               $users[$key]['password']= $Cat->getMdp();
+               $users[$key]['email']=$Cat->getEmail();
+               $users[$key]['nom']= $Cat->getNom();
+               $users[$key]['prenom']= $Cat->getPrenom();
+               $users[$key]['adresse_user']= $Cat->getAdresseUser();
+               $users[$key]['role']= $Cat->getRole();
+               $users[$key]['telephone']= $Cat->getTelephone();
+               $users[$key]['sexe']= $Cat->getSexe();
+
+
+
+           }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+
+        $json = $users[0]['password'];
+        $bcrypt = new BCryptPasswordEncoder(12);
+        $test = $bcrypt->isPasswordValid($json, $mdp, 12);
+
+        if ($test == true) {
+
+
+            $formatted = $serializer->normalize($users);
+            return new JsonResponse($users);
+        } /* crypter et test */
+
+        else {
+            $users[0]['password'] = "faux";
+
+            $formatted = $serializer->normalize($users);
+            return new JsonResponse($users);
+        }}else
+       {
+           $users= Array();
+           foreach ($fauxdonnes as $key=>$Cat) {
+               $users[$key]['id'] = 1;
+               $users[$key]['login'] = "user";
+               $users[$key]['password'] = "faux";
+               $users[$key]['email'] = "user";
+               $users[$key]['nom'] = "user";
+               $users[$key]['prenom'] = "user";
+               $users[$key]['adresse_user'] = "user";
+               $users[$key]['role'] = 1;
+               $users[$key]['telephone'] = "user";
+               $users[$key]['sexe'] = "user";
+           }
+
+           return new JsonResponse($users);}
+
+
+    }
     /**
      * @return Response
      * @Route("/Patients", name="Patients")
@@ -371,7 +506,7 @@ class UserController extends AbstractController
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_BCRYPT,['cost' => 12]));
 
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
@@ -472,7 +607,7 @@ class UserController extends AbstractController
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_BCRYPT,['cost' => 12]));
             $user->setFullname($user->getNom().$user->getPrenom());
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
@@ -526,7 +661,7 @@ class UserController extends AbstractController
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_BCRYPT,['cost' => 12]));
             $user->setFullname($user->getNom().$user->getPrenom());
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
@@ -580,7 +715,7 @@ class UserController extends AbstractController
         $form->add('Inscription', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $user->setMdp(password_hash ($user->getMdp(),PASSWORD_BCRYPT,['cost' => 12]));
             $user->setFullname($user->getNom().$user->getPrenom());
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
@@ -636,7 +771,8 @@ class UserController extends AbstractController
         $form->add('modifier', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $UserFind->setMdp("");
+            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_BCRYPT,['cost' => 12]));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -689,7 +825,7 @@ class UserController extends AbstractController
         $form->add('modifier', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_BCRYPT,['cost' => 12]));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)
@@ -733,7 +869,7 @@ class UserController extends AbstractController
         $form->add('modifier', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_DEFAULT));
+            $UserFind->setMdp(password_hash ($user->getMdp(),PASSWORD_BCRYPT,['cost' => 12]));
             /** @var UploadedFile $uploadedFile */
             $uploadedFile = $form['imageFile']->getData();
             if ($uploadedFile)

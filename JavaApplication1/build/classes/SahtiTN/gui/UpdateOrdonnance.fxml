@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="648.0" prefWidth="724.0" stylesheets="@CSS_Khalil.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SahtiTN.gui.UpdateOrdonnanceController">
+   <children>
+      <Label layoutX="30.0" layoutY="77.0" text="Contenu Ordonnance">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <Label layoutX="71.0" layoutY="291.0" text="Date Ordonnance">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <Button fx:id="bt_updateOrdonnance2" layoutX="601.0" layoutY="580.0" mnemonicParsing="false" onAction="#updateOrdonnace" prefHeight="43.0" prefWidth="83.0" text="Update" />
+      <TextField fx:id="tf_idOrd" layoutX="238.0" layoutY="34.0" visible="false" />
+      <TextArea fx:id="tf_update_contenu" layoutX="238.0" layoutY="77.0" prefHeight="171.0" prefWidth="446.0" />
+      <ListView fx:id="list_medicament2" layoutX="238.0" layoutY="340.0" prefHeight="218.0" prefWidth="446.0" />
+      <Label layoutX="35.0" layoutY="340.0" text="Liste des médicament">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <DatePicker fx:id="tf_update_dateOrdonnance" layoutX="238.0" layoutY="283.0" onMouseClicked="#ControlDatePicker" prefHeight="43.0" prefWidth="446.0" />
+   </children>
+</AnchorPane>

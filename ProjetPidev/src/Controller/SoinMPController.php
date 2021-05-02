@@ -21,6 +21,7 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use App\Entity\NoteSoinMP;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 class SoinMPController extends AbstractController
@@ -118,6 +119,53 @@ class SoinMPController extends AbstractController
         return $this->render('soin_mp/listSoinsMPs.html.twig', ['listSoinsMPs' => $SoinMPfind,'formSearch'=>$form->createView(),'iduser'=>$iduser,'user'=>$userfind,]);
     }
 
+    /**
+     * @param $id
+     * @param $iduser
+     * @return Response
+     * @Route("Api/Soin/Afficher/{id}/{iduser}", name="afficherSoinMPsJson")
+     */
+    public function listSoinMPsJson($id,$iduser): Response
+    {
+
+        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(array('CategorieSoinMP'=>$id));
+
+        $jsonContent= Array();
+        foreach ($SoinMPfind as $key=>$aide){
+            $jsonContent[$key]['id']= $aide->getId();
+            $jsonContent[$key]['titreSoinMP']= $aide->getTitreSoinMP();
+            $jsonContent[$key]['descriptionSoinMP']= $aide->getDescriptionSoinMP();
+            $jsonContent[$key]['lienImageSMP']= $aide->getLienImageSMP();
+            $jsonContent[$key]['adresseSoinMP']= $aide->getAdresseSoinMP();
+            $jsonContent[$key]['CategorieSoinMP']= $aide->getCategorieSoinMP()->getLibelleCategorieSoinMP();
+            $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
+            $note=0;
+            $Moyenne=0;
+            $aviss="";
+            $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($aide->getId());
+            $Notes=$this->getDoctrine()->getRepository(NoteSoinMP::class)->findBy(array('soinMP'=>$SoinMPsfind));
+            $x = $this->getDoctrine()->getRepository(NoteSoinMP::class)->findBy(array('soinMP'=>$SoinMPsfind,'user'=>$iduser));
+            if (!(empty($x))){
+            $Valeur=$x[0]->getValeur();
+            $Avis=$x[0]->getAvis();}
+            else {$Valeur=0;
+            $Avis="";}
+            if (!(empty($Notes)))
+            {
+                $total=0;
+                for ($i =0; $i <= (count($Notes)-1); $i++)
+                {
+                    $total=$total+($Notes[$i]->getValeur());
+                }
+                $Moyenne=$total/(count($Notes));
+            }
+            $jsonContent[$key]['note']= $Valeur;
+            $jsonContent[$key]['avis']= $Avis;
+            $jsonContent[$key]['moyenne']=$Moyenne;
+         }
+        return new JsonResponse($jsonContent);
+    }
+
 
     /**
      * @param $iduser
@@ -201,6 +249,8 @@ class SoinMPController extends AbstractController
         return $this->render('soin_mp/DetailSoinMPSnote.html.twig', ['DetailSoinMPs' => $SoinMPsfind,'iduser'=>$iduser,'moyenne'=>$Moyenne,'note'=>$note,'aviss'=>$aviss,'user'=>$userfind,]);
 
     }
+
+
 
     /**
      * @param Request $request
@@ -354,6 +404,8 @@ class SoinMPController extends AbstractController
             'moyennes' => $Moyennes
         ]);
     }
+
+
 
     /**
      * @Route ("/impression/{id}/{iduser}",name="impression")
