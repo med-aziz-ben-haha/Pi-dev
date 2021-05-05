@@ -61,7 +61,7 @@ public class CategorieSoinMP {
 
     @Override
     public String toString() {
-        return "CategorieSoinMP{" + "id=" + id + ", libelle_categorie_soin_mp=" + libelle_categorie_soin_mp + ", lien_icone_csmp=" + lien_icone_csmp + '}';
+        return libelle_categorie_soin_mp ;
     }
 
     @Override

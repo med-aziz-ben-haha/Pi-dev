@@ -27,12 +27,12 @@ import com.codename1.ui.layouts.BoxLayout;
  * @author LENOVO
  */
 public class EditUserForm extends Form {
-
-    public EditUserForm(User u ) {
+Form current;
+    public EditUserForm(User u,Form previous ) {
           setTitle("Profile");
         setLayout(BoxLayout.y());
         /*bonus option */
-
+        current=this;
         setTitle("Mes informations");
 
         SpanLabel sp = new SpanLabel();
@@ -89,7 +89,7 @@ EncodedImage placeHolder = EncodedImage.createFromImage(MyApplication.theme.getI
                       u.setAdresse_user(adresse.getText());
                       u.setTelephone(tel.getText());
                  ServiceUser.getInstance().updateUser(u);
-                 new ProfilForm(u).show();
+                 new ProfilForm(u,current).show();
             }
 
              
@@ -98,8 +98,8 @@ EncodedImage placeHolder = EncodedImage.createFromImage(MyApplication.theme.getI
         
         
 
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ProfilForm(u).showBack());
-        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u).show());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
+        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
     
     }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\CategorieSoinMP;
 use App\Entity\User;
 use App\Form\SoinMPRechercheType;
 use App\Form\SoinMPTriFormType;
@@ -35,6 +36,87 @@ class SoinMPController extends AbstractController
             'controller_name' => 'SoinMPController',
         ]);
     }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("Api/Soin/Supprimer/{id}" , name="supprimerSoinMPjson")
+     */
+    public function SupprimerSoinMPjson( $id)
+    {
+        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($SoinMPfind);
+        $em->flush();
+        return new JsonResponse("Soin supprimé");
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("Api/Soin/Ajouter/{titre}/{description}/{adresse}/{categorie}" , name="ajouterSoinMPJson")
+     */
+    public function ajouterSoinMPJson($titre,$description,$adresse,$categorie)
+    {
+        $SoinMP = new SoinMP();
+        $SoinMP->setDescriptionSoinMP($description);
+        $SoinMP->setTitreSoinMP($titre);
+        $SoinMP->setAdresseSoinMP($adresse);
+        $categoriefind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->find(array('id'=>$categorie));
+        $SoinMP->setCategorieSoinMP($categoriefind);
+        $SoinMP->setLienImageSMP("2.4Méditation-603aee9ce4bff.jpeg");
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($SoinMP);
+        $em->flush();
+        return new JsonResponse("Soin ajouté");
+    }
+
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("Api/Soin/Modifier/{id}/{titre}/{description}/{adresse}/{categorie}" , name="modifierSoinMPJson")
+     */
+    public function modifierSoinMPJson($id,$titre,$description,$adresse,$categorie)
+    {
+        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findBy(['id' => $id])[0];
+        $SoinMPfind->setDescriptionSoinMP($description);
+        $SoinMPfind->setTitreSoinMP($titre);
+        $SoinMPfind->setAdresseSoinMP($adresse);
+        $categoriefind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->find(array('id'=>$categorie));
+        $SoinMPfind->setCategorieSoinMP($categoriefind);
+        $SoinMPfind->setLienImageSMP("2.4Méditation-603aee9ce4bff.jpeg");
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+        return new JsonResponse("Soin modifié");
+    }
+
+    /**
+     * @return Response
+     * @Route("Api/Soin/Afficher", name="afficherSoinMPjson")
+     */
+    public function listSoinMPjson(): Response
+    {
+        $SoinMP = $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
+        $jsonContent= Array();
+        foreach ($SoinMP as $key=>$aide){
+            $jsonContent[$key]['id']= $aide->getId();
+            $jsonContent[$key]['titreSoinMP']= $aide->getTitreSoinMP();
+            $jsonContent[$key]['descriptionSoinMP']= $aide->getDescriptionSoinMP();
+            $jsonContent[$key]['lienImageSMP']= $aide->getLienImageSMP();
+            $jsonContent[$key]['adresseSoinMP']= $aide->getAdresseSoinMP();
+            $jsonContent[$key]['CategorieSoinMP']= $aide->getCategorieSoinMP()->getLibelleCategorieSoinMP();
+            //$userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
+            $note=0;
+            $Moyenne=0;
+            $aviss="null";
+            $jsonContent[$key]['note']= $note;
+            $jsonContent[$key]['avis']= $aviss;
+            $jsonContent[$key]['moyenne']=$Moyenne;
+        }
+        return new JsonResponse($jsonContent);
+
+    }
+
     /**
      * @return Response
      * @Route("/afficherSoinMP", name="afficherSoinMP")

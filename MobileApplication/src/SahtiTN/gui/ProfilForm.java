@@ -35,7 +35,8 @@ public class ProfilForm extends Form {
     private ContainerList listContainer;
     private int iduser;
 
-    public ProfilForm(User u) {
+    public ProfilForm(User u ,Form previous) {
+        current=this;
         this.iduser = u.getId();
         setTitle("Profile");
         setLayout(BoxLayout.y());
@@ -90,13 +91,13 @@ public class ProfilForm extends Form {
         btnValider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                new EditUserForm(u).show();
+                new EditUserForm(u,current).show();
             }
 
         });
 
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new HomePageForm(u).showBack());
-        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u).show());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
+        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
 
     }

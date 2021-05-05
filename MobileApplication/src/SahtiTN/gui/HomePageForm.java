@@ -27,11 +27,11 @@ public class HomePageForm extends Form{
     private List list;
     private int iduser;
     private ContainerList listContainer;
-
+    
     public HomePageForm(User u) {
         this.iduser = u.getId();
         setTitle("Accueil      ");
-        
+    current=this;    
         Label lb_espace = new Label("espace");
         lb_espace.setVisible(false);
         Label lb_espace1 = new Label("espace");
@@ -44,23 +44,31 @@ public class HomePageForm extends Form{
 
                 @Override
                 public void actionPerformed(ActionEvent evt) {
-                    new ListCategorieSoinForm(u).show();
+                    new ListCategorieSoinForm(u,current).show();
                 }});
         
         
         Container holder = new Container (BoxLayout.x());
+       
         holder.addAll(lb_espace,soins,lb_espace1);
         listContainer = new ContainerList();
         listContainer.setLayout(BoxLayout.yCenter());
         listContainer.setScrollableY(false);
         listContainer.setScrollVisible(true);
-        listContainer.addAll(lb_espace2,holder);
+         Button back= new Button("     Consulter Back     ");
+        back.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                    new ListCatSoinBackForm().show();
+                }});
+        listContainer.addAll(lb_espace2,holder,back);
         add(listContainer);
         
      
-        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u).show());
+        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-    
+        
 
     }
 }

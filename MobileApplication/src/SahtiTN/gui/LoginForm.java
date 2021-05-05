@@ -18,6 +18,8 @@ import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
+import com.codename1.ui.events.ActionEvent;
+import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
@@ -98,7 +100,7 @@ public class LoginForm extends Form{
         
         createNewAccount.addActionListener(e -> new InscriptionForm(theme,this).show());
 
-        
+       
         
         
         // We remove the extra space for low resolution devices so things fit better

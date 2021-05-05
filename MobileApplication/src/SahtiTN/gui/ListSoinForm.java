@@ -48,7 +48,8 @@ public class ListSoinForm extends Form {
     private ContainerList listContainer;
     private int iduser;
 
-    public ListSoinForm(int id,User u) {
+    public ListSoinForm(int id,User u, Form previous) {
+        current=this;
         this.iduser = u.getId();
         setTitle("Liste Soins      ");
         // SpanLabel sp = new SpanLabel();
@@ -60,8 +61,8 @@ public class ListSoinForm extends Form {
         //sp.setText(ServiceIngredient.getInstance().getAllIngredients().toString());
         add(listContainer);
 
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListCategorieSoinForm(u).showBack());
-        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u).show());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
+        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
     
 
@@ -191,7 +192,7 @@ public class ListSoinForm extends Form {
                     SoinService.getInstance().addNote(notes, iduser, a.getId());
                  
                     f.refreshTheme();
-                    new ListSoinForm(id, u).showBack();
+                    new ListSoinForm(id, u,current).showBack();
                    
                     /*Command[] cmds = new Command[2];
                     cmds[0] = new Command("OK") {

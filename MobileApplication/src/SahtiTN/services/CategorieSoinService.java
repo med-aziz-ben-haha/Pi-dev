@@ -81,4 +81,75 @@ public class CategorieSoinService {
         return catsoins;
     }
     
+public Boolean addCategorieSoin(String Titre) {
+     
+        
+               
+     
+        String url = Statics.BASE_URL_CatSoin + "/Ajouter" + "/"+ Titre;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+   
+    
+    
+    return resultOK; 
 }
+ 
+  public Boolean deleteCategorieSoin(int idcat) {
+     
+        
+               
+     
+        String url = Statics.BASE_URL_CatSoin + "/supprimer" + "/"+ idcat;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+    return resultOK; 
+}
+  
+  public Boolean editCategorieSoin(int idcat, String titre) {
+     
+        
+               
+     
+        String url = Statics.BASE_URL_CatSoin + "/modifier" + "/"+ idcat+"/"+titre;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+    return resultOK; 
+}
+          
+}
+

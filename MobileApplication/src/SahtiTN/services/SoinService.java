@@ -113,4 +113,86 @@ public class SoinService {
     
     return resultOK; 
 }
+    
+    
+ public Boolean addSoin(String titre ,String Description,String adresse,int categorie) {
+
+        String url = Statics.BASE_URL_Soin + "/Ajouter" + "/"+ titre + "/"+Description + "/"+ adresse +"/"+ categorie;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+    return resultOK; 
+  } 
+ 
+ 
+           public Boolean updateSoin(int id ,String titre ,String Description,String adresse,int categorie) {
+     
+        String url = Statics.BASE_URL_Soin + "/Modifier" +"/"+ id + "/"+ titre + "/"+Description + "/"+ adresse+"/"+ categorie;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+   
+    
+    
+    return resultOK; 
+  } 
+       public ArrayList<SoinMP> getAllSoinsBack(){
+        
+        String url = Statics.BASE_URL_Soin + "/Afficher";
+
+         ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                soins = parseSoins(new String(req.getResponseData()));
+           req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+        return soins;
+    }
+       
+       public Boolean deleteSoin(int id) {
+        String url = Statics.BASE_URL_Soin + "/Supprimer" + "/"+ id;
+    
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+    return resultOK; 
 }
+
+}
+

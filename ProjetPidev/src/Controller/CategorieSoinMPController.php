@@ -94,6 +94,52 @@ class CategorieSoinMPController extends AbstractController
         }
         return $this->render('categorie_soin_mp/listCategoriesSoinMPs.html.twig', ['listCategorieSoinMPs' => $categoriesSoinMP,'formSearch'=>$form->createView(), 'iduser'=>$iduser,'user'=>$userfind,]);
     }
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route ("Api/CatSoin/modifier/{id}/{titre}" , name="modifierCategorieSoinjson")
+     */
+    public function modifierCategorieSoinjson($id,$titre)
+    {
+        $CategorieSoinfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findBy(['id' => $id])[0];
+        $CategorieSoinfind->setLibelleCategorieSoinMP($titre);
+        $CategorieSoinfind->setLienIconeCSMP("categorie-605339359cead.png");
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        return new JsonResponse("categorie modifiée");
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("Api/CatSoin/supprimer/{id}" , name="supprimerCategorieSoinjson")
+     */
+    public function SupprimerCategorieSoinjson($id)
+    {
+        $CategorieSoinfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($CategorieSoinfind);
+        $em->flush();
+        return new JsonResponse("Categorie supprimée");
+
+    }
+    /**
+     * @param $titre
+     * @return JsonResponse
+     * @Route ("Api/CatSoin/Ajouter/{titre}" , name="ajouterCategorieSoinjson")
+     */
+    public function ajouterCategorieSoinjson($titre)
+    {
+        $CategorieSoinMP= new CategorieSoinMP();
+        $CategorieSoinMP->setLibelleCategorieSoinMP($titre);
+        $CategorieSoinMP->setLienIconeCSMP("categorie-605339359cead.png");
+        $em=$this->getDoctrine()->getManager();
+        $em->persist($CategorieSoinMP);
+        $em-> flush();
+
+        return new JsonResponse("Categorie Ajoutée") ;
+    }
 
     /**
      * @param Request $request

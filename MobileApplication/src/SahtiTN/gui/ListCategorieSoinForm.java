@@ -37,8 +37,8 @@ public class ListCategorieSoinForm extends Form {
     private ContainerList listContainer;
     private int iduser;
 
-    public ListCategorieSoinForm(User u) {
-
+    public ListCategorieSoinForm(User u, Form previous) {
+        current=this;
         this.iduser = u.getId();
         setTitle("Liste CategorieSoin     ");
         System.out.println("user" + this.iduser);
@@ -50,8 +50,8 @@ public class ListCategorieSoinForm extends Form {
 
         //sp.setText(ServiceIngredient.getInstance().getAllIngredients().toString());
         add(listContainer);
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new HomePageForm(u).showBack());
-        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u).show());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
+        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
 
     }
@@ -95,7 +95,7 @@ public class ListCategorieSoinForm extends Form {
 
                 @Override
                 public void actionPerformed(ActionEvent evt) {
-                    new ListSoinForm(c.getId(), u).show();
+                    new ListSoinForm(c.getId(), u,current).show();
 
                 }
 
