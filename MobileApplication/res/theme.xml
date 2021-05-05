@@ -406,11 +406,13 @@
         <val key="Command.sel#padding" value="1,2,3,6" />
         <val key="Command.sel#transparency" value="0" />
         <val key="Command.transparency" value="0" />
+        <val key="CommandFocus.bgImage" value="TitleArea.borderTop_1.png2" />
+        <val key="CommandFocus.bgType" value="1" />
         <border key="CommandFocus.border" type="empty" />
         <val key="CommandFocus.fgColor" value="ffffff" />
-        <val key="CommandFocus.margin" value="0,0,0,0" />
+        <val key="CommandFocus.margin" value="0.0,0.0,0.0,0.0" />
         <val key="CommandFocus.padUnit" value="2,2,2,2" />
-        <val key="CommandFocus.padding" value="1,1,3,3" />
+        <val key="CommandFocus.padding" value="1.0,1.0,3.0,3.0" />
         <border key="CommandFocus.press#border" type="empty" />
         <val key="CommandFocus.press#fgColor" value="ffffff" />
         <val key="CommandFocus.press#margin" value="0,0,0,0" />
@@ -424,9 +426,9 @@
         <val key="CommandFocus.sel#padding" value="1,1,3,3" />
         <val key="CommandFocus.sel#transparency" value="0" />
         <val key="CommandFocus.transparency" value="0" />
-        <border key="CommandList.border" type="empty" />
-        <val key="CommandList.margin" value="0,0,0,0" />
-        <val key="CommandList.padding" value="0,0,0,0" />
+        <val key="CommandList.bgImage" value="TitleArea.borderTopR_1.png2" />
+        <val key="CommandList.bgType" value="1" />
+        <val key="CommandList.fgColor" value="ffffff" />
         <border key="CommandList.press#border" type="empty" />
         <val key="CommandList.press#margin" value="0,0,0,0" />
         <val key="CommandList.press#padding" value="0,0,0,0" />
@@ -435,7 +437,6 @@
         <val key="CommandList.sel#margin" value="0,0,0,0" />
         <val key="CommandList.sel#padding" value="0,0,0,0" />
         <val key="CommandList.sel#transparency" value="0" />
-        <val key="CommandList.transparency" value="0" />
         <gradient key="Container.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Container.bgType" value="0" />
         <val key="Container.press#derive" value="Container" />
@@ -552,21 +553,17 @@
         <val key="ListRenderer.transparency" value="0" />
         <border key="ListRendererFocus.border" type="empty" />
         <val key="ListRendererFocus.transparency" value="0" />
-        <gradient key="Menu.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
-        <val key="Menu.bgType" value="0" />
-        <border key="Menu.border" type="image" i1="Menu.borderTop_1.png2" i2="Menu.borderBottom_1.png2" i3="Menu.borderLeft_1.png2" i4="Menu.borderRight_1.png2" i5="Menu.borderTopL_1.png2" i6="Menu.borderTopR_1.png2" i7="Menu.borderBottomL_1.png2" i8="Menu.borderBottomR_1.png2" i9="Menu.borderCenter_1.png2" />
-        <val key="Menu.marUnit" value="2,2,2,2" />
-        <val key="Menu.margin" value="1,1,1,1" />
-        <val key="Menu.padUnit" value="2,2,2,2" />
-        <val key="Menu.padding" value="1,2,0,0" />
-        <gradient key="MenuButton.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
-        <val key="MenuButton.bgType" value="0" />
+        <val key="Menu.bgImage" value="TitleArea.borderTopR_1.png2" />
+        <val key="Menu.bgType" value="1" />
+        <val key="Menu.fgColor" value="ffffff" />
+        <val key="MenuButton.bgImage" value="TitleArea.borderTopR_1.png2" />
+        <val key="MenuButton.bgType" value="1" />
         <val key="MenuButton.fgColor" value="ffffff" />
         <font key="MenuButton.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="MenuButton.marUnit" value="2,2,0,2" />
-        <val key="MenuButton.margin" value="0,0,0,0" />
+        <val key="MenuButton.margin" value="0.0,0.0,0.0,0.0" />
         <val key="MenuButton.padUnit" value="2,2,2,2" />
-        <val key="MenuButton.padding" value="1,1,1,1" />
+        <val key="MenuButton.padding" value="1.0,1.0,1.0,1.0" />
         <gradient key="MenuButton.press#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="MenuButton.press#bgType" value="0" />
         <val key="MenuButton.press#fgColor" value="ffffff" />
@@ -681,15 +678,15 @@
         <val key="RadioButton.sel#padding" value="1,1,1,1" />
         <val key="RadioButton.sel#transparency" value="0" />
         <val key="RadioButton.transparency" value="0" />
-        <gradient key="SideCommand.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
-        <val key="SideCommand.bgType" value="0" />
+        <val key="SideCommand.bgImage" value="TitleArea.borderTopR_1.png2" />
+        <val key="SideCommand.bgType" value="1" />
         <border key="SideCommand.border" type="empty" />
         <val key="SideCommand.fgColor" value="ffffff" />
         <font key="SideCommand.font" type="ttf" face="0" style="1" size="16" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="SideCommand.marUnit" value="2,2,2,2" />
-        <val key="SideCommand.margin" value="1,0,1,1" />
+        <val key="SideCommand.margin" value="1.0,0.0,1.0,1.0" />
         <val key="SideCommand.padUnit" value="2,0,2,0" />
-        <val key="SideCommand.padding" value="1,1,0,0" />
+        <val key="SideCommand.padding" value="1.0,1.0,0.0,0.0" />
         <gradient key="SideCommand.press#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="SideCommand.press#bgType" value="0" />
         <border key="SideCommand.press#border" type="empty" />
@@ -715,8 +712,11 @@
         <val key="SideCommand.textDecoration" value="0" />
         <val key="SideCommand.transparency" value="0" />
         <val key="SideNavigationPanel.bgColor" value="cc0000" />
-        <val key="SideNavigationPanel.margin" value="0,0,0,0" />
-        <val key="SideNavigationPanel.padding" value="0,0,0,0" />
+        <val key="SideNavigationPanel.bgImage" value="TitleArea.borderTopR_1.png2" />
+        <val key="SideNavigationPanel.bgType" value="1" />
+        <val key="SideNavigationPanel.fgColor" value="ffffff" />
+        <val key="SideNavigationPanel.margin" value="0.0,0.0,0.0,0.0" />
+        <val key="SideNavigationPanel.padding" value="0.0,0.0,0.0,0.0" />
         <val key="SideNavigationPanel.transparency" value="255" />
         <gradient key="Slider.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Slider.bgType" value="0" />
@@ -862,6 +862,11 @@
         <font key="ToastBarMessage.font" type="ttf" face="0" style="0" size="0" name="native:MainThin" family="native:MainThin" sizeSettings="3" actualSize="3.0" />
         <val key="ToastBarMessage.padUnit" value="2,2,2,2" />
         <val key="ToastBarMessage.padding" value="2,2,1,1" />
+        <val key="Toolbar.bgImage" value="TitleArea.borderTopR_1.png2" />
+        <val key="Toolbar.bgType" value="1" />
+        <val key="Toolbar.fgColor" value="ffffff" />
+        <val key="ToolbarLandscape.bgImage" value="back-command.png" />
+        <val key="ToolbarLandscape.bgType" value="1" />
         <val key="bgColor" value="ffffff" />
         <val key="bgImage" value="white.PNG" />
         <val key="bgType" value="1" />

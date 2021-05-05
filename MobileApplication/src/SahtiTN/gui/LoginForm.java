@@ -5,6 +5,7 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.MyApplication;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceUser;
 import com.codename1.components.SpanLabel;
@@ -72,7 +73,7 @@ public class LoginForm extends Form{
                 
                 if (sp.getText().toString() == "true") {
                     //new ProfilForm(theme,theme,login.getText()).show();
-                  Form f= new ListCategorieSoinForm(u.getId());
+                  Form f= new HomePageForm(u);
                          f.show();
 
                 } else {

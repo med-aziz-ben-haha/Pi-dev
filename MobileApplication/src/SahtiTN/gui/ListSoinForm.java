@@ -8,6 +8,7 @@ package SahtiTN.gui;
 import SahtiTN.MyApplication;
 import SahtiTN.entities.NoteSoin;
 import SahtiTN.entities.SoinMP;
+import SahtiTN.entities.User;
 import SahtiTN.services.SoinService;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
@@ -47,11 +48,11 @@ public class ListSoinForm extends Form {
     private ContainerList listContainer;
     private int iduser;
 
-    public ListSoinForm(int id, int iduser) {
-        this.iduser = iduser;
+    public ListSoinForm(int id,User u) {
+        this.iduser = u.getId();
         setTitle("Liste Soins      ");
         // SpanLabel sp = new SpanLabel();
-        listContainer = GetSoins(id);
+        listContainer = GetSoins(id,u);
         listContainer.setLayout(BoxLayout.y());
         listContainer.setScrollableY(false);
         listContainer.setScrollVisible(true);
@@ -59,8 +60,10 @@ public class ListSoinForm extends Form {
         //sp.setText(ServiceIngredient.getInstance().getAllIngredients().toString());
         add(listContainer);
 
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListCategorieSoinForm(iduser).showBack());
-        getToolbar().addMaterialCommandToRightBar("se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListCategorieSoinForm(u).showBack());
+        getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u).show());
+        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+    
 
     }
 
@@ -119,7 +122,7 @@ public class ListSoinForm extends Form {
         return starRank;
     }
 
-    public ContainerList GetSoins(int id) {
+    public ContainerList GetSoins(int id,User u) {
 
         ContainerList list2 = new ContainerList();
         SoinService soins = new SoinService();
@@ -188,7 +191,7 @@ public class ListSoinForm extends Form {
                     SoinService.getInstance().addNote(notes, iduser, a.getId());
                  
                     f.refreshTheme();
-                    new ListSoinForm(id, iduser).showBack();
+                    new ListSoinForm(id, u).showBack();
                    
                     /*Command[] cmds = new Command[2];
                     cmds[0] = new Command("OK") {

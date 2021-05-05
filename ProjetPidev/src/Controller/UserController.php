@@ -33,6 +33,32 @@ class UserController extends AbstractController
         ]);
     }
 
+    /**
+     * @param $mail
+     * @param $nom
+     * @param $prenom
+     * @param $adresse
+     * @param $tell
+     * @param $iduser
+     * @return JsonResponse
+     * @Route ("Api/User/Profil/{iduser}/{nom}/{prenom}/{adresse}/{tell}" ,name="modifierUserjson")
+     */
+    public function modifierUserjson($nom,$prenom,$adresse,$tell,$iduser)
+    {
+
+        $userfind= $this->getDoctrine()->getRepository(User::class)->find($iduser);
+        $userfind->setFullname($nom);
+        $userfind->setAdresseUser($adresse);
+        $userfind->setNom($nom);
+        $userfind->setPrenom($prenom);
+        $userfind->setTelephone($tell);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+       return new JsonResponse("user modifié");
+
+
+    }
 
     /**
      * @param Request $request
@@ -123,6 +149,7 @@ class UserController extends AbstractController
                $users[$key]['role']= $Cat->getRole();
                $users[$key]['telephone']= $Cat->getTelephone();
                $users[$key]['sexe']= $Cat->getSexe();
+               $users[$key]['lien_image_user']=$Cat->getLienImageUser();
 
 
 

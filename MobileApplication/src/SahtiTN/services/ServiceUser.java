@@ -110,7 +110,8 @@ public class ServiceUser {
                 u.setAdresse_user(obj.get("adresse_user").toString());
                 u.setRole((int)Float.parseFloat(obj.get("role").toString()));
                 u.setTelephone(obj.get("telephone").toString());
-                u.setSexe(obj.get("sexe").toString());            
+                u.setSexe(obj.get("sexe").toString());
+                u.setLien_image_user(obj.get("lien_image_user").toString());
               users.add(u);
             }
             
@@ -206,7 +207,8 @@ public class ServiceUser {
                 u.setAdresse_user(users.getAdresse_user());
                 u.setRole(users.getRole());
                 u.setTelephone(users.getTelephone().toString());
-                u.setSexe(users.getSexe().toString());     
+                u.setSexe(users.getSexe().toString()); 
+                u.setLien_image_user(users.getLien_image_user());
                 
              
             }
@@ -222,125 +224,23 @@ public class ServiceUser {
         }*/
         return u;
     }
-  /*    
-         public Boolean VerifUser(String username, String password,String email,String prenom) {
-
-        User u = new User();
-
-        String url = Statics.BASE_URL_User + "/users/Connexion/?username=" + username + "&password=" + password+ "&email=" +email+"&prenom=" +prenom;
-
-        System.out.println(url);
-        ConnectionRequest req =new ConnectionRequest();
-        req.setUrl(url);
-        req.setUrl(url);
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
-                req.removeResponseListener(this);
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-
-        req.setPost(false);
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-                User users = parseTasks(new String(req.getResponseData()));
-                req.removeResponseListener(this);
-                u.setPassword(users.getPassword());
-
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-        System.out.println(users);
-        System.out.println(u.getPassword());
-
-        if (u.getPassword().equals("faux")) {
-            return false;
-        } else {
-            return true;
-        }
-    }*/
     
-  /*  public User ProfilUsers(String Login) {
-        User u = new User();
-        String url = Statics.BASE_URL + "/mobileuser/profile?username=" + Login;
-        req.setUrl(url);
-        req.setPost(false);
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-                User users = parseUsers(new String(req.getResponseData()));
-                req.removeResponseListener(this);
-                u.setNom(users.getNom());
-                u.setPrenom(users.getPrenom());
-                u.setSexe(users.getSexe());
-                u.setAdresse(users.getAdresse());
-                u.setTel(users.getTel());
-                u.setUsername(users.getUsername());
-                u.setEmail(users.getEmail());
-
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-        return u;
-    }
-
-    public boolean EditUser(User u, String Login) {
-
-        String url = Statics.BASE_URL + "/mobileuser/edit?username=" + Login + "&email=" + u.getEmail() + "&password=" + u.getPassword() + "&nom=" + u.getNom() + "&prenom=" + u.getPrenom() + "&sexe=" + u.getSexe() + "&adresse=" + u.getAdresse() + "&tel=" + u.getTel();
-
+     
+    
+     public Boolean updateUser(User u) {
+        String url = Statics.BASE_URL_User + "/Profil" + "/"+ u.getId()+"/"+ u.getNom()+"/"+ u.getPrenom() +"/"+ u.getAdresse_user() +"/"+ u.getTelephone();
+    
         System.out.println(url);
-
+        ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
             public void actionPerformed(NetworkEvent evt) {
+           
                 resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
                 req.removeResponseListener(this);
             }
         });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-        return resultOK;
-    }*/
-//*************************************     Contrôle saisie        ********************************************//
-/*public Boolean TestUser(String username) {
-
-        User u = new User();
-
-        String url = Statics.BASE_URL_User + "/users/role?username=" + username;
-       ConnectionRequest req = new ConnectionRequest ();
-        System.out.println(url);
-
-        req.setUrl(url);
-        req.setUrl(url);
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
-                req.removeResponseListener(this);
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-
-        req.setPost(false);
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-             //   User users = parseRole(new String(req.getResponseData()));
-                req.removeResponseListener(this);
-               // u.setRoles(users.getRoles());
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-        System.out.println(users);
-        //System.out.println(u.getRoles());
-
-        if (u.getRoles().equals("true")) {
-            return true;
-        } else {
-            return false;
-        }
-    }*/
+        
+    return resultOK; }
 }
