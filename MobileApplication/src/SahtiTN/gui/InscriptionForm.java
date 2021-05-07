@@ -36,7 +36,7 @@ public class InscriptionForm extends Form{
 
         setUIID("LoginForm");
          Container welcome = FlowLayout.encloseCenter(
-                new Label("Inscrivez vous , ", "WelcomeWhite"));
+                new Label("Inscrivez vous  ", "WelcomeWhite"));
 /////////////
         getTitleArea().setUIID("Container");
 
@@ -148,7 +148,7 @@ Dialog.show("Alert", "les champs mot de passe et repeter mot de passe doivent et
                 BorderLayout.center(c1),
                 BorderLayout.center(Adresse),
                 BorderLayout.center(Tel),
-               BorderLayout.center(c2)
+                BorderLayout.center(c2)
         );
         add(BorderLayout.CENTER, by);
 

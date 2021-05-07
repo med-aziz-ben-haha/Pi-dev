@@ -64,6 +64,9 @@ public class LoginForm extends Form{
         loginButton.addActionListener(e -> {
             /* verification compte */
             
+       if ((login.getText().length() == 0) || (password.getText().length() == 0)) {
+                    Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
+                }else{
             System.out.println(ServiceUser.getInstance().VerifUser(login.getText(), password.getText()).toString());
                    User u = ServiceUser.getInstance().VerifUser(login.getText(), password.getText());
                    System.out.println(u);
@@ -75,14 +78,18 @@ public class LoginForm extends Form{
                 
                 if (sp.getText().toString() == "true") {
                     //new ProfilForm(theme,theme,login.getText()).show();
-                  Form f= new HomePageForm(u);
+                if (u.getRole()==0){
+                    Form f= new HomePageBackForm();
                          f.show();
-
+                } else {
+                    Form f= new HomePageForm(u);
+                         f.show();
+                }
                 } else {
                     Dialog.show("ERROR", "Votre nom d'utilisateur ou mot de passe est erroné !", new Command("OK"));
                     System.out.println("recommencez ");
 
-                } 
+                }} 
               
              
             
@@ -96,6 +103,7 @@ public class LoginForm extends Form{
         });
         
         Button createNewAccount = new Button("                            Inscription");
+        
         createNewAccount.setUIID("CreateNewAccountButton");
         
         createNewAccount.addActionListener(e -> new InscriptionForm(theme,this).show());

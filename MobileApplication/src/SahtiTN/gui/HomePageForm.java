@@ -55,14 +55,8 @@ public class HomePageForm extends Form{
         listContainer.setLayout(BoxLayout.yCenter());
         listContainer.setScrollableY(false);
         listContainer.setScrollVisible(true);
-         Button back= new Button("     Consulter Back     ");
-        back.addActionListener(new ActionListener() {
-
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    new ListCatSoinBackForm().show();
-                }});
-        listContainer.addAll(lb_espace2,holder,back);
+         
+        listContainer.addAll(lb_espace2,holder);
         add(listContainer);
         
      

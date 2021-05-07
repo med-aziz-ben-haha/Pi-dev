@@ -48,6 +48,8 @@ public class ListSoinBackForm extends Form{
         sv = new SoinService();
         svCat = new CategorieSoinService();
          cat=svCat.getAllCatSoins();
+         
+       getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
        
         setTitle("Liste des SoinMP");
         setLayout(BoxLayout.y());
@@ -61,6 +63,7 @@ public class ListSoinBackForm extends Form{
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
+                
                 EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
                 Image img = URLImage.createToStorage(enc, "http://localhost/public/uploads/2.4Méditation-603aee9ce4bff.jpeg", "http://localhost/public/uploads/2.4Méditation-603aee9ce4bff.jpeg");
@@ -125,12 +128,13 @@ public class ListSoinBackForm extends Form{
         espace2.setVisible(false);
         details.addAll(lbtitre,lbdescription,lbadresse, buttons, espace2);
        
-        EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false).scaledEncoded(200, 200);
+        EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false).scaledEncoded(300, 300);
 
         Image img = URLImage.createToStorage(enc, "http://localhost/public/uploads/" + Soin.getLien_image_smp(), "http://localhost/public/uploads/" + Soin.getLien_image_smp());
 
         ImageViewer image = new ImageViewer(img);
-
+       
+        
         holder.addAll(image, details);
 
         Dell.addActionListener(new ActionListener() {

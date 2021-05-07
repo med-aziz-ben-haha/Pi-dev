@@ -244,12 +244,12 @@
         <gradient key="Button.press#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Button.press#bgType" value="0" />
         <border key="Button.press#border" type="image" i1="Button.borderTop_1.png2" i2="Button.borderBottom_1.png2" i3="Button.borderLeft_1.png2" i4="Button.borderRight_1.png2" i5="Button.borderTopL_1.png2" i6="Button.borderTopR_1.png2" i7="Button.borderBottomL_1.png2" i8="Button.borderBottomR_1.png2" i9="Button.borderCenter_1.png2" />
-        <val key="Button.press#fgColor" value="999999" />
+        <val key="Button.press#fgColor" value="ffffff" />
         <font key="Button.press#font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="Button.press#marUnit" value="2,2,2,2" />
-        <val key="Button.press#margin" value="1,1,1,1" />
+        <val key="Button.press#margin" value="1.0,1.0,1.0,1.0" />
         <val key="Button.press#padUnit" value="2,2,2,2" />
-        <val key="Button.press#padding" value="1,1,1,1" />
+        <val key="Button.press#padding" value="1.0,1.0,1.0,1.0" />
         <val key="Button.press#transparency" value="0" />
         <val key="Button.sel#align" value="4" />
         <gradient key="Button.sel#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
@@ -353,18 +353,22 @@
         <val key="CheckBox.sel#padding" value="1,1,1,1" />
         <val key="CheckBox.sel#transparency" value="0" />
         <val key="CheckBox.transparency" value="0" />
+        <val key="ComboBox.bgImage" value="ComboBox.sel#borderBottomR_2.png" />
+        <val key="ComboBox.bgType" value="1" />
         <border key="ComboBox.border" type="image" i1="ComboBox.borderTop_1.png2" i2="ComboBox.borderBottom_1.png2" i3="ComboBox.borderLeft_1.png2" i4="ComboBox.borderRight_1.png2" i5="ComboBox.borderTopL_1.png2" i6="ComboBox.borderTopR_1.png2" i7="ComboBox.borderBottomL_1.png2" i8="ComboBox.borderBottomR_1.png2" i9="ComboBox.borderCenter_1.png2" />
+        <val key="ComboBox.fgColor" value="ffffff" />
         <font key="ComboBox.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="ComboBox.marUnit" value="2,2,2,2" />
-        <val key="ComboBox.margin" value="1,1,1,1" />
+        <val key="ComboBox.margin" value="1.0,1.0,1.0,1.0" />
         <val key="ComboBox.padUnit" value="2,2,2,2" />
-        <val key="ComboBox.padding" value="1,1,1,1" />
+        <val key="ComboBox.padding" value="1.0,1.0,1.0,1.0" />
         <border key="ComboBox.press#border" type="image" i1="ComboBox.sel#borderTop_2.png2" i2="ComboBox.sel#borderBottom_2.png2" i3="ComboBox.sel#borderLeft_2.png2" i4="ComboBox.sel#borderRight_2.png2" i5="ComboBox.sel#borderTopL_2.png2" i6="ComboBox.sel#borderTopR_2.png2" i7="ComboBox.sel#borderBottomL_2.png2" i8="ComboBox.sel#borderBottomR_2.png2" i9="ComboBox.sel#borderCenter_2.png2" />
+        <val key="ComboBox.press#fgColor" value="ffffff" />
         <font key="ComboBox.press#font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <val key="ComboBox.press#marUnit" value="2,2,2,2" />
-        <val key="ComboBox.press#margin" value="1,1,1,1" />
+        <val key="ComboBox.press#margin" value="1.0,1.0,1.0,1.0" />
         <val key="ComboBox.press#padUnit" value="2,2,2,2" />
-        <val key="ComboBox.press#padding" value="1,1,1,1" />
+        <val key="ComboBox.press#padding" value="1.0,1.0,1.0,1.0" />
         <val key="ComboBox.press#transparency" value="0" />
         <border key="ComboBox.sel#border" type="image" i1="ComboBox.sel#borderTop_2.png2" i2="ComboBox.sel#borderBottom_2.png2" i3="ComboBox.sel#borderLeft_2.png2" i4="ComboBox.sel#borderRight_2.png2" i5="ComboBox.sel#borderTopL_2.png2" i6="ComboBox.sel#borderTopR_2.png2" i7="ComboBox.sel#borderBottomL_2.png2" i8="ComboBox.sel#borderBottomR_2.png2" i9="ComboBox.sel#borderCenter_2.png2" />
         <font key="ComboBox.sel#font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
@@ -444,6 +448,8 @@
         <val key="Container.sel#derive" value="Container" />
         <val key="Container.sel#transparency" value="0" />
         <val key="Container.transparency" value="0" />
+        <val key="CreateNewAccountButton.fgColor" value="ff0000" />
+        <val key="CreateNewAccountButton.press#fgColor" value="ff0000" />
         <gradient key="Dialog.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="Dialog.bgType" value="0" />
         <border key="Dialog.border" type="image" i1="Dialog.borderTop_1.png2" i2="Dialog.borderBottom_1.png2" i3="Dialog.borderLeft_1.png2" i4="Dialog.borderRight_1.png2" i5="Dialog.borderTopL_1.png2" i6="Dialog.borderTopR_1.png2" i7="Dialog.borderBottomL_1.png2" i8="Dialog.borderBottomR_1.png2" i9="Dialog.borderCenter_1.png2" />
@@ -553,6 +559,10 @@
         <val key="ListRenderer.transparency" value="0" />
         <border key="ListRendererFocus.border" type="empty" />
         <val key="ListRendererFocus.transparency" value="0" />
+        <val key="LoginButton.fgColor" value="ff3300" />
+        <val key="LoginButton.press#fgColor" value="ff0000" />
+        <val key="LoginForm.bgImage" value="white.PNG" />
+        <val key="LoginForm.bgType" value="1" />
         <val key="Menu.bgImage" value="TitleArea.borderTopR_1.png2" />
         <val key="Menu.bgType" value="1" />
         <val key="Menu.fgColor" value="ffffff" />
@@ -678,8 +688,8 @@
         <val key="RadioButton.sel#padding" value="1,1,1,1" />
         <val key="RadioButton.sel#transparency" value="0" />
         <val key="RadioButton.transparency" value="0" />
-        <val key="SideCommand.bgImage" value="TitleArea.borderTopR_1.png2" />
-        <val key="SideCommand.bgType" value="1" />
+        <gradient key="SideCommand.bgGradient" color1="16777215" color2="16777215" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="SideCommand.bgType" value="0" />
         <border key="SideCommand.border" type="empty" />
         <val key="SideCommand.fgColor" value="ffffff" />
         <font key="SideCommand.font" type="ttf" face="0" style="1" size="16" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
@@ -714,7 +724,7 @@
         <val key="SideNavigationPanel.bgColor" value="cc0000" />
         <val key="SideNavigationPanel.bgImage" value="TitleArea.borderTopR_1.png2" />
         <val key="SideNavigationPanel.bgType" value="1" />
-        <val key="SideNavigationPanel.fgColor" value="ffffff" />
+        <val key="SideNavigationPanel.fgColor" value="0" />
         <val key="SideNavigationPanel.margin" value="0.0,0.0,0.0,0.0" />
         <val key="SideNavigationPanel.padding" value="0.0,0.0,0.0,0.0" />
         <val key="SideNavigationPanel.transparency" value="255" />
@@ -778,8 +788,8 @@
         <val key="Tab.transparency" value="255" />
         <val key="Tabs.bgColor" value="ff3333" />
         <val key="Tabs.fgColor" value="0" />
-        <val key="Tabs.margin" value="0,0,0,0" />
-        <val key="Tabs.padding" value="0,0,0,0" />
+        <val key="Tabs.margin" value="0.0,0.0,0.0,0.0" />
+        <val key="Tabs.padding" value="0.0,0.0,0.0,0.0" />
         <val key="Tabs.transparency" value="255" />
         <gradient key="TextArea.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="TextArea.bgType" value="0" />
@@ -826,19 +836,20 @@
         <font key="Title.font" type="ttf" face="0" style="0" size="0" name="native:MainBold" family="native:MainBold" sizeSettings="3" actualSize="3.5" />
         <val key="Title.transparency" value="0" />
         <val key="TitleArea.bgColor" value="ff3333" />
+        <val key="TitleArea.bgImage" value="back-command.png" />
+        <val key="TitleArea.bgType" value="1" />
         <border key="TitleArea.border" type="image" i1="TitleArea.borderTop_1.png2" i2="TitleArea.borderBottom_1.png2" i3="TitleArea.borderLeft_1.png2" i4="TitleArea.borderRight_1.png2" i5="TitleArea.borderTopL_1.png2" i6="TitleArea.borderTopR_1.png2" i7="TitleArea.borderBottomL_1.png2" i8="TitleArea.borderBottomR_1.png2" i9="TitleArea.borderCenter_1.png2" />
+        <val key="TitleArea.fgColor" value="0" />
         <val key="TitleArea.margin" value="0.0,0.0,0.0,0.0" />
         <val key="TitleArea.padUnit" value="2,0,2,0" />
         <val key="TitleArea.padding" value="1.0,1.0,0.0,0.0" />
         <val key="TitleArea.transparency" value="255" />
-        <gradient key="TitleCommand.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
-        <val key="TitleCommand.bgType" value="0" />
         <border key="TitleCommand.border" type="empty" />
         <val key="TitleCommand.fgColor" value="ffffff" />
         <font key="TitleCommand.font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
-        <val key="TitleCommand.margin" value="0,0,0,0" />
+        <val key="TitleCommand.margin" value="0.0,0.0,0.0,0.0" />
         <val key="TitleCommand.padUnit" value="2,2,2,2" />
-        <val key="TitleCommand.padding" value="1,1,1,1" />
+        <val key="TitleCommand.padding" value="1.0,1.0,1.0,1.0" />
         <gradient key="TitleCommand.press#bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
         <val key="TitleCommand.press#bgType" value="0" />
         <border key="TitleCommand.press#border" type="empty" />
@@ -868,8 +879,6 @@
         <val key="ToolbarLandscape.bgImage" value="back-command.png" />
         <val key="ToolbarLandscape.bgType" value="1" />
         <val key="bgColor" value="ffffff" />
-        <val key="bgImage" value="white.PNG" />
-        <val key="bgType" value="1" />
         <border key="border" type="empty" />
         <val key="fgColor" value="0" />
         <font key="font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />

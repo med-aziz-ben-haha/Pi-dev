@@ -44,6 +44,7 @@ public class ListCatSoinBackForm extends Form{
         current = this;
     
         sv = new CategorieSoinService();
+       getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
        
         setTitle("Liste Categorie SoinMP");
         setLayout(BoxLayout.y());
@@ -57,6 +58,7 @@ public class ListCatSoinBackForm extends Form{
         add.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
+               
                 EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
                 Image img = URLImage.createToStorage(enc, "http://localhost/public/uploads/categorie-605339359cead.png", "http://localhost/public/uploads/categorie-605339359cead.png");
@@ -132,7 +134,7 @@ public class ListCatSoinBackForm extends Form{
         Edit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent evt) {
-                 
+               
                         EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
 
                 Image img = URLImage.createToStorage(enc, "http://localhost/public/uploads/" + Categorie.getLien_icone_csmp(), "http://localhost/public/uploads/"  + Categorie.getLien_icone_csmp());
