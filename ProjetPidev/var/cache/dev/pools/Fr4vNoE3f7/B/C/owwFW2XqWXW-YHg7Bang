@@ -8,7 +8,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'Symfony\\Component\\Routing\\Annotation\\Route' => [
             'path' => [
-                'Api/User/inscription/{login}/{mdp}/{mail}/{nom}/{prenom}/{sexe}/{adresse}/{tell}',
+                'Api/User/inscription/{login}/{mdp}/{mail}/{nom}/{prenom}/{sexe}/{adresse}/{tell}/{role}/{matricule}/{specialite}',
             ],
             'name' => [
                 'inscriptionjson',

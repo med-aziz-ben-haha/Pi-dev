@@ -33,6 +33,8 @@ public class LoginForm extends Form{
      Form current;
     public LoginForm(Resources theme) {
         super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
+        current=this;
+        
         setUIID("LoginForm");
         Container welcome = FlowLayout.encloseCenter(
                 new Label("Bienvenue  ", "WelcomeWhite")
@@ -106,7 +108,7 @@ public class LoginForm extends Form{
         
         createNewAccount.setUIID("CreateNewAccountButton");
         
-        createNewAccount.addActionListener(e -> new InscriptionForm(theme,this).show());
+        createNewAccount.addActionListener(e -> new InscriptionForm(theme,current).show());
 
        
         

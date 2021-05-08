@@ -42,7 +42,8 @@ public class ServiceUser {
 
     public String addUser(User u) {
          String result = null;
-        String url = Statics.BASE_URL_User + "/inscription" + "/"+ u.getLogin()+"/"+ u.getPassword() + "/"+ u.getEmail()    +"/"+ u.getNom() +"/"+ u.getPrenom()  + "/"+ u.getSexe() +"/"+ u.getAdresse_user() +"/"+ u.getTelephone();
+      
+        String url = Statics.BASE_URL_User + "/inscription" + "/"+ u.getLogin()+"/"+ u.getPassword() + "/"+ u.getEmail()    +"/"+ u.getNom() +"/"+ u.getPrenom()  + "/"+ u.getSexe() +"/"+ u.getAdresse_user() +"/"+ u.getTelephone()+"/"+u.getRole()+"/" + u.getMatricule_fiscale()+"/"+u.getSpecialite();
     
         System.out.println(url);
         ConnectionRequest req = new ConnectionRequest();

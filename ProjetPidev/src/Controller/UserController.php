@@ -64,9 +64,9 @@ class UserController extends AbstractController
      * @param Request $request
      * @return JsonResponse
      * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
-     * @Route("Api/User/inscription/{login}/{mdp}/{mail}/{nom}/{prenom}/{sexe}/{adresse}/{tell}", name="inscriptionjson")
+     * @Route("Api/User/inscription/{login}/{mdp}/{mail}/{nom}/{prenom}/{sexe}/{adresse}/{tell}/{role}/{matricule}/{specialite}", name="inscriptionjson")
      */
-    public function inscriptionjson($login,$mdp,$mail,$nom,$prenom,$sexe,$adresse,$tell,MailerInterface $mailer)
+    public function inscriptionjson($login,$mdp,$mail,$nom,$prenom,$sexe,$adresse,$tell,MailerInterface $mailer,$role,$matricule,$specialite)
     {
         $em = $this->getDoctrine()->getManager();
         $loginverif= $this->getDoctrine()->getRepository(User::class)->findBy(array('login' => $login));
@@ -81,7 +81,12 @@ class UserController extends AbstractController
         $user->setPrenom($prenom);
         $user->setMdp(password_hash ($mdp,PASSWORD_BCRYPT,['cost' => 12]));
         $user->setTelephone($tell);
-        $user->setRole(1);
+        $user->setRole($role);
+        $user->setLienImageUser("9340e567-a864-4097-aca9-0a0e90bfe601.jpeg");
+        if ($matricule!="null")
+        {$user->setMatriculeFiscale($matricule);}
+        if ($specialite!="null")
+        {$user->setMatriculeFiscale($specialite);}
         $users= Array();
 
         foreach ($user as $key=>$Cat){
