@@ -52,6 +52,42 @@ class SoinMPController extends AbstractController
     }
 
     /**
+     * @return Response
+     * @Route("Api/Soin/Stat", name="StatSoinMPsJson")
+     */
+    public function StatSoinMPsJson(): Response
+    {
+
+        $SoinMPfind = $this->getDoctrine()->getRepository(SoinMP::class)->findAll();
+
+        $jsonContent= Array();
+        foreach ($SoinMPfind as $key=>$aide){
+            $jsonContent[$key]['titreSoinMP']= $aide->getTitreSoinMP();
+            $note=0;
+            $Moyenne=0;
+            $aviss="";
+            $SoinMPsfind = $this->getDoctrine()->getRepository(SoinMP::class)->find($aide->getId());
+            $Notes=$this->getDoctrine()->getRepository(NoteSoinMP::class)->findBy(array('soinMP'=>$SoinMPsfind));
+            if (!(empty($x))){
+                $Valeur=$x[0]->getValeur();
+                $Avis=$x[0]->getAvis();}
+            else {$Valeur=0;
+                $Avis="";}
+            if (!(empty($Notes)))
+            {
+                $total=0;
+                for ($i =0; $i <= (count($Notes)-1); $i++)
+                {
+                    $total=$total+($Notes[$i]->getValeur());
+                }
+                $Moyenne=$total/(count($Notes));
+            }
+            $jsonContent[$key]['moyenne']=$Moyenne;
+        }
+        return new JsonResponse($jsonContent);
+    }
+
+    /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      * @Route ("Api/Soin/Ajouter/{titre}/{description}/{adresse}/{categorie}" , name="ajouterSoinMPJson")

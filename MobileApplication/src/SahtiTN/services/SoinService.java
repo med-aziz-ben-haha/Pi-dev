@@ -17,6 +17,7 @@ import com.codename1.ui.events.ActionListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -27,6 +28,7 @@ import java.util.Map;
 public class SoinService {
         public ArrayList<SoinMP> soins;
         public ArrayList<NoteSoin> notesoins;
+        public Map<String,Integer> m ;
         NoteSoin n = new NoteSoin();
     public static SoinService instance ;
     //private ConnectionRequest req ;
@@ -59,7 +61,7 @@ public class SoinService {
                 s.setDescription_soin_mp(obj.get("descriptionSoinMP").toString());
                 s.setAdresse_soin_mp(obj.get("adresseSoinMP").toString());
                 s.setLien_image_smp(obj.get("lienImageSMP").toString());
-                s.setMoyenne(Float.parseFloat(obj.get("moyenne").toString()));
+                s.setMoyennenote(Float.parseFloat(obj.get("moyenne").toString()));
                 s.setValeur(Float.parseFloat(obj.get("note").toString()));
                 s.setAvis(obj.get("avis").toString());
                 soins.add(s);
@@ -134,7 +136,7 @@ public class SoinService {
 
     return resultOK; 
   } 
- 
+
  
            public Boolean updateSoin(int id ,String titre ,String Description,String adresse,int categorie) {
      
@@ -194,5 +196,48 @@ public class SoinService {
     return resultOK; 
 }
 
+ public ArrayList<SoinMP>statdata() {
+        
+        String url = Statics.BASE_URL_Soin + "/Stat";
+         
+   
+        ConnectionRequest req = new ConnectionRequest();
+        req.setUrl(url);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                soins = parseStat(new String(req.getResponseData()));
+                resultOK = req.getResponseCode() == 200; //Code HTTP 200 OK
+                req.removeResponseListener(this);
+            }
+        });
+        
+        NetworkManager.getInstance().addToQueueAndWait(req);
+
+    return soins; 
+  } 
+  public ArrayList<SoinMP> parseStat(String jsonText){
+        try {
+            soins=new ArrayList<>();
+            JSONParser j = new JSONParser();
+            Map<String,Object> tasksListJson = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
+            
+            List<Map<String,Object>> list = (List<Map<String,Object>>)tasksListJson.get("root");
+            for(Map<String,Object> obj : list){
+                SoinMP s = new SoinMP();
+                
+             
+                s.setTitre_soin_mp(obj.get("titreSoinMP").toString());
+        
+                s.setMoyennenote(Float.parseFloat(obj.get("moyenne").toString()));
+       
+                soins.add(s);
+            }
+            
+        } catch (IOException ex) {
+            
+        }
+        return soins;
+            }
 }
 

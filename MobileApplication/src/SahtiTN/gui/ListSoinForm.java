@@ -214,7 +214,7 @@ public class ListSoinForm extends Form {
 
             });
 
-            container.addAll(FlowLayout.encloseCenter(createStarRankSlider(a.getMoyenne())), image, c_titre, c_description, c_adresse, c_id, boutonNote, espace);
+            container.addAll(FlowLayout.encloseCenter(createStarRankSlider(a.getMoyennenote())), image, c_titre, c_description, c_adresse, c_id, boutonNote, espace);
 
             list2.add(container);
 

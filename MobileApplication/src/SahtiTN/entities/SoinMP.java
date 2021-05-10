@@ -50,13 +50,9 @@ public class SoinMP {
         this.valeur = valeur;
     }
 
-    public float getMoyenne() {
-        return moyennenote;
-    }
+    
 
-    public void setMoyenne(float moyenne) {
-        this.moyennenote = moyenne;
-    }
+  
     public Integer getId() {
         return id;
     }

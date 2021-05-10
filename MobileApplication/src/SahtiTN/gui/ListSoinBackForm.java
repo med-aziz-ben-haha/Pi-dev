@@ -90,6 +90,8 @@ public class ListSoinBackForm extends Form{
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
                 f.getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatSoinBackForm().show();});
                 f.getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListSoinBackForm().show();});
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatSoinForm().show();});
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatUserForm().show();});
                 f.show();
                 b.addActionListener(new ActionListener() {
                     @Override
@@ -103,11 +105,26 @@ public class ListSoinBackForm extends Form{
                 });
             }
         });
-         getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-         getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-         getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-         getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatSoinBackForm().show();});
-         getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListSoinBackForm().show();});
+          getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+        });
+        getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+        });
+        getToolbar().addCommandToSideMenu(" ", null, (event) -> {
+        });
+        getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {
+            new ListCatSoinBackForm().show();
+        });
+        getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
+            new ListSoinBackForm().show();
+        });
+        getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+            new StatSoinForm().show();
+        });
+        getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
+            new StatUserForm().show();
+        });
+        getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatSoinForm().show();});
+        getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatUserForm().show();});
 
     }
 
@@ -174,6 +191,8 @@ public class ListSoinBackForm extends Form{
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
                 f.getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatSoinBackForm().show();});
                 f.getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListSoinBackForm().show();});
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatSoinForm().show();});
+                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatUserForm().show();});
                 f.show();
                 b.addActionListener(new ActionListener() {
                     @Override

@@ -34,6 +34,29 @@ class UserController extends AbstractController
     }
 
     /**
+     * @return Response
+     * @Route("/Api/User/list", name="listUserJson")
+     */
+    public function listUserJson(): Response
+    {
+        $user = $this->getDoctrine()->getRepository(User::class)->findAll();
+        foreach ($user as $key=>$Cat){
+            $users[$key]['id']= $Cat->getId();
+            $users[$key]['login']= $Cat->getLogin();
+            $users[$key]['password']= $Cat->getMdp();
+            $users[$key]['email']=$Cat->getEmail();
+            $users[$key]['nom']= $Cat->getNom();
+            $users[$key]['prenom']= $Cat->getPrenom();
+            $users[$key]['adresse_user']= $Cat->getAdresseUser();
+            $users[$key]['role']= $Cat->getRole();
+            $users[$key]['telephone']= $Cat->getTelephone();
+            $users[$key]['sexe']= $Cat->getSexe();
+            $users[$key]['lien_image_user']=$Cat->getLienImageUser();
+        }
+    return new JsonResponse($users);
+    }
+
+    /**
      * @param $mail
      * @param $nom
      * @param $prenom
