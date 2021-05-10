@@ -84,11 +84,7 @@ public class SoinService {
             public void actionPerformed(NetworkEvent evt) {
                 soins = parseSoins(new String(req.getResponseData()));
 
-                for( SoinMP a : soins)
-                {   
-                    System.out.println("objet : "  + a);
-                }
-                
+           
                 req.removeResponseListener(this);
             }
         });

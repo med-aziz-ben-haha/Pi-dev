@@ -120,7 +120,7 @@ class SoinMPController extends AbstractController
         $SoinMPfind->setAdresseSoinMP($adresse);
         $categoriefind=$this->getDoctrine()->getRepository(CategorieSoinMP::class)->find(array('id'=>$categorie));
         $SoinMPfind->setCategorieSoinMP($categoriefind);
-        $SoinMPfind->setLienImageSMP("2.4Méditation-603aee9ce4bff.jpeg");
+
         $em = $this->getDoctrine()->getManager();
         $em->flush();
         return new JsonResponse("Soin modifié");

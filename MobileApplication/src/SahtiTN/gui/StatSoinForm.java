@@ -6,6 +6,7 @@
 package SahtiTN.gui;
 
 import CubicChart.CubicChart;
+import SahtiTN.MyApplication;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.SoinService;
 import com.codename1.charts.ChartComponent;
@@ -38,6 +39,7 @@ public class StatSoinForm extends Form{
    
 public StatSoinForm() {
     super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
+    getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
         CubicChart c = new CubicChart();
          Container titre = new Container (BoxLayout.y());
        Container  titres = new Container (BoxLayout.y());

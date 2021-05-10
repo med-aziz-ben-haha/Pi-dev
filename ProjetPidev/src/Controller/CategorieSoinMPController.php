@@ -103,7 +103,7 @@ class CategorieSoinMPController extends AbstractController
     {
         $CategorieSoinfind = $this->getDoctrine()->getRepository(CategorieSoinMP::class)->findBy(['id' => $id])[0];
         $CategorieSoinfind->setLibelleCategorieSoinMP($titre);
-        $CategorieSoinfind->setLienIconeCSMP("categorie-605339359cead.png");
+
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 

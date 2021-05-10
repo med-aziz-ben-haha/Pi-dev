@@ -11,8 +11,11 @@ import SahtiTN.entities.CategorieSoinMP;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.CategorieSoinService;
 import SahtiTN.services.SoinService;
+import com.codename1.capture.Capture;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
+import com.codename1.components.ToastBar;
+import com.codename1.io.Log;
 import com.codename1.ui.Button;
 import com.codename1.ui.ComboBox;
 import com.codename1.ui.Command;
@@ -28,6 +31,9 @@ import com.codename1.ui.URLImage;
 import com.codename1.ui.events.ActionEvent;
 import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.util.ImageIO;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -42,6 +48,7 @@ public class ListSoinBackForm extends Form{
       List<CategorieSoinMP> cat;
     private CategorieSoinService svCat;
     ComboBox<CategorieSoinMP> ComboCat;
+  
     
     public ListSoinBackForm() {
         current = this;
@@ -64,7 +71,7 @@ public class ListSoinBackForm extends Form{
             @Override
             public void actionPerformed(ActionEvent evt) {
                 
-                EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false);
+                EncodedImage enc = EncodedImage.createFromImage(MyApplication.theme.getImage("placeholder-image.png"), false).scaledEncoded(200, 200);
 
                 Image img = URLImage.createToStorage(enc, "http://localhost/public/uploads/2.4Méditation-603aee9ce4bff.jpeg", "http://localhost/public/uploads/2.4Méditation-603aee9ce4bff.jpeg");
 
@@ -84,6 +91,8 @@ public class ListSoinBackForm extends Form{
                 Label lbadresse = new Label("Adresse:");
                 TextArea adresse = new TextArea();
                 Button b = new Button("Ajouter");
+                
+               
                 f.addAll(espace, image, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse, b);
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
@@ -99,7 +108,8 @@ public class ListSoinBackForm extends Form{
                          if ((titre.getText().length() == 0) || (description.getText().length() == 0) || (adresse.getText().length()== 0)) {
                     Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
                 }
-                         else{     SoinService.getInstance().addSoin(titre.getText(),description.getText(),adresse.getText(),ComboCat.getSelectedItem().getId());
+                         else{    
+                             SoinService.getInstance().addSoin(titre.getText(),description.getText(),adresse.getText(),ComboCat.getSelectedItem().getId());
                         new ListSoinBackForm().show();}                        
                     }
                 });
@@ -123,8 +133,7 @@ public class ListSoinBackForm extends Form{
         getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
             new StatUserForm().show();
         });
-        getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatSoinForm().show();});
-        getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatUserForm().show();});
+  
 
     }
 
@@ -185,6 +194,9 @@ public class ListSoinBackForm extends Form{
                 Label lbadresse = new Label("Adresse:");
                 TextArea adresse = new TextArea(Soin.getAdresse_soin_mp());
                 Button b = new Button("Modifier");
+                
+                
+                
                 f.addAll(espace, image, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse, b);
                  f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
@@ -200,7 +212,8 @@ public class ListSoinBackForm extends Form{
                          if ((titre.getText().length() == 0) || (description.getText().length() == 0) || (adresse.getText().length()== 0)) {
                     Dialog.show("Alert", "Veuillez remplir tous les champs.", new Command("OK"));
                 }
-                         else{     SoinService.getInstance().updateSoin(Soin.getId(),titre.getText(),description.getText(),adresse.getText(),ComboCat.getSelectedItem().getId());
+                         else{ 
+                             SoinService.getInstance().updateSoin(Soin.getId(),titre.getText(),description.getText(),adresse.getText(),ComboCat.getSelectedItem().getId());
                         new ListSoinBackForm().show();}                         
                     }
                 });
@@ -208,6 +221,5 @@ public class ListSoinBackForm extends Form{
         });
         return holder;
     }
-
 }
 

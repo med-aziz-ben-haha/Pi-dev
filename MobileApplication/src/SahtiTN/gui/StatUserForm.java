@@ -5,6 +5,7 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.MyApplication;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceUser;
 import com.codename1.charts.ChartComponent;
@@ -78,8 +79,9 @@ protected CategorySeries buildCategoryDataset(String title, double[] values) {
 
 public StatUserForm() {
     // Generate the values
+    
             super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
-
+getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
     double[] values = new double[]{12, 14, 11, 10, 19};
 
     // Set up the renderer
