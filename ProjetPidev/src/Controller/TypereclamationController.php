@@ -3,6 +3,11 @@
 namespace App\Controller;
 use App\Entity\User;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\TypeReclamation;
 use App\Entity\Reclamation;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +24,68 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class TypereclamationController extends AbstractController
 {
+
+    /**
+     * @Route("/affichertypereclamationjson", name="affichertypereclamationjson")
+     */
+    public function AllType(NormalizerInterface $normalizer)
+    {
+        $typereclamation = $this->getDoctrine()->getRepository(Typereclamation::class)->findAll();
+        $jsonContent = $normalizer->normalize($typereclamation, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+
+    /**
+     * @Route("/trimob", name="trimob")
+     */
+    public function trimob(NormalizerInterface $normalizerinterface)
+    {
+        $type = $this->getDoctrine()->getRepository(TypeReclamation::class)->Tricap();
+        $jsonContent = $normalizerinterface->normalize($type, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/addjson", name="addjson")
+     */
+    public function addjson(Request $request, SerializerInterface $serializerInterface)
+    {
+        $type = new TypeReclamation();
+
+
+        $typereclamation = $request->query->get('type_reclamation');
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        $type->setTypeReclamation($typereclamation);
+
+
+        $em->persist($type);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($type);
+        return new JsonResponse($formatted);
+    }
+
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("/supprimertypereclamationjson/{id}" , name="supprimertypereclamationjson")
+     */
+    public function Supprimertypereclamationjson(SessionInterface $session, $id, NormalizerInterface $normalizer)
+    {
+
+        $Typereclamationfind = $this->getDoctrine()->getRepository(TypeReclamation::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($Typereclamationfind);
+        $em->flush();
+        $jsonContent = $normalizer->normalize($Typereclamationfind, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+
     /**
      * @Route("/typereclamation", name="typereclamation")
      */

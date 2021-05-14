@@ -80,4 +80,14 @@ class TypeReclamationRepository extends ServiceEntityRepository
         return $qry->getQuery()->getResult();
 
     }
+
+    public function Tricap()
+
+    {
+        return $this->createQueryBuilder('q')
+            ->orderBy('q.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
 }

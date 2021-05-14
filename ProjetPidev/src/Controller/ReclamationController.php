@@ -5,6 +5,8 @@ use App\Entity\Reclamation;
 use App\Entity\User;
 use App\Form\AjoutreclamationType;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,6 +22,53 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class ReclamationController extends AbstractController
 {
+    /**
+     * @Route("/afficher", name="afficher")
+     */
+    public function AllRec(NormalizerInterface $normalizer)
+    {
+        $reclamation=$this->getDoctrine()->getRepository(Reclamation::class)->findAll();
+        $jsonContent=$normalizer->normalize($reclamation,'json',['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));    }
+
+    /**
+     * @param Request $request
+     * @param NormalizerInterface $normalizer
+     * @param $description_reclamation
+     * @return Response
+     * @throws \Symfony\Component\Serializer\Exception\ExceptionInterface
+     * @Route("/addjs/new/{description_reclamation}",name="addjs")
+     */
+    public function ajouterJs(Request $request,NormalizerInterface $normalizer,$description_reclamation)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamation=new Reclamation();
+        $reclamation->setDescriptionReclamation($description_reclamation);
+
+        $em->persist($reclamation);
+        $em->flush();
+
+        $jsonContent=$normalizer->normalize($reclamation,'json',['groups'=>'post:read']);
+
+
+        return new Response(json_encode($jsonContent));
+    }
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     * @Route ("/supprimer/{id}" , name="supprimer")
+     */
+    public function Supprimer(SessionInterface $session,$id,NormalizerInterface $normalizer)
+    {
+
+        $reclamationfind = $this->getDoctrine()->getRepository(Reclamation::class)->find($id);
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($reclamationfind);
+        $em->flush();
+        $jsonContent=$normalizer->normalize($reclamationfind,'json',['groups'=>'post:read']);
+        return new Response(json_encode($jsonContent));    }
+
+
     /**
      * @Route("/reclamation", name="reclamation")
      */

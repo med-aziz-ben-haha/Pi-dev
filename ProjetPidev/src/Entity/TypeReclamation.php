@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Length;
-
+use Symfony\Component\Serializer\Annotation\Groups;
 /**
  * @ORM\Entity(repositoryClass=TypeReclamationRepository::class)
  */
@@ -19,17 +19,20 @@ class TypeReclamation
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le champs type reclamation est obligatoire * ")
+     * @Groups("post:read")
      */
     private $typeReclamation;
 
     /**
      * @ORM\OneToMany(targetEntity=Reclamation::class, mappedBy="typeReclamation", orphanRemoval=true)
+     * @Groups("post:read")
      */
     private $reclamations;
 
