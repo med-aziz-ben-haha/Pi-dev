@@ -48,10 +48,22 @@ public class HomePageForm extends Form{
                 public void actionPerformed(ActionEvent evt) {
                     new ListCategorieSoinForm(u,current).show();
                 }});
-        
-        
+        Button reclamations= new Button("     Réclamer     ");
+        reclamations.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                   new AddReclamationForm(current,u).show();  
+                }});
+             Button Consulterrec= new Button("     Consulter Réclamation     ");
+        Consulterrec.addActionListener(new ActionListener() {
+
+                @Override
+                public void actionPerformed(ActionEvent evt) {
+                   new ListReclamationFrontForm(current,u).show();  
+                }});
         Container holder = new Container (BoxLayout.y());
-        holder.add(soins);
+        holder.addAll(soins,reclamations,Consulterrec);
         Button phar= new Button("     Gérer Médicament      ");
         Button med= new Button("     Gérer Ordonnace      ");
         Button para= new Button("     Gérer ParaPharmacie      ");

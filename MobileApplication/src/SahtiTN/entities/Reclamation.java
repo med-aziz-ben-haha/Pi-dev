@@ -12,11 +12,10 @@ public class Reclamation {
     private int type_reclamation_id ;
     private String description_reclamation;
     private String reponse ;
-    
-    
-    
-    
-    
+
+    public Reclamation(String text) {
+     description_reclamation=text; 
+    }
     
     public int getUser_id() {
         return user_id;
@@ -77,13 +76,8 @@ public class Reclamation {
 
     @Override
     public String toString() {
-        
-        if(reponse.equalsIgnoreCase("Reclamation en cours"))
-            { return description_reclamation;}
-        else
-                    {return description_reclamation + " ||   reponse=" + reponse ;}
-
-        
+        return "Reclamation{" + "id=" + id + ", user_id=" + user_id + ", type_reclamation_id=" + type_reclamation_id + ", description_reclamation=" + description_reclamation + ", reponse=" + reponse + '}';
     }
+
     
 }

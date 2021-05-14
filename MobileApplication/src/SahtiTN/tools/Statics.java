@@ -14,4 +14,5 @@ public class Statics {
        public static final String BASE_URL_CatSoin="http://127.0.0.1:8000/Api/CatSoin";
        public static final String BASE_URL_User="http://127.0.0.1:8000/Api/User";
         public static final String BASE_URL_Note="http://127.0.0.1:8000/Api/Note";
+        public static final String BASE_URL="http://127.0.0.1:8000";
 }

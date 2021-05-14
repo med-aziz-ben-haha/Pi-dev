@@ -94,13 +94,8 @@ public class ListSoinBackForm extends Form{
                 
                
                 f.addAll(espace, image, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse, b);
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatSoinBackForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListSoinBackForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatSoinForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatUserForm().show();});
+                f.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListSoinBackForm().showBack());
+                f.getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
                 f.show();
                 b.addActionListener(new ActionListener() {
                     @Override
@@ -115,24 +110,7 @@ public class ListSoinBackForm extends Form{
                 });
             }
         });
-          getToolbar().addCommandToSideMenu(" ", null, (event) -> {
-        });
-        getToolbar().addCommandToSideMenu(" ", null, (event) -> {
-        });
-        getToolbar().addCommandToSideMenu(" ", null, (event) -> {
-        });
-        getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {
-            new ListCatSoinBackForm().show();
-        });
-        getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
-            new ListSoinBackForm().show();
-        });
-        getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
-            new StatSoinForm().show();
-        });
-        getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
-            new StatUserForm().show();
-        });
+          getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new HomePageBackForm().showBack());
   
 
     }
@@ -198,13 +176,9 @@ public class ListSoinBackForm extends Form{
                 
                 
                 f.addAll(espace, image, lbtitre, titre,lbCat,ComboCat,lbdescription,description,lbadresse,adresse, b);
-                 f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addCommandToSideMenu(" ", null, (event) -> {});
-                f.getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {new ListCatSoinBackForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {new ListSoinBackForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatSoinForm().show();});
-                f.getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {new StatUserForm().show();});
+                f.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListSoinBackForm().showBack());
+                f.getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+                
                 f.show();
                 b.addActionListener(new ActionListener() {
                     @Override

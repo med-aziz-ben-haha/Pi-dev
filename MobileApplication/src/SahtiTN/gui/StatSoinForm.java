@@ -72,24 +72,7 @@ public StatSoinForm() {
       
 
     this.add(BorderLayout.CENTER, all);
-     getToolbar().addCommandToSideMenu(" ", null, (event) -> {
-        });
-        getToolbar().addCommandToSideMenu(" ", null, (event) -> {
-        });
-        getToolbar().addCommandToSideMenu(" ", null, (event) -> {
-        });
-        getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {
-            new ListCatSoinBackForm().show();
-        });
-        getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
-            new ListSoinBackForm().show();
-        });
-        getToolbar().addMaterialCommandToSideMenu(" Statistiques SoinMP", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
-            new StatSoinForm().show();
-        });
-        getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
-            new StatUserForm().show();
-        });
+      getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new HomePageBackForm().showBack());
 
 }
     
