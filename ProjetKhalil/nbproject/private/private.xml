@@ -6,7 +6,14 @@
         <group>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/services/ServiceOrdonnance.java</file>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/services/ServiceMedicament.java</file>
-            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/Chart_khalil.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AjouterMedicamentForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AfficherMedicamentForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/RechercherOrdonnanceForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AfficherOrdonnanceForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/entities/Medicament.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/UpdateOrdonnanceForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/RechercherMedicamentForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AjouterOrdonnanceForm.java</file>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/HomeForm.java</file>
         </group>
     </open-files>

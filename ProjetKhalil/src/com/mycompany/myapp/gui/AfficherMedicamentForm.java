@@ -17,6 +17,8 @@ import com.codename1.ui.Image;
 import com.codename1.ui.Label;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Style;
+import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.entities.Medicament;
 import com.mycompany.myapp.services.ServiceMedicament;
@@ -35,6 +37,12 @@ public class AfficherMedicamentForm extends Form{
         
         setTitle("Afficher Medicaments");
         setLayout(BoxLayout.y());
+        
+        Style st = UIManager.getInstance().getComponentStyle("Title");
+        FontImage searchIcon = FontImage.createMaterial(FontImage.MATERIAL_SEARCH, st);
+        Button bt_RechercheMedicament = new Button("Recherche Medicament",searchIcon);
+        bt_RechercheMedicament.addActionListener(e -> new RechercherMedicamentForm(previous).show());
+        add(bt_RechercheMedicament);
         
         ArrayList<Medicament> medicaments = ServiceMedicament.getInstance().afficherMedicament();
         for (Medicament med : medicaments) {

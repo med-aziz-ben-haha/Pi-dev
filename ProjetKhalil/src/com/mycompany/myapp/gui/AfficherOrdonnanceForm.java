@@ -14,6 +14,8 @@ import com.codename1.ui.Form;
 import com.codename1.ui.Label;
 import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.plaf.Style;
+import com.codename1.ui.plaf.UIManager;
 import com.mycompany.myapp.entities.Ordonnance;
 import com.mycompany.myapp.services.ServiceOrdonnance;
 import java.util.ArrayList;
@@ -23,13 +25,19 @@ import java.util.ArrayList;
  * @author Ennaifer Khalil
  */
 public class AfficherOrdonnanceForm extends Form {
-
+    
     public AfficherOrdonnanceForm() {
     }   
    
     public AfficherOrdonnanceForm(Form previous) {
         setTitle("Liste des Ordonnances");
         setLayout(BoxLayout.y());
+
+        Style st = UIManager.getInstance().getComponentStyle("Title");
+        FontImage searchIcon = FontImage.createMaterial(FontImage.MATERIAL_SEARCH, st);
+        Button bt_RechercheOrdonnance = new Button("Recherche Ordonnance",searchIcon);
+        bt_RechercheOrdonnance.addActionListener(e -> new RechercherOrdonnanceForm(previous).show());
+        add(bt_RechercheOrdonnance);
         
         ArrayList<Ordonnance> ordonnances = ServiceOrdonnance.getInstance().afficherOrdonnance();
         for (Ordonnance ord : ordonnances) {

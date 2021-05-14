@@ -38,7 +38,7 @@ public class RechercherMedicamentForm extends Form {
         setLayout(BoxLayout.y());
         this.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
         
-        TextField searchField = new TextField("", "Nom Du medicament");
+        TextField searchField = new TextField("", "Entrez le Nom ou la Description");
         this.getToolbar().setTitleComponent(
                 FlowLayout.encloseCenterMiddle(
                         searchField

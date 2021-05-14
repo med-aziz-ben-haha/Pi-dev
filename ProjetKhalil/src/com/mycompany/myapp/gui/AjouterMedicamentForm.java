@@ -86,8 +86,7 @@ public class AjouterMedicamentForm extends Form{
             }
            return verif;
        }  
-            
-            
+  
         });
        
         addAll(tf_nom,tf_desc,check_dispo,tf_Date,btnValider);
