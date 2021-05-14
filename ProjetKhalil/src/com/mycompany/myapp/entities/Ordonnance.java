@@ -16,14 +16,14 @@ public class Ordonnance {
     private int id;
     private String contenu;
     private Date dateOrdonnance;
-    private String liste_medicament;
+    private int liste_medicament;
     private int user_id;
     private int medecin_id;
 
     public Ordonnance() {
     }
 
-    public Ordonnance(String contenu, Date dateOrdonnance, String liste_medicament, int user_id, int medecin_id) {
+    public Ordonnance(String contenu, Date dateOrdonnance, int liste_medicament, int user_id, int medecin_id) {
         this.contenu = contenu;
         this.dateOrdonnance = dateOrdonnance;
         this.liste_medicament = liste_medicament;
@@ -55,13 +55,14 @@ public class Ordonnance {
         this.dateOrdonnance = dateOrdonnance;
     }
 
-    public String getListe_medicament() {
+    public int getListe_medicament() {
         return liste_medicament;
     }
 
-    public void setListe_medicament(String liste_medicament) {
+    public void setListe_medicament(int liste_medicament) {
         this.liste_medicament = liste_medicament;
     }
+
 
     public int getUser_id() {
         return user_id;

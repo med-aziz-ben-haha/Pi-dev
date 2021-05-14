@@ -12,9 +12,7 @@ import com.codename1.ui.Dialog;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
-import com.codename1.ui.TextField;
-import com.codename1.ui.events.ActionEvent;
-import com.codename1.ui.events.ActionListener;
+import com.codename1.ui.Toolbar;
 import com.codename1.ui.layouts.BoxLayout;
 import com.mycompany.myapp.entities.Ordonnance;
 import com.mycompany.myapp.services.ServiceOrdonnance;
@@ -32,7 +30,7 @@ public class AfficherOrdonnanceForm extends Form {
     public AfficherOrdonnanceForm(Form previous) {
         setTitle("Liste des Ordonnances");
         setLayout(BoxLayout.y());
-
+        
         ArrayList<Ordonnance> ordonnances = ServiceOrdonnance.getInstance().afficherOrdonnance();
         for (Ordonnance ord : ordonnances) {
             add(addOrdonnanceHolder(ord));

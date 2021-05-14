@@ -119,7 +119,7 @@ public class ServiceMedicament {
     }
     
     public boolean updateMedicament (Medicament m) {
-        String url=Statics.BASE_URL+"/MedicamentmodifierJSON/"+m.getId()+"?nomMedicament="+m.getNom_medicament()+"&descmedicament="+m.getDescmedicament()+"&dispo="+m.getDispo()+"&img_medicament="+m.getImg_medicament(); //création de l'URL
+        String url=Statics.BASE_URL+"/MedicamentmodifierJSON/"+m.getId()+"?nomMedicament="+m.getNom_medicament()+"&descmedicament="+m.getDescmedicament()+"&dispo="+m.getDispo(); //création de l'URL
         req.setUrl(url);// Insertion de l'URL de notre demande de connexion
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -130,6 +130,21 @@ public class ServiceMedicament {
         });
         NetworkManager.getInstance().addToQueueAndWait(req);
         return resultOK;
+    }
+    
+        public ArrayList<Medicament> rechercheOrdonnance(String Data){
+        String url = Statics.BASE_URL+"/rechercheMedicamentJSON/"+Data;
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                medicaments = parseMedicament(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return medicaments;
     }
 
 }

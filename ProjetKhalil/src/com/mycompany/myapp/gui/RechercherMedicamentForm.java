@@ -6,64 +6,83 @@
 package com.mycompany.myapp.gui;
 
 import com.codename1.components.ImageViewer;
-import com.codename1.ui.Button;
-import com.codename1.ui.Command;
 import com.codename1.ui.Container;
-import com.codename1.ui.Dialog;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Image;
 import com.codename1.ui.Label;
+import com.codename1.ui.TextField;
 import com.codename1.ui.URLImage;
 import com.codename1.ui.layouts.BoxLayout;
+import com.codename1.ui.layouts.FlowLayout;
+import com.codename1.ui.plaf.Style;
+import com.codename1.ui.plaf.UIManager;
 import com.codename1.ui.util.Resources;
 import com.mycompany.myapp.entities.Medicament;
 import com.mycompany.myapp.services.ServiceMedicament;
 import java.io.IOException;
 import java.util.ArrayList;
+
 /**
  *
  * @author Ennaifer Khalil
  */
-public class AfficherMedicamentForm extends Form{
+public class RechercherMedicamentForm extends Form {
     
     private EncodedImage placeHolder;
     private Resources theme;
 
-    public AfficherMedicamentForm(Form previous) {
-        
-        setTitle("Afficher Medicaments");
+
+    public RechercherMedicamentForm(Form previous) {
         setLayout(BoxLayout.y());
+        this.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
         
-        ArrayList<Medicament> medicaments = ServiceMedicament.getInstance().afficherMedicament();
+        TextField searchField = new TextField("", "Nom Du medicament");
+        this.getToolbar().setTitleComponent(
+                FlowLayout.encloseCenterMiddle(
+                        searchField
+                )
+        );
+        
+        Style st = UIManager.getInstance().getComponentStyle("Title");
+        FontImage searchIcon = FontImage.createMaterial(FontImage.MATERIAL_SEARCH, st);
+        
+        Container contenant = BoxLayout.encloseY();
+        AfficherMedicament("", contenant);
+        searchField.addDataChangeListener((i1, i2) -> {
+            String t = searchField.getText();
+            if (t.length() < 1) {
+                contenant.removeAll();
+                AfficherMedicament("", contenant);
+                contenant.refreshTheme();
+            } else {
+                contenant.removeAll();
+                String search_word = t;
+                AfficherMedicament(t, contenant);
+                contenant.refreshTheme();
+            }
+            getContentPane().animateLayout(250);
+        });
+        this.getToolbar().addCommandToRightBar("", searchIcon, e -> {
+            searchField.startEditingAsync();
+        });
+        this.add(contenant);
+        
+    }
+    public void AfficherMedicament(String contenu,Container co){
+        if (contenu.isEmpty()) 
+        {
+            ArrayList<Medicament> medicaments = ServiceMedicament.getInstance().afficherMedicament();
         for (Medicament med : medicaments) {
-            add(addMedicamentHolder(med));
-            
-            Button btnSupp = new Button("Supprimer");
-            btnSupp.addActionListener((evt)->{ 
-                if (Dialog.show("Warning", "Voulez-vous vraiment supprimer?", "OUI", "NON")) {
-                    try {
-                        if (ServiceMedicament.getInstance().removeMedicament(med.getId())) {
-                            Dialog.show("Success", "Connection accepted", new Command("OK"));
-                        } else {
-                            Dialog.show("ERROR", "Server error", new Command("OK"));
-                        }
-                    } catch (NumberFormatException e) {
-                        Dialog.show("ERROR", "Status must be a number", new Command("OK"));
-                    }
-                    new AfficherMedicamentForm(previous).show();
-                }
-            });
-            Button btnModif = new Button("Modifier");
-            btnModif.addActionListener(e -> new UpdateMedicamentForm(previous,med).show());
-            
-            Container btHolder = new Container(BoxLayout.x());
-            btHolder.addAll(btnSupp, btnModif);
-            addAll(btHolder);
-        } 
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK
-                , e-> previous.showBack());
+            co.add(addMedicamentHolder(med));
+            }
+        } else {
+            ArrayList<Medicament> medicaments = ServiceMedicament.getInstance().rechercheOrdonnance(contenu);
+            for (Medicament med : medicaments) {
+                co.add(addMedicamentHolder(med));
+            }
+        }
     }
     
     private Image getImageFromServer(String image) {
@@ -119,6 +138,6 @@ public class AfficherMedicamentForm extends Form{
         }
 
     }
-
-
+    
+    
 }

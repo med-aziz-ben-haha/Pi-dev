@@ -72,7 +72,7 @@ public class ServiceOrdonnance {
                 o.setId((int)id);
                 o.setContenu(obj.get("contenu_ord").toString());
                 DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
-             
+                
                 try {
                     o.setDateOrdonnance(format.parse(obj.get("date_ord").toString()));
                 } catch (ParseException ex) {
@@ -86,7 +86,7 @@ public class ServiceOrdonnance {
     }
 
     public boolean ajouterOrdonnance (Ordonnance O) {
-        String url=Statics.BASE_URL+"/OrdonnanceajoutJSON/new/?contenu_ord="+O.getContenu(); //création de l'URL
+        String url=Statics.BASE_URL+"/OrdonnanceajoutJSON/new?contenu_ord="+O.getContenu()+"&id="+O.getListe_medicament(); //création de l'URL
         req.setUrl(url);// Insertion de l'URL de notre demande de connexion
         req.addResponseListener(new ActionListener<NetworkEvent>() {
             @Override
@@ -128,22 +128,7 @@ public class ServiceOrdonnance {
         return resultOK;
     }
     
-    public ArrayList<Ordonnance> trierOrdonnance(){
-        String url = Statics.BASE_URL+"/triordonnanceJSON";
-        req.setUrl(url);
-        req.setPost(false);
-        req.addResponseListener(new ActionListener<NetworkEvent>() {
-            @Override
-            public void actionPerformed(NetworkEvent evt) {
-                ordonnances = parseOrdonnance(new String(req.getResponseData()));
-                req.removeResponseListener(this);
-            }
-        });
-        NetworkManager.getInstance().addToQueueAndWait(req);
-        return ordonnances;
-    }
-    
-    public ArrayList<Ordonnance> rechercheOrdonnance(String Data){
+        public ArrayList<Ordonnance> rechercheOrdonnance(String Data){
         String url = Statics.BASE_URL+"/rechercheOrdonnanceJSON/"+Data;
         req.setUrl(url);
         req.setPost(false);
@@ -158,6 +143,20 @@ public class ServiceOrdonnance {
         return ordonnances;
     }
     
-    
+    public ArrayList<Ordonnance> trierOrdonnance(){
+        String url = Statics.BASE_URL+"/triordonnanceJSON";
+        req.setUrl(url);
+        req.setPost(false);
+        req.addResponseListener(new ActionListener<NetworkEvent>() {
+            @Override
+            public void actionPerformed(NetworkEvent evt) {
+                ordonnances = parseOrdonnance(new String(req.getResponseData()));
+                req.removeResponseListener(this);
+            }
+        });
+        NetworkManager.getInstance().addToQueueAndWait(req);
+        return ordonnances;
+    }
+  
     
 }

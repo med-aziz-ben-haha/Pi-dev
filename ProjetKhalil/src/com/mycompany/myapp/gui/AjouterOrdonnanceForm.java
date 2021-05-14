@@ -35,20 +35,20 @@ public class AjouterOrdonnanceForm extends Form {
     public AjouterOrdonnanceForm(Form previous) {
         setTitle("Ajouter Nouvelle Ordonnance");
         setLayout(BoxLayout.y());
-
+        
         TextField tf_Contenu = new TextField("", "Contenu");
         Picker tf_Date = new Picker();
 
         Label lb1 = new Label("Liste des médicaments");
         ArrayList<Medicament> medicaments = ServiceMedicament.getInstance().afficherMedicament();
-        DefaultListModel<String> model = new DefaultListModel();
+        DefaultListModel<Medicament> model = new DefaultListModel();
         MultiList ml = new MultiList(model);
         for (Medicament med : medicaments) {
-             ml.addItem(med.getNom_medicament());
+             ml.addItem(med);
         }
         
+        
     Button btnValider = new Button("Ajouter Ordonnance");
-
     btnValider.addActionListener (new ActionListener() {
         @Override
         public void actionPerformed (ActionEvent evt) {
@@ -57,11 +57,13 @@ public class AjouterOrdonnanceForm extends Form {
                     Ordonnance o = new Ordonnance();
                     String Contenu = tf_Contenu.getText();
                     Date Date_ord = (Date) tf_Date.getDate();
-                    System.out.print(Date_ord);
+                    Medicament Med =(Medicament) ml.getSelectedItem();
+                    System.out.println(Med);
 
                     o.setContenu(Contenu);
                     o.setDateOrdonnance(Date_ord);
-
+                    o.setListe_medicament(Med.getId());
+                    
                     if (ServiceOrdonnance.getInstance().ajouterOrdonnance(o)) {
                         Dialog.show("Success", "Connection accepted", new Command("OK"));
                     } else {

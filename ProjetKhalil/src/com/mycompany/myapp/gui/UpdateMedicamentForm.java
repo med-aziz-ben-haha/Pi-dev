@@ -35,8 +35,7 @@ public class UpdateMedicamentForm extends Form {
         TextField tf_desc = new TextField(medicament.getDescmedicament());
         CheckBox check_dispo = new CheckBox("Disponible");
         Picker tf_Date= new Picker();
-        TextField tf_img = new TextField(medicament.getImg_medicament());
-        
+
         Button btnUpdate = new Button("Update Medicament");
         btnUpdate.addActionListener(new ActionListener() {
             @Override
@@ -57,14 +56,12 @@ public class UpdateMedicamentForm extends Form {
                             MedDispo =0;
                         }
                         Date DateMed=(Date)tf_Date.getValue();
-                        String urlimage=tf_img.getText();
                            
                         m.setId(medicament.getId());
                         m.setNom_medicament(Nom);
                         m.setDescmedicament(Desc);
                         m.setDispo(MedDispo);
                         m.setDate_modif(DateMed);
-                        m.setImg_medicament(urlimage);
                         if( ServiceMedicament.getInstance().updateMedicament(m))
                             Dialog.show("Success","Connection accepted",new Command("OK"));
                         else
@@ -85,16 +82,12 @@ public class UpdateMedicamentForm extends Form {
                Dialog.show("Alert", "Veuillez remplir la Description", new Command("OK"));
                verif=false;
             }
-            else if (tf_img.getText().isEmpty()){
-               Dialog.show("Alert", "Veuillez choisir une Image", new Command("OK"));
-               verif=false;
-            } 
            return verif;
        }  
             
         });
         
-        addAll(tf_nom,tf_desc,check_dispo,tf_Date,tf_img,btnUpdate);
+        addAll(tf_nom,tf_desc,check_dispo,tf_Date,btnUpdate);
         getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK,
                 e -> previous.showBack());
     }

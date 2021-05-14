@@ -44,6 +44,7 @@ public class UpdateOrdonnanceForm extends Form {
                         
                         o.setId(ordonnance.getId());
                         o.setContenu(Contenu);
+                        
                         if( ServiceOrdonnance.getInstance().updateOrdonnance(o))
                             Dialog.show("Success","Connection accepted",new Command("OK"));
                         else
