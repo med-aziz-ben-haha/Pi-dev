@@ -13,6 +13,7 @@ import com.codename1.io.NetworkManager;
 import com.codename1.l10n.DateFormat;
 import com.codename1.l10n.ParseException;
 import com.codename1.l10n.SimpleDateFormat;
+import com.codename1.messaging.msgForm;
 import com.codename1.ui.events.ActionListener;
 import com.mycompany.myapp.entities.Ordonnance;
 import com.mycompany.myapp.utils.Statics;
@@ -157,6 +158,11 @@ public class ServiceOrdonnance {
         NetworkManager.getInstance().addToQueueAndWait(req);
         return ordonnances;
     }
+    
+     public void sms(){
+               NetworkManager.getInstance();
+              msgForm m = new msgForm();
+          }
   
     
 }

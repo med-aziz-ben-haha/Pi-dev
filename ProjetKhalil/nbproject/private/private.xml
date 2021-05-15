@@ -5,16 +5,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/services/ServiceOrdonnance.java</file>
-            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/services/ServiceMedicament.java</file>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AjouterMedicamentForm.java</file>
-            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AfficherMedicamentForm.java</file>
-            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/RechercherOrdonnanceForm.java</file>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AfficherOrdonnanceForm.java</file>
-            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/entities/Medicament.java</file>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/UpdateOrdonnanceForm.java</file>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/RechercherMedicamentForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/services/ServiceMedicament.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AfficherMedicamentForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/RechercherOrdonnanceForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/entities/Medicament.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/codename1/messaging/msgForm.java</file>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/AjouterOrdonnanceForm.java</file>
             <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/HomeForm.java</file>
+            <file>file:/C:/ProjetMobile/ProjetKhalil/src/com/mycompany/myapp/gui/UpdateMedicamentForm.java</file>
         </group>
     </open-files>
 </project-private>

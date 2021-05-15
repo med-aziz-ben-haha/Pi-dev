@@ -46,8 +46,9 @@ public class AjouterOrdonnanceForm extends Form {
         for (Medicament med : medicaments) {
              ml.addItem(med);
         }
-        
-        
+    Button btnEnvoie = new Button("Envoyer un mail");   
+    btnEnvoie.addActionListener(e -> ServiceOrdonnance.getInstance().sms());    
+    
     Button btnValider = new Button("Ajouter Ordonnance");
     btnValider.addActionListener (new ActionListener() {
         @Override
@@ -96,7 +97,7 @@ public class AjouterOrdonnanceForm extends Form {
                 }
          */
         //****************************************************************************************
-        addAll(tf_Contenu,tf_Date,lb1,ml,btnValider);
+        addAll(tf_Contenu,tf_Date,lb1,ml,btnEnvoie,btnValider);
         getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK,
                 e -> previous.showBack());
     }
