@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotNull;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=MedicamentRepository::class)
@@ -19,18 +20,21 @@ class Medicament
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups("post:read")
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank (message=" Nom du medicament obligatoire * ")
+     * @Groups("post:read")
      */
     private $nomMedicament;
 
     /**
      * @ORM\Column(type="date", nullable=true)
      * @Assert\NotBlank (message=" Date de modification obligatoire * ")
+     * @Groups("post:read")
      */
     private $dateModif;
 
@@ -41,11 +45,13 @@ class Medicament
      *      min = 0,
      *      max = 1,
      *      notInRangeMessage = " Entrez {{ min }} si le médicament est indisponible et {{ max }} s'il est disponible")
+     * @Groups("post:read")
      */
     private $dispo;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups("post:read")
      */
     private $img_medicament;
 
@@ -53,6 +59,7 @@ class Medicament
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank (message=" Description du medicament obligatoire * ")
+     * @Groups("post:read")
      */
     private $descmedicament;
     protected $captchaCode;

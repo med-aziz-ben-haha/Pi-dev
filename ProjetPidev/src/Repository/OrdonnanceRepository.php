@@ -55,4 +55,13 @@ class OrdonnanceRepository extends ServiceEntityRepository
             ->getQuery()->getResult()
             ;
     }
+
+    public function SearchName($data)
+    {
+        return $this->createQueryBuilder('m')
+            ->where('m.date_ord LIKE :data')->orWhere('m.contenu_ord Like :data ')
+            ->setParameter('data', '%'.$data.'%')
+            ->getQuery()->getResult()
+            ;
+    }
 }

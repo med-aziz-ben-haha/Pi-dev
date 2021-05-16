@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Ordonnance;
+use App\Entity\Medicament;
 use App\Entity\User;
 use App\Form\OrdonnanceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -13,9 +14,97 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use App\Repository\OrdonnanceRepository;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class OrdonnanceController extends AbstractController
 {
+
+    /**
+     * @Route("/listordonnanceJSON", name="listordonnanceJSON")
+     */
+
+    public function listordonnanceJSON(Request $request, OrdonnanceRepository $repository, NormalizerInterface $normalizer)
+    {
+        $ordonnance = $this->getDoctrine()->getRepository(Ordonnance ::class)->findAll();
+        $jsonContent = $normalizer->normalize($ordonnance, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/OrdonnanceajoutJSON/new", name="OrdonnanceajoutJSON")
+     */
+    public function OrdonnanceajoutJSON(Request $request,NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $ordonnance = new Ordonnance();
+        $ordonnance->setContenuOrd($request->get('contenu_ord'));
+        $date = new \DateTime("now");
+        $ordonnance->setDateOrd($date);
+
+        $medicament =$this->getDoctrine()->getRepository(Medicament::class)->find($request->get('id'));
+        $ordonnance->addMedicament($medicament);
+
+        $em->persist($ordonnance);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($ordonnance, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/OrdonnanceremoveJSON/{id}", name="/OrdonnanceremoveJSON")
+     */
+    public function removeJSON($id,Request $request, NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $ordonnance=$em->getRepository(Ordonnance::class)->find($id);
+        $em->remove($ordonnance);
+        $em->flush();
+        $jsonContent=$normalizer->normalize($ordonnance,'json',['groups' => 'post:read']);
+        return new Response("Ordonnance Deleted".json_encode($jsonContent));
+
+    }
+
+    /**
+     * @Route("/OrdonnancemodifierJSON/{id}", name="OrdonnancemodifierJSON")
+     */
+    public function modifierJSON(Request $request, NormalizerInterface $normalizer,$id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $ordonnance=$em->getRepository(Ordonnance::class)->find($id);
+        $ordonnance->setContenuOrd($request->get('contenu_ord'));
+        $date = new \DateTime("now");
+        $ordonnance->setDateOrd($date);
+        $em->flush();
+        $jsonContent=$normalizer->normalize($ordonnance,'json',['groups' => 'post:read']);
+        return new Response("Information updated".json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/rechercheOrdonnanceJSON/{data}",name="rechercheOrdonnanceJSON")
+     */
+    public function rechercheOrdonnanceJSON($data,OrdonnanceRepository $repository,NormalizerInterface $normalizer)
+    {
+        $ordonnance = $repository->SearchName($data);
+        $jsonContent = $normalizer->normalize($ordonnance, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @param OrdonnanceRepository $repository
+     * @return Response
+     * @Route ("/triordonnanceJSON",name="triordonnanceJSON")
+     */
+    public function triordonnanceJSON (OrdonnanceRepository $repository,NormalizerInterface $normalizer)
+    {
+        $ordonnance = $repository->OrderByDateQB();
+        $jsonContent = $normalizer->normalize($ordonnance, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
     /**
      * @Route("/ordonnance", name="ordonnance")
      */

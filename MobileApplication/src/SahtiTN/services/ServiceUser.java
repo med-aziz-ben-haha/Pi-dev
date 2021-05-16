@@ -45,7 +45,6 @@ public class ServiceUser {
 
         String url = Statics.BASE_URL_User + "/inscription" + "/" + u.getLogin() + "/" + u.getPassword() + "/" + u.getEmail() + "/" + u.getNom() + "/" + u.getPrenom() + "/" + u.getSexe() + "/" + u.getAdresse_user() + "/" + u.getTelephone() + "/" + u.getRole() + "/" + u.getMatricule_fiscale() + "/" + u.getSpecialite();
 
-        System.out.println(url);
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -59,7 +58,7 @@ public class ServiceUser {
         });
 
         NetworkManager.getInstance().addToQueueAndWait(req);
-        System.out.println(u.getPassword());
+ 
         if (u.getPassword().equals("fauxlogin")) {
             result = "login existe deja ";
         }
@@ -184,7 +183,7 @@ public class ServiceUser {
 
         String url = Statics.BASE_URL_User + "/connexion/" + login + "/" + password;
 
-        System.out.println(url);
+    
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
         req.setUrl(url);
@@ -220,7 +219,7 @@ public class ServiceUser {
         });
         NetworkManager.getInstance().addToQueueAndWait(req);
 
-        System.out.println("user" + u);
+      
 
         /*if (u.getPassword().equals("faux")) {
             return false
@@ -233,7 +232,6 @@ public class ServiceUser {
     public Boolean updateUser(User u) {
         String url = Statics.BASE_URL_User + "/Profil" + "/" + u.getId() + "/" + u.getNom() + "/" + u.getPrenom() + "/" + u.getAdresse_user() + "/" + u.getTelephone();
 
-        System.out.println(url);
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
         req.addResponseListener(new ActionListener<NetworkEvent>() {
@@ -252,7 +250,7 @@ public class ServiceUser {
 
         String url = Statics.BASE_URL_User + "/list";
 
-        System.out.println(url);
+
         ConnectionRequest req = new ConnectionRequest();
         req.setUrl(url);
         req.setUrl(url);
@@ -276,7 +274,7 @@ public class ServiceUser {
         });
         NetworkManager.getInstance().addToQueueAndWait(req);
 
-        System.out.println("user" + users);
+ 
 
         /*if (u.getPassword().equals("faux")) {
             return false

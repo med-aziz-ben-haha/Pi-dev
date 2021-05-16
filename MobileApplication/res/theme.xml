@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <resource majorVersion="1" minorVersion="11" useXmlUI="false">
+    <image name="available.png"  />
     <image name="back-command.png" type="multi"  />
     <image name="back-command.png1" type="multi"  />
     <image name="back-command.png2" type="multi"  />
@@ -34,6 +35,7 @@
     <image name="Button.borderTopR_1.png" type="multi"  />
     <image name="Button.borderTopR_1.png1" type="multi"  />
     <image name="Button.borderTopR_1.png2" type="multi"  />
+    <image name="Cadre.png"  />
     <image name="cal_left_arrow.png" type="multi"  />
     <image name="cal_left_arrow.png1" type="multi"  />
     <image name="cal_left_arrow.png2" type="multi"  />
@@ -159,6 +161,7 @@
     <image name="menu.png" type="multi"  />
     <image name="menu.png1" type="multi"  />
     <image name="menu.png2" type="multi"  />
+    <image name="nn available.png"  />
     <image name="of_menu.png" type="multi"  />
     <image name="of_menu.png1" type="multi"  />
     <image name="of_menu.png2" type="multi"  />
@@ -596,6 +599,8 @@
         <val key="MonthView.margin" value="0,0,0,0" />
         <val key="MonthView.padding" value="0,0,0,0" />
         <val key="MultiButton.press#transparency" value="0" />
+        <val key="MultiButton.sel#bgImage" value="Button.borderBottom_1.png" />
+        <val key="MultiButton.sel#bgType" value="1" />
         <val key="MultiButton.sel#transparency" value="0" />
         <val key="MultiButton.transparency" value="0" />
         <val key="MultiLine1.fgColor" value="0" />
@@ -880,9 +885,15 @@
         <val key="ToolbarLandscape.bgType" value="1" />
         <val key="bgColor" value="ffffff" />
         <border key="border" type="empty" />
+        <gradient key="btrech.bgGradient" color1="0" color2="0" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="btrech.bgType" value="0" />
+        <val key="btrech.transparency" value="100" />
         <val key="fgColor" value="0" />
         <font key="font" type="ttf" face="0" style="0" size="0" name="native:MainRegular" family="native:MainRegular" sizeSettings="3" actualSize="3.0" />
         <border key="press#border" type="empty" />
+        <val key="searchField.bgImage" value="TitleArea.borderTopR_1.png1" />
+        <val key="searchField.bgType" value="1" />
+        <val key="searchField.fgColor" value="ffffff" />
         <border key="sel#border" type="empty" />
         <val key="transparency" value="0" />
     </theme>

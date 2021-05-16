@@ -42,7 +42,7 @@ public class MedicamentService {
                 M.setNom_medicament(rst.getString("nom_medicament"));
                 M.setDate_modif(rst.getDate("date_modif").toLocalDate());
                 M.setDispo(rst.getInt("dispo")); 
-                Image image = new Image(rst.getString("img_medicament"));
+                Image image = new Image("file:/C:/wamp64/www/PIJAVA/uploads/"+rst.getString("img_medicament"));
                 ImageView imgV = new ImageView(image);
                 imgV.setFitHeight(80);
                 imgV.setFitWidth(80);
@@ -108,7 +108,7 @@ public class MedicamentService {
                 M.setNom_medicament(rst.getString("nom_medicament"));
                 M.setDate_modif(rst.getDate("date_modif").toLocalDate());
                 M.setDispo(rst.getInt("dispo")); 
-                Image image = new Image(rst.getString("img_medicament"));
+                Image image = new Image("file:/C:/wamp64/www/PIJAVA/uploads/"+rst.getString("img_medicament"));
                 ImageView imgV = new ImageView(image);
                 imgV.setFitHeight(80);
                 imgV.setFitWidth(80);
@@ -135,7 +135,7 @@ public class MedicamentService {
                 M.setNom_medicament(rst.getString("nom_medicament"));
                 M.setDate_modif(rst.getDate("date_modif").toLocalDate());
                 M.setDispo(rst.getInt("dispo")); 
-               Image image = new Image(rst.getString("img_medicament"));
+               Image image = new Image("file:/C:/wamp64/www/PIJAVA/uploads/"+rst.getString("img_medicament"));
                 ImageView imgV = new ImageView(image);
                 imgV.setFitHeight(80);
                 imgV.setFitWidth(80);

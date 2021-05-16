@@ -54,7 +54,7 @@
                             <td><img src="{{ asset ('bundles/dist/img/nn available.png') }}" alt="Non disponible"></td>
                         {% endif %}
 
-                        <td><img style=" padding-right: 2px; padding-left: 2px;  width:75px ; height: 75px ; " src="{{ asset ('uploads/brochures/'~ i.getImgMedicament() ) }}" alt="Image"></td>
+                        <td><img style=" padding-right: 2px; padding-left: 2px;  width:75px ; height: 75px ; " src="{{ asset ('http://localhost/PIJAVA/uploads/'~ i.getImgMedicament() ) }}" alt="Image"></td>
                         <td>{{ i.dateModif|date("d/m/Y") }}</td>
                     </tr>
                 {% endfor %}

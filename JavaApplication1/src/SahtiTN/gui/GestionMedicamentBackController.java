@@ -79,6 +79,7 @@ import javax.imageio.ImageIO;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import rest.file.uploader.tn.FileUploader;
 
 /**
  * FXML Controller class
@@ -491,18 +492,22 @@ public class GestionMedicamentBackController implements Initializable {
     }
 
     @FXML
-    private void uploadImage(ActionEvent event) throws ProtocolException, IOException {
+    private void uploadImage(ActionEvent event){
       Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         uploadPic = new FileChooser();
         uploadPic.setTitle("Select the image you want to add");
         picPath = uploadPic.showOpenDialog(stage);
         System.out.println(picPath.toString());
         try {
-            imgUrl = picPath.toURI().toURL().toExternalForm();
-            tf_image.setText(imgUrl);
             BufferedImage buffImage = ImageIO.read(picPath);
             Image up = SwingFXUtils.toFXImage(buffImage, null);
             imageToPost.setImage(up);
+            
+            FileUploader fu = new FileUploader("http://localhost/PIJAVA/");
+            //Upload
+            String fileNameInServer = fu.upload(picPath.getAbsolutePath());
+            tf_image.setText(fileNameInServer);
+
         } catch(IOException ex){
             System.err.println(ex.getMessage());
         }

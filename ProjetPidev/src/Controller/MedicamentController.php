@@ -19,9 +19,101 @@ use Knp\Component\Pager\PaginatorInterface;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\SerializerInterface;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class MedicamentController extends AbstractController
 {
+
+    /**
+     * @Route("/listmedicamentJSON", name="listmedicamentJSON")
+     */
+
+    public function listmedicamentJSON(Request $request, MedicamentRepository $repository, NormalizerInterface $normalizer)
+    {
+        $medicament = $this->getDoctrine()->getRepository(Medicament ::class)->findAll();
+        $jsonContent = $normalizer->normalize($medicament, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route ("/MedicamentajoutJSON/new",name="MedicamentajoutJSON")
+     */
+    public function MedicamentjoutJSON(Request $request, NormalizerInterface $Normalizer)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $medicament = new Medicament();
+        $medicament->setNomMedicament($request->get('nomMedicament'));
+        $medicament->setDescmedicament($request->get('descmedicament'));
+        $medicament->setDispo($request->get('dispo'));
+        $date = new \DateTime("now");
+        $medicament->setDateModif($date);
+        $medicament->setImgMedicament($request->get('img_medicament'));
+
+        $em->persist($medicament);
+        $em->flush();
+        $jsonContent = $Normalizer->normalize($medicament, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/MedicamentremoveJSON/{id}", name="/MedicamentremoveJSON")
+     */
+    public function removeJSON($id,Request $request, NormalizerInterface $normalizer)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $medicament=$em->getRepository(Medicament::class)->find($id);
+        $em->remove($medicament);
+        $em->flush();
+        $jsonContent=$normalizer->normalize($medicament,'json',['groups' => 'post:read']);
+        return new Response("Medicament Deleted".json_encode($jsonContent));
+    }
+
+    /**
+     * @Route("/MedicamentmodifierJSON/{id}", name="MedicamentmodifierJSON")
+     */
+    public function modifierJSON(Request $request, NormalizerInterface $normalizer,$id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $medicament=$em->getRepository(Medicament::class)->find($id);
+
+        $medicament->setNomMedicament($request->get('nomMedicament'));
+        $medicament->setDescmedicament($request->get('descmedicament'));
+        $medicament->setDispo($request->get('dispo'));
+        $date = new \DateTime("now");
+        $medicament->setDateModif($date);
+
+        $em->flush();
+        $jsonContent=$normalizer->normalize($medicament,'json',['groups' => 'post:read']);
+        return new Response("Information updated".json_encode($jsonContent));
+
+    }
+
+    /**
+     * @Route ("/rechercheMedicamentJSON/{data}",name="rechercheMedicamentJSON")
+     */
+    public function rechercheMedicamentJSON($data,MedicamentRepository $repository,NormalizerInterface $normalizer)
+    {
+        $medicament = $repository->SearchName($data);
+        $jsonContent = $normalizer->normalize($medicament, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
+    /**
+     * @param MedicamentRepository $repository
+     * @return Response
+     * @Route ("/trimedicamentJSON",name="trimedicamentJSON")
+     */
+    public function triordonnanceJSON (MedicamentRepository $repository,NormalizerInterface $normalizer)
+    {
+        $medicament = $repository->OrderByNameQB();
+        $jsonContent = $normalizer->normalize($medicament, 'json', ['groups' => 'post:read']);
+        return new Response(json_encode($jsonContent));
+    }
+
     /**
      * @Route("/medicament", name="medicament")
      */
