@@ -59,7 +59,7 @@ public class TabUserBackController implements Initializable {
     }    
     public void setUserData (User userdata)
     {this.userdata= userdata;
-    image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" + userdata.getLien_image_user()));
+    image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\" + userdata.getLien_image_user()));
     adresse.getChildren().add(new Text(userdata.getAdresse_user()));
     nom.getChildren().add(new Text(userdata.getNom()));
     prenom.getChildren().add(new Text(userdata.getPrenom()));

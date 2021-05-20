@@ -42,7 +42,7 @@ public class TabCatSoinBackController implements Initializable {
      public void setDataCat(CategorieSoinMP data) {
         this.data = data;
         titre.setText(data.getLibelle_categorie_soin_mp());
-        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" + data.getLien_icone_csmp()));
+        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\" + data.getLien_icone_csmp()));
         btn_supprimer.setId(Integer.toString(data.getId()));
         btn_modifier.setId(Integer.toString(data.getId()));
     }

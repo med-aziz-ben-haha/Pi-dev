@@ -94,7 +94,7 @@ public class ModifierCategorieSoinMPController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
            titre.setText(categories.chercherCategorieSoinMP(Integer.parseInt(CatSoinId)).getLibelle_categorie_soin_mp());
-           CatImage.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" +categories.chercherCategorieSoinMP(Integer.parseInt(CatSoinId)).getLien_icone_csmp()));
+           CatImage.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\" +categories.chercherCategorieSoinMP(Integer.parseInt(CatSoinId)).getLien_icone_csmp()));
        
     }
 
@@ -235,7 +235,7 @@ public class ModifierCategorieSoinMPController implements Initializable {
                 String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
               
                 Path tmp = Files.move(Paths.get(selectedFile.getPath()),
-                       Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
+                       Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\pidev-mobile -integration\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
               System.out.print(tmp);
               
                

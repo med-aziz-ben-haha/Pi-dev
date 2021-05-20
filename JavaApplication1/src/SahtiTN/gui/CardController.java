@@ -64,14 +64,14 @@ public class CardController implements Initializable {
     public void setDataCat(CategorieSoinMP data) {
         this.data = data;
         titre.setText(data.getLibelle_categorie_soin_mp());
-        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" + data.getLien_icone_csmp()));
+        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\" + data.getLien_icone_csmp()));
         b.setId(Integer.toString(data.getId()));
 
     }
 
     public void setDataSoinMP(SoinMP dataSoinMP) {
         this.dataSoinMP = dataSoinMP;
-        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" + dataSoinMP.getLien_image_smp()));
+        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\" + dataSoinMP.getLien_image_smp()));
         titre.setText(dataSoinMP.getTitre_soin_mp());
         description.getChildren().add(new Text(dataSoinMP.getDescription_soin_mp()));
         adresse.setText(dataSoinMP.getAdresse_soin_mp());

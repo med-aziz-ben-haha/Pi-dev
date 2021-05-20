@@ -50,7 +50,7 @@ public class TabSoinBackController implements Initializable {
 
     public void setDataSoinMP(SoinMP dataSoinMP) {
         this.dataSoinMP = dataSoinMP;
-        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" + dataSoinMP.getLien_image_smp()));
+        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\" + dataSoinMP.getLien_image_smp()));
         titre.getChildren().add(new Text(dataSoinMP.getTitre_soin_mp()));
         description.getChildren().add(new Text(dataSoinMP.getDescription_soin_mp()));
          categorie.getChildren().add(new Text(s.cherchercattitre(dataSoinMP.getCategorie_soin_mp_id())));

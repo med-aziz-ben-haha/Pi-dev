@@ -117,7 +117,7 @@ class NoteSoinMPController extends AbstractController
             $em->persist($Note);
             $em->flush();
 
-            /*  $client->messages->create(
+              $client->messages->create(
               // the number you'd like to send the message to
                   '+21624602806',
                   [
@@ -126,7 +126,7 @@ class NoteSoinMPController extends AbstractController
                       // the body of the text message you'd like to send
                       'body' => "Votre note pour {$SoinMPsfind->getTitreSoinMP()} a été attribuée avec succée merci   ! ❤️",
                   ]
-              );*/
+              );
         return new JsonResponse("note ajoutee");
         }
         // modifer note /avis
@@ -137,7 +137,7 @@ class NoteSoinMPController extends AbstractController
                 $em = $this->getDoctrine()->getManager();
                 $em->flush();
 
-                /*   $client->messages->create(
+                  $client->messages->create(
                    // the number you'd like to send the message to
                        '+21624602806',
                        [
@@ -146,7 +146,7 @@ class NoteSoinMPController extends AbstractController
                            // the body of the text message you'd like to send
                            'body' => "Votre note pour {$SoinMPsfind->getTitreSoinMP()} a été modifiée avec succée merci   ! ❤️",
                        ]
-                   );*/
+                   );
             }
 
             if (!($avis==""))

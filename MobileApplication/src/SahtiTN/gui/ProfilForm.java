@@ -39,11 +39,11 @@ public class ProfilForm extends Form {
     public ProfilForm(User u ,Form previous) {
         current=this;
         this.iduser = u.getId();
-        setTitle("Profile");
+
         setLayout(BoxLayout.y());
         /*bonus option */
 
-        setTitle("Mes informations");
+        setTitle("Mon Profil");
 
         SpanLabel sp = new SpanLabel();
 

@@ -56,13 +56,13 @@ public class CarddetailsController implements Initializable {
     public void setDataSoinMP(SoinMP dataSoinMP, CaptchaSoin dataCaptcha) {
 
         this.dataSoinMP = dataSoinMP;
-        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" + dataSoinMP.getLien_image_smp()));
+        image.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\" + dataSoinMP.getLien_image_smp()));
         titre.setText(dataSoinMP.getTitre_soin_mp());
         description.getChildren().add(new Text(dataSoinMP.getDescription_soin_mp()));
         adresse.setText(dataSoinMP.getAdresse_soin_mp());
         btn_captcha.setId(dataCaptcha.getValue());
         espace.setId(Integer.toString(dataSoinMP.getId()));
-        Captcha.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public" + dataCaptcha.getLien_image_captcha()));
+        Captcha.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public" + dataCaptcha.getLien_image_captcha()));
      
 
     }

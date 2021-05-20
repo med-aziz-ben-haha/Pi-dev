@@ -285,7 +285,7 @@ public class InscriptionController implements Initializable {
                 String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
               
                 Path tmp = Files.move(Paths.get(selectedFile.getPath()),
-                       Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
+                       Paths.get("C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
               System.out.print(tmp);
               
                

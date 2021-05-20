@@ -109,7 +109,7 @@ public class ModifierSoinMPController implements Initializable {
         Adresse.setText(Soins.afficherAideDetailsFront(SoinId).getAdresse_soin_mp());
        Description.setText(Soins.afficherAideDetailsFront(SoinId).getDescription_soin_mp());
         Categorie_soin.getSelectionModel().select(Soins.cherchercattitre(Soins.afficherAideDetailsFront(SoinId).getCategorie_soin_mp_id()));
-       CatImage.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\"+  s.afficherAideDetailsFront(SoinId).getLien_image_smp()));
+       CatImage.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\"+  s.afficherAideDetailsFront(SoinId).getLien_image_smp()));
     }    
     
     
@@ -264,7 +264,7 @@ public class ModifierSoinMPController implements Initializable {
                 String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
               
                 Path tmp = Files.move(Paths.get(selectedFile.getPath()),
-                       Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
+                       Paths.get("C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
               System.out.print(tmp);
               
                

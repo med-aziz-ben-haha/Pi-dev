@@ -89,7 +89,7 @@ public class ProfilController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-          profilimage.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-java\\Pi-dev\\JavaApplication1\\src\\SahtiTN\\images\\userProfil.png"));
+          profilimage.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\pidev-java\\Pi-dev\\JavaApplication1\\src\\SahtiTN\\images\\userProfil.png"));
     User u = Session.StartSession().getSessionUser();
     
     mailvalue.setText(u.getEmail());
@@ -112,7 +112,7 @@ public class ProfilController implements Initializable {
     }
     if(u.getLien_image_user()!=null){
    //   profilimage.setImage(new Image("file:C:\\Users\\ASUS\\Desktop\\integrationfinal\\Projet3eme\\SymfonyApplication\\public\\profil\\"+information.getImage()));    
-    profilimage.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\" + u.getLien_image_user() ));
+    profilimage.setImage(new Image("file:C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\" + u.getLien_image_user() ));
     }
     if(u.getNom()!=null){
     nomvalue.setText(u.getNom());
@@ -153,7 +153,7 @@ public class ProfilController implements Initializable {
                 System.out.println(selectedFile.getPath());
                 String extension= FilenameUtils.getExtension(selectedFile.getAbsolutePath());
                Path tmp = Files.move(Paths.get(selectedFile.getPath()),
-                       Paths.get("C:\\Users\\LENOVO\\Desktop\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
+                       Paths.get("C:\\Users\\LENOVO\\Desktop\\pidev-mobile -integration\\Pi-dev\\ProjetPidev\\public\\uploads\\"+uniqueid+"."+extension));
               System.out.print(tmp);
                u.setLien_image_user(uniqueid+"."+extension);
               

@@ -40,7 +40,8 @@ public class StatSoinForm extends Form{
    
 public StatSoinForm() {
     super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
-  getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});        CubicChart c = new CubicChart();
+  getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});        
+  CubicChart c = new CubicChart();
          Container titre = new Container (BoxLayout.y());
        Container  titres = new Container (BoxLayout.y());
        Container  all = new Container (BoxLayout.y());
@@ -69,7 +70,7 @@ public StatSoinForm() {
       Container titreX= new Container(BoxLayout.x());
       titreX.addAll(titre,titres);
       all.addAll(c.execute(),titreX);
-      
+     
 
     this.add(BorderLayout.CENTER, all);
       getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new HomePageBackForm().showBack());
