@@ -25,6 +25,7 @@ import SahtiTN.entities.Ordonnance;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceMedicament;
 import SahtiTN.services.ServiceOrdonnance;
+import SahtiTN.tools.Session;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -41,8 +42,7 @@ public class AjouterOrdonnanceForm extends Form {
         this.iduser = u.getId();
         current = this;
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u, current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-        setTitle("Ajouter Nouvelle Ordonnance");
+         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();}); setTitle("Ajouter Nouvelle Ordonnance");
         setLayout(BoxLayout.y());
 
         TextField tf_Contenu = new TextField("", "Contenu");

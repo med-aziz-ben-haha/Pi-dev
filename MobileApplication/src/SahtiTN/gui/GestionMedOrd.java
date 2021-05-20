@@ -7,6 +7,7 @@ package SahtiTN.gui;
 
 import SahtiTN.MyApplication;
 import SahtiTN.entities.User;
+import SahtiTN.tools.Session;
 import com.codename1.ui.Button;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
@@ -29,8 +30,7 @@ public class GestionMedOrd extends Form {
         setLayout(BoxLayout.y());
         this.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-        
+         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();}); 
         add(new Label("Choose an option"));
         Button bt_ajouterMedicament = new Button("Ajouter Medicament");
         Button bt_afficherMedicament = new Button("Afficher Medicament");

@@ -24,6 +24,8 @@ import com.codename1.ui.layouts.BorderLayout;
 import com.codename1.ui.layouts.BoxLayout;
 import com.codename1.ui.layouts.FlowLayout;
 import com.codename1.ui.util.Resources;
+import SahtiTN.tools.Session;
+
 
 /**
  *
@@ -78,7 +80,10 @@ public class LoginForm extends Form{
                 {sp.setText("faux");}else{sp.setText("true");}}
                
                 if (sp.getText().toString() == "true") {
-                    //new ProfilForm(theme,theme,login.getText()).show();
+                    Session.StartSession();
+                    Session.getSession().setSessionUser(u);
+                   
+                   //new ProfilForm(theme,theme,login.getText()).show();
                 if (u.getRole()==0){
                     Form f= new HomePageBackForm();
                          f.show();

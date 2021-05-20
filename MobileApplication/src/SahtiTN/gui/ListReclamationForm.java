@@ -21,6 +21,7 @@ import SahtiTN.entities.Reclamation;
 import SahtiTN.entities.TypeReclamation;
 import SahtiTN.services.serviceReclamation;
 import SahtiTN.services.serviceType;
+import SahtiTN.tools.Session;
 import java.util.ArrayList;
 
 /**
@@ -31,8 +32,7 @@ public class ListReclamationForm extends Form{
     
      public  ListReclamationForm(Form previous)  {
 
-       getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-          
+        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});     
        setTitle("Liste des réclamations");
   
         serviceReclamation es = new serviceReclamation();

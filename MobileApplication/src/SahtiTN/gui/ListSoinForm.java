@@ -10,6 +10,7 @@ import SahtiTN.entities.NoteSoin;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.entities.User;
 import SahtiTN.services.SoinService;
+import SahtiTN.tools.Session;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
 import com.codename1.ui.Button;
@@ -63,8 +64,7 @@ public class ListSoinForm extends Form {
 
         getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-    
+       getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
 
     }
 

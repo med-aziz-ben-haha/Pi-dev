@@ -6,6 +6,7 @@
 package SahtiTN.gui;
 
 import SahtiTN.MyApplication;
+import SahtiTN.tools.Session;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
 import com.codename1.ui.Label;
@@ -21,15 +22,14 @@ public class HomePageBackForm extends Form {
     super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
         setTitle("AdminPanel");
         Label lb = new Label("Bienvenue ");
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-        add(BorderLayout.CENTER,lb);
+         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();}); add(BorderLayout.CENTER,lb);
         getToolbar().addCommandToSideMenu(" ", null, (event) -> {
         });
         getToolbar().addCommandToSideMenu(" ", null, (event) -> {
         });
         getToolbar().addCommandToSideMenu(" ", null, (event) -> {
         });
-        getToolbar().addMaterialCommandToSideMenu("Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {
+        getToolbar().addMaterialCommandToSideMenu(" Categorie SoinMP", FontImage.MATERIAL_CATEGORY, (event) -> {
             new ListCatSoinBackForm().show();
         });
         getToolbar().addMaterialCommandToSideMenu(" SoinMP", FontImage.MATERIAL_ASSISTANT_DIRECTION, (event) -> {
@@ -41,8 +41,11 @@ public class HomePageBackForm extends Form {
         getToolbar().addMaterialCommandToSideMenu(" Statistiques User", FontImage.MATERIAL_GRAPHIC_EQ, (event) -> {
             new StatUserForm().show();
         });
-        getToolbar().addMaterialCommandToSideMenu("Réclamations", FontImage.MATERIAL_COMMENT, (event) -> {
+        getToolbar().addMaterialCommandToSideMenu(" Réclamations", FontImage.MATERIAL_COMMENT, (event) -> {
             new GestionReclamationForm().show();
+        });
+        getToolbar().addMaterialCommandToSideMenu(" Gestion Article", FontImage.MATERIAL_ARTICLE, (event) -> {
+             new GestionArticle("admin").show();
         });
     }
 

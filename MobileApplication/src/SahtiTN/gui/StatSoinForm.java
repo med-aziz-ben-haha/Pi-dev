@@ -9,6 +9,7 @@ import CubicChart.CubicChart;
 import SahtiTN.MyApplication;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.SoinService;
+import SahtiTN.tools.Session;
 import com.codename1.charts.ChartComponent;
 import com.codename1.charts.models.CategorySeries;
 import com.codename1.charts.renderers.DefaultRenderer;
@@ -39,8 +40,7 @@ public class StatSoinForm extends Form{
    
 public StatSoinForm() {
     super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
-    getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-        CubicChart c = new CubicChart();
+  getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});        CubicChart c = new CubicChart();
          Container titre = new Container (BoxLayout.y());
        Container  titres = new Container (BoxLayout.y());
        Container  all = new Container (BoxLayout.y());

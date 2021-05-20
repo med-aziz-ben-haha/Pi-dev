@@ -9,6 +9,7 @@ import SahtiTN.MyApplication;
 import SahtiTN.entities.CategorieSoinMP;
 import SahtiTN.entities.User;
 import SahtiTN.services.CategorieSoinService;
+import SahtiTN.tools.Session;
 import com.codename1.capture.Capture;
 import static com.codename1.push.PushContent.setTitle;
 import com.codename1.components.ImageViewer;
@@ -48,8 +49,7 @@ public class ListCatSoinBackForm extends Form {
         current = this;
 
         sv = new CategorieSoinService();
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-
+          getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
         setTitle("Liste Categorie SoinMP");
         setLayout(BoxLayout.y());
         Button add = new Button("Ajouter une Categorie SoinMP");
@@ -79,7 +79,7 @@ public class ListCatSoinBackForm extends Form {
               
                 f.addAll(espace, image,  lbtitre, titre, b);
                 f.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListCatSoinBackForm().showBack());
-                f.getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+                f.getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
                 
                 f.show();
 
@@ -154,7 +154,7 @@ public class ListCatSoinBackForm extends Form {
                
                 f.addAll(espace, image, lbtitre, titre, b);
                 f.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new ListCatSoinBackForm().showBack());
-                f.getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+                f.getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
                 
                 f.show();
 

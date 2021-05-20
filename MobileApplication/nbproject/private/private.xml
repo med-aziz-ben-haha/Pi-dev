@@ -4,14 +4,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/AfficherMedicamentForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/RechercherOrdonnanceForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/ListSoinForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/RechercherMedicamentForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/AfficherOrdonnanceForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/GestionMedOrd.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/AjouterOrdonnanceForm.java</file>
-            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/services/ServiceMedicament.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/article_form.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/GestionArticle.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/category_list.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/category_form.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/HomePageBackForm.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/LoginForm.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/article_list.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/gui/article_details.java</file>
+            <file>file:/C:/Users/LENOVO/Desktop/pidev-mobile%20-integration/Pi-dev/MobileApplication/src/SahtiTN/tools/Session.java</file>
         </group>
     </open-files>
 </project-private>

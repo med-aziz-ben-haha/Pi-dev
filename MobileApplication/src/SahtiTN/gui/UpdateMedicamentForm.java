@@ -5,6 +5,7 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.MyApplication;
 import com.codename1.ui.Button;
 import com.codename1.ui.CheckBox;
 import com.codename1.ui.Command;
@@ -19,6 +20,7 @@ import com.codename1.ui.spinner.Picker;
 import SahtiTN.entities.Medicament;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceMedicament;
+import SahtiTN.tools.Session;
 import java.util.Date;
 
 /**
@@ -31,7 +33,7 @@ private int iduser;
          this.iduser = u.getId();
         setTitle("Update edicament");
         setLayout(BoxLayout.y());
-
+  getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
         TextField tf_nom = new TextField(medicament.getNom_medicament());
         TextField tf_desc = new TextField(medicament.getDescmedicament());
         CheckBox check_dispo = new CheckBox("Disponible");

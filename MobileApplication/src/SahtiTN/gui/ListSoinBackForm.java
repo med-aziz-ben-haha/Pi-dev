@@ -11,6 +11,7 @@ import SahtiTN.entities.CategorieSoinMP;
 import SahtiTN.entities.SoinMP;
 import SahtiTN.services.CategorieSoinService;
 import SahtiTN.services.SoinService;
+import SahtiTN.tools.Session;
 import com.codename1.capture.Capture;
 import com.codename1.components.ImageViewer;
 import com.codename1.components.SpanLabel;
@@ -55,9 +56,7 @@ public class ListSoinBackForm extends Form{
         sv = new SoinService();
         svCat = new CategorieSoinService();
          cat=svCat.getAllCatSoins();
-         
-       getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-       
+       getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();}); 
         setTitle("Liste des SoinMP");
         setLayout(BoxLayout.y());
         Button add = new Button("Ajouter un SoinMP");

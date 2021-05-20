@@ -20,6 +20,7 @@ import com.codename1.ui.plaf.UIManager;
 import SahtiTN.entities.Ordonnance;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceOrdonnance;
+import SahtiTN.tools.Session;
 import java.util.ArrayList;
 
 /**
@@ -36,8 +37,10 @@ public class AfficherOrdonnanceForm extends Form {
          this.iduser = u.getId();
           current = this;
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u, current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-        setTitle("Liste des Ordonnances");
+        
+      
+          getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
+          setTitle("Liste des Ordonnances");
         setLayout(BoxLayout.y());
 
          Button bt_RechercheOrdonnance = new Button("Recherche Ordonnance");

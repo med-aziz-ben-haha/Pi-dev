@@ -23,6 +23,7 @@ import com.codename1.ui.util.Resources;
 import SahtiTN.entities.Medicament;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceMedicament;
+import SahtiTN.tools.Session;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -43,8 +44,7 @@ public class RechercherMedicamentForm extends Form {
         setLayout(BoxLayout.y());
         this.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u, current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-
+        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
         TextField searchField = new TextField("", "Entrez le Nom ou la Description");
         searchField.setUIID("searchField");
         this.getToolbar().setTitleComponent(

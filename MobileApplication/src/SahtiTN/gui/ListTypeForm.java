@@ -18,6 +18,7 @@ import com.codename1.ui.events.ActionListener;
 import com.codename1.ui.layouts.BoxLayout;
 import SahtiTN.entities.TypeReclamation;
 import SahtiTN.services.serviceType;
+import SahtiTN.tools.Session;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -30,8 +31,7 @@ import java.util.ArrayList;
 public class ListTypeForm extends Form{
 
      public  ListTypeForm(Form previous)  {
- getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-          
+  getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});          
       
        setTitle("List des types de réclamations");
          

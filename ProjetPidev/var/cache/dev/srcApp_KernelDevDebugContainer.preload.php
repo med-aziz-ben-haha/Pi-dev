@@ -10,7 +10,7 @@ if (in_array(PHP_SAPI, ['cli', 'phpdbg'], true)) {
 }
 
 require dirname(__DIR__, 3).''.\DIRECTORY_SEPARATOR.'vendor/autoload.php';
-require __DIR__.'/ContainerG1p946B/srcApp_KernelDevDebugContainer.php';
+require __DIR__.'/ContainerUoyMA8D/srcApp_KernelDevDebugContainer.php';
 
 $classes = [];
 $classes[] = 'Symfony\Bundle\FrameworkBundle\FrameworkBundle';
@@ -53,7 +53,9 @@ $classes[] = 'App\Controller\Admin\SettingController';
 $classes[] = 'App\Controller\ApiController';
 $classes[] = 'App\Controller\Api\FolderController';
 $classes[] = 'App\Controller\Api\MediaController';
+$classes[] = 'App\Controller\ArticleController';
 $classes[] = 'App\Controller\CalendarController';
+$classes[] = 'App\Controller\CategorieController';
 $classes[] = 'App\Controller\CategorieProduitController';
 $classes[] = 'App\Controller\CategorieSoinMPController';
 $classes[] = 'App\Controller\CentreMedicalController';
@@ -113,11 +115,13 @@ $classes[] = 'App\Form\UserParaType';
 $classes[] = 'App\Form\UserType';
 $classes[] = 'App\Form\VerifierInscriptionType';
 $classes[] = 'App\Repository\ActualiteRepository';
+$classes[] = 'App\Repository\ArticleRepository';
 $classes[] = 'App\Repository\CalendarRepository';
 $classes[] = 'App\Repository\CaptchaRepository';
 $classes[] = 'App\Repository\CategorieActualiteRepository';
 $classes[] = 'App\Repository\CategoriePostRepository';
 $classes[] = 'App\Repository\CategorieProduitRepository';
+$classes[] = 'App\Repository\CategorieRepository';
 $classes[] = 'App\Repository\CategorieSoinMPRepository';
 $classes[] = 'App\Repository\CategoryRepository';
 $classes[] = 'App\Repository\CentreMedicalRepository';

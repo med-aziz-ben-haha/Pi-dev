@@ -7,6 +7,7 @@ package SahtiTN.gui;
 
 import SahtiTN.MyApplication;
 import SahtiTN.entities.User;
+import SahtiTN.tools.Session;
 import com.codename1.ui.Button;
 import com.codename1.ui.Container;
 import com.codename1.ui.FontImage;
@@ -67,6 +68,15 @@ public class HomePageForm extends Form {
                 new ListReclamationFrontForm(current, u).show();
             }
         });
+           Button Article = new Button("     Consulter Article     ");
+
+        Article.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent evt) {
+                      new article_list("front").show();
+            }
+        });
                 
          Button bt_RechercheMedicament = new Button("     Consulter Medicament     ");
         Button bt_RechercheOrdonnance = new Button("     Consulter Ordonnance     ");
@@ -74,7 +84,7 @@ public class HomePageForm extends Form {
         bt_RechercheOrdonnance.addActionListener(e -> new RechercherOrdonnanceForm(current,u).show());
         
         Container holder = new Container(BoxLayout.y());
-        holder.addAll(soins, reclamations, Consulterrec,bt_RechercheMedicament,bt_RechercheOrdonnance);
+        holder.addAll(soins, reclamations, Consulterrec,Article,bt_RechercheMedicament,bt_RechercheOrdonnance);
         Button phar = new Button("     Gérer Médicament      ");
         phar.addActionListener(new ActionListener() {
 
@@ -117,7 +127,7 @@ public class HomePageForm extends Form {
         add(BorderLayout.CENTER, listContainer);
 
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u, current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+   getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
 
     }
 }

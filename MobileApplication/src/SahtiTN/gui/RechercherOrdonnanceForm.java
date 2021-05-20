@@ -23,6 +23,7 @@ import com.codename1.ui.plaf.UIManager;
 import SahtiTN.entities.Ordonnance;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceOrdonnance;
+import SahtiTN.tools.Session;
 import java.util.ArrayList;
 
 /**
@@ -38,8 +39,7 @@ Form current;
         setLayout(BoxLayout.y());
         this.getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-        
+     getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});    
         TextField searchField = new TextField("", "Contenu Consultation");
         searchField.setUIID("searchField");
         this.getToolbar().setTitleComponent(

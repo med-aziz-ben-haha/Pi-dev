@@ -124,53 +124,6 @@ public class ServiceUser {
 
     }
 
-    /*public User parseRole(String jsonText) {
-        User u = new User();
-
-        try {
-            users = new ArrayList<>();
-            JSONParser j = new JSONParser();
-            Map<String, Object> tasksListJson = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
-
-            List<Map<String, Object>> list = (List<Map<String, Object>>) tasksListJson.get("root");
-            for (Map<String, Object> obj : list) {
-                u.setRole(obj.get("roles").toString());
-                users.add(u);
-            }
-
-        } catch (IOException ex) {
-
-        }
-        return u;
-    }
-     */
-
- /*   public User parseUsers(String jsonText) {
-        User u = new User();
-        try {
-            users = new ArrayList<>();
-            JSONParser j = new JSONParser();
-            Map<String, Object> tasksListJson = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
-
-            List<Map<String, Object>> list = (List<Map<String, Object>>) tasksListJson.get("root");
-            for (Map<String, Object> obj : list) {
-                u.setNom(obj.get("nom").toString());
-                u.setPrenom(obj.get("prenom").toString());
-                u.setSexe(obj.get("sexe").toString());
-                u.setAdresse_user(obj.get("adresse").toString());
-                u.setTelephone(obj.get("telephone").toString());
-                u.setLogin(obj.get("login").toString());
-                u.setEmail(obj.get("email").toString());
-                users.add(u);
-                return u;
-            }
-
-        } catch (IOException ex) {
-
-        }
-        return u;
-
-    }*/
     public User VerifUser(String login, String password) {
 
         User u = new User();

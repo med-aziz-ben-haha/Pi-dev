@@ -9,6 +9,7 @@ import SahtiTN.MyApplication;
 import SahtiTN.entities.Reclamation;
 import SahtiTN.entities.User;
 import SahtiTN.services.serviceReclamation;
+import SahtiTN.tools.Session;
 import com.codename1.components.SpanLabel;
 import com.codename1.ui.Button;
 import com.codename1.ui.Command;
@@ -32,8 +33,7 @@ public class ListReclamationFrontForm extends Form {
     current= this ;
          getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
 
-       getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-          
+        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});     
        setTitle("Liste des réclamations");
   
         serviceReclamation es = new serviceReclamation();

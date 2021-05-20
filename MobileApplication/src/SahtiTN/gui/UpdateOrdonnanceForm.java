@@ -5,6 +5,7 @@
  */
 package SahtiTN.gui;
 
+import SahtiTN.MyApplication;
 import com.codename1.ui.Button;
 import com.codename1.ui.Command;
 import com.codename1.ui.Dialog;
@@ -18,6 +19,7 @@ import com.codename1.ui.spinner.Picker;
 import SahtiTN.entities.Ordonnance;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceOrdonnance;
+import SahtiTN.tools.Session;
 
 /**
  *
@@ -29,7 +31,7 @@ private int iduser;
          this.iduser = u.getId();
         setTitle("Update Ordonnance");
         setLayout(BoxLayout.y());
-
+      getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
         TextField tf_Contenu = new TextField(ordonnance.getContenu());
         Picker tf_Date= new Picker();
         

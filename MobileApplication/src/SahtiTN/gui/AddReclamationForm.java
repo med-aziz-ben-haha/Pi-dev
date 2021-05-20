@@ -23,6 +23,8 @@ import com.codename1.ui.layouts.BoxLayout;
 import SahtiTN.entities.Reclamation;
 import SahtiTN.entities.User;
 import SahtiTN.services.serviceReclamation;
+import SahtiTN.tools.Session;
+import com.codename1.components.ToastBar;
 
 /**
  *
@@ -35,7 +37,7 @@ public class AddReclamationForm extends Form {
        
                getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new HomePageForm(u).showBack());
                   getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
-                          getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+                          getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
 
         setTitle("Ajouter une réclamation ");
         setLayout(BoxLayout.y());
@@ -57,6 +59,7 @@ public class AddReclamationForm extends Form {
                         Reclamation t = new Reclamation(rec.getText());
                         if (serviceReclamation.getInstance().addReclamation(t)) {
                             Dialog.show("Success", "Envoyé ", new Command("OK"));
+                            ToastBar.showMessage("Votre réclamation est ajoutée", FontImage.MATERIAL_ACCESS_TIME);
                         } else {
                             Dialog.show("ERROR", "Server error", new Command("OK"));
                         }

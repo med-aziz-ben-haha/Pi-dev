@@ -6,6 +6,7 @@
 package SahtiTN.gui;
 
 import SahtiTN.MyApplication;
+import SahtiTN.tools.Session;
 import com.codename1.ui.Button;
 import com.codename1.ui.Command;
 import com.codename1.ui.Component;
@@ -28,8 +29,9 @@ import com.codename1.ui.layouts.BoxLayout;
 public class Addmail extends Form{
 
     public Addmail(Form previous) {
-         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-          
+       
+                          getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
+   
     
         setTitle("Envoyer un Email");
         setLayout(BoxLayout.y());

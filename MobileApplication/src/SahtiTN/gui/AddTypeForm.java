@@ -21,6 +21,8 @@ import com.codename1.ui.layouts.BoxLayout;
 import SahtiTN.entities.TypeReclamation;
 import SahtiTN.services.serviceType;
 import SahtiTN.gui.mailUtil;
+import SahtiTN.tools.Session;
+import com.codename1.components.ToastBar;
 
 
 /**
@@ -35,7 +37,9 @@ public class AddTypeForm extends Form{
         Quelque soit l'interface faisant appel à AddTask, on peut y revenir
         en utilisant le bouton back
         */
-         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+       
+                          getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
+
           
         setTitle("Ajouter un nouveau Type ");
         setLayout(BoxLayout.y());
@@ -61,8 +65,9 @@ public class AddTypeForm extends Form{
                 {
                     try {
                         TypeReclamation t = new TypeReclamation( String.valueOf(type.getText()).toString());
-                        if( serviceType.getInstance().addTask(t))
+                        if( serviceType.getInstance().addTask(t)){
                             Dialog.show("Success","Ajout avec succées",new Command("OK"));
+                        ToastBar.showMessage("Votre type est ajouté", FontImage.MATERIAL_ACCESS_TIME);}
                         else
                             Dialog.show("ERROR", "Server error", new Command("OK"));
                     } catch (NumberFormatException e) {

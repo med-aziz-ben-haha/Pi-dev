@@ -20,6 +20,7 @@ import com.codename1.ui.spinner.Picker;
 import SahtiTN.entities.Medicament;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceMedicament;
+import SahtiTN.tools.Session;
 import java.util.Date;
 
 /**
@@ -35,7 +36,7 @@ public class AjouterMedicamentForm extends Form {
         this.iduser = u.getId();
         current = this;
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u, current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
+        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
         setTitle("Ajouter un nouveau Medicament");
         setLayout(BoxLayout.y());
 

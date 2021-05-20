@@ -24,6 +24,7 @@ import com.codename1.ui.util.Resources;
 import SahtiTN.entities.Medicament;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceMedicament;
+import SahtiTN.tools.Session;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -42,8 +43,9 @@ public class AfficherMedicamentForm extends Form {
         this.iduser = u.getId();
         current = this;
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u, current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-        setTitle("Afficher Medicaments");
+      
+                          getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
+  setTitle("Afficher Medicaments");
         setLayout(BoxLayout.y());
 
         

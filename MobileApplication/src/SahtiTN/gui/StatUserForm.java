@@ -8,6 +8,7 @@ package SahtiTN.gui;
 import SahtiTN.MyApplication;
 import SahtiTN.entities.User;
 import SahtiTN.services.ServiceUser;
+import SahtiTN.tools.Session;
 import com.codename1.charts.ChartComponent;
 import com.codename1.charts.models.CategorySeries;
 import com.codename1.charts.renderers.DefaultRenderer;
@@ -81,8 +82,7 @@ public StatUserForm() {
     // Generate the values
     
             super(new BorderLayout(BorderLayout.CENTER_BEHAVIOR_CENTER_ABSOLUTE));
-getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-    double[] values = new double[]{12, 14, 11, 10, 19};
+  getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});    double[] values = new double[]{12, 14, 11, 10, 19};
 
     // Set up the renderer
     int[] colors = new int[]{ColorUtil.BLUE,ColorUtil.rgb(240, 174, 59),ColorUtil.rgb(255, 0, 0),ColorUtil.rgb(43, 98, 54)};

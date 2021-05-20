@@ -6,6 +6,7 @@
 package SahtiTN.gui;
 
 import SahtiTN.MyApplication;
+import SahtiTN.tools.Session;
 import com.codename1.ui.Button;
 import com.codename1.ui.FontImage;
 import com.codename1.ui.Form;
@@ -27,8 +28,7 @@ public class GestionReclamationForm extends Form {
         current = this; //Récupération de l'interface(Form) en cours
         setTitle("Gestion Réclamation");
         getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new HomePageBackForm().showBack());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-                
+         getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});        
         setLayout(BoxLayout.y());
 
         add(new Label("Choisir une option"));

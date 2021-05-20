@@ -9,6 +9,7 @@ import SahtiTN.MyApplication;
 import SahtiTN.entities.CategorieSoinMP;
 import SahtiTN.entities.User;
 import SahtiTN.services.CategorieSoinService;
+import SahtiTN.tools.Session;
 import com.codename1.components.ImageViewer;
 import static com.codename1.push.PushContent.setTitle;
 import com.codename1.ui.Button;
@@ -52,8 +53,7 @@ public class ListCategorieSoinForm extends Form {
         add(listContainer);
         getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
         getToolbar().addMaterialCommandToOverflowMenu("Profil", FontImage.MATERIAL_EDIT, e -> new ProfilForm(u,current).show());
-        getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> new LoginForm(MyApplication.theme).show());
-
+       getToolbar().addMaterialCommandToOverflowMenu("Se deconnecter", FontImage.MATERIAL_LOGOUT, e -> {new LoginForm(MyApplication.theme).show(); Session.getSession().clearSession();});
     }
 
     public ContainerList GetCategorieSoin(User u) {
